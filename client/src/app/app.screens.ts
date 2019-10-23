@@ -1,8 +1,14 @@
 /***  Generated file, do not change.  */
 import { MenuComponent } from './menu/menu';
+import { login_PhonePortrait } from '../pages/login/PhonePortrait/login';
 export class Screens {
   static declarations = [
-    MenuComponent
+    MenuComponent,
+    login_PhonePortrait
   ];
-  static mapping = {}
+  static mapping = {
+    'login': {
+      PhonePortrait: login_PhonePortrait
+    }
+  }
 }

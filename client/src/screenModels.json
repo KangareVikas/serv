@@ -1,6 +1,13 @@
 {
   "menu": {
     "type": "object",
-    "properties": {}
+    "properties": {},
+    "id": "menu"
+  },
+  "login": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "login"
   }
 }

@@ -1,5 +1,13 @@
 {
   "id": "__BASE__",
   "name": "chp",
-  "screens": []
+  "screens": [
+    {
+      "id": "login",
+      "name": "Login",
+      "sourceScreenId": "blank",
+      "sourceAppId": "default"
+    }
+  ],
+  "startScreen": "login"
 }
