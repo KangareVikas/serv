@@ -1,0 +1,18 @@
+<ion-menu [content]="content" id="menu-component">
+    <ion-header data-comp-id="header.1">
+        <ion-toolbar data-comp-id="toolbar.1"  menuClose="">
+            <ion-title data-comp-id="title.1">
+                <span data-comp-id="text.1" ion-text="">Menu</span>
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content data-comp-id="content.1" menuClose="">
+        <ion-list data-comp-id="list.1">
+            <ion-item (click)="logout()"  menuClose="" data-comp-id="item.1">
+                <ion-icon class="ion-md-exit" data-comp-id="icon.1" item-start=""></ion-icon>
+                <div data-comp-id="text.2" ion-text="">Logout</div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav #content=""></ion-nav>

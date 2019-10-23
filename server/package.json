@@ -1,0 +1,16 @@
+{
+  "name": "<APP_ID>",
+  "version": "6.1.0-dev",
+  "private": true,
+  "description": "PowWow transformation",
+  "main": "start.js",
+  "scripts": {
+    "start": "nodemon start.js | bunyan -o short --color"
+  },
+  "dependencies": {
+    "smartux-connect": "/usr/share/powwowstudio/dataStore/smartux-connect/6.1.0-dev"
+  },
+  "engines": {
+    "node": "8"
+  }
+}
