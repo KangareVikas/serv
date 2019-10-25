@@ -15,5 +15,5 @@ exports.submit = async (session, models, vars) => {
     console.log('access_token: ' + vars.session.access_token);
     let data = await session.rest.cherwellapi.getCustomerData({ access_token: vars.session.access_token });
     vars.session.busObId = data.busObId;
-    console.log('busObId: ' + vars.session.busObId);
+    console.log('data: ' + data);
 };
