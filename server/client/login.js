@@ -15,7 +15,7 @@ exports.submit = async (session, models, vars) => {
         vars.session.refresh_token = output.body.refresh_token;
         console.log('access_token: ' + vars.session.access_token);
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
         await session.screen('login');
         return;
     }
