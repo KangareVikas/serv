@@ -1,0 +1,24 @@
+{
+  "template": {
+    "url": "/token",
+    "method": "GET",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "none"
+    },
+    "form": {
+      "grant_type": "{grant_type}",
+      "client_id": "{apikey}",
+      "refresh_token": "todo"
+    },
+    "options": {},
+    "bodyType": "form"
+  },
+  "functions": {
+    "refreshToken": [
+      "grant_type",
+      "apikey"
+    ]
+  }
+}
