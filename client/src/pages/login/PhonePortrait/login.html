@@ -23,11 +23,11 @@
             <ion-list data-comp-id="list.1">
                 <ion-item data-comp-id="input.1">
                     <ion-icon class=" fa fa-user-circle-o" item-left></ion-icon>
-                    <ion-input placeholder="Username" type="text"></ion-input>
+                    <ion-input [(ngModel)]="data.username" placeholder="Username" type="text"></ion-input>
                 </ion-item>
                 <ion-item data-comp-id="input.2">
                     <ion-icon item-left name="lock"></ion-icon>
-                    <ion-input placeholder="Password" type="password"></ion-input>
+                    <ion-input [(ngModel)]="data.password" placeholder="Password" type="password"></ion-input>
                 </ion-item>
                 <button (click)="action('submit')" block data-comp-id="button.2" ion-button>
                     <span>Button</span>
