@@ -18,7 +18,14 @@
       "id": "inserts",
       "name": "Inserts",
       "folder": true,
-      "screens": []
+      "screens": [
+        {
+          "id": "homelogo",
+          "name": "Home Logo",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
+        }
+      ]
     }
   ],
   "startScreen": "login",

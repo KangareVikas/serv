@@ -28,5 +28,11 @@
     "comment": "Blank",
     "properties": {},
     "id": "home"
+  },
+  "inserts_homelogo": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "inserts_homelogo"
   }
 }
