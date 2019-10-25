@@ -7,6 +7,12 @@
       "name": "Login",
       "sourceScreenId": "blank",
       "sourceAppId": "default"
+    },
+    {
+      "id": "home",
+      "name": "Home",
+      "sourceScreenId": "blank",
+      "sourceAppId": "default"
     }
   ],
   "startScreen": "login",
