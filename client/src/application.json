@@ -2,7 +2,7 @@
   "name": "CHP",
   "defaultLayout": "PhonePortrait",
   "previewToken": "8ae9a50f",
-  "theme": "Anchor",
+  "theme": null,
   "clientVersion": "6.1.0-dev",
   "hidden": false,
   "isBuiltInTemplate": false,
@@ -10,5 +10,9 @@
   "offlineSupport": false,
   "description": "Cherwell HCL PowWow application.\nUses Cherwell API.",
   "creatorId": "oleksii",
-  "created": 1571835853608
+  "created": 1571835853608,
+  "screensCount": 2,
+  "id": "chp",
+  "creatorName": "Oleksii",
+  "explorations": []
 }
