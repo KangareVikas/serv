@@ -7,6 +7,12 @@
       "name": "Login",
       "sourceScreenId": "blank",
       "sourceAppId": "default"
+    },
+    {
+      "id": "login1",
+      "name": "Login1",
+      "sourceScreenId": "Login",
+      "sourceAppId": "TouchID"
     }
   ],
   "startScreen": "login",

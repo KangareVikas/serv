@@ -1,0 +1,60 @@
+<ion-content class="content-primary" data-comp-id="content.1">
+    <div class="container-primary" data-comp-id="div.1" style="padding: 20% 15%;"
+        text-center="">
+        <ion-icon class="ion-ios-leaf" color="secondary" data-comp-id="icon.1"
+            style="font-size: 64px;"></ion-icon>
+        <div class="login-form" data-comp-id="div.2"
+            style="margin: 75px 0px 0px 0px; border-bottom: 0px none rgb(255, 255, 255);">
+            <form (ngSubmit)="authaction('submit')" data-comp-id="form.1">
+                <ion-row data-comp-id="row.1">
+                    <ion-col data-comp-id="column.1" style="padding: 10px;">
+                        <ion-icon class="ion-ios-person" data-comp-id="icon.2" style="font-size: 22px;"></ion-icon>
+                    </ion-col>
+                    <ion-col data-comp-id="column.2" text-center="">
+                        <ion-item data-comp-id="input.1">
+                            <ion-input [(ngModel)]="data.username" autocapitalize="off" autocorrect="off"
+                                name="username" placeholder="Username" type="text"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row data-comp-id="row.2">
+                    <ion-col data-comp-id="column.3" style="padding: 10px;">
+                        <ion-icon class="fa fa-lock" data-comp-id="icon.3" style="font-size: 22px;"></ion-icon>
+                    </ion-col>
+                    <ion-col data-comp-id="column.4" text-center="">
+                        <ion-item data-comp-id="input.2">
+                            <ion-input [(ngModel)]="data.password" name="password" placeholder="Password"
+                                type="password"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row data-comp-id="row.3">
+                    <ion-col class="button-col" data-comp-id="column.5" style="max-width: 100%;"
+                        text-center="">
+                        <button block="" color="secondary" data-comp-id="button.1" ion-button=""
+                            style="margin: 10px 0px;">
+                            <span>Login</span>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </form>
+            <touchid-login (onVerify)="authaction('submit')" [context]="this"
+                data-comp-id="touchid-login.1" style="padding: 15px;">
+                <div color="secondary" data-comp-id="text.1" ion-text="">
+                    Log in with
+                    {{getBiometricAuthType()}}
+                </div>
+                <ion-icon color="secondary" data-comp-id="icon.4" name="finger-print"></ion-icon>
+            </touchid-login>
+        </div>
+    </div>
+    <div data-comp-id="div.3" text-center="">
+        <button
+            (click)="openUrl('https://community.powwowmobile.com/hc/en-us/articles/360007017711')"
+            class="button-label-secondary" clear="" color="secondary"
+            data-comp-id="button.2" icon-start="" ion-button="" style="">
+            <ion-icon class=" ion-ios-help-circle-outline" color="secondary" style=""></ion-icon>
+            <span>App Template Guidelines</span>
+        </button>
+    </div>
+</ion-content>
