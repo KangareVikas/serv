@@ -14,12 +14,13 @@ exports.submit = async (session, models, vars) => {
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
         console.log('access_token: ' + vars.session.access_token);
-        let data = await session.rest.cherwellapi.getCustomerData({ access_token: vars.session.access_token });
-        vars.session.busObId = data.body[0].busObId;
-        console.log('busObId: ' + vars.session.busObId);
-        await session.screen('home');
     } catch (e) {
         console.log(e);
         await session.screen('login');
+        return;
     }
+    let data = await session.rest.cherwellapi.getCustomerData({ access_token: vars.session.access_token });
+    vars.session.busObId = data.body[0].busObId;
+    console.log('busObId: ' + vars.session.busObId);
+    await session.screen('home');
 };
