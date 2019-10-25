@@ -8,7 +8,7 @@
       "type": "none"
     },
     "form": {
-      "grant_type": "{grant_type}",
+      "grant_type": "{grant_type_password}",
       "client_id": "{apikey}",
       "username": "{username}",
       "password": "{password}"
@@ -18,10 +18,10 @@
   },
   "functions": {
     "login": [
-      "grant_type",
-      "apikey",
+      "grant_type_password",
       "username",
-      "password"
+      "password",
+      "apikey"
     ]
   }
 }
