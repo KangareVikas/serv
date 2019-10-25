@@ -16,6 +16,7 @@ exports.submit = async (session, models, vars) => {
         console.log('access_token: ' + vars.session.access_token);
     } catch (e) {
         console.log(e.message);
+        console.log('Error msg: ' + e.message.error);
         await session.screen('login');
         return;
     }
