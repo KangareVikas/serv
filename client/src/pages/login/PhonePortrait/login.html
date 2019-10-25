@@ -29,7 +29,7 @@
         style="border-bottom: 0px none rgb(255, 255, 255);">
         <form (ngSubmit)="authaction('submit')" data-comp-id="form.1">
             <ion-row data-comp-id="row.4">
-                <ion-col data-comp-id="column.5" text-center>
+                <ion-col data-comp-id="column.4" text-center>
                     <ion-item data-comp-id="input.1">
                         <ion-icon class=" ion-ios-person" color="dark" item-left style></ion-icon>
                         <ion-input [(ngModel)]="data.username" autocapitalize="off" autocorrect="off"
@@ -38,7 +38,7 @@
                 </ion-col>
             </ion-row>
             <ion-row data-comp-id="row.5">
-                <ion-col data-comp-id="column.7" text-center>
+                <ion-col data-comp-id="column.5" text-center>
                     <ion-item data-comp-id="input.2">
                         <ion-icon class=" ion-ios-lock" color="dark" item-left style></ion-icon>
                         <ion-input [(ngModel)]="data.password" name="password" placeholder="Password"
@@ -47,9 +47,10 @@
                 </ion-col>
             </ion-row>
             <ion-row data-comp-id="row.6">
-                <ion-col class="button-col" data-comp-id="column.8" style="max-width: 100%;"
+                <ion-col class="button-col" data-comp-id="column.6" style="max-width: 100%;"
                     text-center>
-                    <button block color="contrast" data-comp-id="button.2" ion-button
+                    <button (click)="action('submit')" block color="contrast"
+                        data-comp-id="button.2" ion-button
                         style="margin: 10px 0px; border-radius: 20px;">
                         <span>Login</span>
                     </button>
@@ -58,7 +59,7 @@
         </form>
         <touchid-login (onVerify)="authaction('submit')" [context]="this"
             data-comp-id="touchid-login.1" style="padding: 15px;" text-center>
-            <ion-icon color="white" data-comp-id="icon.3" name="finger-print"
+            <ion-icon color="white" data-comp-id="icon.1" name="finger-print"
                 style="font-size: 70px;"></ion-icon>
             <div color="white" data-comp-id="text.2" ion-text style="font-size: 17px;">{{getBiometricAuthType()}}</div>
         </touchid-login>
