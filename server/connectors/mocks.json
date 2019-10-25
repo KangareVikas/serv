@@ -5,7 +5,10 @@
         "models": {
           "menu": {},
           "login": {},
-          "login1": {}
+          "login1": {
+            "username": "apiuser",
+            "password": "pass@123"
+          }
         },
         "expressions": {},
         "vars": {
@@ -18,14 +21,17 @@
               "cherwellapi": {
                 "custom": {
                   "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type": "password"
+                  "grant_type_password": "password",
+                  "grant_type_refresh_token": "refresh_token"
                 }
               }
             }
           }
         },
         "tokens": {
-          "grant_type": "password",
+          "grant_type_password": "password",
+          "username": "apiuser",
+          "password": "pass@123",
           "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
         }
       },
