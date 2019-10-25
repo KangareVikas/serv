@@ -1,6 +1,6 @@
 {
   "id": "__BASE__",
-  "name": "chp",
+  "name": "CHP",
   "screens": [
     {
       "id": "login",
@@ -9,5 +9,8 @@
       "sourceAppId": "default"
     }
   ],
-  "startScreen": "login"
+  "startScreen": "login",
+  "statusbarContent": "dark",
+  "statusbarHidden": false,
+  "statusbarBackground": null
 }
