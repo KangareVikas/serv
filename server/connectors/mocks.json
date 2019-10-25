@@ -30,9 +30,9 @@
         },
         "tokens": {
           "grant_type_password": "password",
+          "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
           "username": "apiuser",
-          "password": "pass@123",
-          "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
+          "password": "pass@123"
         }
       },
       "Get_Customer_Data": {
