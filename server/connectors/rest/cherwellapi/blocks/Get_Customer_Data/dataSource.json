@@ -1,0 +1,17 @@
+{
+  "template": {
+    "url": "/api/V1/getbusinessobjectsummary/busobname/CustomerInternal",
+    "method": "GET",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "bearerToken"
+    },
+    "form": {},
+    "options": {},
+    "bodyType": "form"
+  },
+  "functions": {
+    "Get_Customer_Data": []
+  }
+}
