@@ -10,8 +10,8 @@
     "form": {
       "grant_type": "{grant_type}",
       "client_id": "{apikey}",
-      "username": "apiuser",
-      "password": "pass@123"
+      "username": "{username}",
+      "password": "{password}"
     },
     "options": {},
     "bodyType": "form"
@@ -19,7 +19,9 @@
   "functions": {
     "login": [
       "grant_type",
-      "apikey"
+      "apikey",
+      "username",
+      "password"
     ]
   }
 }
