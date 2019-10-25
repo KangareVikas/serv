@@ -10,7 +10,7 @@ exports.submit = async (session, models, vars) => {
         username: models.login.username,
         password: models.login.password
     });
-    let access_token = output.body.access_token;
-    vars.session.access_token = access_token;
-    console.log('access_token: ' + access_token);
+    vars.session.access_token = output.body.access_token;
+    vars.session.refresh_token = output.body.refresh_token;
+    console.log('access_token: ' + vars.session.access_token);
 };
