@@ -16,6 +16,9 @@
       },
       "submit": {
         "type": "action"
+      },
+      "hasError": {
+        "type": "boolean"
       }
     },
     "id": "login"
