@@ -18,29 +18,48 @@
             </ion-row>
         </ion-col>
     </ion-row>
-    <ion-row data-comp-id="row.5">
-        <ion-col data-comp-id="column.5">
-            <ion-list data-comp-id="list.1">
-                <ion-item data-comp-id="input.1">
-                    <ion-icon class=" fa fa-user-circle-o" item-left></ion-icon>
-                    <ion-input [(ngModel)]="data.username" placeholder="Username" type="text"></ion-input>
-                </ion-item>
-                <ion-item data-comp-id="input.2">
-                    <ion-icon item-left name="lock"></ion-icon>
-                    <ion-input [(ngModel)]="data.password" placeholder="Password" type="password"></ion-input>
-                </ion-item>
-                <button (click)="action('submit')" block data-comp-id="button.2" ion-button>
-                    <span>Button</span>
-                </button>
-            </ion-list>
-        </ion-col>
-    </ion-row>
-    <ion-row data-comp-id="row.6">
-        <ion-col data-comp-id="column.6">
-            <touchid-login [context]="this" data-comp-id="touchid-login.1">
-                <ion-icon data-comp-id="icon.1" name="finger-print"></ion-icon>
-                <div data-comp-id="text.2" ion-text>{{getBiometricAuthType()}}</div>
-            </touchid-login>
-        </ion-col>
-    </ion-row>
+    <div class="login-form" data-comp-id="div.1"
+        style="border-bottom: 0px none rgb(255, 255, 255);">
+        <form (ngSubmit)="authaction('submit')" data-comp-id="form.1">
+            <ion-row data-comp-id="row.5">
+                <ion-col data-comp-id="column.5" style="padding: 10px;">
+                    <ion-icon class="ion-ios-person" data-comp-id="icon.1" style="font-size: 22px;"></ion-icon>
+                </ion-col>
+                <ion-col data-comp-id="column.6" text-center>
+                    <ion-item data-comp-id="input.1">
+                        <ion-input [(ngModel)]="data.username" autocapitalize="off" autocorrect="off"
+                            name="username" placeholder="Username" type="text"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row data-comp-id="row.6">
+                <ion-col data-comp-id="column.7" style="padding: 10px;">
+                    <ion-icon class="fa fa-lock" data-comp-id="icon.2" style="font-size: 22px;"></ion-icon>
+                </ion-col>
+                <ion-col data-comp-id="column.8" text-center>
+                    <ion-item data-comp-id="input.2">
+                        <ion-input [(ngModel)]="data.password" name="password" placeholder="Password"
+                            type="password"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row data-comp-id="row.7">
+                <ion-col class="button-col" data-comp-id="column.9" style="max-width: 100%;"
+                    text-center>
+                    <button block color="secondary" data-comp-id="button.2" ion-button
+                        style="margin: 10px 0px;">
+                        <span>Login</span>
+                    </button>
+                </ion-col>
+            </ion-row>
+        </form>
+        <touchid-login (onVerify)="authaction('submit')" [context]="this"
+            data-comp-id="touchid-login.1" style="padding: 15px;">
+            <div color="secondary" data-comp-id="text.2" ion-text>
+                Log in with
+                {{getBiometricAuthType()}}
+            </div>
+            <ion-icon color="secondary" data-comp-id="icon.3" name="finger-print"></ion-icon>
+        </touchid-login>
+    </div>
 </ion-content>
