@@ -19,9 +19,9 @@
   "functions": {
     "login": [
       "grant_type_password",
+      "apikey",
       "username",
-      "password",
-      "apikey"
+      "password"
     ]
   }
 }
