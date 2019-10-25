@@ -1,18 +1,15 @@
 module.exports = {
     // Port to run on. Can be overriden with '--port' launch parameter.  Not used if launched with '--sessionID'.
     port: 3000,
-
     // Logging settings.
     logging: {
         logLevel: 'info',
         // If set to true, all developer run log files are stored in a logs folder.
         persist: false,
         // Things to not log.  Applies to client requests/responses (<== and ==>)
-        filters: {
-        },
+        filters: {},
         // Things to not log.  Applies to API requests/responses (<-- and -->)
-        apiFilters: {
-        },
+        apiFilters: {},
         logEntrySize: {
             client: {
                 request: -1,
@@ -36,8 +33,8 @@ module.exports = {
     // Settings for the appServer
     appServer: {
         port: 9080,
-        protocol: "http",
-        host: "localhost",
+        protocol: 'http',
+        host: 'localhost',
         rejectUnauthorized: false
     },
     // Configure how long the session lives without client connections.
@@ -59,19 +56,31 @@ module.exports = {
             autoConfigScript: {
                 enabled: false,
                 // Uses --proxy-pac-url=<url>
-                url: ""
+                url: ''
             },
             // If enabled, uses the manual proxy server setting.
             proxyServer: {
                 enabled: false,
                 // Uses --proxy-server=<url>
-                url: "",
+                url: '',
                 // If specified, adds in --proxy-bypass-list=<bypassRules>
                 // See https://cs.chromium.org/chromium/src/net/proxy_resolution/proxy_bypass_rules.h?sq=package:chromium&type=cs&l=96-139
-                bypassRules: ""
+                bypassRules: ''
             }
         },
         // See: https://www.chromium.org/developers/design-documents/http-authentication
-        authServerWhiteList: ""
+        authServerWhiteList: ''
+    },
+    connectors: {
+        rest: {
+            cherwellapi: {
+                baseUrl: 'https://hclgbps.cherwellondemand.com/CherwellAPI',
+                auth: { type: 'none' },
+                custom: {
+                    apikey: '81b8a693-a448-4275-bd9e-937ae6387b7c',
+                    grant_type: 'password'
+                }
+            }
+        }
     }
 };

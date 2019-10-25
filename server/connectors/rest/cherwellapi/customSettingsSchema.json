@@ -1,0 +1,26 @@
+{
+  "id": "customSettingsSchema",
+  "name": "customSettingsSchema",
+  "type": "object",
+  "properties": {
+    "apikey": {
+      "type": "string",
+      "id": "customSettingsSchema.apikey",
+      "name": "apikey",
+      "path": "apikey",
+      "arrayId": "customSettingsSchema.apikey",
+      "arrayPath": "apikey"
+    },
+    "grant_type": {
+      "type": "string",
+      "id": "customSettingsSchema.grant_type",
+      "name": "grant_type",
+      "path": "grant_type",
+      "arrayId": "customSettingsSchema.grant_type",
+      "arrayPath": "grant_type"
+    }
+  },
+  "arrayId": "customSettingsSchema",
+  "path": "",
+  "arrayPath": ""
+}
