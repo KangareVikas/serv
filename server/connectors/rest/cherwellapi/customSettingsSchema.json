@@ -11,13 +11,21 @@
       "arrayId": "customSettingsSchema.apikey",
       "arrayPath": "apikey"
     },
-    "grant_type": {
+    "grant_type_password": {
       "type": "string",
-      "id": "customSettingsSchema.grant_type",
-      "name": "grant_type",
-      "path": "grant_type",
-      "arrayId": "customSettingsSchema.grant_type",
-      "arrayPath": "grant_type"
+      "id": "customSettingsSchema.grant_type_password",
+      "name": "grant_type_password",
+      "path": "grant_type_password",
+      "arrayId": "customSettingsSchema.grant_type_password",
+      "arrayPath": "grant_type_password"
+    },
+    "grant_type_refresh_token": {
+      "type": "string",
+      "id": "customSettingsSchema.grant_type_refresh_token",
+      "name": "grant_type_refresh_token",
+      "path": "grant_type_refresh_token",
+      "arrayId": "customSettingsSchema.grant_type_refresh_token",
+      "arrayPath": "grant_type_refresh_token"
     }
   },
   "arrayId": "customSettingsSchema",
