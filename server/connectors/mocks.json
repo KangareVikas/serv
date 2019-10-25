@@ -4,7 +4,10 @@
       "login": {
         "models": {
           "menu": {},
-          "login": {},
+          "login": {
+            "username": "apiuser",
+            "password": "pass@123"
+          },
           "login1": {
             "username": "apiuser",
             "password": "pass@123"
