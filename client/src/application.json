@@ -2,7 +2,7 @@
   "name": "CHP",
   "defaultLayout": "PhonePortrait",
   "previewToken": "8ae9a50f",
-  "theme": null,
+  "theme": "CHP color theme",
   "clientVersion": "6.1.0-dev",
   "hidden": false,
   "isBuiltInTemplate": false,
