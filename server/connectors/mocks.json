@@ -1,0 +1,33 @@
+{
+  "rest": {
+    "cherwellapi": {
+      "login": {
+        "models": {
+          "menu": {},
+          "login": {}
+        },
+        "expressions": {},
+        "vars": {
+          "session": {},
+          "local": {},
+          "screen": {},
+          "request": {},
+          "config": {
+            "rest": {
+              "cherwellapi": {
+                "custom": {
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
+                  "grant_type": "password"
+                }
+              }
+            }
+          }
+        },
+        "tokens": {
+          "grant_type": "password",
+          "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
+        }
+      }
+    }
+  }
+}
