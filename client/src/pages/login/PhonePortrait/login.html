@@ -31,7 +31,8 @@
         <form (ngSubmit)="authaction('submit')" data-comp-id="form.1">
             <ion-row data-comp-id="row.4">
                 <ion-col data-comp-id="column.4" style="padding: 0 0 16px 0;" text-center>
-                    <ion-item data-comp-id="input.1">
+                    <ion-item data-comp-id="input.1"
+                        style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22);">
                         <ion-icon class=" ion-ios-person" color="dark" item-left style></ion-icon>
                         <ion-input [(ngModel)]="data.username" autocapitalize="off" autocorrect="off"
                             name="username" placeholder="Username" type="text"></ion-input>
@@ -40,7 +41,8 @@
             </ion-row>
             <ion-row data-comp-id="row.5">
                 <ion-col data-comp-id="column.5" style="padding: 0;" text-center>
-                    <ion-item data-comp-id="input.2">
+                    <ion-item data-comp-id="input.2"
+                        style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22);">
                         <ion-icon class=" ion-ios-lock" color="dark" item-left style></ion-icon>
                         <ion-input [(ngModel)]="data.password" name="password" placeholder="Password"
                             type="password"></ion-input>
