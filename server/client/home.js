@@ -14,6 +14,7 @@ exports.doRequest = async (session, models, vars) => {
         includeAll: false
     });
     console.log(requestData.body);
+    await session.rest.cherwellapi.getValidValues({ access_token: vars.session.access_token });
 };
 /**
  * @param {Session} session
