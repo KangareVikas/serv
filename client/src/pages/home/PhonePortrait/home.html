@@ -20,11 +20,11 @@
             <ion-col class="column-white" col-12 data-comp-id="column.3"
                 style="padding: 58px 10px 16px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-radius: 4px;">
                 <ion-list data-comp-id="list.1" style="margin: 0;">
-                    <ion-item data-comp-id="input.1"
+                    <ion-item data-comp-id="input.1" mode="ios"
                         style="border-top: 1px solid #1d428a; border-right: 1px solid #1d428a; border-bottom: 1px solid #1d428a; border-left: 1px solid #1d428a; padding: 0px 0px 0px 16px;">
                         <ion-icon class=" ion-ios-search" color="dark" item-left
                             style="font-size: 24px; padding-top: 2px;"></ion-icon>
-                        <ion-input placeholder="Find an article" type="text"></ion-input>
+                        <ion-input mode="ios" placeholder="Find an article" type="text"></ion-input>
                     </ion-item>
                 </ion-list>
             </ion-col>
@@ -55,7 +55,7 @@
                     <span color="black" data-comp-id="text.4" ion-text style="font-size: 17px;"
                         text-capitalize>Opened tickets</span>
                 </ion-list-header>
-                <ion-list data-comp-id="list.2">
+                <ion-list data-comp-id="list.2" mode="ios">
                     <ion-item-sliding *ngFor="let item of data.tickets; let i = index"
                         data-comp-id="item-sliding.1"
                         style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
@@ -72,7 +72,7 @@
                         </ion-item>
                         <ion-item-options data-comp-id="item-options.1" side="right"
                             style="border-bottom: none; align-items: center;">
-                            <button color="contrast" data-comp-id="fab-button.1" ion-fab
+                            <button color="contrast" data-comp-id="fab-button.1" ion-fab mode="ios"
                                 style="margin: 0px 5px 0 15px;">
                                 <ion-icon class=" fa fa-edit"></ion-icon>
                             </button>
