@@ -1,7 +1,7 @@
 {
   "template": {
     "url": "/api/V1/fieldvalueslookup",
-    "method": "GET",
+    "method": "POST",
     "query": {},
     "headers": {},
     "auth": {
