@@ -1,0 +1,19 @@
+{
+  "template": {
+    "url": "/api/V1/getbusinessobjectschema/busobid/{busObId}",
+    "method": "GET",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "none"
+    },
+    "form": {},
+    "options": {},
+    "bodyType": "form"
+  },
+  "functions": {
+    "getBusinessObjectSchema": [
+      "busObId"
+    ]
+  }
+}
