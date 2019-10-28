@@ -30,5 +30,8 @@
   {
     "id": "cordova-plugin-wkwebviewxhrfix",
     "default": true
+  },
+  {
+    "id": "cordova-plugin-keychain-touch-id"
   }
 ]
