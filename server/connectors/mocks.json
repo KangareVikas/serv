@@ -149,6 +149,36 @@
         "tokens": {
           "busObId": "93405caa107c376a2bd15c4c8885a900be316f3a72"
         }
+      },
+      "GetBusinessObjectTemplate": {
+        "models": {
+          "menu": {},
+          "login": {
+            "error": {}
+          },
+          "home": {},
+          "inserts_homelogo": {},
+          "inserts_footer": {}
+        },
+        "expressions": {},
+        "vars": {
+          "session": {},
+          "local": {},
+          "screen": {},
+          "request": {},
+          "config": {
+            "rest": {
+              "cherwellapi": {
+                "custom": {
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
+                  "grant_type_password": "password",
+                  "grant_type_refresh_token": "refresh_token"
+                }
+              }
+            }
+          }
+        },
+        "tokens": {}
       }
     }
   }
