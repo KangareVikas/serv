@@ -34,12 +34,6 @@
       ]
     },
     {
-      "id": "reportnewissue",
-      "name": "Report New Issue",
-      "sourceScreenId": "blank",
-      "sourceAppId": "default"
-    },
-    {
       "id": "requestsomething",
       "name": "Request Something",
       "sourceScreenId": "blank",

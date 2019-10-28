@@ -84,12 +84,6 @@
     },
     "id": "inserts_footer"
   },
-  "reportnewissue": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {},
-    "id": "reportnewissue"
-  },
   "requestsomething": {
     "type": "object",
     "comment": "Blank",
