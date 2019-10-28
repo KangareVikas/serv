@@ -5,8 +5,11 @@
 */
 exports.doRequest = async (session, models, vars) => {
     await session.rest.cherwellapi.getBusinessObjectSchema();
-    await session.rest.cherwellapi.GetBusinessObjectTemplate();
-    await session.rest.cherwellapi.GET_GetBusinessObjectTemplate();
+    await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
+    await session.rest.cherwellapi.getCustomerRecId({
+        access_token: vars.session.access_token,
+        busObId: vars.session.busObId
+    });
     await session.rest.cherwellapi.GetBusinessObjectTemplate({
         access_token: vars.session.access_token,
         busObId: vars.session.busObId,
