@@ -21,11 +21,19 @@ declare module 'app/app.screens' {
 	/***  Generated file, do not change.  */
 	import { MenuComponent } from 'app/menu/menu';
 	import { login_PhonePortrait } from 'app/../pages/login/PhonePortrait/login';
+	import { home_PhonePortrait } from 'app/../pages/home/PhonePortrait/home';
+	import { inserts_homelogo_PhonePortrait } from 'app/../pages/inserts/homelogo/PhonePortrait/homelogo';
 	export class Screens {
 	    static declarations: typeof MenuComponent[];
 	    static mapping: {
 	        'login': {
 	            PhonePortrait: typeof login_PhonePortrait;
+	        };
+	        'home': {
+	            PhonePortrait: typeof home_PhonePortrait;
+	        };
+	        'inserts_homelogo': {
+	            PhonePortrait: typeof inserts_homelogo_PhonePortrait;
 	        };
 	    };
 	}
