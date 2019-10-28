@@ -18,7 +18,7 @@
                     <br>
                     Please call Support.</div>
                 <button block color="danger" data-comp-id="button.1" icon-start ion-button
-                    style="border-radius: 20px; padding: 0; margin: 20px 0 10px;">
+                    mode="ios" style="border-radius: 20px; padding: 0; margin: 20px 0 10px;">
                     <ion-icon class=" ion-ios-call" style="font-size: 28px;"
                         undefined="ion-ios-call"></ion-icon>
                     <span>Call Support</span>
@@ -31,22 +31,22 @@
         <form (ngSubmit)="authaction('submit')" data-comp-id="form.1">
             <ion-row data-comp-id="row.4">
                 <ion-col data-comp-id="column.4" style="padding: 0 0 16px 0;" text-center>
-                    <ion-item data-comp-id="input.1"
+                    <ion-item data-comp-id="input.1" mode="ios"
                         style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22);">
                         <ion-icon class=" ion-ios-person" color="dark" item-left
                             style="font-size: 24px;"></ion-icon>
                         <ion-input [(ngModel)]="data.username" autocapitalize="off" autocorrect="off"
-                            name="username" placeholder="Username" type="text"></ion-input>
+                            mode="ios" name="username" placeholder="Username" type="text"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
             <ion-row data-comp-id="row.5">
                 <ion-col data-comp-id="column.5" style="padding: 0;" text-center>
-                    <ion-item data-comp-id="input.2"
+                    <ion-item data-comp-id="input.2" mode="ios"
                         style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22);">
                         <ion-icon class=" ion-ios-lock" color="dark" item-left style="font-size: 24px;"></ion-icon>
-                        <ion-input [(ngModel)]="data.password" name="password" placeholder="Password"
-                            type="password"></ion-input>
+                        <ion-input [(ngModel)]="data.password" mode="ios" name="password"
+                            placeholder="Password" type="password"></ion-input>
                     </ion-item>
                 </ion-col>
             </ion-row>
