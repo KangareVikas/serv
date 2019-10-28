@@ -22,6 +22,17 @@
       },
       "apikey": {
         "type": "string"
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "error_description": {
+            "type": "string"
+          }
+        }
       }
     },
     "id": "login"
