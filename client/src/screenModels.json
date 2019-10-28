@@ -19,6 +19,9 @@
       },
       "hasError": {
         "type": "boolean"
+      },
+      "apikey": {
+        "type": "string"
       }
     },
     "id": "login"
