@@ -47,6 +47,12 @@
             }
           }
         }
+      },
+      "doReport": {
+        "type": "action"
+      },
+      "doRequest": {
+        "type": "action"
       }
     },
     "id": "home"
