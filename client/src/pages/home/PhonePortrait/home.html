@@ -62,8 +62,11 @@
                             detail-push mode="ios" style="border-bottom: 0px none rgb(0, 0, 0);">
                             <div [innerHTML]="item.id" color="primary" data-comp-id="text.5" ion-text
                                 style="font-size: 14px; margin: 0 0 4px 0;"></div>
-                            <div data-comp-id="text.6" ion-text style="margin: 0 0 4px 0;">Ticket description</div>
-                            <div color="medium" data-comp-id="text.7" ion-text style="font-size: 13px;">Date created</div>
+                            <div [innerHTML]="item.description" data-comp-id="text.6" ion-text
+                                style="margin: 0 0 4px 0;"></div>
+                            <span color="medium" data-comp-id="text.7" ion-text style="font-size: 13px;">Date Created:</span>
+                            <span color="medium" data-comp-id="text.8" ion-text
+                                style="font-size: 13px; margin: 0 0 0 4px;">Date Created:</span>
                         </ion-item>
                         <ion-item-options data-comp-id="item-options.1" side="right"
                             style="border-bottom: none; align-items: center;">
