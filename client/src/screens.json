@@ -24,6 +24,12 @@
           "name": "Home Logo",
           "sourceScreenId": "blank",
           "sourceAppId": "default"
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
         }
       ]
     }
