@@ -118,6 +118,33 @@
         "tokens": {
           "access_token": "wBSnZUbAbAE35rVC-9mGAkkJMBBVcdULPFJi8p6D9zimBgBdpUPeQjmYisJyi1j7jKFQPFDSZDpCV3_xP2KkDFo-M1iAZyNuOBl2_hwHJUBtw044R5IxJKUD3WiE0-9rUgNBYvKsJok7iKazxexnzpB0QQ_e2jkX_B64nMEcATgwLKqFQ9CmrP_2CY5PLa1lS80icMTJETZ72K3GNcJ2SVEnJir7MPwnsjha4FOR3AS0XgnZ5gwLIW7ImNCF8Zw9npA42T0h0Dh5dkU9eZeiccgPaDCUW6Foj3KBZEdfLmNCbNcclJ7xuWpf99V5WpB_abLUdHEPs7TZzdVWzbozUfIMBZDNKibRpFLsO0a1I9SKQppBYPJoBIG8dvw--CinjeAIHBrts9sBnyS1zmC59mVGJBvL_gVNkWPt4A2GxsJnj5csZi_yzUVJ_nMc6_78vtWhBFhNF3cqbdisK7Wdvc3mDA5zimhIQGshfo-cvUvAtOcnZ8WMIPdwJEi2xfFfh-eO5SSnwqOuGovh6PT7ltyBNuHhEVPbk8K3ZxjpnZY"
         }
+      },
+      "getBusinessObjectSchema": {
+        "models": {
+          "menu": {},
+          "login": {},
+          "home": {},
+          "inserts_homelogo": {}
+        },
+        "expressions": {},
+        "vars": {
+          "session": {},
+          "local": {},
+          "screen": {},
+          "request": {},
+          "config": {
+            "rest": {
+              "cherwellapi": {
+                "custom": {
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
+                  "grant_type_password": "password",
+                  "grant_type_refresh_token": "refresh_token"
+                }
+              }
+            }
+          }
+        },
+        "tokens": {}
       }
     }
   }
