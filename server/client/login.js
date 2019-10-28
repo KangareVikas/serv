@@ -14,6 +14,7 @@ exports.submit = async (session, models, vars) => {
         });
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
+        models.login.error = errorOutput.message;
         vars.session.apikey = models.login.apikey;
         console.log('access_token: ' + vars.session.access_token);
     } catch (e) {
