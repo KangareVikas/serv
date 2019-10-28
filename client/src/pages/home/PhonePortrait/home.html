@@ -82,4 +82,8 @@
             </ion-col>
         </ion-row>
     </div>
+    <touchid-save [authRequest]="appService ? appService.getAuthRequest() : null"
+        data-comp-id="touchid-save.1"
+        message="Would you like to use {{getBiometricAuthType()}} to login?"
+        title="{{getBiometricAuthType()}} Available"></touchid-save>
 </ion-content>
