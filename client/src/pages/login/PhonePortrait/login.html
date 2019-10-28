@@ -32,7 +32,8 @@
             <ion-row data-comp-id="row.4">
                 <ion-col data-comp-id="column.4" style="padding: 0 0 16px 0;" text-center>
                     <ion-list data-comp-id="list.1">
-                        <ion-item [(text)]="data.apikey" barcodeScanner data-comp-id="barcode-scanner.1">
+                        <ion-item [(text)]="data.apikey" barcodeScanner data-comp-id="barcode-scanner.1"
+                            style="margin: 0 0 16px;">
                             <ion-label>
                                 <span class="label">
                                     Scan
@@ -40,25 +41,24 @@
                             </ion-label>
                             <ion-icon class="fa fa-barcode" color="primary" item-end></ion-icon>
                         </ion-item>
+                        <ion-item data-comp-id="input.1" mode="ios"
+                            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); margin: 0 0 16px;">
+                            <ion-icon class=" ion-ios-person" color="dark" item-left
+                                style="font-size: 24px;"></ion-icon>
+                            <ion-input [(ngModel)]="data.username" autocapitalize="off" autocorrect="off"
+                                mode="ios" name="username" placeholder="Username" type="text"></ion-input>
+                        </ion-item>
+                        <ion-item data-comp-id="input.2" mode="ios"
+                            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); margin: 0 0 16px;">
+                            <ion-icon class=" ion-ios-lock" color="dark" item-left style="font-size: 24px;"></ion-icon>
+                            <ion-input [(ngModel)]="data.password" mode="ios" name="password"
+                                placeholder="Password" type="password"></ion-input>
+                        </ion-item>
                     </ion-list>
-                    <ion-item data-comp-id="input.1" mode="ios"
-                        style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22);">
-                        <ion-icon class=" ion-ios-person" color="dark" item-left
-                            style="font-size: 24px;"></ion-icon>
-                        <ion-input [(ngModel)]="data.username" autocapitalize="off" autocorrect="off"
-                            mode="ios" name="username" placeholder="Username" type="text"></ion-input>
-                    </ion-item>
                 </ion-col>
             </ion-row>
             <ion-row data-comp-id="row.5">
-                <ion-col data-comp-id="column.5" style="padding: 0 0 16px;" text-center>
-                    <ion-item data-comp-id="input.2" mode="ios"
-                        style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22);">
-                        <ion-icon class=" ion-ios-lock" color="dark" item-left style="font-size: 24px;"></ion-icon>
-                        <ion-input [(ngModel)]="data.password" mode="ios" name="password"
-                            placeholder="Password" type="password"></ion-input>
-                    </ion-item>
-                </ion-col>
+                <ion-col data-comp-id="column.5" style="padding: 0 0 16px;" text-center></ion-col>
             </ion-row>
             <ion-row data-comp-id="row.6">
                 <ion-col class="button-col" data-comp-id="column.6"
