@@ -65,8 +65,9 @@
                             <div [innerHTML]="item.description" data-comp-id="text.6" ion-text
                                 style="margin: 0 0 4px 0;"></div>
                             <span color="medium" data-comp-id="text.7" ion-text style="font-size: 13px;">Date Created:</span>
-                            <span color="medium" data-comp-id="text.8" ion-text
-                                style="font-size: 13px; margin: 0 0 0 4px;">Date Created:</span>
+                            <span [innerHTML]="item.created" color="medium" data-comp-id="text.8"
+                                formatting="date" input-format="YYYY-MM-DD" ion-text output-format="YYYY-MM-DD"
+                                style="font-size: 13px; margin: 0 0 0 4px;"></span>
                         </ion-item>
                         <ion-item-options data-comp-id="item-options.1" side="right"
                             style="border-bottom: none; align-items: center;">
