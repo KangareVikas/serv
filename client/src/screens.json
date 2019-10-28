@@ -32,6 +32,12 @@
           "sourceAppId": "default"
         }
       ]
+    },
+    {
+      "id": "reportnewissue",
+      "name": "Report New Issue",
+      "sourceScreenId": "blank",
+      "sourceAppId": "default"
     }
   ],
   "startScreen": "login",
