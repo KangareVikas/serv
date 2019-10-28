@@ -18,6 +18,7 @@ exports.submit = async (session, models, vars) => {
         vars.session.apikey = models.login.apikey;
         console.log('access_token: ' + vars.session.access_token);
     } catch (e) {
+        console.log('Error: ' + e.message);
         models.login.hasError = true;
         try {
             models.login.error = JSON.parse(e.message);
