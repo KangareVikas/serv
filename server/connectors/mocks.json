@@ -128,7 +128,9 @@
         },
         "expressions": {},
         "vars": {
-          "session": {},
+          "session": {
+            "busObId": "93405caa107c376a2bd15c4c8885a900be316f3a72"
+          },
           "local": {},
           "screen": {},
           "request": {},
@@ -144,7 +146,9 @@
             }
           }
         },
-        "tokens": {}
+        "tokens": {
+          "busObId": "93405caa107c376a2bd15c4c8885a900be316f3a72"
+        }
       }
     }
   }
