@@ -26,7 +26,26 @@
   "home": {
     "type": "object",
     "comment": "Blank",
-    "properties": {},
+    "properties": {
+      "tickets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "created": {
+              "type": "date",
+              "format": "YYYY-MM-DD"
+            }
+          }
+        }
+      }
+    },
     "id": "home"
   },
   "inserts_homelogo": {
