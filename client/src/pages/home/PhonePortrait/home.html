@@ -64,7 +64,7 @@
                             <div [innerHTML]="item.id" color="primary" data-comp-id="text.5" ion-text
                                 style="font-size: 14px; margin: 0 0 4px 0;"></div>
                             <div [innerHTML]="item.description" data-comp-id="text.6" ion-text
-                                style="margin: 0 0 4px 0;"></div>
+                                style="margin: 0 0 4px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
                             <span color="medium" data-comp-id="text.7" ion-text style="font-size: 13px;">Date Created:</span>
                             <span [innerHTML]="item.created" color="medium" data-comp-id="text.8"
                                 formatting="date" input-format="YYYY-MM-DD" ion-text output-format="YYYY-MM-DD"
