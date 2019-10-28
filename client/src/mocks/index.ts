@@ -4,3 +4,4 @@ export { mock_inserts_homelogo as inserts_homelogo } from './inserts_homelogo/in
 export { mock_login as login } from './login/index';
 export { mock_menu as menu } from './menu/index';
 export { mock_reportnewissue as reportnewissue } from './reportnewissue/index';
+export { mock_requestsomething as requestsomething } from './requestsomething/index';

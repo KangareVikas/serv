@@ -5,6 +5,7 @@ import { home_PhonePortrait } from '../pages/home/PhonePortrait/home';
 import { inserts_homelogo_PhonePortrait } from '../pages/inserts/homelogo/PhonePortrait/homelogo';
 import { inserts_footer_PhonePortrait } from '../pages/inserts/footer/PhonePortrait/footer';
 import { reportnewissue_PhonePortrait } from '../pages/reportnewissue/PhonePortrait/reportnewissue';
+import { requestsomething_PhonePortrait } from '../pages/requestsomething/PhonePortrait/requestsomething';
 export class Screens {
   static declarations = [
     MenuComponent,
@@ -12,7 +13,8 @@ export class Screens {
     home_PhonePortrait,
     inserts_homelogo_PhonePortrait,
     inserts_footer_PhonePortrait,
-    reportnewissue_PhonePortrait
+    reportnewissue_PhonePortrait,
+    requestsomething_PhonePortrait
   ];
   static mapping = {
     'login': {
@@ -29,6 +31,9 @@ export class Screens {
     },
     'reportnewissue': {
       PhonePortrait: reportnewissue_PhonePortrait
+    },
+    'requestsomething': {
+      PhonePortrait: requestsomething_PhonePortrait
     }
   }
 }
