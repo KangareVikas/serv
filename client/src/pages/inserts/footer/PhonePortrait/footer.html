@@ -3,6 +3,9 @@
         <img *ngIf="data.active === 'call'" data-comp-id="img.1"
             src="assets/images/inserts/footer/call_icon_act.png"
             style="width: auto; height: 23px;">
+        <img *ngIf="data.active !== 'call'" data-comp-id="img.2"
+            src="assets/images/inserts/footer/call_icon.png"
+            style="width: auto; height: 23px;">
         <div color="{{data.active === 'call' ? 'primary' : 'medium'}}"
             data-comp-id="text.1" ion-text style="font-size: 12px;">Call</div>
     </ion-col>
