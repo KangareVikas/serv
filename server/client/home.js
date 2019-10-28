@@ -6,7 +6,9 @@
 exports.doRequest = async (session, models, vars) => {
     await session.rest.cherwellapi.GetBusinessObjectTemplate({
         access_token: vars.session.access_token,
-        busObId: vars.session.busObId
+        busObId: vars.session.busObId,
+        includeRequired: true,
+        includeAll: false
     });
 };
 /**
