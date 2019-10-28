@@ -5,13 +5,15 @@
 */
 exports.doRequest = async (session, models, vars) => {
     let data = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
+    vars.session.incidentBusObId = data.busObId;
     console.log(data);
-    await session.rest.cherwellapi.GetBusinessObjectTemplate({
+    let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
         access_token: vars.session.access_token,
-        busObId: vars.session.busObId,
+        busObId: vars.session.incidentBusObId,
         includeRequired: true,
         includeAll: false
     });
+    console.log(requestData);
 };
 /**
  * @param {Session} session
