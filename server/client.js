@@ -73,6 +73,6 @@ exports.start = async (session, models, vars) => {
         'New York City HQ': 'TECH CENTER EAST COAST',
         'Houston Main Campus': 'TECH CENTER CENTRAL REGION'
     };
-    await session.transform.chp.start();
+    await session.transform.cherwellrequest.start();
     await session.screen('login');
 };
