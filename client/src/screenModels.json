@@ -68,12 +68,6 @@
     },
     "id": "home"
   },
-  "inserts_homelogo": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {},
-    "id": "inserts_homelogo"
-  },
   "inserts_footer": {
     "type": "object",
     "comment": "Blank",
@@ -100,6 +94,6 @@
     "type": "object",
     "comment": "Blank",
     "properties": {},
-    "id": "subcategories"
+    "id": "incident_subcategories"
   }
 }
