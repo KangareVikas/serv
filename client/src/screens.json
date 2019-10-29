@@ -15,6 +15,25 @@
       "sourceAppId": "default"
     },
     {
+      "id": "inserts",
+      "name": "Inserts",
+      "folder": true,
+      "screens": [
+        {
+          "id": "homelogo",
+          "name": "Home Logo",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
+        }
+      ]
+    },
+    {
       "id": "incident",
       "name": "Incident",
       "folder": true,
@@ -44,25 +63,6 @@
       "name": "Request",
       "folder": true,
       "screens": []
-    },
-    {
-      "id": "inserts",
-      "name": "Inserts",
-      "folder": true,
-      "screens": [
-        {
-          "id": "homelogo",
-          "name": "Home Logo",
-          "sourceScreenId": "blank",
-          "sourceAppId": "default"
-        },
-        {
-          "id": "footer",
-          "name": "Footer",
-          "sourceScreenId": "blank",
-          "sourceAppId": "default"
-        }
-      ]
     }
   ],
   "startScreen": "login",
