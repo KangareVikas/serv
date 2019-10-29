@@ -15,7 +15,7 @@ exports.doRequest = async (session, models, vars) => {
     });
     console.log(requestData.body);
     let validValues = await session.rest.cherwellapi.getValidValues({ access_token: vars.session.access_token });
-    console.log(validValues.body)
+    console.log(validValues.body);
 };
 /**
  * @param {Session} session
@@ -23,4 +23,5 @@ exports.doRequest = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.doReport = async (session, models, vars) => {
+    await session.rest.cherwellapi.getBusinessObjectSchema({ custBusObId: vars.session.custBusObId });
 };
