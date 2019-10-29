@@ -37,14 +37,19 @@ exports.doReport = async (session, models, vars) => {
         }
     }
     console.log('firstNamefieldId: ' + vars.session.firstNamefieldId);
-    await session.rest.cherwellapi.getCustomerRecId({
-        custBusObId: vars.session.custBusObId,
-        firstNamefieldId: vars.session.firstNamefieldId,
-        lastNamefieldId: vars.session.lastNamefieldId,
-        firstName: vars.session.firstName,
-        access_token: vars.session.access_token
-    });
     console.log('lastNamefieldId: ' + vars.session.lastNamefieldId);
+    if (!vars.session.customerRecId) {
+        let data = await session.rest.cherwellapi.getCustomerRecId({
+            custBusObId: vars.session.custBusObId,
+            firstNamefieldId: vars.session.firstNamefieldId,
+            lastNamefieldId: vars.session.lastNamefieldId,
+            firstName: vars.session.firstName,
+            access_token: vars.session.access_token
+        });
+        vars.session.customerRecId = data.body.businessObjects[0].busObRecId;
+    }
+    console.log("customerRecId: " + vars.session.customerRecId)
+
     if (!vars.session.incidentBusObId) {
         let data = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
         vars.session.incidentBusObId = data.body[0].busObId;
