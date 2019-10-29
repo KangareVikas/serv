@@ -8,7 +8,7 @@
       "type": "bearerToken",
       "token": "{access_token}"
     },
-    "body": "\\{\n \"busObID\": \"{custBusObId}\",\n \"filters\": [\n  \\{\n   \"fieldId\": \"{firstNamefieldId}\",\n   \"operator\": \"eq\",\n   \"value\": \"{firstName}\"\n  },\n  \\{\n   \"fieldId\": \"{lastNamefieldId}\",\n   \"operator\": \"eq\",\n   \"value\": \"   \"\n  }\n ]\n}",
+    "body": "\\{\n \"busObID\": \"{custBusObId}\",\n \"filters\": [\n  \\{\n   \"fieldId\": \"{firstNamefieldId}\",\n   \"operator\": \"eq\",\n   \"value\": \"{firstName}\"\n  },\n  \\{\n   \"fieldId\": \"{lastNamefieldId}\",\n   \"operator\": \"eq\",\n   \"value\": \"{lastName}\"\n  }\n ]\n}",
     "options": {},
     "bodyType": "body"
   },
