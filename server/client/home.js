@@ -46,6 +46,7 @@ exports.doReport = async (session, models, vars) => {
             firstName: vars.session.firstName,
             access_token: vars.session.access_token
         });
+        console.log(data.body)
         vars.session.customerRecId = data.body.businessObjects[0].busObRecId;
     }
     console.log("customerRecId: " + vars.session.customerRecId)
