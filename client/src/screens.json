@@ -54,7 +54,10 @@
           "id": "categories",
           "name": "Categories",
           "sourceScreenId": "blank",
-          "sourceAppId": "default"
+          "sourceAppId": "default",
+          "statusbarContent": null,
+          "statusbarHidden": null,
+          "statusbarBackground": "#f0f6f9"
         }
       ]
     },
