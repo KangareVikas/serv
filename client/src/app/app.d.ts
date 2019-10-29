@@ -24,9 +24,9 @@ declare module 'app/app.screens' {
 	import { home_PhonePortrait } from 'app/../pages/home/PhonePortrait/home';
 	import { inserts_homelogo_PhonePortrait } from 'app/../pages/inserts/homelogo/PhonePortrait/homelogo';
 	import { inserts_footer_PhonePortrait } from 'app/../pages/inserts/footer/PhonePortrait/footer';
-	import { createissue_PhonePortrait } from 'app/../pages/createissue/PhonePortrait/createissue';
+	import { incident_subcategories_PhonePortrait } from 'app/../pages/incident/subcategories/PhonePortrait/subcategories';
 	import { incident_categories_PhonePortrait } from 'app/../pages/incident/categories/PhonePortrait/categories';
-	import { subcategories_PhonePortrait } from 'app/../pages/subcategories/PhonePortrait/subcategories';
+	import { incident_newissue_PhonePortrait } from 'app/../pages/incident/newissue/PhonePortrait/newissue';
 	export class Screens {
 	    static declarations: typeof MenuComponent[];
 	    static mapping: {
@@ -42,14 +42,14 @@ declare module 'app/app.screens' {
 	        'inserts_footer': {
 	            PhonePortrait: typeof inserts_footer_PhonePortrait;
 	        };
-	        'createissue': {
-	            PhonePortrait: typeof createissue_PhonePortrait;
+	        'incident_subcategories': {
+	            PhonePortrait: typeof incident_subcategories_PhonePortrait;
 	        };
 	        'incident_categories': {
 	            PhonePortrait: typeof incident_categories_PhonePortrait;
 	        };
-	        'subcategories': {
-	            PhonePortrait: typeof subcategories_PhonePortrait;
+	        'incident_newissue': {
+	            PhonePortrait: typeof incident_newissue_PhonePortrait;
 	        };
 	    };
 	}
