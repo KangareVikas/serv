@@ -34,12 +34,6 @@
       ]
     },
     {
-      "id": "categories",
-      "name": "Categories",
-      "sourceScreenId": "blank",
-      "sourceAppId": "default"
-    },
-    {
       "id": "subcategories",
       "name": "Subcategories",
       "sourceScreenId": "blank",
@@ -55,7 +49,14 @@
       "id": "incident",
       "name": "Incident",
       "folder": true,
-      "screens": []
+      "screens": [
+        {
+          "id": "categories",
+          "name": "Categories",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
+        }
+      ]
     },
     {
       "id": "request",
