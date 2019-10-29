@@ -256,7 +256,10 @@
           },
           "home": {},
           "inserts_homelogo": {},
-          "inserts_footer": {}
+          "inserts_footer": {},
+          "incident_categories": {},
+          "incident_createissue": {},
+          "incident_subcategories": {}
         },
         "expressions": {},
         "vars": {
