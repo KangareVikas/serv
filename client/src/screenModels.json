@@ -95,5 +95,11 @@
     "comment": "Blank",
     "properties": {},
     "id": "subcategories"
+  },
+  "createissue": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "createissue"
   }
 }

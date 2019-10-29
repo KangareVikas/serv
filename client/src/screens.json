@@ -44,6 +44,12 @@
       "name": "Subcategories",
       "sourceScreenId": "blank",
       "sourceAppId": "default"
+    },
+    {
+      "id": "createissue",
+      "name": "Create Issue",
+      "sourceScreenId": "blank",
+      "sourceAppId": "default"
     }
   ],
   "startScreen": "login",
