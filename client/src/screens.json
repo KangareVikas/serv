@@ -39,12 +39,6 @@
       "folder": true,
       "screens": [
         {
-          "id": "createissue",
-          "name": "Create Issue",
-          "sourceScreenId": "blank",
-          "sourceAppId": "default"
-        },
-        {
           "id": "subcategories",
           "name": "Subcategories",
           "sourceScreenId": "blank",
