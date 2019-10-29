@@ -1,6 +1,6 @@
-export { mock_createissue as createissue } from './createissue/index';
 export { mock_home as home } from './home/index';
 export { mock_incident_categories as incident_categories } from './incident_categories/index';
+export { mock_incident_createissue as incident_createissue } from './incident_createissue/index';
 export { mock_inserts_footer as inserts_footer } from './inserts_footer/index';
 export { mock_inserts_homelogo as inserts_homelogo } from './inserts_homelogo/index';
 export { mock_login as login } from './login/index';
