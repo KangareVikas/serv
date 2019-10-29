@@ -50,6 +50,12 @@
       "name": "Create Issue",
       "sourceScreenId": "blank",
       "sourceAppId": "default"
+    },
+    {
+      "id": "incident",
+      "name": "Incident",
+      "folder": true,
+      "screens": []
     }
   ],
   "startScreen": "login",
