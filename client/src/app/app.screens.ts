@@ -8,7 +8,6 @@ import { incident_createissue_PhonePortrait } from '../pages/incident/createissu
 import { incident_subcategories_PhonePortrait } from '../pages/incident/subcategories/PhonePortrait/subcategories';
 import { incident_categories_PhonePortrait } from '../pages/incident/categories/PhonePortrait/categories';
 import { incident_newissue_PhonePortrait } from '../pages/incident/newissue/PhonePortrait/newissue';
-import { incident_newissue_Desktop } from '../pages/incident/newissue/Desktop/newissue';
 export class Screens {
   static declarations = [
     MenuComponent,
@@ -19,8 +18,7 @@ export class Screens {
     incident_createissue_PhonePortrait,
     incident_subcategories_PhonePortrait,
     incident_categories_PhonePortrait,
-    incident_newissue_PhonePortrait,
-    incident_newissue_Desktop
+    incident_newissue_PhonePortrait
   ];
   static mapping = {
     'login': {
@@ -45,8 +43,7 @@ export class Screens {
       PhonePortrait: incident_categories_PhonePortrait
     },
     'incident_newissue': {
-      PhonePortrait: incident_newissue_PhonePortrait,
-      Desktop: incident_newissue_Desktop
+      PhonePortrait: incident_newissue_PhonePortrait
     }
   }
 }

@@ -62,9 +62,6 @@
         {
           "id": "newissue",
           "name": "New Issue",
-          "extraViews": [
-            "Desktop"
-          ],
           "sourceScreenId": "newrequest",
           "sourceAppId": "chp_2"
         }
