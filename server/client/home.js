@@ -24,7 +24,7 @@ exports.doRequest = async (session, models, vars) => {
 */
 exports.doReport = async (session, models, vars) => {
     let output = await session.rest.cherwellapi.getBusinessObjectSchema({ custBusObId: vars.session.custBusObId, access_token: vars.session.access_token });
-    let parsed = JSON.parse(output.body);
+    let parsed = output.body;
     let firstNameFound = false;
     let lastNameFound = false;
     for (let i = 0; i < parsed.fieldDefinitions.length; i++) {
