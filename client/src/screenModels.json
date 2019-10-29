@@ -100,6 +100,113 @@
     "type": "object",
     "comment": "Blank",
     "properties": {},
-    "id": "subcategories"
+    "id": "incident_subcategories"
+  },
+  "incident_newissue": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "urgency": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "caller": {
+        "type": "string"
+      },
+      "additionalComments": {
+        "type": "string"
+      },
+      "shortDescription": {
+        "type": "string"
+      },
+      "submit": {
+        "type": "action"
+      },
+      "search": {
+        "type": "action"
+      },
+      "back": {
+        "type": "action"
+      },
+      "callBackNumber": {
+        "type": "string"
+      },
+      "building": {
+        "type": "select"
+      },
+      "type": {
+        "type": "select"
+      },
+      "typeReadOnly": {
+        "type": "boolean"
+      },
+      "buildingChanged": {
+        "type": "action"
+      },
+      "seat": {
+        "type": "string"
+      },
+      "photo": {
+        "type": "file"
+      },
+      "attachPhoto": {
+        "type": "action"
+      },
+      "VIP": {
+        "type": "boolean"
+      },
+      "location": {
+        "type": "string"
+      },
+      "typeChanged": {
+        "type": "action"
+      },
+      "floor": {
+        "type": "string"
+      },
+      "home": {
+        "type": "action"
+      },
+      "removeAttachment": {
+        "type": "action"
+      },
+      "requestor": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "urgencySelect": {
+        "type": "select"
+      },
+      "errorMessages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "update": {
+            "type": "none"
+          },
+          "properties": {
+            "errorMessage": {
+              "type": "string"
+            }
+          }
+        },
+        "update": {
+          "type": "none"
+        }
+      }
+    },
+    "id": "incident_newissue"
   }
 }

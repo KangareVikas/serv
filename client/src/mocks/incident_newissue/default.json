@@ -1,0 +1,65 @@
+{
+  "building": {
+    "options": [
+      {
+        "label": "Midtown Center",
+        "value": "Midtown Center"
+      },
+      {
+        "label": "Urbana",
+        "value": "Urbana"
+      }
+    ],
+    "selected": "Midtown Center"
+  },
+  "type": {
+    "options": [
+      {
+        "label": "Access",
+        "value": "Access"
+      },
+      {
+        "label": "Computer",
+        "value": "Computer"
+      },
+      {
+        "label": "Desk",
+        "value": "Desk"
+      }
+    ],
+    "selected": "Desk"
+  },
+  "caller": "",
+  "callBackNumber": "123-456-7890",
+  "typeReadOnly": true,
+  "floor": "",
+  "seat": "",
+  "photo": "",
+  "shortDescription": "",
+  "additionalComments": "",
+  "state": {
+    "options": [
+      {
+        "label": "Midtown"
+      },
+      {
+        "label": "Reston"
+      }
+    ],
+    "selected": {}
+  },
+  "requestor": "Evan Employee",
+  "email": "evan.employee@hcl.com",
+  "urgency": [],
+  "urgencySelect": {
+    "options": []
+  },
+  "errorMessages": [
+    {
+      "errorMessage": "Description"
+    },
+    {
+      "errorMessage": "Short Summary"
+    }
+  ]
+}

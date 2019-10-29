@@ -58,6 +58,15 @@
           "statusbarContent": null,
           "statusbarHidden": null,
           "statusbarBackground": "#f0f6f9"
+        },
+        {
+          "id": "newissue",
+          "name": "New Issue",
+          "extraViews": [
+            "Desktop"
+          ],
+          "sourceScreenId": "newrequest",
+          "sourceAppId": "chp_2"
         }
       ]
     },
