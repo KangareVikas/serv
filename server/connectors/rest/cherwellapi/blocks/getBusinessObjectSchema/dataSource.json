@@ -6,7 +6,7 @@
     "headers": {},
     "auth": {
       "type": "bearerToken",
-      "token": "wR8U8cu6dfyG9Qobdu_lEOAbMmmvdSbUri4dECaBLuDFibih_sujtpEV7e-YBU90nnlapT7JP2yMM-8Z9jOqsCvBdhcW7bTzSCxp0i7t719e6FBbqBaIiS1oU-l11s_b34EwOc9Ylxce-8pP41mlJAtcoa0BCU2OAZrjL9LO-Op6YHgwreMycF71RTtsEDDiO16affj2K1CJ94m6TtxZli7PjvbD8GJA_Wy32mWQTyHfa6b0tPlmq8CUoKGtfdyvZ-VB9qiTOYICSaKoX_fxsStDzzc4EEYY9O1U_5fPcIMz6-_IjAsbLowaSv7Yr54_r8pCKuaoIrzfNWwn8beO9mVbXNeSkcGlv2YX3nxIVpL7xtetwjpvvy5dc9QPg31HjWsl5PMA7v83WdAyaRi4zhs5Zggrh_VG38r2N6qawizafpGKWHeaYg7i6aD1lbUJoNudvW0UQoXWdFMKBjXHdikBsmPx9_myLcRFi4TvEUfcREpGWHt4umX_SClFMamuHDf7tH1rSS2Myc4VThApNXnazTeCT3irwpgtc-Sw1Hc"
+      "token": "{access_token}"
     },
     "form": {},
     "options": {},
@@ -14,7 +14,8 @@
   },
   "functions": {
     "getBusinessObjectSchema": [
-      "custBusObId"
+      "custBusObId",
+      "access_token"
     ]
   }
 }
