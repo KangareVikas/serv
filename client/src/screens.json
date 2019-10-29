@@ -38,6 +38,12 @@
       "name": "Categories",
       "sourceScreenId": "blank",
       "sourceAppId": "default"
+    },
+    {
+      "id": "subcategories",
+      "name": "Subcategories",
+      "sourceScreenId": "blank",
+      "sourceAppId": "default"
     }
   ],
   "startScreen": "login",
