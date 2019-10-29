@@ -1,6 +1,6 @@
 <ion-header data-comp-id="header.1" style="padding: 0; margin: 0;">
     <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
-        <ion-row data-comp-id="row.1" style="padding: 0;">
+        <ion-row data-comp-id="row.1" style="padding: 0 0 4px;">
             <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
                 <button class="button-label-primary" clear data-comp-id="button.1" ion-button
                     mode="ios" small style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
@@ -10,9 +10,9 @@
             </ion-col>
             <ion-col data-comp-id="column.2" style="text-align: right; padding: 0 4px;">
                 <button clear data-comp-id="button.2" icon-only ion-button mode="ios" small
-                    style="margin: 0 2px;">
+                    style="margin: 0 2px; font-size: 17px;">
                     <ion-icon class=" ion-ios-search" color="primary"
-                        style="font-size: 24px; padding: 8px 12px 0;"></ion-icon>
+                        style="font-size: 24px; padding: 0 4px;"></ion-icon>
                 </button>
             </ion-col>
             <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 4px 16px;">
@@ -22,4 +22,16 @@
         </ion-row>
     </ion-navbar>
 </ion-header>
-<ion-content data-comp-id="content.1"></ion-content>
+<ion-content class="content-calm" data-comp-id="content.1" style>
+    <ion-list data-comp-id="list.1">
+        <ion-item data-comp-id="item.1" detail-none>
+            <div data-comp-id="text.3" ion-text>List Item</div>
+        </ion-item>
+        <ion-item data-comp-id="item.2" mode="ios">
+            <div data-comp-id="text.4" ion-text>List Item</div>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-footer class="footer-white" data-comp-id="footer.1" style="height: 63px;">
+    <include-screen data-comp-id="include-screen.1" name="inserts_footer"></include-screen>
+</ion-footer>
