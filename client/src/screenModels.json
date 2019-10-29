@@ -83,5 +83,11 @@
       }
     },
     "id": "inserts_footer"
+  },
+  "categories": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "categories"
   }
 }

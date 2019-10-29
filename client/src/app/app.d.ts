@@ -23,6 +23,7 @@ declare module 'app/app.screens' {
 	import { login_PhonePortrait } from 'app/../pages/login/PhonePortrait/login';
 	import { home_PhonePortrait } from 'app/../pages/home/PhonePortrait/home';
 	import { inserts_homelogo_PhonePortrait } from 'app/../pages/inserts/homelogo/PhonePortrait/homelogo';
+	import { inserts_footer_PhonePortrait } from 'app/../pages/inserts/footer/PhonePortrait/footer';
 	export class Screens {
 	    static declarations: typeof MenuComponent[];
 	    static mapping: {
@@ -34,6 +35,9 @@ declare module 'app/app.screens' {
 	        };
 	        'inserts_homelogo': {
 	            PhonePortrait: typeof inserts_homelogo_PhonePortrait;
+	        };
+	        'inserts_footer': {
+	            PhonePortrait: typeof inserts_footer_PhonePortrait;
 	        };
 	    };
 	}
