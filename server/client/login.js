@@ -5,6 +5,9 @@
 */
 exports.submit = async (session, models, vars) => {
     try {
+        models.login.apikey = '81b8a693-a448-4275-bd9e-937ae6387b7c';
+        models.login.username = 'apiuser';
+        models.login.password = 'pass@123';
         let output = await session.rest.cherwellapi.login({
             grant_type_password: vars.config.rest.cherwellapi.custom.grant_type_password,
             apikey: models.login.apikey,
@@ -13,6 +16,7 @@ exports.submit = async (session, models, vars) => {
         });
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
+        models.login.error = JSON.parse(e.message);
         vars.session.apikey = models.login.apikey;
         console.log('access_token: ' + vars.session.access_token);
     } catch (e) {
