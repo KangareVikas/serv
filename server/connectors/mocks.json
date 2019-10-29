@@ -6,12 +6,17 @@
           "menu": {},
           "login": {
             "username": "apiuser",
-            "password": "pass@123"
+            "password": "pass@123",
+            "hasError": false,
+            "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
+            "error": {}
           },
-          "login1": {
-            "username": "apiuser",
-            "password": "pass@123"
-          }
+          "home": {},
+          "inserts_homelogo": {},
+          "inserts_footer": {},
+          "incident_categories": {},
+          "incident_subcategories": {},
+          "incident_newissue": {}
         },
         "expressions": {},
         "vars": {
