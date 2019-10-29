@@ -5,16 +5,6 @@
 */
 exports.doRequest = async (session, models, vars) => {
     //TODO:
-    let data = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
-    vars.session.incidentBusObId = data.body[0].busObId;
-    console.log(data.body);
-    let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
-        access_token: vars.session.access_token,
-        busObId: vars.session.incidentBusObId,
-        includeRequired: true,
-        includeAll: false
-    });
-    console.log(requestData.body);
     let validValues = await session.rest.cherwellapi.getValidValues({ access_token: vars.session.access_token });
     console.log(validValues.body);
 };
@@ -46,4 +36,19 @@ exports.doReport = async (session, models, vars) => {
     }
     console.log("firstNamefieldId: " + vars.session.firstNamefieldId)
     console.log("lastNamefieldId: " + vars.session.lastNamefieldId)
+    // TODO: check if we can be sure that incidentBusObId not changing
+    if (!vars.session.incidentBusObId) {
+        let data = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
+        vars.session.incidentBusObId = data.body[0].busObId;
+        console.log(data.body);
+    }
+    console.log("incidentBusObId: " + vars.session.incidentBusObId)
+    // TODO: check if we can reuse GetBusinessObjectTemplate data for all next reports ?
+    let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
+        access_token: vars.session.access_token,
+        busObId: vars.session.incidentBusObId,
+        includeRequired: true,
+        includeAll: false
+    });
+    console.log(requestData.body);
 };
