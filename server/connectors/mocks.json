@@ -122,15 +122,19 @@
       "getBusinessObjectSchema": {
         "models": {
           "menu": {},
-          "login": {},
+          "login": {
+            "error": {}
+          },
           "home": {},
-          "inserts_homelogo": {}
+          "inserts_homelogo": {},
+          "inserts_footer": {},
+          "incident_categories": {},
+          "incident_createissue": {},
+          "incident_subcategories": {}
         },
         "expressions": {},
         "vars": {
-          "session": {
-            "busObId": "93405caa107c376a2bd15c4c8885a900be316f3a72"
-          },
+          "session": {},
           "local": {},
           "screen": {},
           "request": {},
@@ -146,9 +150,7 @@
             }
           }
         },
-        "tokens": {
-          "busObId": "93405caa107c376a2bd15c4c8885a900be316f3a72"
-        }
+        "tokens": {}
       },
       "GetBusinessObjectTemplate": {
         "models": {
