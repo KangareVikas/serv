@@ -22,14 +22,6 @@
 </ion-header>
 <ion-content data-comp-id="content.1">
     <ion-list #top data-comp-id="list.1" style="margin: 0px 0px 16px;">
-        <ion-title data-comp-id="title.1">
-            <div *ngIf="data.errorMessages.length > 0" color="danger" data-comp-id="text.2"
-                ion-text
-                style="margin: 5px 5px; white-space: normal; font-size: 18px; text-align: center;">Required Information :</div>
-            <div *ngFor="let item of data.errorMessages; let i = index"
-                [innerHTML]="item.errorMessage" color="danger" data-comp-id="text.3" ion-text
-                style="margin: 5px 5px; white-space: normal; font-size: 18px; text-align: center;"></div>
-        </ion-title>
         <ion-item data-comp-id="input.1" mode="ios">
             <ion-label class=" required" color="dark" mode="ios"
                 style="font-size: 16px; width: 70px;">By</ion-label>
