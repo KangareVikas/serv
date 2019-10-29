@@ -34,16 +34,16 @@
       ]
     },
     {
-      "id": "createissue",
-      "name": "Create Issue",
-      "sourceScreenId": "blank",
-      "sourceAppId": "default"
-    },
-    {
       "id": "incident",
       "name": "Incident",
       "folder": true,
       "screens": [
+        {
+          "id": "createissue",
+          "name": "Create Issue",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
+        },
         {
           "id": "categories",
           "name": "Categories",

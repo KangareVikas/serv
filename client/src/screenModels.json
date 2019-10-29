@@ -90,16 +90,16 @@
     "properties": {},
     "id": "subcategories"
   },
-  "createissue": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {},
-    "id": "createissue"
-  },
   "incident_categories": {
     "type": "object",
     "comment": "Blank",
     "properties": {},
-    "id": "categories"
+    "id": "incident_categories"
+  },
+  "incident_createissue": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "createissue"
   }
 }

@@ -4,7 +4,7 @@ import { login_PhonePortrait } from '../pages/login/PhonePortrait/login';
 import { home_PhonePortrait } from '../pages/home/PhonePortrait/home';
 import { inserts_homelogo_PhonePortrait } from '../pages/inserts/homelogo/PhonePortrait/homelogo';
 import { inserts_footer_PhonePortrait } from '../pages/inserts/footer/PhonePortrait/footer';
-import { createissue_PhonePortrait } from '../pages/createissue/PhonePortrait/createissue';
+import { incident_createissue_PhonePortrait } from '../pages/incident/createissue/PhonePortrait/createissue';
 import { incident_categories_PhonePortrait } from '../pages/incident/categories/PhonePortrait/categories';
 import { subcategories_PhonePortrait } from '../pages/subcategories/PhonePortrait/subcategories';
 export class Screens {
@@ -14,7 +14,7 @@ export class Screens {
     home_PhonePortrait,
     inserts_homelogo_PhonePortrait,
     inserts_footer_PhonePortrait,
-    createissue_PhonePortrait,
+    incident_createissue_PhonePortrait,
     incident_categories_PhonePortrait,
     subcategories_PhonePortrait
   ];
@@ -31,8 +31,8 @@ export class Screens {
     'inserts_footer': {
       PhonePortrait: inserts_footer_PhonePortrait
     },
-    'createissue': {
-      PhonePortrait: createissue_PhonePortrait
+    'incident_createissue': {
+      PhonePortrait: incident_createissue_PhonePortrait
     },
     'incident_categories': {
       PhonePortrait: incident_categories_PhonePortrait
