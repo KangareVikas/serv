@@ -5,8 +5,8 @@ import { home_PhonePortrait } from '../pages/home/PhonePortrait/home';
 import { inserts_homelogo_PhonePortrait } from '../pages/inserts/homelogo/PhonePortrait/homelogo';
 import { inserts_footer_PhonePortrait } from '../pages/inserts/footer/PhonePortrait/footer';
 import { incident_createissue_PhonePortrait } from '../pages/incident/createissue/PhonePortrait/createissue';
+import { incident_subcategories_PhonePortrait } from '../pages/incident/subcategories/PhonePortrait/subcategories';
 import { incident_categories_PhonePortrait } from '../pages/incident/categories/PhonePortrait/categories';
-import { subcategories_PhonePortrait } from '../pages/subcategories/PhonePortrait/subcategories';
 export class Screens {
   static declarations = [
     MenuComponent,
@@ -15,8 +15,8 @@ export class Screens {
     inserts_homelogo_PhonePortrait,
     inserts_footer_PhonePortrait,
     incident_createissue_PhonePortrait,
-    incident_categories_PhonePortrait,
-    subcategories_PhonePortrait
+    incident_subcategories_PhonePortrait,
+    incident_categories_PhonePortrait
   ];
   static mapping = {
     'login': {
@@ -34,11 +34,11 @@ export class Screens {
     'incident_createissue': {
       PhonePortrait: incident_createissue_PhonePortrait
     },
+    'incident_subcategories': {
+      PhonePortrait: incident_subcategories_PhonePortrait
+    },
     'incident_categories': {
       PhonePortrait: incident_categories_PhonePortrait
-    },
-    'subcategories': {
-      PhonePortrait: subcategories_PhonePortrait
     }
   }
 }

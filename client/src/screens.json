@@ -45,18 +45,18 @@
           "sourceAppId": "default"
         },
         {
+          "id": "subcategories",
+          "name": "Subcategories",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
+        },
+        {
           "id": "categories",
           "name": "Categories",
           "sourceScreenId": "blank",
           "sourceAppId": "default"
         }
       ]
-    },
-    {
-      "id": "subcategories",
-      "name": "Subcategories",
-      "sourceScreenId": "blank",
-      "sourceAppId": "default"
     },
     {
       "id": "request",

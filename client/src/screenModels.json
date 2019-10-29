@@ -84,12 +84,6 @@
     },
     "id": "inserts_footer"
   },
-  "subcategories": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {},
-    "id": "subcategories"
-  },
   "incident_categories": {
     "type": "object",
     "comment": "Blank",
@@ -100,6 +94,12 @@
     "type": "object",
     "comment": "Blank",
     "properties": {},
-    "id": "createissue"
+    "id": "incident_createissue"
+  },
+  "incident_subcategories": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "subcategories"
   }
 }
