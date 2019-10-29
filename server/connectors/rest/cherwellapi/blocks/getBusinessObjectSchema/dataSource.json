@@ -1,6 +1,6 @@
 {
   "template": {
-    "url": "/api/V1/getbusinessobjectschema/busobid/{busObId}",
+    "url": "/api/V1/getbusinessobjectschema/busobid/{custBusObId}",
     "method": "GET",
     "query": {},
     "headers": {},
@@ -14,7 +14,7 @@
   },
   "functions": {
     "getBusinessObjectSchema": [
-      "busObId"
+      "custBusObId"
     ]
   }
 }
