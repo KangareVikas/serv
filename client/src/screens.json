@@ -56,6 +56,12 @@
       "name": "Incident",
       "folder": true,
       "screens": []
+    },
+    {
+      "id": "request",
+      "name": "Request",
+      "folder": true,
+      "screens": []
     }
   ],
   "startScreen": "login",
