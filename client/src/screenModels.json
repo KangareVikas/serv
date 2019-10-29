@@ -90,12 +90,6 @@
     "properties": {},
     "id": "incident_categories"
   },
-  "incident_createissue": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {},
-    "id": "incident_createissue"
-  },
   "incident_subcategories": {
     "type": "object",
     "comment": "Blank",
