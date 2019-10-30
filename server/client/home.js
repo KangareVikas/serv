@@ -21,10 +21,12 @@ exports.onload = async (session, models, vars) => {
         console.log(data1.body);
     }
     console.log('incidentBusObId: ' + vars.session.incidentBusObId);
-    await session.rest.cherwellapi.getAllincidents({
+    let openedTickets = await session.rest.cherwellapi.getAllincidents({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId
     });
+    console.log('openedTickets: ');
+    console.log(openedTickets.body);
 };
 /**
  * @param {Session} session
