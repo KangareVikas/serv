@@ -31,10 +31,12 @@
     </ion-row>
     <ion-row data-comp-id="row.3" style="padding: 0px 8px 58px;">
         <ion-col (click)="method('selectCategory', {title: 'computer'})"
-            *ngFor="let item of data.services; let i = index" col-12 data-comp-id="column.5"
-            data-img
-            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0; background-image: url(assets/images/request/services/enabling_IT_bg.png);"><img [src]="item.icon" data-comp-id="img.1"
-            style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
+            *ngFor="let item of data.services; let i = index"
+            [ngStyle]="{ backgroundImage: 'url(' + item.bg + ')'}" col-12
+            data-comp-id="column.5" data-img
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0;">
+            <img [src]="item.icon" data-comp-id="img.1"
+                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
             <div [innerHTML]="item.title" color="white" data-comp-id="text.3" ion-text
                 style="font-size: 25px; margin: 0 5px;"></div>
         </ion-col>
