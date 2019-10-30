@@ -2,55 +2,89 @@
   "selectService": {},
   "services": [
     {
-      "title": "Access Management"
+      "title": "Access Management",
+      "icon": "assets/images/request/services/access_icon.png",
+      "bg": "assets/images/request/services/access_bg.png"
     },
     {
-      "title": "Cloud Services"
+      "title": "Cloud Services",
+      "icon": "assets/images/request/services/cloud_services_icon.png",
+      "bg": "assets/images/request/services/cloud_services_bg.png"
     },
     {
-      "title": "Database Services"
+      "title": "Database Services",
+      "icon": "assets/images/request/services/database_services_icon.png",
+      "bg": "assets/images/request/services/database_services_bg.png"
     },
     {
-      "title": "Enabling IT"
+      "title": "Enabling IT",
+      "icon": "assets/images/request/services/enabling_IT_icon.png",
+      "bg": "assets/images/request/services/enabling_IT_bg.png"
     },
     {
-      "title": "Enterprise Services"
+      "title": "Enterprise Services",
+      "icon": "assets/images/request/services/enterprise_services_icon.png",
+      "bg": "assets/images/request/services/enterprise_services.png"
     },
     {
-      "title": "Facilities"
+      "title": "Facilities",
+      "icon": "assets/images/request/services/facilities_icon.png",
+      "bg": "assets/images/request/services/facilities_bg.png"
     },
     {
-      "title": "Generic Services"
+      "title": "Generic Services",
+      "icon": "assets/images/request/services/generic_services_icon.png",
+      "bg": "assets/images/request/services/generic_services_bg.png"
     },
     {
-      "title": "HR"
+      "title": "HR",
+      "icon": "assets/images/request/services/HR_icon.png",
+      "bg": "assets/images/request/services/HR_bg.png"
     },
     {
-      "title": "Managed Print Service"
+      "title": "Managed Print Service",
+      "icon": "assets/images/request/services/managed_print_service_icon.png",
+      "bg": "assets/images/request/services/managed_print_service_bg.png"
     },
     {
-      "title": "Messaging and Collaboration"
+      "title": "Messaging and Collaboration",
+      "icon": "assets/images/request/services/messaging_collaboration_icon.png",
+      "bg": "assets/images/request/services/messaging_collaboration_bg.png"
     },
     {
-      "title": "Middleware"
+      "title": "Middleware",
+      "icon": "assets/images/request/services/middleware.png",
+      "bg": "assets/images/request/services/middleware_bg.png"
     },
     {
-      "title": "Network Services"
+      "title": "Network Services",
+      "icon": "assets/images/request/services/network_services_icon.png",
+      "bg": "assets/images/request/services/network_services_bg.png"
     },
     {
-      "title": "Security"
+      "title": "Security",
+      "icon": "assets/images/request/services/security_icon.png",
+      "bg": "assets/images/request/services/security_bg.png"
     },
     {
-      "title": "Servers Management"
+      "title": "Servers Management",
+      "icon": "assets/images/request/services/servers_management_icon.png",
+      "bg": "assets/images/request/services/servers_management_bg.png"
     },
     {
-      "title": "Storage Services"
+      "title": "Storage Services",
+      "icon": "assets/images/request/services/storage_services_icon.png",
+      "bg": "assets/images/request/services/storage_services_bg.png"
     },
     {
-      "title": "Telecom Services"
+      "title": "Telecom Services",
+      "icon": "assets/images/request/services/telecom_service_icon.png",
+      "bg": "assets/images/request/services/telecom_service_bg.png"
     },
     {
-      "title": "Workplace"
+      "title": "Workplace",
+      "icon": "assets/images/request/services/workplace_icon.png",
+      "bg": "assets/images/request/services/workplace_bg.png"
     }
   ]
 }
