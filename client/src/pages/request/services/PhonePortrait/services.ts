@@ -60,7 +60,7 @@ export class request_services_PhonePortrait extends Screen {
             },
             "Network Services": {
                 icon: "network_services_icon.png",
-                bg: "network_services_bg.png"
+                bg: "network_service_bg.png"
             },
             "Security": {
                 icon: "security_icon.png",
@@ -76,7 +76,7 @@ export class request_services_PhonePortrait extends Screen {
             },
             "Telecom Services": {
                 icon: "telecom_service_icon.png",
-                bg: "telecom_service_bg.png"
+                bg: "telecom_services_bg.png"
             },
             "Workplace": {
                 icon: "workplace_icon.png",
