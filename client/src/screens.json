@@ -89,6 +89,12 @@
           "sourceAppId": "default"
         }
       ]
+    },
+    {
+      "id": "tickets",
+      "name": "Tickets",
+      "folder": true,
+      "screens": []
     }
   ],
   "startScreen": "login",
