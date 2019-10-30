@@ -241,5 +241,37 @@
     "comment": "Blank",
     "properties": {},
     "id": "articles_findarticle"
+  },
+  "mytickets": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "back": {
+        "type": "action"
+      },
+      "search": {
+        "type": "action"
+      },
+      "selectService": {
+        "type": "method",
+        "parameters": {
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "services": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "id": "mytickets"
   }
 }

@@ -95,6 +95,12 @@
       "name": "Tickets",
       "folder": true,
       "screens": []
+    },
+    {
+      "id": "mytickets",
+      "name": "My Tickets",
+      "sourceScreenId": "request_services",
+      "sourceAppId": "cherwellrequest"
     }
   ],
   "startScreen": "login",
