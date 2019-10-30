@@ -28,12 +28,14 @@
             <ion-input [(ngModel)]="data.byUser" mode="ios" placeholder="Type here..."
                 type="text"></ion-input>
         </ion-item>
-        <ion-item data-comp-id="input.2" mode="ios">
-            <ion-icon class=" ion-ios-search" color="primary" item-right style></ion-icon>
-            <ion-label mode="ios">For</ion-label>
-            <ion-input [(ngModel)]="data.forUser" mode="ios" placeholder="Search..."
-                type="text"></ion-input>
-        </ion-item>
+        <div data-comp-id="div.2" style="margin: 0; padding: 0;">
+            <ion-item data-comp-id="input.2" mode="ios">
+                <ion-icon class=" ion-ios-search" color="primary" item-right style></ion-icon>
+                <ion-label mode="ios">For</ion-label>
+                <ion-input [(ngModel)]="data.forUser" mode="ios" placeholder="Search..."
+                    type="text"></ion-input>
+            </ion-item>
+        </div>
         <ion-item data-comp-id="input.3" mode="ios">
             <ion-label mode="ios">Email</ion-label>
             <ion-input [(ngModel)]="data.email" mode="ios" placeholder="Type here..."
@@ -98,7 +100,7 @@
             <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
-        <div data-comp-id="div.1" style="padding: 32px 16px 16px;">
+        <div data-comp-id="div.1" style="padding: 32px 16px 16px; margin: 0;">
             <button (click)="action('submit')" color="secondary" data-comp-id="button.3"
                 full ion-button mode="ios" style="border-radius: 20px;">
                 <span>Submit</span>
