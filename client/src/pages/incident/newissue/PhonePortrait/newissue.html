@@ -50,9 +50,9 @@
             <ion-label>Label</ion-label>
             <ion-input placeholder="Type here..." type="text"></ion-input>
         </ion-item>
-        <ion-row data-comp-id="row.4"
+        <ion-row data-comp-id="row.2"
             style="margin: 0; padding: 0; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-            <ion-col col-auto data-comp-id="column.7"
+            <ion-col col-auto data-comp-id="column.4"
                 style="padding: 0; margin: 0; min-width: calc(100% - 50px);">
                 <div data-comp-id="take-photo.1" take-photo>
                     <ion-item>
@@ -69,9 +69,9 @@
                     <camera-canvas></camera-canvas>
                 </div>
             </ion-col>
-            <ion-col col-auto data-comp-id="column.8"
+            <ion-col col-auto data-comp-id="column.5"
                 style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
-                <ion-icon class=" ion-ios-remove-circle" data-comp-id="icon.1"
+                <ion-icon class=" ion-ios-remove-circle" color="stable" data-comp-id="icon.1"
                     style="font-size: 24px; padding: 12px;"></ion-icon>
             </ion-col>
         </ion-row>
@@ -128,8 +128,8 @@
             <ion-input [(ngModel)]="data.seat" maxlength="30" mode="ios"
                 placeholder="Type here..." type="text"></ion-input>
         </ion-item>
-        <ion-row data-comp-id="row.2" style="margin: 0px 0px 0px; padding: 0px 0px;">
-            <ion-col data-comp-id="column.4" style="margin: 0px 0px 0px; padding: 2px 0px;">
+        <ion-row data-comp-id="row.3" style="margin: 0px 0px 0px; padding: 0px 0px;">
+            <ion-col data-comp-id="column.6" style="margin: 0px 0px 0px; padding: 2px 0px;">
                 <div [(ngModel)]="data.photo" data-comp-id="take-photo.2" take-photo>
                     <ion-item>
                         <ion-thumbnail item-right>
@@ -145,7 +145,7 @@
                     <camera-canvas></camera-canvas>
                 </div>
             </ion-col>
-            <ion-col (click)="removeAttachment()" *ngIf="data.photo" data-comp-id="column.5"
+            <ion-col (click)="removeAttachment()" *ngIf="data.photo" data-comp-id="column.7"
                 style="max-width: 52px; padding: 0px 0px; margin: 0px 0px 0px;">
                 <button data-comp-id="fab-button.1" ion-fab mini
                     style="margin: 6px; padding: 0;">
@@ -169,8 +169,8 @@
                 placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
     </ion-list>
-    <ion-row data-comp-id="row.3">
-        <ion-col data-comp-id="column.6"
+    <ion-row data-comp-id="row.4">
+        <ion-col data-comp-id="column.8"
             style="text-align: center; padding: 0 16px 16px;">
             <button (click)="action('submit')" color="secondary" data-comp-id="button.3"
                 full ion-button mode="ios" style="margin: 0; border-radius: 20px;">
