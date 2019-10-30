@@ -14,7 +14,7 @@ export class request_services_PhonePortrait extends Screen {
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
 
-    this.services = {
+    this.data.services = {
         "Access Management": {
             icon: "access_management_icon.png",
             bg: "access_bg.png"
