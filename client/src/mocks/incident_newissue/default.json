@@ -1,17 +1,4 @@
 {
-  "building": {
-    "options": [
-      {
-        "label": "Midtown Center",
-        "value": "Midtown Center"
-      },
-      {
-        "label": "Urbana",
-        "value": "Urbana"
-      }
-    ],
-    "selected": "Midtown Center"
-  },
   "type": {
     "options": [
       {
@@ -29,14 +16,9 @@
     ],
     "selected": "Desk"
   },
-  "caller": "",
-  "callBackNumber": "123-456-7890",
-  "typeReadOnly": true,
-  "floor": "",
   "seat": "",
   "photo": "",
   "shortDescription": "",
-  "additionalComments": "",
   "state": {
     "options": [
       {

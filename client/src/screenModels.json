@@ -150,12 +150,6 @@
       "urgency": {
         "type": "select"
       },
-      "caller": {
-        "type": "string"
-      },
-      "additionalComments": {
-        "type": "string"
-      },
       "shortDescription": {
         "type": "string"
       },
@@ -168,44 +162,14 @@
       "back": {
         "type": "action"
       },
-      "callBackNumber": {
-        "type": "string"
-      },
-      "building": {
-        "type": "select"
-      },
       "type": {
         "type": "select"
-      },
-      "typeReadOnly": {
-        "type": "boolean"
-      },
-      "buildingChanged": {
-        "type": "action"
       },
       "seat": {
         "type": "string"
       },
       "photo": {
         "type": "file"
-      },
-      "attachPhoto": {
-        "type": "action"
-      },
-      "VIP": {
-        "type": "boolean"
-      },
-      "location": {
-        "type": "string"
-      },
-      "typeChanged": {
-        "type": "action"
-      },
-      "floor": {
-        "type": "string"
-      },
-      "home": {
-        "type": "action"
       },
       "removeAttachment": {
         "type": "action"
