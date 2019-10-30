@@ -303,6 +303,13 @@
       },
       "service": {
         "type": "string"
+      },
+      "selectedServices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {}
+        }
       }
     },
     "id": "request_subservices"
