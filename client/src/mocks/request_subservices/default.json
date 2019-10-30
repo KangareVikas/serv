@@ -21,5 +21,13 @@
       "select": ""
     }
   ],
-  "service": "Cloud Services"
+  "service": "Cloud Services",
+  "selectedServices": [
+    {
+      "title": "Cloud Service"
+    },
+    {
+      "title": "Azure"
+    }
+  ]
 }
