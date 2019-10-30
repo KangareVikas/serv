@@ -73,5 +73,27 @@ exports.start = async (session, models, vars) => {
         'New York City HQ': 'TECH CENTER EAST COAST',
         'Houston Main Campus': 'TECH CENTER CENTRAL REGION'
     };
+
+    vars.session.urgencyMap = {
+        options: [
+            {
+                'label': '',
+                'value': ''
+            },
+            {
+                'label': '1- High',
+                'value': '1'
+            },
+            {
+                'label': '2- Medium',
+                'value': '2'
+            },
+            {
+                'label': '3- Low',
+                'value': '3'
+            }
+        ],
+        selected: ''
+    };
     await session.screen('login');
 };
