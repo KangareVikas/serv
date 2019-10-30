@@ -1,0 +1,40 @@
+{
+  "type": {
+    "options": [
+      {
+        "label": "Access",
+        "value": "Access"
+      },
+      {
+        "label": "Computer",
+        "value": "Computer"
+      },
+      {
+        "label": "Desk",
+        "value": "Desk"
+      }
+    ],
+    "selected": "Desk"
+  },
+  "seat": "",
+  "photo": "",
+  "shortDescription": "",
+  "state": {
+    "options": [
+      {
+        "label": "Midtown"
+      },
+      {
+        "label": "Reston"
+      }
+    ],
+    "selected": {}
+  },
+  "email": "evan.employee@hcl.com",
+  "urgency": {
+    "options": []
+  },
+  "footer": {
+    "active": ""
+  }
+}

@@ -80,6 +80,12 @@
           "name": "Subservices",
           "sourceScreenId": "incident_subcategories",
           "sourceAppId": "cherwellrequest"
+        },
+        {
+          "id": "newrequest",
+          "name": "New Request",
+          "sourceScreenId": "incident_newissue",
+          "sourceAppId": "cherwellrequest"
         }
       ]
     },

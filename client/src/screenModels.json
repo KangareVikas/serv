@@ -317,5 +317,58 @@
       }
     },
     "id": "request_subservices"
+  },
+  "request_newrequest": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "urgency": {
+        "type": "select"
+      },
+      "shortDescription": {
+        "type": "string"
+      },
+      "submit": {
+        "type": "action"
+      },
+      "search": {
+        "type": "action"
+      },
+      "back": {
+        "type": "action"
+      },
+      "type": {
+        "type": "select"
+      },
+      "seat": {
+        "type": "string"
+      },
+      "photo": {
+        "type": "file"
+      },
+      "removeAttachment": {
+        "type": "action"
+      },
+      "email": {
+        "type": "string"
+      },
+      "cancel": {
+        "type": "action"
+      },
+      "byUser": {
+        "type": "string"
+      },
+      "forUser": {
+        "type": "string"
+      },
+      "phone": {
+        "type": "string"
+      },
+      "footer": {
+        "type": "model",
+        "model": "footer"
+      }
+    },
+    "id": "request_newrequest"
   }
 }
