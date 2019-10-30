@@ -28,8 +28,9 @@
 </ion-header>
 <ion-content class="content-calm" data-comp-id="content.1" style>
     <ion-list data-comp-id="list.1">
-        <ion-item data-comp-id="item.1" detail-none>
-            <div data-comp-id="text.5" ion-text>List Item</div>
+        <ion-item *ngFor="let item of data.subcategories; let i = index"
+            data-comp-id="item.1" detail-none>
+            <div [innerHTML]="item.title" data-comp-id="text.5" ion-text></div>
         </ion-item>
     </ion-list>
 </ion-content>
