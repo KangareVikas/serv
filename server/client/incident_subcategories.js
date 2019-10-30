@@ -4,8 +4,7 @@
  * @param {Vars} vars
 */
 exports['subcategories[].select'] = async (session, models, vars) => {
-    console.log(vars.params);
-    console.log(models.incident_subcategories);
+    vars.session.selectedSubCatagoryForIncident = vars.item.title;
 };
 /**
  * @param {Session} session
@@ -13,6 +12,7 @@ exports['subcategories[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
+    vars.session.selectedSubCatagoryForIncident = null;
     await session.screen('incident_categories');
 };
 /**
@@ -21,4 +21,5 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
+    vars.session.selectedSubCatagoryForIncident = null;
 };
