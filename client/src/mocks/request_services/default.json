@@ -1,58 +1,56 @@
 {
   "selectService": {},
   "services": [
-    [
-      {
-        "title": "Access Management"
-      },
-      {
-        "title": "Cloud Services"
-      },
-      {
-        "title": "Database Services"
-      },
-      {
-        "title": "Enabling IT"
-      },
-      {
-        "title": "Enterprise Services"
-      },
-      {
-        "title": "Facilities"
-      },
-      {
-        "title": "Generic Services"
-      },
-      {
-        "title": "HR"
-      },
-      {
-        "title": "Managed Print Service"
-      },
-      {
-        "title": "Messaging and Collaboration"
-      },
-      {
-        "title": "Middleware"
-      },
-      {
-        "title": "Network Services"
-      },
-      {
-        "title": "Security"
-      },
-      {
-        "title": "Servers Management"
-      },
-      {
-        "title": "Storage Services"
-      },
-      {
-        "title": "Telecom Services"
-      },
-      {
-        "title": "Workplace"
-      }
-    ]
+    {
+      "title": "Access Management"
+    },
+    {
+      "title": "Cloud Services"
+    },
+    {
+      "title": "Database Services"
+    },
+    {
+      "title": "Enabling IT"
+    },
+    {
+      "title": "Enterprise Services"
+    },
+    {
+      "title": "Facilities"
+    },
+    {
+      "title": "Generic Services"
+    },
+    {
+      "title": "HR"
+    },
+    {
+      "title": "Managed Print Service"
+    },
+    {
+      "title": "Messaging and Collaboration"
+    },
+    {
+      "title": "Middleware"
+    },
+    {
+      "title": "Network Services"
+    },
+    {
+      "title": "Security"
+    },
+    {
+      "title": "Servers Management"
+    },
+    {
+      "title": "Storage Services"
+    },
+    {
+      "title": "Telecom Services"
+    },
+    {
+      "title": "Workplace"
+    }
   ]
 }
