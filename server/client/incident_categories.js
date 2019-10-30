@@ -12,7 +12,8 @@ exports.selectCategory = async (session, models, vars) => {
         list.map(item => { subcategories.push({ "title": item }) })
         models.incident_subcategories.category = vars.session.selectionItems[vars.params.title].label;
         models.incident_subcategories.subcategories = subcategories;
-        vars.session.selectedCatagoryForIncident = vars.params.title;
+        vars.session.selectedCatagoryLabel = vars.session.selectionItems[vars.params.title].label;
+        vars.session.selectedCatagorySuffix = vars.session.selectionItems[vars.params.title].suffix;
         await session.screen('incident_subcategories');
     }
 };
@@ -22,7 +23,7 @@ exports.selectCategory = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
-    vars.session.selectedCatagoryForIncident = null;
+    vars.session.selectedCatagoryLabel = null;
 };
 /**
  * @param {Session} session
@@ -30,5 +31,5 @@ exports.search = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
-    vars.session.selectedCatagoryForIncident = null;
+    vars.session.selectedCatagoryLabel = null;
 };
