@@ -105,7 +105,7 @@ export class request_services_PhonePortrait extends Screen {
           service.icon = `assets/images/request/services/${icon}`;
           service.bg = `assets/images/request/services/${bg}`;
       });
-      console.log(data);
+      console.log(JSON.stringify(data));
   }
   onBackButton(): boolean {
     //(Android) returns :
