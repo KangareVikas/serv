@@ -4,6 +4,13 @@
  * @param {Vars} vars
 */
 exports.selectCategory = async (session, models, vars) => {
+    console.log(vars.params.title);
+    if (vars.params.title === 'other') {
+    } else {
+        models.incident_subcategories.category = undefined;
+        models.incident_subcategories.subcategories = undefined;
+        await session.screen('incident_subcategories');
+    }
 };
 /**
  * @param {Session} session
