@@ -31,11 +31,13 @@
         <ion-item data-comp-id="input.2" mode="ios">
             <ion-icon class=" ion-ios-search" color="primary" item-right style></ion-icon>
             <ion-label mode="ios">For</ion-label>
-            <ion-input mode="ios" placeholder="Search..." type="text"></ion-input>
+            <ion-input [(ngModel)]="data.forUser" mode="ios" placeholder="Search..."
+                type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.3" mode="ios">
             <ion-label mode="ios">Email</ion-label>
-            <ion-input mode="ios" placeholder="Type here..." type="text"></ion-input>
+            <ion-input [(ngModel)]="data.email" mode="ios" placeholder="Type here..."
+                type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.4" mode="ios">
             <ion-label class=" required" mode="ios">Phone</ion-label>

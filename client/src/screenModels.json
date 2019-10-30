@@ -241,6 +241,12 @@
       },
       "byUser": {
         "type": "string"
+      },
+      "forUser": {
+        "type": "string"
+      },
+      "phone": {
+        "type": "string"
       }
     },
     "id": "incident_newissue"
