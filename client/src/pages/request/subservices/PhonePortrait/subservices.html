@@ -22,7 +22,7 @@
                 <span data-comp-id="text.2" ion-text style="font-size: 17px;">I would like to order</span>
                 <div *ngFor="let item of data.selectedServices; let i = index"
                     data-comp-id="div.1" style="margin: 0; padding: 0; width: auto;">
-                    <span [innerHTML]="data.service" color="primary" data-comp-id="text.3" ion-text
+                    <span [innerHTML]="item.title" color="primary" data-comp-id="text.3" ion-text
                         style="font-size: 17px; padding: 0 2px;"></span>
                 </div>
                 <span [innerHTML]="data.suffix" data-comp-id="text.4" ion-text
