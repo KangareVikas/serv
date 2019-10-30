@@ -49,10 +49,10 @@
             "id": {
               "type": "string"
             },
-            "description": {
+            "Description": {
               "type": "string"
             },
-            "created": {
+            "CreatedDateTime": {
               "type": "date",
               "format": "YYYY-MM-DD"
             }
