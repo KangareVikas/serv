@@ -6,7 +6,10 @@
       "id": "login",
       "name": "Login",
       "sourceScreenId": "blank",
-      "sourceAppId": "default"
+      "sourceAppId": "default",
+      "disableMenuSwipe": true,
+      "statusbarContent": null,
+      "statusbarHidden": null
     },
     {
       "id": "home",
