@@ -30,17 +30,8 @@
     ],
     "selected": {}
   },
-  "requestor": "Evan Employee",
   "email": "evan.employee@hcl.com",
-  "urgencySelect": {
+  "urgency": {
     "options": []
-  },
-  "errorMessages": [
-    {
-      "errorMessage": "Description"
-    },
-    {
-      "errorMessage": "Short Summary"
-    }
-  ]
+  }
 }
