@@ -30,7 +30,7 @@
         </ion-col>
     </ion-row>
     <ion-row data-comp-id="row.3" style="padding: 0px 8px 58px;">
-        <ion-col (click)="method('selectCategory', {title: 'computer'})"
+        <ion-col (click)="method('selectService', {title: item.title})"
             *ngFor="let item of data.services; let i = index"
             [ngStyle]="{ backgroundImage: 'url(' + item.bg + ')'}" col-12
             data-comp-id="column.5" data-img
