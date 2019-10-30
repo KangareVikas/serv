@@ -93,7 +93,25 @@
   "incident_subcategories": {
     "type": "object",
     "comment": "Blank",
-    "properties": {},
+    "properties": {
+      "category": {
+        "type": "string"
+      },
+      "subcategories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "select": {
+              "type": "action"
+            }
+          }
+        }
+      }
+    },
     "id": "incident_subcategories"
   },
   "incident_newissue": {

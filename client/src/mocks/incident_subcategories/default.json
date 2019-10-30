@@ -1,1 +1,25 @@
-{}
+{
+  "subcategories": [
+    {
+      "title": "Monitor",
+      "select": ""
+    },
+    {
+      "title": "Keyboard and/or mouse",
+      "select": ""
+    },
+    {
+      "title": "Docking station",
+      "select": ""
+    },
+    {
+      "title": "Phone",
+      "select": ""
+    },
+    {
+      "title": "Other",
+      "select": ""
+    }
+  ],
+  "category": "Desk Environment"
+}
