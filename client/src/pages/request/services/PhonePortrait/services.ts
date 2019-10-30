@@ -15,23 +15,23 @@ export class request_services_PhonePortrait extends Screen {
     // Logic to run when the screen loads goes here.
 
     this.services = {
-        "AccessManagement": {
+        "Access Management": {
             icon: "access_management_icon.png",
             bg: "access_bg.png"
         },
-        "CloudServices": {
+        "Cloud Services": {
             icon: "cloud_services_icon.png",
             bg: "cloud_services_bg.png"
         },
-        "DatabaseServices": {
+        "Database Services": {
             icon: "database_services_icon.png",
             bg: "database_services_bg.png"
         },
-        "EnablingIT": {
+        "Enabling IT": {
             icon: "enabling_IT_icon.png",
             bg: "enabling_IT_bg.png"
         },
-        "EnterpriseServices": {
+        "Enterprise Services": {
             icon: "enterprise_services_icon.png",
             bg: "enterprise_services.png"
         },
@@ -39,7 +39,7 @@ export class request_services_PhonePortrait extends Screen {
             icon: "facilities_icon.png",
             bg: "facilities_bg.png"
         },
-        "GenericServices": {
+        "Generic Services": {
             icon: "generic_services_icon.png",
             bg: "generic_services_bg.png"
         },
@@ -47,11 +47,11 @@ export class request_services_PhonePortrait extends Screen {
             icon: "HR_icon.png",
             bg: "HR_bg.png"
         },
-        "ManagedPrintService": {
+        "Managed PrintService": {
             icon: "managed_print_service_icon.png",
             bg: "managed_print_service_bg.png"
         },
-        "MessagingandCollaboration": {
+        "Messagingand Collaboration": {
             icon: "messaging_collaboration_icon.png",
             bg: "messaging_collaboration_bg.png"
         },
@@ -59,7 +59,7 @@ export class request_services_PhonePortrait extends Screen {
             icon: "middleware_icon.png",
             bg: "middleware_bg.png"
         },
-        "NetworkServices": {
+        "Network Services": {
             icon: "network_services_icon.png",
             bg: "network_services_bg.png"
         },
@@ -67,15 +67,15 @@ export class request_services_PhonePortrait extends Screen {
             icon: "security_icon.png",
             bg: "security_bg.png"
         },
-        "ServersManagement": {
+        "Servers Management": {
             icon: "servers_management_icon.png",
             bg: "servers_management_bg.png"
         },
-        "StorageServices": {
+        "Storage Services": {
             icon: "storage_services_icon.png",
             bg: "storage_services_bg.png"
         },
-        "TelecomServices": {
+        "Telecom Services": {
             icon: "telecom_services_icon.png",
             bg: "telecom_services_bg.png"
         },
@@ -94,6 +94,12 @@ export class request_services_PhonePortrait extends Screen {
   onDataLoad(data: any): void {
     // Logic to run when the screen's data is updated goes here.
       console.log(data);
+      data.services.forEach(service => {
+          let icon = this.services[service.title] ? this.services[service.title].icon : 'other_technology_icon.png';
+          let bg = this.services[service.title] ? this.services[service.title].bg : 'other_technology_bg.png';
+          service.icon = `assets/images/request/services/${icon}`;
+          service.bg = `assets/images/request/services/${bg}`;
+      })
   }
   onBackButton(): boolean {
     //(Android) returns :
