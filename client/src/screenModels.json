@@ -131,6 +131,9 @@
       },
       "search": {
         "type": "action"
+      },
+      "suffix": {
+        "type": "string"
       }
     },
     "id": "incident_subcategories"

@@ -22,7 +22,9 @@
                 <span data-comp-id="text.2" ion-text style="font-size: 17px;">I need help with my</span>
                 <span [innerHTML]="data.category" color="primary" data-comp-id="text.3" ion-text
                     style="font-size: 17px; padding: 0 2px;"></span>
-                <span data-comp-id="text.4" ion-text style="font-size: 17px;">regarding my…</span>
+                <span [innerHTML]="data.suffix" data-comp-id="text.4" ion-text
+                    style="font-size: 17px;"></span>
+                <span data-comp-id="text.5" ion-text>...</span>
             </ion-col>
         </ion-row>
     </ion-navbar>
@@ -32,7 +34,7 @@
         <ion-item (click)="action('subcategories[item].select',[i])"
             *ngFor="let item of data.subcategories; let i = index" data-comp-id="item.1"
             detail-none>
-            <div [innerHTML]="item.title" data-comp-id="text.5" ion-text></div>
+            <div [innerHTML]="item.title" data-comp-id="text.6" ion-text></div>
         </ion-item>
     </ion-list>
 </ion-content>
