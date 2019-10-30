@@ -3,4 +3,12 @@ screen-login-phoneportrait {
         background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(6px);        
     }
+    .login-button {
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, .5);
+        background: rgba(0,155,222, 0.9);
+        backdrop-filter: blur(4px);      
+        > span {
+            font-size: 1.1em;
+        }   
+    }
 }
