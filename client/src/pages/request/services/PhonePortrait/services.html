@@ -1,0 +1,87 @@
+<ion-header data-comp-id="header.1" style="padding: 0; margin: 0;">
+    <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
+        <ion-row data-comp-id="row.1" style="padding: 0 0 4px;">
+            <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
+                <button (click)="action('back')" class="button-label-primary" clear
+                    data-comp-id="button.1" ion-button mode="ios" small
+                    style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
+                    <ion-icon class=" ion-ios-arrow-back" color="primary" style="font-size: 28px;"></ion-icon>
+                    <span style="padding: 0 0 0 8px;">Back</span>
+                </button>
+            </ion-col>
+            <ion-col data-comp-id="column.2" style="text-align: right; padding: 0 4px;">
+                <button (click)="action('search')" clear data-comp-id="button.2" icon-only
+                    ion-button mode="ios" small style="margin: 0 2px; font-size: 17px;">
+                    <ion-icon class=" ion-ios-search" color="primary"
+                        style="font-size: 24px; padding: 0 4px;"></ion-icon>
+                </button>
+            </ion-col>
+            <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 4px 16px;">
+                <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">Report Something</div>
+            </ion-col>
+        </ion-row>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-calm" data-comp-id="content.1" style>
+    <ion-row data-comp-id="row.2">
+        <ion-col data-comp-id="column.4">
+            <div color="black" data-comp-id="text.2" ion-text
+                style="font-size: 17px; margin: 16px;">I would like to order ...</div>
+        </ion-col>
+    </ion-row>
+    <ion-row data-comp-id="row.3" style="padding: 0px 8px 8px;">
+        <ion-col (click)="method('selectCategory', {title: 'computer'})" col-12
+            data-comp-id="column.5" data-img
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0; background-image: url(assets/images/request/services/computer_or_device_bg_01.png);"><img data-comp-id="img.1"
+            src="assets/images/request/services/computer_or_device_icon.png"
+            style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
+            <div color="white" data-comp-id="text.3" ion-text
+                style="font-size: 25px; margin: 0 5px;">Computer or Device</div>
+        </ion-col>
+        <ion-col (click)="method('selectCategory', {title: 'desk'})" col-12
+            data-comp-id="column.6" data-img
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; background-image: url(assets/images/request/services/desk_environment_bg.png); padding: 10px 10px 35px; margin: 0 0 8px 0;">
+            <img data-comp-id="img.2"
+                src="assets/images/request/services/desk environment_icon.png"
+                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
+            <div color="white" data-comp-id="text.4" ion-text
+                style="font-size: 25px; margin: 0 5px;">Desk Environment</div>
+        </ion-col>
+        <ion-col (click)="method('selectCategory', {title: 'access'})" col-12
+            data-comp-id="column.7" data-img
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; background-image: url(assets/images/request/services/access_bg.png); padding: 10px 10px 35px; margin: 0 0 8px 0;">
+            <img data-comp-id="img.3" src="assets/images/request/services/access_icon.png"
+                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
+            <div color="white" data-comp-id="text.5" ion-text
+                style="font-size: 25px; margin: 0 5px;">Access</div>
+        </ion-col>
+        <ion-col (click)="method('selectCategory', {title: 'software'})" col-12
+            data-comp-id="column.8" data-img
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; background-image: url(assets/images/request/services/software_bg.png); padding: 10px 10px 35px; margin: 0 0 8px 0;">
+            <img data-comp-id="img.4" src="assets/images/request/services/software_icon.png"
+                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
+            <div color="white" data-comp-id="text.6" ion-text
+                style="font-size: 25px; margin: 0 5px;">Software</div>
+        </ion-col>
+        <ion-col (click)="method('selectCategory', {title: 'printer'})" col-12
+            data-comp-id="column.9" data-img
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0; background-image: url(assets/images/request/services/printing_bg.png);">
+            <img data-comp-id="img.5" src="assets/images/request/services/printer_icon.png"
+                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
+            <div color="white" data-comp-id="text.7" ion-text
+                style="font-size: 25px; margin: 0 5px;">Printer</div>
+        </ion-col>
+        <ion-col (click)="method('selectCategory', {title: 'other'})" col-12
+            data-comp-id="column.10" data-img
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0; background-image: url(assets/images/request/services/other_technologies_bg.png);">
+            <img data-comp-id="img.6"
+                src="assets/images/request/services/other_technology_icon.png"
+                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
+            <div color="white" data-comp-id="text.8" ion-text
+                style="font-size: 25px; margin: 0 5px;">Other Technology</div>
+        </ion-col>
+    </ion-row>
+</ion-content>
+<ion-footer class="footer-white" data-comp-id="footer.1" style="height: 63px;">
+    <include-screen data-comp-id="include-screen.1" name="inserts_footer"></include-screen>
+</ion-footer>

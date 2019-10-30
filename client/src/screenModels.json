@@ -191,5 +191,26 @@
       }
     },
     "id": "incident_newissue"
+  },
+  "request_services": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "selectCategory": {
+        "type": "method",
+        "parameters": {
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "back": {
+        "type": "action"
+      },
+      "search": {
+        "type": "action"
+      }
+    },
+    "id": "request_services"
   }
 }

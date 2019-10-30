@@ -65,7 +65,14 @@
       "id": "request",
       "name": "Request",
       "folder": true,
-      "screens": []
+      "screens": [
+        {
+          "id": "services",
+          "name": "Services",
+          "sourceScreenId": "incident_categories",
+          "sourceAppId": "cherwellrequest"
+        }
+      ]
     }
   ],
   "startScreen": "login",
