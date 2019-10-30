@@ -22,6 +22,7 @@ exports.selectCategory = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
+    vars.session.selectedCatagoryForIncident = null;
 };
 /**
  * @param {Session} session
@@ -29,4 +30,5 @@ exports.search = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
+    vars.session.selectedCatagoryForIncident = null;
 };
