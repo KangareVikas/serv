@@ -41,18 +41,22 @@
         </ion-item>
         <ion-item data-comp-id="input.4" mode="ios">
             <ion-label class=" required" mode="ios">Phone</ion-label>
-            <ion-input mode="ios" placeholder="Type here..." type="text"></ion-input>
+            <ion-input [(ngModel)]="data.phone" mode="ios" placeholder="Type here..."
+                type="text"></ion-input>
         </ion-item>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
             <ion-label mode="ios">Type</ion-label>
-            <ion-select [selectOptions]="{cssClass: 'select-full'}" interface="alert"
-                mode="ios">
-                <ion-option data-comp-id="option.1"></ion-option>
+            <ion-select [(ngModel)]="data.type.selected"
+                [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
+                name="select.1">
+                <ion-option *ngFor="let item of data.type.options" [innerHTML]="item.label"
+                    [value]="item.value" data-comp-id="option.1"></ion-option>
             </ion-select>
         </ion-item>
         <ion-item data-comp-id="input.5" mode="ios">
             <ion-label mode="ios">Location or Seats</ion-label>
-            <ion-input mode="ios" placeholder="Type here..." type="text"></ion-input>
+            <ion-input [(ngModel)]="data.seat" mode="ios" placeholder="Type here..."
+                type="text"></ion-input>
         </ion-item>
         <ion-row data-comp-id="row.2"
             style="margin: 0; padding: 0; border-top: none; border-right: none; border-bottom: none; border-left: none;">
