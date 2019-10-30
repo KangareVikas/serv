@@ -9,7 +9,7 @@
     {
       "title": "Cloud Services",
       "icon": "assets/images/request/services/cloud_services_icon.png",
-      "bg": "assets/images/request/services/cloud_services_bg.png"
+      "bg": "assets/images/request/services/cloud_services.png"
     },
     {
       "title": "Database Services",
@@ -24,7 +24,7 @@
     {
       "title": "Enterprise Services",
       "icon": "assets/images/request/services/enterprise_services_icon.png",
-      "bg": "assets/images/request/services/enterprise_services.png"
+      "bg": "assets/images/request/services/enterprise_services_bg.png"
     },
     {
       "title": "Facilities",
@@ -59,7 +59,7 @@
     {
       "title": "Network Services",
       "icon": "assets/images/request/services/network_services_icon.png",
-      "bg": "assets/images/request/services/network_services_bg.png"
+      "bg": "assets/images/request/services/network_service_bg.png"
     },
     {
       "title": "Security",
@@ -79,7 +79,7 @@
     {
       "title": "Telecom Services",
       "icon": "assets/images/request/services/telecom_service_icon.png",
-      "bg": "assets/images/request/services/telecom_service_bg.png"
+      "bg": "assets/images/request/services/telecom_services_bg.png"
     },
     {
       "title": "Workplace",
