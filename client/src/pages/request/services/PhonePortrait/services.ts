@@ -8,13 +8,7 @@ declare var window: any;
 })
 export class request_services_PhonePortrait extends Screen {
     data: any;
-    services: object;
-
-  ngOnInit(): void {
-    super.ngOnInit();
-    // Logic to run when the screen loads goes here.
-
-    this.services = {
+    services: {
         "Access Management": {
             icon: "access_management_icon.png",
             bg: "access_bg.png"
@@ -83,7 +77,11 @@ export class request_services_PhonePortrait extends Screen {
             icon: "workplace_icon.png",
             bg: "workplace_bg.png"
         }
-    }
+    };
+
+  ngOnInit(): void {
+    super.ngOnInit();
+    // Logic to run when the screen loads goes here.
   }
 
   ngOnDestroy(): void {
