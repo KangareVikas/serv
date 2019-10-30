@@ -98,13 +98,11 @@
             <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
-        <button (click)="action('submit')" color="secondary" data-comp-id="button.3"
-            full ion-button mode="ios" style="margin: 0; border-radius: 20px;">
-            <span>Submit</span>
-        </button>
+        <div data-comp-id="div.1" style="padding: 32px 16px 16px;">
+            <button (click)="action('submit')" color="secondary" data-comp-id="button.3"
+                full ion-button mode="ios" style="border-radius: 20px;">
+                <span>Submit</span>
+            </button>
+        </div>
     </ion-list>
-    <ion-row data-comp-id="row.4">
-        <ion-col data-comp-id="column.8"
-            style="text-align: center; padding: 0 16px 16px;"></ion-col>
-    </ion-row>
 </ion-content>
