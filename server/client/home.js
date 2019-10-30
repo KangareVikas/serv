@@ -63,4 +63,5 @@ exports.doReport = async (session, models, vars) => {
         includeAll: false
     });
     console.log(requestData.body);
+    await session.screen('incident_categories');
 };
