@@ -52,7 +52,8 @@
         </ion-item>
         <ion-row data-comp-id="row.4"
             style="margin: 0; padding: 0; border-top: none; border-right: none; border-bottom: none; border-left: none;">
-            <ion-col data-comp-id="column.7" style="padding: 0; margin: 0;">
+            <ion-col col-auto data-comp-id="column.7"
+                style="padding: 0; margin: 0; min-width: calc(100% - 50px);">
                 <div data-comp-id="take-photo.1" take-photo>
                     <ion-item>
                         <ion-thumbnail item-right>
@@ -68,9 +69,10 @@
                     <camera-canvas></camera-canvas>
                 </div>
             </ion-col>
-            <ion-col data-comp-id="column.8" style="margin: 0; padding: 0;">
-                <ion-icon class="ion-ios-information-circle" data-comp-id="icon.1"
-                    style="font-size: 28px"></ion-icon>
+            <ion-col col-auto data-comp-id="column.8"
+                style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
+                <ion-icon class=" ion-ios-remove-circle" data-comp-id="icon.1"
+                    style="font-size: 24px; padding: 12px;"></ion-icon>
             </ion-col>
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.2">
