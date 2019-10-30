@@ -93,6 +93,7 @@ export class request_services_PhonePortrait extends Screen {
 
   onDataLoad(data: any): void {
       let services = this.services;
+      console.log('Services 2:', this.services);
     // Logic to run when the screen's data is updated goes here.
       data.services.forEach(service => {
           console.log('services: ', service);
