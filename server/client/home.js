@@ -53,7 +53,7 @@ exports.doReport = async (session, models, vars) => {
         console.log('Fetching incidentBusObId');
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
         vars.session.incidentBusObId = data1.body[0].busObId;
-        console.log(data.body);
+        console.log(data1.body);
     }
     console.log('incidentBusObId: ' + vars.session.incidentBusObId);
     let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
