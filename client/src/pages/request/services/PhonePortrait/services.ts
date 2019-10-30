@@ -14,7 +14,7 @@ export class request_services_PhonePortrait extends Screen {
         super();
         this.services = {
             "Access Management": {
-                icon: "access_management_icon.png",
+                icon: "access_icon.png",
                 bg: "access_bg.png"
             },
             "Cloud Services": {
@@ -74,8 +74,8 @@ export class request_services_PhonePortrait extends Screen {
                 bg: "storage_services_bg.png"
             },
             "Telecom Services": {
-                icon: "telecom_services_icon.png",
-                bg: "telecom_services_bg.png"
+                icon: "telecom_service_icon.png",
+                bg: "telecom_service_bg.png"
             },
             "Workplace": {
                 icon: "workplace_icon.png",
