@@ -24,30 +24,30 @@
 <ion-content data-comp-id="content.1">
     <ion-list data-comp-id="list.1">
         <ion-item data-comp-id="input.1">
-            <ion-label>Label</ion-label>
+            <ion-label class=" required">By</ion-label>
             <ion-input placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.2">
             <ion-icon class=" ion-ios-search" item-right></ion-icon>
-            <ion-label>Label</ion-label>
-            <ion-input placeholder="Type here..." type="text"></ion-input>
+            <ion-label>For</ion-label>
+            <ion-input placeholder="Search..." type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.3">
-            <ion-label>Label</ion-label>
+            <ion-label>Email</ion-label>
             <ion-input placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.4">
-            <ion-label>Label</ion-label>
+            <ion-label class=" required">Phone</ion-label>
             <ion-input placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item class="wrap-field" data-comp-id="select.1">
-            <ion-label>Select</ion-label>
+            <ion-label>Type</ion-label>
             <ion-select [selectOptions]="{cssClass: 'select-full'}" interface="alert">
                 <ion-option data-comp-id="option.1"></ion-option>
             </ion-select>
         </ion-item>
         <ion-item data-comp-id="input.5">
-            <ion-label>Label</ion-label>
+            <ion-label>Location or Seats</ion-label>
             <ion-input placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-row data-comp-id="row.2"
@@ -76,13 +76,16 @@
             </ion-col>
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.2">
-            <ion-label>Select</ion-label>
+            <ion-label>Urgency</ion-label>
             <ion-select [selectOptions]="{cssClass: 'select-full'}" interface="alert">
                 <ion-option data-comp-id="option.2"></ion-option>
             </ion-select>
         </ion-item>
-        <ion-item data-comp-id="textarea.1">
-            <ion-textarea placeholder="Type here..." rows="3"></ion-textarea>
+        <ion-item data-comp-id="textarea.2" mode="ios">
+            <ion-label class=" required" color="dark" mode="ios" stacked
+                style="font-size: 16px;">Short Description</ion-label>
+            <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
+                placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
     </ion-list>
     <ion-list #top data-comp-id="list.2" style="margin: 0px 0px 16px;">
@@ -161,12 +164,6 @@
                 <ion-option *ngFor="let item of data.urgencySelect.options"
                     [innerHTML]="item.label" [value]="item.value" data-comp-id="option.4"></ion-option>
             </ion-select>
-        </ion-item>
-        <ion-item data-comp-id="textarea.2" mode="ios">
-            <ion-label class=" required" color="dark" mode="ios" stacked
-                style="font-size: 16px;">Short Description</ion-label>
-            <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
-                placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
     </ion-list>
     <ion-row data-comp-id="row.4">
