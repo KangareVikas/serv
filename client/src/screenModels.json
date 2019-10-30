@@ -174,31 +174,8 @@
       "removeAttachment": {
         "type": "action"
       },
-      "requestor": {
-        "type": "string"
-      },
       "email": {
         "type": "string"
-      },
-      "urgencySelect": {
-        "type": "select"
-      },
-      "errorMessages": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "update": {
-            "type": "none"
-          },
-          "properties": {
-            "errorMessage": {
-              "type": "string"
-            }
-          }
-        },
-        "update": {
-          "type": "none"
-        }
       },
       "cancel": {
         "type": "action"
