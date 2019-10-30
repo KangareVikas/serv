@@ -4,13 +4,15 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    let output = await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
-    vars.session.kbBusObId = output.body[0].busObId;
-    vars.session.kbStateFieldId = output.body[0].stateFieldId;
-    await session.rest.cherwellapi.getKBBaseArticles({
-        access_token: vars.session.access_token,
-        kbBusObId: vars.session.kbBusObId
-    });
+    if (!vars.session.kbBusObId) {
+        let output = await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
+        vars.session.kbBusObId = output.body[0].busObId;
+        vars.session.kbStateFieldId = output.body[0].stateFieldId;
+        await session.rest.cherwellapi.getKBBaseArticles({
+            access_token: vars.session.access_token,
+            kbBusObId: vars.session.kbBusObId
+        });
+    }
 };
 /**
  * @param {Session} session
