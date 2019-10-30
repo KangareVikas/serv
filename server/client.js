@@ -95,5 +95,36 @@ exports.start = async (session, models, vars) => {
         ],
         selected: ''
     };
+
+
+    vars.session.selectionItemsMap = {
+        options: [
+            {
+                'label': 'Computer or Device',
+                'value': 'Computer or Device'
+            },
+            {
+                'label': 'Desk Environment',
+                'value': 'Desk Environment'
+            },
+            {
+                'label': 'Printer',
+                'value': 'Printer'
+            },
+            {
+                'label': 'Software',
+                'value': 'Software'
+            },
+            {
+                'label': 'Access',
+                'value': 'Access'
+            },
+            {
+                'label': 'Building / Facilities',
+                'value': 'Building / Facilities'
+            }
+        ],
+        selected: ''
+    };
     await session.screen('login');
 };
