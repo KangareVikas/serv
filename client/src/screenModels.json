@@ -239,7 +239,7 @@
       "cancel": {
         "type": "action"
       },
-      "by": {
+      "byUser": {
         "type": "string"
       }
     },
