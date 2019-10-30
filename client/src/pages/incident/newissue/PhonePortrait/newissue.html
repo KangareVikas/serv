@@ -25,7 +25,8 @@
     <ion-list data-comp-id="list.1">
         <ion-item data-comp-id="input.1" mode="ios">
             <ion-label class=" required" mode="ios">By</ion-label>
-            <ion-input mode="ios" placeholder="Type here..." type="text"></ion-input>
+            <ion-input [(ngModel)]="data.by" mode="ios" placeholder="Type here..."
+                type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.2" mode="ios">
             <ion-icon class=" ion-ios-search" color="primary" item-right style></ion-icon>

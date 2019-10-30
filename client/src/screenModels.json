@@ -238,6 +238,9 @@
       },
       "cancel": {
         "type": "action"
+      },
+      "by": {
+        "type": "string"
       }
     },
     "id": "incident_newissue"
