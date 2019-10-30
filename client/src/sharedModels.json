@@ -1,1 +1,11 @@
-{}
+{
+  "footer": {
+    "type": "object",
+    "comment": "",
+    "properties": {
+      "active": {
+        "type": "string"
+      }
+    }
+  }
+}
