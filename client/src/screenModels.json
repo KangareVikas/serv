@@ -274,9 +274,6 @@
     "type": "object",
     "comment": "Blank",
     "properties": {
-      "category": {
-        "type": "string"
-      },
       "back": {
         "type": "action"
       },
@@ -303,6 +300,9 @@
             }
           }
         }
+      },
+      "service": {
+        "type": "string"
       }
     },
     "id": "request_subservices"

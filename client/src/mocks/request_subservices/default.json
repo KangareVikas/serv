@@ -1,5 +1,4 @@
 {
-  "category": "Desk Environment",
   "suffix": "",
   "footer": {
     "active": ""
@@ -25,5 +24,6 @@
       "title": "Other",
       "select": ""
     }
-  ]
+  ],
+  "service": "Desk Environment"
 }
