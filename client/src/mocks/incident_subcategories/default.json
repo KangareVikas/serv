@@ -22,5 +22,8 @@
     }
   ],
   "category": "Desk Environment",
-  "suffix": "regarding my"
+  "suffix": "regarding my",
+  "footer": {
+    "active": "newIssue"
+  }
 }

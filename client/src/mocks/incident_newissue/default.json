@@ -33,5 +33,8 @@
   "email": "evan.employee@hcl.com",
   "urgency": {
     "options": []
+  },
+  "footer": {
+    "active": "newIssue"
   }
 }
