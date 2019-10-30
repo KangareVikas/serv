@@ -12,7 +12,7 @@ export class request_services_PhonePortrait extends Screen {
   ngOnInit(): void {
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
-    data.servicesData = {
+    this.data.servicesData = {
         one: 1
     }
   }
