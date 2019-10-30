@@ -5,7 +5,7 @@
 */
 exports['subcategories[].select'] = async (session, models, vars) => {
     vars.session.selectedSubCatagoryLabel = vars.item.title;
-    models.incident_newissue.shortDescription = `I need help with my ${vars.session.selectedCatagoryLabel} ${vars.session.selectedCatagorySuffix} ${vars.session.selectedSubCatagoryLabel }`;
+    models.incident_newissue.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     await session.screen('incident_newissue');
 };
 /**
@@ -13,9 +13,10 @@ exports['subcategories[].select'] = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.back = async (session, models, vars) => {
+exports.cancel = async (session, models, vars) => {
+    vars.session.selectedCatagoryLabel = null;
     vars.session.selectedSubCatagoryLabel = null;
-    await session.screen('incident_categories');
+    await session.screen('home');
 };
 /**
  * @param {Session} session
