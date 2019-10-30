@@ -97,13 +97,13 @@ export class request_services_PhonePortrait extends Screen {
   onDataLoad(data: any): void {
     // Logic to run when the screen's data is updated goes here.
       data.services.forEach(service => {
-          let icon = this.services[service.title] ? this.services[service.title].icon : 'other_technology_icon.png';
-          let bg = this.services[service.title] ? this.services[service.title].bg : 'other_technology_bg.png';
+          let icon = this.services[service.title] ? this.services[service.title].icon : 'other_technologies_icon.png';
+          let bg = this.services[service.title] ? this.services[service.title].bg : 'other_technologies_bg.png';
           service.icon = `assets/images/request/services/${icon}`;
           service.bg = `assets/images/request/services/${bg}`;
       });
   }
-  
+
   onBackButton(): boolean {
     //(Android) returns :
     // true - handle the event in App Hooks
