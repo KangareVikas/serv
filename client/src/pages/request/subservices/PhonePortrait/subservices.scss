@@ -3,6 +3,14 @@ screen-request-subservices-phoneportrait {
     ion-navbar {
         [data-comp-id^="div."] {
             display: inline-block;
+
+            ion-icon {
+                width: 20px;
+                &:before {
+                    position: absolute;
+                    bottom: 3px;
+                }
+            }
         }
     }
 }
