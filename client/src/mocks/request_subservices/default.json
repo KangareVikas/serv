@@ -5,23 +5,19 @@
   },
   "subservices": [
     {
-      "title": "Monitor",
+      "title": "AWS",
       "select": ""
     },
     {
-      "title": "Keyboard and/or mouse",
+      "title": "Azure",
       "select": ""
     },
     {
-      "title": "Docking station",
+      "title": "Hybrid Cloud",
       "select": ""
     },
     {
-      "title": "Phone",
-      "select": ""
-    },
-    {
-      "title": "Other",
+      "title": "Private Cloud",
       "select": ""
     }
   ],
