@@ -15,9 +15,13 @@
                         style="font-size: 24px; padding: 0 4px;"></ion-icon>
                 </button>
             </ion-col>
-            <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 4px 16px;">
-                <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">Desk Environment</div>
-                <div data-comp-id="text.2" ion-text style="font-size: 17px; margin: 8px 0 4px;">I need help with my Desk Environment regarding my…</div>
+            <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 8px 16px;">
+                <div [innerHTML]="data.category" color="black" data-comp-id="text.1" ion-text
+                    style="font-size: 34px; margin: 0 0 4px;"></div>
+                <span data-comp-id="text.2" ion-text style="font-size: 17px;">I need help with my</span>
+                <span [innerHTML]="data.category" data-comp-id="text.5" ion-text
+                    style="font-size: 17px; padding: 0 8px;; padding: 0;"></span>
+                <span data-comp-id="text.6" ion-text style="font-size: 17px;">regarding my…</span>
             </ion-col>
         </ion-row>
     </ion-navbar>
