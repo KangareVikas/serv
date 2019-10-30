@@ -33,6 +33,8 @@ client/src/app/tsconfig.json
 client/www
 client/dist
 
+server/package.json
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
