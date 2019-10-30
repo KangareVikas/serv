@@ -10,7 +10,8 @@ exports.onload = async (session, models, vars) => {
         vars.session.kbStateFieldId = output.body[0].stateFieldId;
         await session.rest.cherwellapi.getKBBaseArticles({
             access_token: vars.session.access_token,
-            kbBusObId: vars.session.kbBusObId
+            kbBusObId: vars.session.kbBusObId,
+            kbStateFieldId: vars.session.kbStateFieldId
         });
     }
 };
