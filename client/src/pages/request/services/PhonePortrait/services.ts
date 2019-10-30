@@ -15,23 +15,23 @@ export class request_services_PhonePortrait extends Screen {
     // Logic to run when the screen loads goes here.
 
     this.data.services = {
-        "Access Management": {
+        "AccessManagement": {
             icon: "access_management_icon.png",
             bg: "access_bg.png"
         },
-        "Cloud Services": {
+        "CloudServices": {
             icon: "cloud_services_icon.png",
             bg: "cloud_services_bg.png"
         },
-        "Database Services": {
+        "DatabaseServices": {
             icon: "database_services_icon.png",
             bg: "database_services_bg.png"
         },
-        "Enabling IT": {
+        "EnablingIT": {
             icon: "enabling_IT_icon.png",
             bg: "enabling_IT_bg.png"
         },
-        "Enterprise Services": {
+        "EnterpriseServices": {
             icon: "enterprise_services_icon.png",
             bg: "enterprise_services.png"
         },
@@ -39,7 +39,7 @@ export class request_services_PhonePortrait extends Screen {
             icon: "facilities_icon.png",
             bg: "facilities_bg.png"
         },
-        "Generic Services": {
+        "GenericServices": {
             icon: "generic_services_icon.png",
             bg: "generic_services_bg.png"
         },
@@ -47,11 +47,11 @@ export class request_services_PhonePortrait extends Screen {
             icon: "HR_icon.png",
             bg: "HR_bg.png"
         },
-        "Managed Print Service": {
+        "ManagedPrintService": {
             icon: "managed_print_service_icon.png",
             bg: "managed_print_service_bg.png"
         },
-        "Messaging and Collaboration": {
+        "MessagingandCollaboration": {
             icon: "messaging_collaboration_icon.png",
             bg: "messaging_collaboration_bg.png"
         },
@@ -59,7 +59,7 @@ export class request_services_PhonePortrait extends Screen {
             icon: "middleware_icon.png",
             bg: "middleware_bg.png"
         },
-        "Network Services": {
+        "NetworkServices": {
             icon: "network_services_icon.png",
             bg: "network_services_bg.png"
         },
@@ -67,15 +67,15 @@ export class request_services_PhonePortrait extends Screen {
             icon: "security_icon.png",
             bg: "security_bg.png"
         },
-        "Servers Management": {
+        "ServersManagement": {
             icon: "servers_management_icon.png",
             bg: "servers_management_bg.png"
         },
-        "Storage Services": {
+        "StorageServices": {
             icon: "storage_services_icon.png",
             bg: "storage_services_bg.png"
         },
-        "Telecom Services": {
+        "TelecomServices": {
             icon: "telecom_services_icon.png",
             bg: "telecom_services_bg.png"
         },
