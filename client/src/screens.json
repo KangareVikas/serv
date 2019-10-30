@@ -78,7 +78,14 @@
       "id": "articles",
       "name": "Articles",
       "folder": true,
-      "screens": []
+      "screens": [
+        {
+          "id": "findarticle",
+          "name": "Find Article",
+          "sourceScreenId": "blank",
+          "sourceAppId": "default"
+        }
+      ]
     }
   ],
   "startScreen": "login",

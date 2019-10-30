@@ -1,3 +1,4 @@
+export { mock_articles_findarticle as articles_findarticle } from './articles_findarticle/index';
 export { mock_home as home } from './home/index';
 export { mock_incident_categories as incident_categories } from './incident_categories/index';
 export { mock_incident_newissue as incident_newissue } from './incident_newissue/index';

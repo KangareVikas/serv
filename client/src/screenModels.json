@@ -223,5 +223,11 @@
       }
     },
     "id": "request_services"
+  },
+  "articles_findarticle": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "articles_findarticle"
   }
 }
