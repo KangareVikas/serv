@@ -1,5 +1,10 @@
 {
-  "subcategories": [
+  "category": "Desk Environment",
+  "suffix": "",
+  "footer": {
+    "active": ""
+  },
+  "subservices": [
     {
       "title": "Monitor",
       "select": ""
@@ -20,10 +25,5 @@
       "title": "Other",
       "select": ""
     }
-  ],
-  "category": "Desk Environment",
-  "suffix": "regarding my",
-  "footer": {
-    "active": ""
-  }
+  ]
 }

@@ -277,20 +277,6 @@
       "category": {
         "type": "string"
       },
-      "subcategories": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "select": {
-              "type": "action"
-            }
-          }
-        }
-      },
       "back": {
         "type": "action"
       },
@@ -303,6 +289,20 @@
       "footer": {
         "type": "model",
         "model": "footer"
+      },
+      "subservices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "select": {
+              "type": "action"
+            }
+          }
+        }
       }
     },
     "id": "request_subservices"
