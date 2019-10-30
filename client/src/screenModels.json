@@ -246,6 +246,9 @@
         "update": {
           "type": "none"
         }
+      },
+      "cancel": {
+        "type": "action"
       }
     },
     "id": "incident_newissue"
