@@ -13,7 +13,7 @@ exports['subcategories[].select'] = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.cancel = async (session, models, vars) => {
+exports.back = async (session, models, vars) => {
     vars.session.selectedSubCatagoryLabel = null;
     await session.screen('incident_categories');
 };
