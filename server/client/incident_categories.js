@@ -12,6 +12,7 @@ exports.selectCategory = async (session, models, vars) => {
         list.map(item => { subcategories.push({ "title": item }) })
         models.incident_subcategories.category = vars.session.selectionItems[vars.params.title].label;
         models.incident_subcategories.subcategories = subcategories;
+        vars.session.selectedCatagoryForIncident = vars.params.title;
         await session.screen('incident_subcategories');
     }
 };
