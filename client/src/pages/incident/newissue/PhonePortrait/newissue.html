@@ -57,21 +57,6 @@
                     [value]="item.value" data-comp-id="option.1"></ion-option>
             </ion-select>
         </ion-item>
-        <ion-item class="wrap-field" data-comp-id="select.2" mode="ios"
-            style="padding: 0px 0px 0px 16px;">
-            <ion-label color="dark" mode="ios" style="font-size: 16px; width: 70px;">Building</ion-label>
-            <ion-select [(ngModel)]="data.building.selected"
-                [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios">
-                <ion-option *ngFor="let item of data.building.options" [innerHTML]="item.label"
-                    [value]="item.value" data-comp-id="option.2"></ion-option>
-            </ion-select>
-        </ion-item>
-        <ion-item data-comp-id="input.5" mode="ios"
-            style="margin: 0; padding: 0px 0px 0px 16px;">
-            <ion-label color="dark" mode="ios" style="font-size: 16px; width: 70px;">Floor</ion-label>
-            <ion-input [(ngModel)]="data.floor" maxlength="30" mode="ios"
-                placeholder="Type here..." type="text"></ion-input>
-        </ion-item>
         <ion-item data-comp-id="input.6" mode="ios"
             style="margin: 0; padding: 0px 0px 0px 16px;">
             <ion-label color="dark" mode="ios" style="font-size: 16px; width: 70px;"
@@ -118,13 +103,6 @@
                 style="font-size: 16px;">Short Description</ion-label>
             <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
-        </ion-item>
-        <ion-item data-comp-id="textarea.2" mode="ios"
-            style="border-bottom: 1px solid rgb(222, 222, 222);">
-            <ion-label class=" required" color="dark" mode="ios" stacked
-                style="font-size: 16px;">Description</ion-label>
-            <ion-textarea [(ngModel)]="data.additionalComments" maxlength="250" mode="ios"
-                placeholder="Type here..." rows="10"></ion-textarea>
         </ion-item>
     </ion-list>
     <ion-row data-comp-id="row.3">
