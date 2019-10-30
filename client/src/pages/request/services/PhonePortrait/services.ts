@@ -8,7 +8,7 @@ declare var window: any;
 })
 export class request_services_PhonePortrait extends Screen {
   data: any;
-  servicesData: object;
+  servicesData: {one: 1};
 
   ngOnInit(): void {
     super.ngOnInit();
