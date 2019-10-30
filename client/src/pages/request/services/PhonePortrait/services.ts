@@ -95,6 +95,7 @@ export class request_services_PhonePortrait extends Screen {
       let services = this.services;
     // Logic to run when the screen's data is updated goes here.
       data.services.forEach(service => {
+          console.log('services: ', services);
           let icon = services && services[service.title] ? services[service.title].icon : 'other_technology_icon.png';
           let bg = services && services[service.title] ? services[service.title].bg : 'other_technology_bg.png';
           service.icon = `assets/images/request/services/${icon}`;
