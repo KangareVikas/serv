@@ -269,5 +269,42 @@
       }
     },
     "id": "tickets_viewincident"
+  },
+  "request_subcategories": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "category": {
+        "type": "string"
+      },
+      "subcategories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "select": {
+              "type": "action"
+            }
+          }
+        }
+      },
+      "back": {
+        "type": "action"
+      },
+      "search": {
+        "type": "action"
+      },
+      "suffix": {
+        "type": "string"
+      },
+      "footer": {
+        "type": "model",
+        "model": "footer"
+      }
+    },
+    "id": "request_subcategories"
   }
 }

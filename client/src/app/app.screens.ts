@@ -8,6 +8,7 @@ import { incident_subcategories_PhonePortrait } from '../pages/incident/subcateg
 import { incident_categories_PhonePortrait } from '../pages/incident/categories/PhonePortrait/categories';
 import { incident_newissue_PhonePortrait } from '../pages/incident/newissue/PhonePortrait/newissue';
 import { request_services_PhonePortrait } from '../pages/request/services/PhonePortrait/services';
+import { request_subcategories_PhonePortrait } from '../pages/request/subcategories/PhonePortrait/subcategories';
 import { articles_findarticle_PhonePortrait } from '../pages/articles/findarticle/PhonePortrait/findarticle';
 import { tickets_mytickets_PhonePortrait } from '../pages/tickets/mytickets/PhonePortrait/mytickets';
 import { tickets_viewincident_PhonePortrait } from '../pages/tickets/viewincident/PhonePortrait/viewincident';
@@ -22,6 +23,7 @@ export class Screens {
     incident_categories_PhonePortrait,
     incident_newissue_PhonePortrait,
     request_services_PhonePortrait,
+    request_subcategories_PhonePortrait,
     articles_findarticle_PhonePortrait,
     tickets_mytickets_PhonePortrait,
     tickets_viewincident_PhonePortrait
@@ -50,6 +52,9 @@ export class Screens {
     },
     'request_services': {
       PhonePortrait: request_services_PhonePortrait
+    },
+    'request_subcategories': {
+      PhonePortrait: request_subcategories_PhonePortrait
     },
     'articles_findarticle': {
       PhonePortrait: articles_findarticle_PhonePortrait
