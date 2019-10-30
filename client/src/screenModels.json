@@ -196,7 +196,13 @@
     "type": "object",
     "comment": "Blank",
     "properties": {
-      "selectCategory": {
+      "back": {
+        "type": "action"
+      },
+      "search": {
+        "type": "action"
+      },
+      "selectService": {
         "type": "method",
         "parameters": {
           "title": {
@@ -204,11 +210,16 @@
           }
         }
       },
-      "back": {
-        "type": "action"
-      },
-      "search": {
-        "type": "action"
+      "services": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            }
+          }
+        }
       }
     },
     "id": "request_services"
