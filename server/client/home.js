@@ -4,7 +4,8 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
+    let output = await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
+    vars.session.kbBusObId = output.body[0].busObId;
 };
 /**
  * @param {Session} session
