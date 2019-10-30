@@ -64,6 +64,10 @@
       },
       "doRequest": {
         "type": "action"
+      },
+      "footer": {
+        "type": "model",
+        "model": "footer"
       }
     },
     "id": "home"
