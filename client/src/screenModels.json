@@ -148,18 +148,7 @@
     "comment": "Blank",
     "properties": {
       "urgency": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string"
-            },
-            "label": {
-              "type": "string"
-            }
-          }
-        }
+        "type": "select"
       },
       "caller": {
         "type": "string"
