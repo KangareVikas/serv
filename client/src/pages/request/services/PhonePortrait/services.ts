@@ -8,11 +8,13 @@ declare var window: any;
 })
 export class request_services_PhonePortrait extends Screen {
   data: any;
-  servicesData: {one: 1};
 
   ngOnInit(): void {
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
+    data.servicesData = {
+        one: 1
+    }
   }
 
   ngOnDestroy(): void {
