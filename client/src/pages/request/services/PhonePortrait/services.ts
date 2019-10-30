@@ -93,6 +93,7 @@ export class request_services_PhonePortrait extends Screen {
 
   onDataLoad(data: any): void {
     // Logic to run when the screen's data is updated goes here.
+      console.log(data);
   }
   onBackButton(): boolean {
     //(Android) returns :
