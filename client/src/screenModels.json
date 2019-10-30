@@ -78,8 +78,9 @@
     "type": "object",
     "comment": "Blank",
     "properties": {
-      "active": {
-        "type": "string"
+      "footer": {
+        "type": "model",
+        "model": "footer"
       }
     },
     "id": "inserts_footer"
