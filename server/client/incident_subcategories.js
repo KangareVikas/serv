@@ -5,6 +5,7 @@
 */
 exports['subcategories[].select'] = async (session, models, vars) => {
     vars.session.selectedSubCatagoryForIncident = vars.item.title;
+    await session.screen('incident_newissue');
 };
 /**
  * @param {Session} session
