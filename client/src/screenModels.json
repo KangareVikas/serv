@@ -87,7 +87,16 @@
   "incident_categories": {
     "type": "object",
     "comment": "Blank",
-    "properties": {},
+    "properties": {
+      "selectCategory": {
+        "type": "method",
+        "parameters": {
+          "title": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "id": "incident_categories"
   },
   "incident_subcategories": {
