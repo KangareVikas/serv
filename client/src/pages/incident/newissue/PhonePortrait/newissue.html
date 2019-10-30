@@ -22,6 +22,58 @@
     </ion-navbar>
 </ion-header>
 <ion-content data-comp-id="content.1">
+    <ion-list data-comp-id="list.2">
+        <ion-item data-comp-id="input.6">
+            <ion-label>Label</ion-label>
+            <ion-input placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="input.7">
+            <ion-icon class=" ion-ios-search" item-right></ion-icon>
+            <ion-label>Label</ion-label>
+            <ion-input placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="input.8">
+            <ion-label>Label</ion-label>
+            <ion-input placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="input.9">
+            <ion-label>Label</ion-label>
+            <ion-input placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item class="wrap-field" data-comp-id="select.3">
+            <ion-label>Select</ion-label>
+            <ion-select [selectOptions]="{cssClass: 'select-full'}" interface="alert">
+                <ion-option data-comp-id="option.3"></ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item data-comp-id="input.11">
+            <ion-label>Label</ion-label>
+            <ion-input placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <div data-comp-id="take-photo.2" take-photo>
+            <ion-item>
+                <ion-thumbnail item-right>
+                    <img #thumbnail>
+                </ion-thumbnail>
+                <ion-label>
+                    <span class="label">Take Photo</span>
+                    <input #file accept="image/*" capture="camera" class="fallback-input"
+                        type="file">
+                </ion-label>
+                <ion-icon color="primary" item-end name="camera"></ion-icon>
+            </ion-item>
+            <camera-canvas></camera-canvas>
+        </div>
+        <ion-item class="wrap-field" data-comp-id="select.4">
+            <ion-label>Select</ion-label>
+            <ion-select [selectOptions]="{cssClass: 'select-full'}" interface="alert">
+                <ion-option data-comp-id="option.4"></ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item data-comp-id="textarea.2">
+            <ion-textarea placeholder="Type here..." rows="3"></ion-textarea>
+        </ion-item>
+    </ion-list>
     <ion-list #top data-comp-id="list.1" style="margin: 0px 0px 16px;">
         <ion-item data-comp-id="input.1" mode="ios">
             <ion-label class=" required" color="dark" mode="ios"
@@ -51,7 +103,7 @@
                 maxlength="12" mode="ios" placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
-            <ion-label color="dark" mode="ios" style="font-size: 16px; width: 70px;">Type</ion-label>
+            <ion-label color="dark" mode="ios" style="font-size: 16px;">Type</ion-label>
             <ion-select [(ngModel)]="data.type.selected" [disabled]="data.typeReadOnly"
                 [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios">
                 <ion-option *ngFor="let item of data.type.options" [innerHTML]="item.label"
