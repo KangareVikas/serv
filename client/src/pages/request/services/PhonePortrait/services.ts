@@ -45,16 +45,16 @@ export class request_services_PhonePortrait extends Screen {
                 icon: "HR_icon.png",
                 bg: "HR_bg.png"
             },
-            "Managed PrintService": {
+            "Managed Print Service": {
                 icon: "managed_print_service_icon.png",
                 bg: "managed_print_service_bg.png"
             },
-            "Messagingand Collaboration": {
+            "Messaging and Collaboration": {
                 icon: "messaging_collaboration_icon.png",
                 bg: "messaging_collaboration_bg.png"
             },
             "Middleware": {
-                icon: "middleware_icon.png",
+                icon: "middleware.png",
                 bg: "middleware_bg.png"
             },
             "Network Services": {
