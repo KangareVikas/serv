@@ -1,0 +1,21 @@
+{
+  "template": {
+    "url": "/api/V1/getsearchresults",
+    "method": "GET",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "bearerToken",
+      "token": "{access_token}"
+    },
+    "body": "\\{\n \"busObID\": \"{kbBusObId}\",\n \"filters\": [\n  \\{\n   \"dirty\" : true,\n   \"fieldId\" : \"9366b34e57ce9dc2514b7b47c4a4f5c457a02749c6\",\n   \"value\": \"Opened\"\n  }\n ]\n}",
+    "options": {},
+    "bodyType": "body"
+  },
+  "functions": {
+    "getKBBaseArticles": [
+      "access_token",
+      "kbBusObId"
+    ]
+  }
+}
