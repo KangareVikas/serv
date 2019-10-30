@@ -95,6 +95,12 @@
             "type": "string"
           }
         }
+      },
+      "back": {
+        "type": "action"
+      },
+      "search": {
+        "type": "action"
       }
     },
     "id": "incident_categories"
