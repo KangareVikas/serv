@@ -7,7 +7,7 @@ screen-request-subservices-phoneportrait {
             ion-icon {
                 width: 20px;
                 &:before {
-                    position: absolute;
+                    position: relative;
                     bottom: 3px;
                 }
             }
