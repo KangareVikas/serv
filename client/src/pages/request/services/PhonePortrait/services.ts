@@ -12,6 +12,7 @@ export class request_services_PhonePortrait extends Screen {
 
     constructor() {
         super();
+        // list of icons and backgrounds for the services:
         this.services = {
             "Access Management": {
                 icon: "access_icon.png",
