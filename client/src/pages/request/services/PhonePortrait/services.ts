@@ -20,7 +20,7 @@ export class request_services_PhonePortrait extends Screen {
             },
             "Cloud Services": {
                 icon: "cloud_services_icon.png",
-                bg: "cloud_services_bg.png"
+                bg: "cloud_services.png"
             },
             "Database Services": {
                 icon: "database_services_icon.png",
@@ -32,7 +32,7 @@ export class request_services_PhonePortrait extends Screen {
             },
             "Enterprise Services": {
                 icon: "enterprise_services_icon.png",
-                bg: "enterprise_services.png"
+                bg: "enterprise_services_bg.png"
             },
             "Facilities": {
                 icon: "facilities_icon.png",
