@@ -242,7 +242,7 @@
     "properties": {},
     "id": "articles_findarticle"
   },
-  "mytickets": {
+  "tickets_mytickets": {
     "type": "object",
     "comment": "Blank",
     "properties": {

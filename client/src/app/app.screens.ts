@@ -9,7 +9,7 @@ import { incident_categories_PhonePortrait } from '../pages/incident/categories/
 import { incident_newissue_PhonePortrait } from '../pages/incident/newissue/PhonePortrait/newissue';
 import { request_services_PhonePortrait } from '../pages/request/services/PhonePortrait/services';
 import { articles_findarticle_PhonePortrait } from '../pages/articles/findarticle/PhonePortrait/findarticle';
-import { mytickets_PhonePortrait } from '../pages/mytickets/PhonePortrait/mytickets';
+import { tickets_mytickets_PhonePortrait } from '../pages/tickets/mytickets/PhonePortrait/mytickets';
 export class Screens {
   static declarations = [
     MenuComponent,
@@ -22,7 +22,7 @@ export class Screens {
     incident_newissue_PhonePortrait,
     request_services_PhonePortrait,
     articles_findarticle_PhonePortrait,
-    mytickets_PhonePortrait
+    tickets_mytickets_PhonePortrait
   ];
   static mapping = {
     'login': {
@@ -52,8 +52,8 @@ export class Screens {
     'articles_findarticle': {
       PhonePortrait: articles_findarticle_PhonePortrait
     },
-    'mytickets': {
-      PhonePortrait: mytickets_PhonePortrait
+    'tickets_mytickets': {
+      PhonePortrait: tickets_mytickets_PhonePortrait
     }
   }
 }
