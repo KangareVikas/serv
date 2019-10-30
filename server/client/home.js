@@ -35,11 +35,11 @@ exports.onload = async (session, models, vars) => {
         'CreatedDateTime'
     ];
     for (let i = 0; i < openedTickets.body.businessObjects.length; i++) {
-        let ticket = { id: openedTickets.body.businessObjects.busObPublicId };
-        for (let j = 0; j < openedTickets.body.businessObjects.fields.length; j++) {
-            let fieldName = openedTickets.body.businessObjects.fields[i].name;
+        let ticket = { id: openedTickets.body.businessObjects[i].busObPublicId };
+        for (let j = 0; j < openedTickets.body.businessObjects[i].fields.length; j++) {
+            let fieldName = openedTickets.body.businessObjects[i].fields[j].name;
             if (requiredFields.indexOf(fieldName) > -1) {
-                ticket[fieldName] = openedTickets.body.businessObjects.fields[i].value;
+                ticket[fieldName] = openedTickets.body.businessObjects[i].fields[j].value;
             }
         }
         models.home.tickets.push(ticket);
