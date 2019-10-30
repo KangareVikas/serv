@@ -26,8 +26,6 @@ exports.onload = async (session, models, vars) => {
         incidentBusObId: vars.session.incidentBusObId
     });
     models.home.tickets = [];
-    console.log('openedTickets: ');
-    console.log(openedTickets.body.businessObjects);
     let requiredFields = [
         'ShortDescription',
         'Description',
