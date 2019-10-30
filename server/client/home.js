@@ -25,8 +25,25 @@ exports.onload = async (session, models, vars) => {
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId
     });
+    models.home.tickets = [];
     console.log('openedTickets: ');
-    console.log(openedTickets.body);
+    console.log(openedTickets.body.businessObjects);
+    let requiredFields = [
+        'ShortDescription',
+        'Description',
+        'Priority',
+        'CreatedDateTime'
+    ];
+    for (let i = 0; i < openedTickets.body.businessObjects.length; i++) {
+        let ticket = { id: openedTickets.body.businessObjects.busObPublicId };
+        for (let j = 0; j < openedTickets.body.businessObjects.fields.length; j++) {
+            let fieldName = openedTickets.body.businessObjects.fields[i].name;
+            if (requiredFields.indexOf(fieldName) > -1) {
+                ticket[fieldName] = openedTickets.body.businessObjects.fields[i].value;
+            }
+        }
+        models.home.tickets.push(ticket);
+    }
 };
 /**
  * @param {Session} session
