@@ -10,7 +10,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.phone = '6523455679';
     models.incident_newissue.urgency = vars.session.urgencyMap;
     if (vars.session.selectedCatagoryLabel) {
-        vars.session.selectionItemsMap = { selected: vars.session.selectedCatagoryLabel };
+        vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
     }
     models.incident_newissue.type = vars.session.selectionItemsMap;
 };
