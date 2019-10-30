@@ -3,6 +3,14 @@
  * @param {Models} models
  * @param {Vars} vars
 */
+exports.onload = async (session, models, vars) => {
+    await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.doRequest = async (session, models, vars) => {
     let validValues = await session.rest.cherwellapi.getValidValues({ access_token: vars.session.access_token });
     console.log(validValues.body);
@@ -38,17 +46,6 @@ exports.doReport = async (session, models, vars) => {
     }
     console.log('firstNamefieldId: ' + vars.session.firstNamefieldId);
     console.log('lastNamefieldId: ' + vars.session.lastNamefieldId);
-    // TODO:
-    // let data = await session.rest.cherwellapi.getCustomerRecId({
-    //     custBusObId: vars.session.custBusObId,
-    //     firstNamefieldId: vars.session.firstNamefieldId,
-    //     lastNamefieldId: vars.session.lastNamefieldId,
-    //     firstName: vars.session.firstName,
-    //     lastName: vars.session.lastName,
-    //     access_token: vars.session.access_token
-    // });
-    // console.log(data.body);
-    // console.log('customerRecId: ' + vars.session.customerRecId);
     if (!vars.session.incidentBusObId) {
         console.log('Fetching incidentBusObId');
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
