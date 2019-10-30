@@ -33,4 +33,5 @@ exports.search = async (session, models, vars) => {
 */
 exports.back = async (session, models, vars) => {
     vars.session.selectedCatagoryLabel = null;
+    await session.screen('home');
 };
