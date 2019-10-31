@@ -101,12 +101,13 @@
             <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
-        <ion-row data-comp-id="row.3" style="padding: 0px 0px 0px 16px;">
+        <ion-row data-comp-id="row.3" style="padding: 8px 0px 0px 16px;">
             <ion-col col-auto data-comp-id="column.6" style="padding: 8px 0;">
                 <ion-icon class=" ion-ios-arrow-down-outline" color="primary"
                     data-comp-id="icon.2" style="font-size: 17px;"></ion-icon>
             </ion-col>
-            <ion-col col-auto data-comp-id="column.7" style="padding: 8px;">
+            <ion-col (click)="showAddInfo = !showAddInfo" col-auto data-comp-id="column.7"
+                style="padding: 8px;">
                 <div color="primary" data-comp-id="text.2" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>
