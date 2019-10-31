@@ -10,7 +10,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.phone = '6523455679';
     models.incident_newissue.urgency = vars.session.urgencyMap;
     if (vars.session.selectedCatagoryLabel) {
-        vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
+        vars.session.selectionItemsMap = { selected: vars.session.selectedCatagoryLabel };
     }
     models.incident_newissue.type = vars.session.selectionItemsMap;
 };
@@ -37,55 +37,56 @@ exports.submit = async (session, models, vars) => {
         includeAll: false
     });
     console.log(requestData.body);
-    let fields = requestData.body.fields;
-    for (var i = 0; i < fields.length; i++) {
-        if (fields[i].name === 'Description') {
-            fields[i].value = 'Filing incident using REST API';
-            fields[i].dirty = true;
+    let template = JSON.parse(requestData.body);
+    for (var i = 0; i < template.fields.length; i++) {
+        if (template.fields[i].name === 'Description') {
+            template.fields[i].value = 'Filing incident using REST API';
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'ShortDescription') {
-            fields[i].value = models.incident_newissue.type;
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'ShortDescription') {
+            template.fields[i].value = models.incident_newissue.type;
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'CustomerRecID') {
-            fields[i].value = '9451f6c8b5609372c4e86b440db32353b488fb4206';
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'CustomerRecID') {
+            template.fields[i].value = '9451f6c8b5609372c4e86b440db32353b488fb4206';
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'Priority') {
-            fields[i].value = models.incident_newissue.urgency;
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'Priority') {
+            template.fields[i].value = models.incident_newissue.urgency;
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'Source') {
-            fields[i].value = 'Portal';
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'Source') {
+            template.fields[i].value = 'Portal';
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'Service') {
-            fields[i].value = 'Access Management';
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'Service') {
+            template.fields[i].value = 'Access Management';
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'Category') {
-            fields[i].value = 'Identity and Access Management';
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'Category') {
+            template.fields[i].value = 'Identity and Access Management';
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'Subcategory') {
-            fields[i].value = 'Submit Incident';
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'Subcategory') {
+            template.fields[i].value = 'Submit Incident';
+            template.fields[i].dirty = true;
             continue;
         }
-        if (fields[i].name === 'OwnedByTeam') {
-            fields[i].value = 'Service Desk';
-            fields[i].dirty = true;
+        if (template.fields[i].name === 'OwnedByTeam') {
+            template.fields[i].value = 'Service Desk';
+            template.fields[i].dirty = true;
             continue;
         }
     }
-    var result = await session.rest.cherwellapi.SaveBusinessObject({
+    let fields = template.fields;
+    await session.rest.cherwellapi.saveBusinessObject({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
         fields: fields
