@@ -87,12 +87,16 @@ exports.submit = async (session, models, vars) => {
     }
     let fields = JSON.stringify(template.fields);
     try {
-        await session.rest.cherwellapi.saveBusinessObject({
+        var result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
             fields: fields
         });
-        console.log(result); 
+        console.log(result);
+        if (result.body.busObPublicId) {
+            await session.screen('home');
+            await session.alert(`Your Incident has been added to the Cherwell system. Your Incident ID is ${result.body.busObPublicId}.`);
+        } 
     } catch (e) {
         await session.alert(e.message);
         console.log(e); 
