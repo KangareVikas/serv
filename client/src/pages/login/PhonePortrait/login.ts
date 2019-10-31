@@ -28,4 +28,7 @@ export class login_PhonePortrait extends Screen {
     // false - stop the event propogation
       return true;
   }
+  callSupport() {
+      window.location.href = `tel:8778004381`
+  }
 }

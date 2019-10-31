@@ -14,8 +14,8 @@
                 style="padding: 15px 10px 12px; border-radius: 10px;">
                 <div [innerHTML]="data.error.error_description" data-comp-id="text.1" ion-text
                     style="text-align: center; font-size: 14px; color: #222222;"></div>
-                <button color="danger" data-comp-id="button.1" full icon-start ion-button
-                    mode="ios"
+                <button (click)="callSupport()" color="danger" data-comp-id="button.1" full
+                    icon-start ion-button mode="ios"
                     style="width: 160px; border-radius: 20px; padding: 0; margin: 20px auto 10px;">
                     <ion-icon class=" ion-ios-call" style="font-size: 28px;"
                         undefined="ion-ios-call"></ion-icon>
