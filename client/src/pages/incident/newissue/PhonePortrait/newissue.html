@@ -37,6 +37,14 @@
                     type="text"></ion-input>
             </ion-item>
         </div>
+        <ion-item data-comp-id="item.1" mode="ios">
+            <span color="dark" data-comp-id="text.3" ion-text
+                style="width: 70px; margin: 0 70px 0 0;">For</span>
+            <span [innerHTML]="data.forUser" color="medium" data-comp-id="text.4" ion-text
+                style="width: 70px;"></span>
+            <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.4" item-end
+                style></ion-icon>
+        </ion-item>
         <ion-item data-comp-id="input.3" mode="ios">
             <ion-label mode="ios">Email</ion-label>
             <ion-input [(ngModel)]="data.email" [readonly]="true" mode="ios"
