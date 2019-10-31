@@ -86,12 +86,16 @@ exports.submit = async (session, models, vars) => {
         }
     }
     let fields = JSON.stringify(template.fields);
-    await session.rest.cherwellapi.saveBusinessObject({
-        access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId,
-        fields: fields
-    });
-    console.log(result);
+    try {
+        await session.rest.cherwellapi.saveBusinessObject({
+            access_token: vars.session.access_token,
+            incidentBusObId: vars.session.incidentBusObId,
+            fields: fields
+        });
+        console.log(result); 
+    } catch (e) {
+        console.log(e); 
+    }
 };
 /**
  * @param {Session} session
