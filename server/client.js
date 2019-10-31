@@ -5,7 +5,7 @@
 */
 exports.start = async (session, models, vars) => {
     vars.session.selectionItems = {
-        'computer': {
+        computer: {
             label: 'Computer or Device',
             suffix: 'because it',
             list: [
@@ -15,7 +15,7 @@ exports.start = async (session, models, vars) => {
                 'other'
             ]
         },
-        'desk': {
+        desk: {
             label: 'Desk Environment',
             suffix: 'regarding my',
             list: [
@@ -26,7 +26,7 @@ exports.start = async (session, models, vars) => {
                 'other'
             ]
         },
-        'printer': {
+        printer: {
             label: 'Printer',
             suffix: 'as it',
             list: [
@@ -35,7 +35,7 @@ exports.start = async (session, models, vars) => {
                 'other'
             ]
         },
-        'applications': {
+        applications: {
             label: 'Software',
             suffix: 'specifically',
             list: [
@@ -45,7 +45,7 @@ exports.start = async (session, models, vars) => {
                 'other'
             ]
         },
-        'access': {
+        access: {
             label: 'Access',
             suffix: 'due to',
             list: [
@@ -55,7 +55,7 @@ exports.start = async (session, models, vars) => {
                 'other'
             ]
         },
-        'building': {
+        building: {
             label: 'Building / Facilities',
             suffix: 'relating to',
             list: [
@@ -66,14 +66,13 @@ exports.start = async (session, models, vars) => {
             ]
         }
     };
-    vars.session.defaultCategory = "SUPPORT REQUEST > FOLLOW UP"
+    vars.session.defaultCategory = 'SUPPORT REQUEST > FOLLOW UP';
     vars.session.buildingMap = {
         'Sunnyvale Bldg 5': 'TECH CENTER WEST COAST',
         'Sunnyvale Bldg 6': 'TECH CENTER WEST COAST',
         'New York City HQ': 'TECH CENTER EAST COAST',
         'Houston Main Campus': 'TECH CENTER CENTRAL REGION'
     };
-
     vars.session.urgencyMap = {
         options: [
             {
@@ -95,7 +94,6 @@ exports.start = async (session, models, vars) => {
         ],
         selected: ''
     };
-
     vars.session.selectionItemsMap = {
         options: [
             {

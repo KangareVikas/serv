@@ -3,9 +3,11 @@
   "short_name": "Application",
   "start_url": "index.html",
   "display": "standalone",
-  "icons": [{
-    "src": "assets/icon/favicon.ico",
-    "sizes": "64x64",
-    "type": "image/x-icon"
-  }]
+  "icons": [
+    {
+      "src": "assets/icon/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }
