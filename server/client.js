@@ -96,7 +96,6 @@ exports.start = async (session, models, vars) => {
         selected: ''
     };
 
-
     vars.session.selectionItemsMap = {
         options: [
             {
