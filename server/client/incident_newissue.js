@@ -94,6 +94,7 @@ exports.submit = async (session, models, vars) => {
         });
         console.log(result); 
     } catch (e) {
+        await session.alert(e.message);
         console.log(e); 
     }
 };
