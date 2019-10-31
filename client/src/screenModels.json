@@ -466,5 +466,19 @@
       }
     },
     "id": "finduser"
+  },
+  "articles_viewarticle": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "back": {
+        "type": "action"
+      },
+      "footer": {
+        "type": "model",
+        "model": "footer"
+      }
+    },
+    "id": "articles_viewarticle"
   }
 }

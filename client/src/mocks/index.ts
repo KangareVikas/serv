@@ -1,4 +1,5 @@
 export { mock_articles_findarticle as articles_findarticle } from './articles_findarticle/index';
+export { mock_articles_viewarticle as articles_viewarticle } from './articles_viewarticle/index';
 export { mock_finduser as finduser } from './finduser/index';
 export { mock_home as home } from './home/index';
 export { mock_incident_categories as incident_categories } from './incident_categories/index';

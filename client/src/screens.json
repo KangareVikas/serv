@@ -99,6 +99,12 @@
           "name": "Find Article",
           "sourceScreenId": "blank",
           "sourceAppId": "default"
+        },
+        {
+          "id": "viewarticle",
+          "name": "View Article",
+          "sourceScreenId": "tickets_viewincident",
+          "sourceAppId": "cherwellrequest"
         }
       ]
     },
