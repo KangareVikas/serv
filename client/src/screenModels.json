@@ -382,12 +382,6 @@
     },
     "id": "request_newrequest"
   },
-  "searchuser": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {},
-    "id": "searchuser"
-  },
   "finduser": {
     "type": "object",
     "comment": "Blank",

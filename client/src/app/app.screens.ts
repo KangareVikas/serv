@@ -13,7 +13,6 @@ import { request_newrequest_PhonePortrait } from '../pages/request/newrequest/Ph
 import { articles_findarticle_PhonePortrait } from '../pages/articles/findarticle/PhonePortrait/findarticle';
 import { tickets_mytickets_PhonePortrait } from '../pages/tickets/mytickets/PhonePortrait/mytickets';
 import { tickets_viewincident_PhonePortrait } from '../pages/tickets/viewincident/PhonePortrait/viewincident';
-import { searchuser_PhonePortrait } from '../pages/searchuser/PhonePortrait/searchuser';
 import { finduser_PhonePortrait } from '../pages/finduser/PhonePortrait/finduser';
 export class Screens {
   static declarations = [
@@ -31,7 +30,6 @@ export class Screens {
     articles_findarticle_PhonePortrait,
     tickets_mytickets_PhonePortrait,
     tickets_viewincident_PhonePortrait,
-    searchuser_PhonePortrait,
     finduser_PhonePortrait
   ];
   static mapping = {
@@ -73,9 +71,6 @@ export class Screens {
     },
     'tickets_viewincident': {
       PhonePortrait: tickets_viewincident_PhonePortrait
-    },
-    'searchuser': {
-      PhonePortrait: searchuser_PhonePortrait
     },
     'finduser': {
       PhonePortrait: finduser_PhonePortrait
