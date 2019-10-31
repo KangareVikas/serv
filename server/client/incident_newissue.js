@@ -45,7 +45,7 @@ exports.submit = async (session, models, vars) => {
             continue;
         }
         if (template.fields[i].name === 'ShortDescription') {
-            template.fields[i].value = models.incident_newissue.type;
+            template.fields[i].value = models.incident_newissue.type.selected;
             template.fields[i].dirty = true;
             continue;
         }
@@ -55,7 +55,7 @@ exports.submit = async (session, models, vars) => {
             continue;
         }
         if (template.fields[i].name === 'Priority') {
-            template.fields[i].value = models.incident_newissue.urgency;
+            template.fields[i].value = models.incident_newissue.urgency.selected;
             template.fields[i].dirty = true;
             continue;
         }
