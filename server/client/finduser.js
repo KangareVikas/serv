@@ -11,6 +11,9 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
+    let name = vars.params.name;
+    let result = await session.rest.cherwellapi.getCustomerRecId({ name: name });
+    console.log(result.body);
 };
 /**
  * @param {Session} session
