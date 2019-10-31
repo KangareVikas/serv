@@ -278,6 +278,9 @@
       "footer": {
         "type": "model",
         "model": "footer"
+      },
+      "ticketsType": {
+        "type": "string"
       }
     },
     "id": "tickets_mytickets"

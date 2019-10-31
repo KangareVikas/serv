@@ -1,2 +1,19 @@
+screen-tickets-mytickets-phoneportrait,
 screen-tickets-mytickets_phoneportrait {
+    ion-header {
+        .segment {
+            .segment-button {
+                text-transform: none;
+                font-weight: normal;
+                max-width: none;
+                border-color: transparent;
+                color: color($colors, coal);
+                font-size: 16px;
+                &.segment-activated {
+                    border-color: color($colors, contrast);
+                    color: color($colors, black);
+                }
+            }
+        }
+    }
 }

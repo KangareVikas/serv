@@ -1,5 +1,6 @@
 {
   "footer": {
     "active": "myTickets"
-  }
+  },
+  "ticketsType": "incidents"
 }
