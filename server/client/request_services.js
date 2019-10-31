@@ -11,3 +11,12 @@ exports.onload = async (session, models, vars) => {
     list.map(item => { categories.push({ "title": item }) });
     models.request_services.services = categories;
 };
+
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.back = async (session, models, vars) => {
+    await session.screen('home');
+};
