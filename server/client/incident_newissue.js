@@ -56,6 +56,19 @@ exports.back = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
+exports.home = async (session, models, vars) => {
+    vars.session.selectedCatagoryLabel = null;
+    vars.session.selectedSubCatagoryLabel = null;
+    vars.session.forUser = null;
+    vars.session.customerRecId = null;
+    await session.screen('home');
+};
+
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.submit = async (session, models, vars) => {
     let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
         access_token: vars.session.access_token,
