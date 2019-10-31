@@ -1,7 +1,13 @@
 screen-articles-findarticle-phoneportrait,
 screen-articles-findarticle_phoneportrait {
     .article-item {
+        .article-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .article-description {
+            max-height: 2.4em;
+            overflow: hidden;
         }
     }
 }
