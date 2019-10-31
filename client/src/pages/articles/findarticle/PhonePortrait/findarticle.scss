@@ -2,6 +2,7 @@ screen-articles-findarticle-phoneportrait,
 screen-articles-findarticle_phoneportrait {
     .article-item {
         .article-title {
+            width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
         }
