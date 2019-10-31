@@ -115,12 +115,14 @@
             <ion-textarea [(ngModel)]="data.description" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
-        <div data-comp-id="div.3" style="padding: 32px 16px 16px; margin: 0;">
+        <div data-comp-id="div.2" style="padding: 32px 16px 16px; margin: 0;">
             <button (click)="action('submit')" color="secondary" data-comp-id="button.3"
                 full ion-button mode="ios" style="border-radius: 20px;">
                 <span>Submit</span>
             </button>
         </div>
+        <alert #alert alert-type="basic" button1Text="Ok" data-comp-id="alert.1"
+            message="Message" title="Title"></alert>
     </ion-list>
 </ion-content>
 <ion-footer class="footer-white" data-comp-id="footer.1" style="height: 63px;">

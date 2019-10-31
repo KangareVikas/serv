@@ -214,6 +214,9 @@
       },
       "description": {
         "type": "string"
+      },
+      "home": {
+        "type": "action"
       }
     },
     "id": "incident_newissue"
