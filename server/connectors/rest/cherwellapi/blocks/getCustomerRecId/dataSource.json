@@ -8,7 +8,7 @@
       "type": "bearerToken",
       "token": "{access_token}"
     },
-    "body": "\\{\n \"busObID\": \"{custBusObId}\",\n \"filters\": [\n  \\{\n   \"fieldId\": \"{firstNamefieldId}\",\n   \"operator\": \"contains\",\n   \"value\": \"{firstName}\"\n  }\n ]\n}",
+    "body": "\\{\n \"busObID\": \"{custBusObId}\",\n \"filters\": [\n  \\{\n   \"fieldId\": \"{firstNamefieldId}\",\n   \"operator\": \"contains\",\n   \"value\": \"{name}\"\n  }\n ]\n}",
     "options": {},
     "bodyType": "body"
   },
@@ -17,7 +17,7 @@
       "access_token",
       "custBusObId",
       "firstNamefieldId",
-      "firstName"
+      "name"
     ]
   }
 }
