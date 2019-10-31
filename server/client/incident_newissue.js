@@ -85,7 +85,6 @@ exports.submit = async (session, models, vars) => {
             continue;
         }
     }
-    let fields = fields;
     var result = await session.rest.cherwellapi.SaveBusinessObject({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
