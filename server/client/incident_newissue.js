@@ -9,6 +9,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.forUser = 'Evan Employee';
     models.incident_newissue.email = 'evan.employee@acme.com';
     models.incident_newissue.phone = '6523455679';
+    models.incident_newissue.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.incident_newissue.urgency = vars.session.urgencyMap;
     if (vars.session.selectedCatagoryLabel) {
         vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
@@ -102,7 +103,7 @@ exports.submit = async (session, models, vars) => {
         }
     } catch (e) {
         models.incident_newissue.result.error = e.message;
-        console.log(e); 
+        console.log(e);
     }
 };
 /**
