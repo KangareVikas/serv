@@ -5,4 +5,5 @@ require('./client/incident_categories');
 require('./client/incident_subcategories');
 require('./client/incident_newissue');
 require('./client/finduser');
+require('./client/request_services');
 session.start();
