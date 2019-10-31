@@ -24,9 +24,9 @@
                     data-comp-id="div.1" style="margin: 0; padding: 0; width: auto;">
                     <span [innerHTML]="item.title" color="primary" data-comp-id="text.3" ion-text
                         style="font-size: 17px; padding: 0 2px;"></span>
-                    <ion-icon *ngIf="i !== data.selectedServices.length-1"
-                        class=" ion-ios-arrow-round-forward-outline" data-comp-id="icon.1"
-                        style="font-size: 28px; margin: 0; float: none;"></ion-icon>
+                    <span *ngIf="i !== data.selectedServices.length-1" color="coal"
+                        data-comp-id="text.7" ion-text
+                        style="font-size: 17px; font-weight: 100; margin: 0px 2px;">➜</span>
                 </div>
                 <span [innerHTML]="data.suffix" data-comp-id="text.4" ion-text
                     style="font-size: 17px;"></span>
