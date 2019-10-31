@@ -83,12 +83,5 @@ exports.doReport = async (session, models, vars) => {
     }
     console.log('firstNamefieldId: ' + vars.session.firstNamefieldId);
     console.log('lastNamefieldId: ' + vars.session.lastNamefieldId);
-    let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
-        access_token: vars.session.access_token,
-        busObId: vars.session.incidentBusObId,
-        includeRequired: true,
-        includeAll: false
-    });
-    console.log(requestData.body);
     await session.screen('incident_categories');
 };
