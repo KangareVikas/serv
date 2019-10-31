@@ -35,5 +35,9 @@ export let mock_tickets_mytickets = {
     },
     showRequests: async function showRequests(params) {
         this.screenMocks("requests");
+    },
+    showOpenTickets: async function showOpenTickets(params) {
+    },
+    showNeedAttention: async function showNeedAttention(params) {
     }
 };
