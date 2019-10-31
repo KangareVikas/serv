@@ -121,8 +121,10 @@
                 <span>Submit</span>
             </button>
         </div>
-        <alert #alert alert-type="basic" button1Text="Ok" data-comp-id="alert.1"
-            message="Message" title="Title"></alert>
+        <alert #alert [presentOnData]="data.result.busObPublicId" alert-type="basic"
+            button1Text="Ok" data-comp-id="alert.1"
+            message="Your Incident has been added to the Cherwell system. Your Incident ID is {{data.result.busObPublicId}}."
+            title="Cherwell Service Management"></alert>
     </ion-list>
 </ion-content>
 <ion-footer class="footer-white" data-comp-id="footer.1" style="height: 63px;">
