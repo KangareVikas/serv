@@ -494,31 +494,6 @@
     "type": "object",
     "comment": "Blank",
     "properties": {
-      "users": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "select": {
-              "type": "action"
-            }
-          }
-        }
-      },
-      "search": {
-        "type": "method",
-        "parameters": {
-          "name": {
-            "type": "string"
-          }
-        }
-      },
-      "name": {
-        "type": "string"
-      },
       "back": {
         "type": "action"
       }
