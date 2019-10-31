@@ -58,7 +58,7 @@
             },
             "CreatedDateTime": {
               "type": "date",
-              "format": "YYYY-MM-DD"
+              "format": "M/D/YYYY h:mm:ss a"
             }
           }
         }
@@ -270,7 +270,8 @@
               "type": "string"
             },
             "CreatedDateTime": {
-              "type": "string"
+              "type": "date",
+              "format": "M/D/YYYY h:mm:ss a"
             }
           }
         }
@@ -307,7 +308,8 @@
               "type": "string"
             },
             "CreatedDateTime": {
-              "type": "string"
+              "type": "date",
+              "format": "M/D/YYYY h:mm:ss a"
             }
           }
         }
