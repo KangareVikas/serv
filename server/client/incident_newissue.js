@@ -40,12 +40,13 @@ exports.submit = async (session, models, vars) => {
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            template.fields[i].value = 'Filing incident using REST API';
+            var type = models.incident_newissue.type.selected || "Other"
+            template.fields[i].value = `TYPE: ${models.incident_newissue.type.selected}, LOCATION/SEAT: ${models.incident_newissue.seat}`;
             template.fields[i].dirty = true;
             continue;
         }
         if (template.fields[i].name === 'ShortDescription') {
-            template.fields[i].value = models.incident_newissue.type.selected;
+            template.fields[i].value = models.incident_newissue.shortDescription;
             template.fields[i].dirty = true;
             continue;
         }
