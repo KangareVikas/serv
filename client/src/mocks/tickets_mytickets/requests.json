@@ -3,7 +3,7 @@
     "active": "myTickets"
   },
   "ticketsType": "requests",
-  "statusFilter": "needAttention",
+  "statusFilter": "openTickets",
   "tickets": [
     {
       "id": "1003424",

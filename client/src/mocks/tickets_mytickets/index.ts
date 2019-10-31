@@ -19,5 +19,15 @@ export let mock_tickets_mytickets = {
     },
     footer_call: async function footer_call(params) {
         alert("Call!");
+    },
+    changeTicketsType: async function changeTicketsType(params) {
+        if (this.data.ticketsType == "indcidents") {
+            this.screenMocks("requests");
+        }
+        else {
+            this.screenMocks("default");
+        }
+    },
+    changeStatusFilter: async function changeStatusFilter(params) {
     }
 };
