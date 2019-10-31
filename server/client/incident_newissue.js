@@ -7,8 +7,8 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue = {};
     vars.session.selectionItemsMap.selected = '';
     vars.session.urgencyMap.selected = '';
-    models.incident_newissue.byUser = 'Evan Employee';
-    models.incident_newissue.forUser = 'Evan Employee';
+    models.incident_newissue.byUser = vars.session.byUser || 'Evan Employee';
+    models.incident_newissue.forUser = vars.session.forUser || 'Evan Employee';
     models.incident_newissue.email = 'evan.employee@acme.com';
     models.incident_newissue.phone = '6523455679';
     models.incident_newissue.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
@@ -27,6 +27,8 @@ exports.onload = async (session, models, vars) => {
 exports.cancel = async (session, models, vars) => {
     vars.session.selectedCatagoryLabel = null;
     vars.session.selectedSubCatagoryLabel = null;
+    vars.session.forUser = null;
+    vars.session.customerRecId = null;
     await session.screen('home');
 };
 
@@ -36,6 +38,8 @@ exports.cancel = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
+    vars.session.forUser = null;
+    vars.session.customerRecId = null;
     if (vars.session.selectedSubCatagoryLabel) {
         await session.screen('incident_subcategories');
     } else {
