@@ -8,14 +8,15 @@
       "type": "bearerToken",
       "token": "{access_token}"
     },
-    "body": "\\{\"busObId\": \"{incidentBusObId}\",\"fields\": \\{\\{fields}}, \"persist\": true}",
+    "body": "\\{\"busObId\": \"{incidentBusObId}\",\"fields\": , {fields}\"persist\": true}",
     "options": {},
     "bodyType": "body"
   },
   "functions": {
     "SaveBusinessObject": [
       "access_token",
-      "incidentBusObId"
+      "incidentBusObId",
+      "fields"
     ]
   }
 }
