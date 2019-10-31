@@ -1,4 +1,5 @@
 export { mock_articles_findarticle as articles_findarticle } from './articles_findarticle/index';
+export { mock_finduser as finduser } from './finduser/index';
 export { mock_home as home } from './home/index';
 export { mock_incident_categories as incident_categories } from './incident_categories/index';
 export { mock_incident_newissue as incident_newissue } from './incident_newissue/index';
@@ -10,6 +11,5 @@ export { mock_menu as menu } from './menu/index';
 export { mock_request_newrequest as request_newrequest } from './request_newrequest/index';
 export { mock_request_services as request_services } from './request_services/index';
 export { mock_request_subservices as request_subservices } from './request_subservices/index';
-export { mock_searchuser as searchuser } from './searchuser/index';
 export { mock_tickets_mytickets as tickets_mytickets } from './tickets_mytickets/index';
 export { mock_tickets_viewincident as tickets_viewincident } from './tickets_viewincident/index';

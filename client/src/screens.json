@@ -122,9 +122,9 @@
       ]
     },
     {
-      "id": "searchuser",
-      "name": "Search User",
-      "sourceScreenId": "articles_findarticle",
+      "id": "finduser",
+      "name": "Find User",
+      "sourceScreenId": "searchuser",
       "sourceAppId": "cherwellrequest"
     }
   ],

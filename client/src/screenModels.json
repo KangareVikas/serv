@@ -382,10 +382,22 @@
     },
     "id": "request_newrequest"
   },
-  "searchuser": {
+  "finduser": {
     "type": "object",
     "comment": "Blank",
-    "properties": {},
-    "id": "searchuser"
+    "properties": {
+      "users": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "id": "finduser"
   }
 }
