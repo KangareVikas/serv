@@ -294,6 +294,23 @@
       },
       "statusFilter": {
         "type": "string"
+      },
+      "tickets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            },
+            "CreatedDateTime": {
+              "type": "string"
+            }
+          }
+        }
       }
     },
     "id": "tickets_mytickets"

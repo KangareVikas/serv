@@ -38,6 +38,34 @@
             <ion-segment-button data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
         </ion-segment>
     </ion-toolbar>
+    <ion-row data-comp-id="row.2">
+        <ion-col data-comp-id="column.5" style="padding: 8px;">
+            <ion-list data-comp-id="list.1" mode="ios">
+                <ion-item-sliding *ngFor="let item of data.tickets; let i = index"
+                    data-comp-id="item-sliding.1"
+                    style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
+                    <ion-item data-comp-id="item.1" detail-push mode="ios"
+                        style="border-bottom: 0px none rgb(0, 0, 0);">
+                        <div [innerHTML]="item.id" color="primary" data-comp-id="text.2" ion-text
+                            style="font-size: 14px; margin: 0 0 4px 0;"></div>
+                        <div [innerHTML]="item.Description" data-comp-id="text.3" ion-text
+                            style="margin: 0 0 4px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
+                        <span color="medium" data-comp-id="text.4" ion-text style="font-size: 13px;">Date Created:</span>
+                        <span [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5"
+                            formatting="date" input-format="YYYY-MM-DD" ion-text output-format="YYYY-MM-DD"
+                            style="font-size: 13px; margin: 0 0 0 4px;"></span>
+                    </ion-item>
+                    <ion-item-options data-comp-id="item-options.1" side="right"
+                        style="border-bottom: none; align-items: center;">
+                        <button color="contrast" data-comp-id="fab-button.1" ion-fab mode="ios"
+                            style="margin: 0px 5px 0 15px;">
+                            <ion-icon class=" fa fa-edit"></ion-icon>
+                        </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-list>
+        </ion-col>
+    </ion-row>
 </ion-content>
 <ion-footer class="footer-white" data-comp-id="footer.1" style="height: 63px;">
     <include-screen data-comp-id="include-screen.1" name="inserts_footer"></include-screen>
