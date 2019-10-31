@@ -12,7 +12,11 @@ exports.onload = async (session, models, vars) => {
 */
 exports.search = async (session, models, vars) => {
     let name = vars.params.name;
-    let result = await session.rest.cherwellapi.getCustomerRecId({ name: name });
+    let result = await session.rest.cherwellapi.getCustomerRecId({
+        name: name,
+        custBusObId: vars.session.custBusObId,
+        firstNamefieldId: vars.session.firstNamefieldId
+    });
     console.log(result.body);
 };
 /**
