@@ -2,8 +2,8 @@
   "footer": {
     "active": "myTickets"
   },
-  "ticketsType": "incidents",
-  "statusFilter": "requests",
+  "ticketsType": "requests",
+  "statusFilter": "needAttention",
   "tickets": [
     {
       "id": "1003424",
