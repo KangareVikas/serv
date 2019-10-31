@@ -250,7 +250,22 @@
   "articles_findarticle": {
     "type": "object",
     "comment": "Blank",
-    "properties": {},
+    "properties": {
+      "articles": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Description": {
+              "type": "string"
+            },
+            "CreatedDateTime": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "id": "articles_findarticle"
   },
   "tickets_mytickets": {
