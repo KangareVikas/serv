@@ -5,6 +5,8 @@
 */
 exports.onload = async (session, models, vars) => {
     models.incident_newissue = {};
+    vars.session.selectionItemsMap.selected = '';
+    vars.session.urgencyMap.selected = '';
     models.incident_newissue.byUser = 'Evan Employee';
     models.incident_newissue.forUser = 'Evan Employee';
     models.incident_newissue.email = 'evan.employee@acme.com';
