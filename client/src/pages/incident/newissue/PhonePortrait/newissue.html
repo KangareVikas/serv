@@ -25,8 +25,8 @@
     <ion-list data-comp-id="list.1" style="margin: -1px 0px 82px;">
         <ion-item data-comp-id="input.1" mode="ios">
             <ion-label class=" required" mode="ios">By</ion-label>
-            <ion-input [(ngModel)]="data.byUser" mode="ios" placeholder="Type here..."
-                type="text"></ion-input>
+            <ion-input [(ngModel)]="data.byUser" [readonly]="true" mode="ios"
+                placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <div (click)="action('search')" data-comp-id="div.1"
             style="margin: 0; padding: 0;">
@@ -39,13 +39,13 @@
         </div>
         <ion-item data-comp-id="input.3" mode="ios">
             <ion-label mode="ios">Email</ion-label>
-            <ion-input [(ngModel)]="data.email" mode="ios" placeholder="Type here..."
-                type="text"></ion-input>
+            <ion-input [(ngModel)]="data.email" [readonly]="true" mode="ios"
+                placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.4" mode="ios">
             <ion-label class=" required" mode="ios">Phone</ion-label>
-            <ion-input [(ngModel)]="data.phone" mode="ios" placeholder="Type here..."
-                type="text"></ion-input>
+            <ion-input [(ngModel)]="data.phone" [readonly]="true" mode="ios"
+                placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
             <ion-label mode="ios">Type</ion-label>
@@ -88,7 +88,7 @@
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.2" mode="ios">
             <ion-label mode="ios">Urgency</ion-label>
-            <ion-select [(ngModel)]="data.urgency.selected"
+            <ion-select [(ngModel)]="data.urgency.selected" [disabled]="true"
                 [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
                 name="select.2">
                 <ion-option *ngFor="let item of data.urgency.options" [innerHTML]="item.label"
