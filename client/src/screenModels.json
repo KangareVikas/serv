@@ -211,6 +211,9 @@
             "type": "string"
           }
         }
+      },
+      "description": {
+        "type": "string"
       }
     },
     "id": "incident_newissue"
