@@ -42,6 +42,7 @@ exports.onload = async (session, models, vars) => {
         }
         models.home.tickets.push(ticket);
     }
+    models.home.footer.active = 'home';
 };
 /**
  * @param {Session} session
