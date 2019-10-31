@@ -287,6 +287,9 @@
       },
       "ticketsType": {
         "type": "string"
+      },
+      "statusFilter": {
+        "type": "string"
       }
     },
     "id": "tickets_mytickets"
