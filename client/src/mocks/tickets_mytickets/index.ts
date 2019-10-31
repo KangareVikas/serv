@@ -21,7 +21,7 @@ export let mock_tickets_mytickets = {
         alert("Call!");
     },
     changeTicketsType: async function changeTicketsType(params) {
-        if (this.data.ticketsType == "indcidents") {
+        if (this.data.ticketsType == "incidents") {
             this.screenMocks("requests");
         }
         else {
