@@ -387,5 +387,11 @@
     "comment": "Blank",
     "properties": {},
     "id": "searchuser"
+  },
+  "finduser": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "finduser"
   }
 }

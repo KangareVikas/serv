@@ -126,6 +126,12 @@
       "name": "Search User",
       "sourceScreenId": "articles_findarticle",
       "sourceAppId": "cherwellrequest"
+    },
+    {
+      "id": "finduser",
+      "name": "Find User",
+      "sourceScreenId": "searchuser",
+      "sourceAppId": "cherwellrequest"
     }
   ],
   "startScreen": "login",
