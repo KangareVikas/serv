@@ -200,6 +200,17 @@
       "footer": {
         "type": "model",
         "model": "footer"
+      },
+      "result": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "busObPublicId": {
+            "type": "string"
+          }
+        }
       }
     },
     "id": "incident_newissue"
