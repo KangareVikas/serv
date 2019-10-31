@@ -111,7 +111,7 @@
                 <div color="primary" data-comp-id="text.2" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>
-        <ion-item data-comp-id="textarea.2" mode="ios">
+        <ion-item *ngIf="showAddInfo" data-comp-id="textarea.2" mode="ios">
             <ion-label color="dark" mode="ios" stacked style="font-size: 16px;">Description</ion-label>
             <ion-textarea [(ngModel)]="data.description" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
