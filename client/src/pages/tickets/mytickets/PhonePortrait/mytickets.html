@@ -20,11 +20,12 @@
                 <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">My Tickets</div>
             </ion-col>
             <ion-col col-12 data-comp-id="column.4" style="padding: 16px 8px 0;">
-                <ion-segment (ionChange)="action('changeTicketsType')"
-                    [(ngModel)]="data.ticketsType" color="contrast" data-comp-id="segment.1"
-                    mode="md" style>
-                    <ion-segment-button data-comp-id="segment-button.1" value="incidents">Incidents</ion-segment-button>
-                    <ion-segment-button data-comp-id="segment-button.2" value="requests">Requests</ion-segment-button>
+                <ion-segment [(ngModel)]="data.ticketsType" color="contrast"
+                    data-comp-id="segment.1" mode="md" style>
+                    <ion-segment-button (ionSelect)="action('showIncidents')"
+                        data-comp-id="segment-button.1" value="incidents">Incidents</ion-segment-button>
+                    <ion-segment-button (ionSelect)="action('showRequests')"
+                        data-comp-id="segment-button.2" value="requests">Requests</ion-segment-button>
                 </ion-segment>
             </ion-col>
         </ion-row>
@@ -33,11 +34,12 @@
 <ion-content class="content-calm ignore-footer" data-comp-id="content.1" style>
     <ion-toolbar color="transparent" data-comp-id="toolbar.1"
         style="padding: 16px 16px;">
-        <ion-segment (ionChange)="action('changeStatusFilter')"
-            [(ngModel)]="data.statusFilter" color="contrast" data-comp-id="segment.2"
-            mode="ios" style>
-            <ion-segment-button data-comp-id="segment-button.3" value="openTickets">Open Tickets</ion-segment-button>
-            <ion-segment-button data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
+        <ion-segment [(ngModel)]="data.statusFilter" color="contrast"
+            data-comp-id="segment.2" mode="ios" style>
+            <ion-segment-button (ionSelect)="action('showOpenTickets')"
+                data-comp-id="segment-button.3" value="openTickets">Open Tickets</ion-segment-button>
+            <ion-segment-button (ionSelect)="action('showNeedAttention')"
+                data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
         </ion-segment>
     </ion-toolbar>
     <ion-row data-comp-id="row.2">

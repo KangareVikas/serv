@@ -317,10 +317,16 @@
           }
         }
       },
-      "changeTicketsType": {
+      "showIncidents": {
         "type": "action"
       },
-      "changeStatusFilter": {
+      "showRequests": {
+        "type": "action"
+      },
+      "showOpenTickets": {
+        "type": "action"
+      },
+      "showNeedAttention": {
         "type": "action"
       }
     },

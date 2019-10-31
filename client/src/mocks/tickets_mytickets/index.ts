@@ -29,5 +29,11 @@ export let mock_tickets_mytickets = {
         }
     },
     changeStatusFilter: async function changeStatusFilter(params) {
+    },
+    showIncidents: async function showIncidents(params) {
+        this.screenMocks("default");
+    },
+    showRequests: async function showRequests(params) {
+        this.screenMocks("requests");
     }
 };
