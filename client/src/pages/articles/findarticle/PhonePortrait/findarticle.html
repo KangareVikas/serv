@@ -39,13 +39,14 @@
     <ion-list data-comp-id="list.2" style="margin: -1px 0px 82px;">
         <ion-item *ngFor="let item of data.articles; let i = index"
             data-comp-id="item.1">
-            <div data-comp-id="text.3" ion-text style="font-size: 17px;">Computer Problem</div>
+            <div [innerHTML]="item.Description" data-comp-id="text.3" ion-text
+                style="font-size: 17px;"></div>
             <ion-icon color="primary" data-comp-id="icon.1" item-end name="arrow-forward"
                 style="font-size: 24px;"></ion-icon>
             <div color="dark" data-comp-id="text.4" ion-text
                 style="white-space: normal; font-size: 15px; margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
-            <div color="medium" data-comp-id="text.5" formatting="date" ion-text
-                style="font-size: 13px; margin: 7px 0 0 0;">September 23, 3:05 PM</div>
+            <div [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5"
+                formatting="date" ion-text style="font-size: 13px; margin: 7px 0 0 0;"></div>
         </ion-item>
     </ion-list>
 </ion-content>
