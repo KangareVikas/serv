@@ -1,7 +1,11 @@
 {
   "menu": {
     "type": "object",
-    "properties": {},
+    "properties": {
+      "logout": {
+        "type": "action"
+      }
+    },
     "id": "menu"
   },
   "login": {
