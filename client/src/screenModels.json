@@ -408,6 +408,9 @@
           "properties": {
             "name": {
               "type": "string"
+            },
+            "select": {
+              "type": "action"
             }
           }
         }
