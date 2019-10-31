@@ -44,8 +44,8 @@
                 style="font-size: 17px;"></div>
             <ion-icon color="primary" data-comp-id="icon.1" item-end name="arrow-forward"
                 style="font-size: 24px;"></ion-icon>
-            <div color="dark" data-comp-id="text.4" ion-text
-                style="white-space: normal; font-size: 15px; margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
+            <div [innerHTML]="item.Description" color="dark" data-comp-id="text.4" ion-text
+                style="white-space: normal; font-size: 15px; margin: 0;"></div>
             <div [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5"
                 formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
                 output-format="MMMM D, h:mm A" style="font-size: 13px; margin: 7px 0 0 0;"></div>
