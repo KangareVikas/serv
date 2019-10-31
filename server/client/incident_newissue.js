@@ -81,7 +81,7 @@ exports.submit = async (session, models, vars) => {
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
             var type = models.incident_newissue.type.selected || "Other"
-            template.fields[i].value = `TYPE: ${models.incident_newissue.type.selected}, LOCATION/SEAT: ${models.incident_newissue.seat}`;
+            template.fields[i].value = `TYPE: ${models.incident_newissue.type.selected}, LOCATION/SEAT: ${models.incident_newissue.seat}, ${models.incident_newissue.description}`;
             template.fields[i].dirty = true;
             continue;
         }
