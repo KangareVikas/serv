@@ -28,16 +28,7 @@
             <ion-input [(ngModel)]="data.byUser" [readonly]="true" mode="ios"
                 placeholder="Type here..." type="text"></ion-input>
         </ion-item>
-        <div (click)="action('search')" data-comp-id="div.1"
-            style="margin: 0; padding: 0;">
-            <ion-item data-comp-id="input.2" mode="ios">
-                <ion-icon class=" ion-ios-search" color="primary" item-right style></ion-icon>
-                <ion-label mode="ios">For</ion-label>
-                <ion-input [(ngModel)]="data.forUser" mode="ios" placeholder="Search..."
-                    type="text"></ion-input>
-            </ion-item>
-        </div>
-        <ion-item data-comp-id="item.1" mode="ios">
+        <ion-item (click)="action('search')" data-comp-id="item.1" mode="ios">
             <span color="dark" data-comp-id="text.2" ion-text
                 style="width: 70px; margin: 0 65px 0 0;">For</span>
             <span [innerHTML]="data.forUser || 'Search...'" color="medium"
