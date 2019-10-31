@@ -13,6 +13,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.phone = '6523455679';
     models.incident_newissue.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.incident_newissue.urgency = vars.session.urgencyMap;
+    models.incident_newissue.urgency.selected = '2';
     if (vars.session.selectedCatagoryLabel) {
         vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
     }
