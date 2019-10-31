@@ -4,6 +4,8 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    if (vars.session.incidentBusObId) {
+    }
     let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
         access_token: vars.session.access_token,
         busObId: vars.session.incidentBusObId,
