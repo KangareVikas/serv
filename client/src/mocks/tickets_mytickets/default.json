@@ -2,7 +2,6 @@
   "footer": {
     "active": "myTickets"
   },
-  "ticketType": "",
   "ticketsType": "incidents",
   "statusFilter": "openTickets",
   "tickets": [

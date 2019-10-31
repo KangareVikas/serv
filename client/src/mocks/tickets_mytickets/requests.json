@@ -1,1 +1,19 @@
-{}
+{
+  "footer": {
+    "active": "myTickets"
+  },
+  "ticketsType": "incidents",
+  "statusFilter": "requests",
+  "tickets": [
+    {
+      "id": "1003424",
+      "Description": "I need help with my Building / Facilities relating to conference / room reservations",
+      "CreatedDateTime": "10/10/2019 12:00:00 am"
+    },
+    {
+      "id": "1003423",
+      "Description": "I need help with my Desk Environment regarding my monitor",
+      "CreatedDateTime": "9/30/2019 12:00:00 am"
+    }
+  ]
+}
