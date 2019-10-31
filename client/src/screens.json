@@ -120,6 +120,12 @@
           "sourceAppId": "cherwellrequest"
         }
       ]
+    },
+    {
+      "id": "searchuser",
+      "name": "Search User",
+      "sourceScreenId": "articles_findarticle",
+      "sourceAppId": "cherwellrequest"
     }
   ],
   "startScreen": "login",
