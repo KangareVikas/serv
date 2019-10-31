@@ -94,7 +94,10 @@ exports.submit = async (session, models, vars) => {
         });
         console.log(result);
         if (result.body.busObPublicId) {
-            await session.alert(`Your Incident has been added to the Cherwell system. Your Incident ID is ${result.body.busObPublicId}.`);
+            await session.alert(`Your Incident has been added to the Cherwell system. Your Incident ID is ${result.body.busObPublicId}.`, {
+                title: 'Cherwell Service Management',
+                okLabel: 'OK'
+            });
             await session.screen('home');
         } 
     } catch (e) {
