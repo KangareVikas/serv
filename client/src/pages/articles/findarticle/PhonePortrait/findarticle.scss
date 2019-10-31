@@ -1,2 +1,8 @@
+screen-articles-findarticle-phoneportrait,
 screen-articles-findarticle_phoneportrait {
+    .article-item {
+        .article-description {
+            border: 5px solid red;
+        }
+    }
 }
