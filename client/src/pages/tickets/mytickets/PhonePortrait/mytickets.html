@@ -20,8 +20,9 @@
                 <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">My Tickets</div>
             </ion-col>
             <ion-col col-12 data-comp-id="column.4" style="padding: 16px 8px 0;">
-                <ion-segment [(ngModel)]="data.ticketsType" color="contrast"
-                    data-comp-id="segment.1" mode="md" style>
+                <ion-segment (ionChange)="action('changeTicketsType')"
+                    [(ngModel)]="data.ticketsType" color="contrast" data-comp-id="segment.1"
+                    mode="md" style>
                     <ion-segment-button data-comp-id="segment-button.1" value="incidents">Incidents</ion-segment-button>
                     <ion-segment-button data-comp-id="segment-button.2" value="requests">Requests</ion-segment-button>
                 </ion-segment>
@@ -32,8 +33,9 @@
 <ion-content class="content-calm ignore-footer" data-comp-id="content.1" style>
     <ion-toolbar color="transparent" data-comp-id="toolbar.1"
         style="padding: 16px 16px;">
-        <ion-segment [(ngModel)]="data.statusFilter" color="contrast"
-            data-comp-id="segment.2" mode="ios" style>
+        <ion-segment (ionChange)="action('changeStatusFilter')"
+            [(ngModel)]="data.statusFilter" color="contrast" data-comp-id="segment.2"
+            mode="ios" style>
             <ion-segment-button data-comp-id="segment-button.3" value="openTickets">Open Tickets</ion-segment-button>
             <ion-segment-button data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
         </ion-segment>
@@ -41,8 +43,8 @@
     <ion-row data-comp-id="row.2">
         <ion-col data-comp-id="column.5" style="padding: 8px;">
             <ion-list data-comp-id="list.1" mode="ios">
-                <ion-item-sliding *ngFor="let item of data.tickets; let i = index"
-                    data-comp-id="item-sliding.1"
+                <ion-item-sliding (click)="action('tickets.view',[i])"
+                    *ngFor="let item of data.tickets; let i = index" data-comp-id="item-sliding.1"
                     style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
                     <ion-item data-comp-id="item.1" detail-push mode="ios"
                         style="border-bottom: 0px none rgb(0, 0, 0);">

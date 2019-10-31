@@ -310,9 +310,18 @@
             "CreatedDateTime": {
               "type": "date",
               "format": "M/D/YYYY h:mm:ss a"
+            },
+            "view": {
+              "type": "action"
             }
           }
         }
+      },
+      "changeTicketsType": {
+        "type": "action"
+      },
+      "changeStatusFilter": {
+        "type": "action"
       }
     },
     "id": "tickets_mytickets"
