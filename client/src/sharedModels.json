@@ -5,6 +5,21 @@
     "properties": {
       "active": {
         "type": "string"
+      },
+      "home": {
+        "type": "action"
+      },
+      "myTickets": {
+        "type": "action"
+      },
+      "chat": {
+        "type": "action"
+      },
+      "call": {
+        "type": "action"
+      },
+      "newIssue": {
+        "type": "action"
       }
     }
   }

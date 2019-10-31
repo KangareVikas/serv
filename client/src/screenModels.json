@@ -89,21 +89,6 @@
       "footer": {
         "type": "model",
         "model": "footer"
-      },
-      "home": {
-        "type": "action"
-      },
-      "myTickets": {
-        "type": "action"
-      },
-      "chat": {
-        "type": "action"
-      },
-      "call": {
-        "type": "action"
-      },
-      "newIssue": {
-        "type": "action"
       }
     },
     "id": "inserts_footer"
