@@ -46,7 +46,8 @@
             <div color="dark" data-comp-id="text.4" ion-text
                 style="white-space: normal; font-size: 15px; margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
             <div [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5"
-                formatting="date" ion-text style="font-size: 13px; margin: 7px 0 0 0;"></div>
+                formatting="date" input-format="M/D/YYYY hh:mm:ss a" ion-text
+                output-format="MM/DD/YYYY" style="font-size: 13px; margin: 7px 0 0 0;"></div>
         </ion-item>
     </ion-list>
 </ion-content>
