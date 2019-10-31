@@ -132,6 +132,12 @@
       "name": "Find User",
       "sourceScreenId": "searchuser",
       "sourceAppId": "cherwellrequest"
+    },
+    {
+      "id": "findticket",
+      "name": "Find Ticket",
+      "sourceScreenId": "finduser",
+      "sourceAppId": "cherwellrequest"
     }
   ],
   "startScreen": "login",
