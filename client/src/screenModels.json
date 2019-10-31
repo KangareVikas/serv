@@ -425,6 +425,9 @@
       },
       "name": {
         "type": "string"
+      },
+      "back": {
+        "type": "action"
       }
     },
     "id": "finduser"
