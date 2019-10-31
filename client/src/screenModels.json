@@ -385,7 +385,19 @@
   "finduser": {
     "type": "object",
     "comment": "Blank",
-    "properties": {},
+    "properties": {
+      "users": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "id": "finduser"
   }
 }
