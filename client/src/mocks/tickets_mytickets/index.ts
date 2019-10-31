@@ -13,5 +13,11 @@ export let mock_tickets_mytickets = {
     },
     footer_newIssue: async function footer_newIssue(params) {
         await this.go("incident_newissue");
+    },
+    footer_chat: async function footer_chat(params) {
+        alert("Chat!");
+    },
+    footer_call: async function footer_call(params) {
+        alert("Call!");
     }
 };
