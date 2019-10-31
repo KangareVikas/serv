@@ -27,6 +27,13 @@ declare module 'app/app.screens' {
 	import { incident_subcategories_PhonePortrait } from 'app/../pages/incident/subcategories/PhonePortrait/subcategories';
 	import { incident_categories_PhonePortrait } from 'app/../pages/incident/categories/PhonePortrait/categories';
 	import { incident_newissue_PhonePortrait } from 'app/../pages/incident/newissue/PhonePortrait/newissue';
+	import { request_services_PhonePortrait } from 'app/../pages/request/services/PhonePortrait/services';
+	import { request_subservices_PhonePortrait } from 'app/../pages/request/subservices/PhonePortrait/subservices';
+	import { request_newrequest_PhonePortrait } from 'app/../pages/request/newrequest/PhonePortrait/newrequest';
+	import { articles_findarticle_PhonePortrait } from 'app/../pages/articles/findarticle/PhonePortrait/findarticle';
+	import { tickets_mytickets_PhonePortrait } from 'app/../pages/tickets/mytickets/PhonePortrait/mytickets';
+	import { tickets_viewincident_PhonePortrait } from 'app/../pages/tickets/viewincident/PhonePortrait/viewincident';
+	import { finduser_PhonePortrait } from 'app/../pages/finduser/PhonePortrait/finduser';
 	export class Screens {
 	    static declarations: typeof MenuComponent[];
 	    static mapping: {
@@ -50,6 +57,27 @@ declare module 'app/app.screens' {
 	        };
 	        'incident_newissue': {
 	            PhonePortrait: typeof incident_newissue_PhonePortrait;
+	        };
+	        'request_services': {
+	            PhonePortrait: typeof request_services_PhonePortrait;
+	        };
+	        'request_subservices': {
+	            PhonePortrait: typeof request_subservices_PhonePortrait;
+	        };
+	        'request_newrequest': {
+	            PhonePortrait: typeof request_newrequest_PhonePortrait;
+	        };
+	        'articles_findarticle': {
+	            PhonePortrait: typeof articles_findarticle_PhonePortrait;
+	        };
+	        'tickets_mytickets': {
+	            PhonePortrait: typeof tickets_mytickets_PhonePortrait;
+	        };
+	        'tickets_viewincident': {
+	            PhonePortrait: typeof tickets_viewincident_PhonePortrait;
+	        };
+	        'finduser': {
+	            PhonePortrait: typeof finduser_PhonePortrait;
 	        };
 	    };
 	}
