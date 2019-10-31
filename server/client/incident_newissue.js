@@ -37,7 +37,7 @@ exports.submit = async (session, models, vars) => {
         includeAll: false
     });
     console.log(requestData.body);
-    let template = JSON.parse(requestData.body);
+    let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
             template.fields[i].value = 'Filing incident using REST API';
