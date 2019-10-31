@@ -93,15 +93,13 @@ exports.submit = async (session, models, vars) => {
             fields: fields
         });
         console.log(result);
-        if (result.body.busObPublicId) {
-            await session.alert(`Your Incident has been added to the Cherwell system. Your Incident ID is ${result.body.busObPublicId}.`, {
-                title: 'Cherwell Service Management',
-                okLabel: 'OK'
-            });
-            await session.screen('home');
-        } 
+        if (result.body.errorMessage) {
+            models.incident_newissue.result.error = result.body.errorMessage;
+        } else if (result.body.busObPublicId) {
+            models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
+        }
     } catch (e) {
-        await session.alert(e.message);
+        models.incident_newissue.result.error = e.message;
         console.log(e); 
     }
 };
