@@ -91,7 +91,7 @@ exports.submit = async (session, models, vars) => {
             continue;
         }
         if (template.fields[i].name === 'CustomerRecID') {
-            template.fields[i].value = '9451f6c8b5609372c4e86b440db32353b488fb4206';
+            template.fields[i].value = vars.session.customerRecId || '9451f6c8b5609372c4e86b440db32353b488fb4206';
             template.fields[i].dirty = true;
             continue;
         }
