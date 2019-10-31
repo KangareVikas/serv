@@ -8,6 +8,7 @@ declare var window: any;
 })
 export class incident_newissue_PhonePortrait extends Screen {
     data: any;
+    showAddInfo: boolean;
 
   ngOnInit(): void {
     super.ngOnInit();
