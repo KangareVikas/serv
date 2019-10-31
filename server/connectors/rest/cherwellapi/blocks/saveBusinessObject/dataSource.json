@@ -8,7 +8,7 @@
       "type": "bearerToken",
       "token": "{access_token}"
     },
-    "body": "\\{\"busObId\": \"{incidentBusObId}\",\"fields\": , {fields},\"persist\": true}",
+    "body": "\\{\"busObId\": \"{incidentBusObId}\",\"fields\": {fields},\"persist\": true}",
     "options": {},
     "bodyType": "body"
   },
