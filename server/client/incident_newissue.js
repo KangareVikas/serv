@@ -133,4 +133,5 @@ exports.submit = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
+    await session.screen('finduser');
 };
