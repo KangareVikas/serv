@@ -14,5 +14,6 @@ export { mock_menu as menu } from './menu/index';
 export { mock_request_newrequest as request_newrequest } from './request_newrequest/index';
 export { mock_request_services as request_services } from './request_services/index';
 export { mock_request_subservices as request_subservices } from './request_subservices/index';
+export { mock_settings as settings } from './settings/index';
 export { mock_tickets_mytickets as tickets_mytickets } from './tickets_mytickets/index';
 export { mock_tickets_viewincident as tickets_viewincident } from './tickets_viewincident/index';

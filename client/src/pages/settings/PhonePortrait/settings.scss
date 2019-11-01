@@ -1,0 +1,14 @@
+screen-articles-viewarticle-phoneportrait,
+screen-articles-viewarticle_phoneportrait {
+    .article-title-big {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .article-title{
+        max-height: 2.4em;
+        overflow: hidden;
+    }
+    .issue-button {
+        height: 42px;
+    }
+}

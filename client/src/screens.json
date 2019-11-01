@@ -144,6 +144,12 @@
       "name": "About",
       "sourceScreenId": "articles_viewarticle",
       "sourceAppId": "cherwellrequest"
+    },
+    {
+      "id": "settings",
+      "name": "Settings",
+      "sourceScreenId": "about",
+      "sourceAppId": "cherwellrequest"
     }
   ],
   "startScreen": "login",
