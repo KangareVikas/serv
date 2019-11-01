@@ -16,8 +16,29 @@
         </ion-row>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-white" data-comp-id="content.1" style>
-    <ion-row data-comp-id="row.2" style="margin: 0px 0px 30px; padding: 5px 16px;">
-        <ion-col data-comp-id="column.3"></ion-col>
+<ion-content class="content-calm" data-comp-id="content.1" style>
+    <ion-row class="row-white" data-comp-id="row.2"
+        style="margin: 0px 0px 30px; padding: 5px 16px;">
+        <ion-col data-comp-id="column.3">
+            <ion-list data-comp-id="list.1">
+                <div data-comp-id="touchid-enable-toggle.1">
+                    <ion-item data-comp-id="toggle.2" no-lines>
+                        <ion-label>Enable
+                            {{getBiometricAuthType()}}</ion-label>
+                        <ion-toggle (ionChange)="toggleTouchid($event)" [checked]="touchidEnabled()"></ion-toggle>
+                    </ion-item>
+                    <ion-row data-comp-id="row.3">
+                        <ion-col data-comp-id="column.4">
+                            <div color="dark" data-comp-id="text.2" ion-text>All
+                                {{getBiometricAuthType()}}s stored on this device can be used to log into this app.</div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+                <ion-item data-comp-id="toggle.1">
+                    <ion-label>Toggle</ion-label>
+                    <ion-toggle></ion-toggle>
+                </ion-item>
+            </ion-list>
+        </ion-col>
     </ion-row>
 </ion-content>
