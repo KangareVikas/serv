@@ -9,9 +9,16 @@ exports.onload = async (session, models, vars) => {
         vars.session.kbBusObId = output.body[0].busObId;
         vars.session.kbStateFieldId = output.body[0].stateFieldId;
     }
-    let articlesData = await session.rest.cherwellapi.getKBBaseArticles({
+    let requestData = await session.rest.cherwellapi.getKBBaseArticles({
         access_token: vars.session.access_token,
         kbBusObId: vars.session.kbBusObId,
         kbStateFieldId: vars.session.kbStateFieldId
     });
+    let articles = requestData.body.businessObjects;
+    for (var i = 0; i < articles.fields.length; i++) {
+        if (articles.fields[i].name === 'Service') {
+            vars.session.serviceFieldId = articles.fields[i].fieldId;
+            continue;
+        }
+    }
 };
