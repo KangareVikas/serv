@@ -118,6 +118,27 @@
             <ion-textarea [(ngModel)]="data.description" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
+        <ion-row class="row-calm quantity-form" data-comp-id="row.4"
+            style="margin: 16px; padding: 16px;">
+            <ion-col col-12 data-comp-id="column.8" style="padding: 0; margin: 0;">
+                <ion-list data-comp-id="list.2" style="margin: 0;">
+                    <ion-item class="wrap-field" data-comp-id="select.3" mode="ios"
+                        style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
+                        <ion-label mode="ios">Select</ion-label>
+                        <ion-select [selectOptions]="{cssClass: 'select-full'}" interface="alert"
+                            mode="ios">
+                            <ion-option data-comp-id="option.3"></ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+            <ion-col data-comp-id="column.9" style="padding: 0; margin: 0;">
+                <div data-comp-id="text.3" ion-text>Order Total:</div>
+            </ion-col>
+            <ion-col data-comp-id="column.10" style="margin: 0; padding: 0;">
+                <div data-comp-id="text.4" ion-text>$0.00</div>
+            </ion-col>
+        </ion-row>
         <div data-comp-id="div.2" style="padding: 32px 16px 16px; margin: 0;">
             <button (click)="action('submit')" color="secondary" data-comp-id="button.3"
                 full ion-button mode="ios" style="border-radius: 20px;">
