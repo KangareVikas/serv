@@ -47,6 +47,22 @@
             <ion-input [(ngModel)]="data.phone" mode="ios" placeholder="Type here..."
                 type="text"></ion-input>
         </ion-item>
+        <ion-item (click)="action('search')" data-comp-id="item.1" mode="ios">
+            <span color="dark" data-comp-id="text.2" ion-text
+                style="width: 70px; margin: 0 65px 0 0;">For</span>
+            <span [innerHTML]="data.forUser || 'Search...'" color="medium"
+                data-comp-id="text.3" ion-text style="width: 70px;"></span>
+            <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.1" item-end
+                style></ion-icon>
+        </ion-item>
+        <ion-item (click)="action('search')" data-comp-id="item.2" mode="ios">
+            <span color="dark" data-comp-id="text.4" ion-text
+                style="width: 70px; margin: 0 65px 0 0;">For</span>
+            <span [innerHTML]="data.forUser || 'Search...'" color="medium"
+                data-comp-id="text.5" ion-text style="width: 70px;"></span>
+            <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.2" item-end
+                style></ion-icon>
+        </ion-item>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
             <ion-label mode="ios">Type</ion-label>
             <ion-select [(ngModel)]="data.type.selected"
@@ -83,7 +99,7 @@
             <ion-col col-auto data-comp-id="column.5"
                 style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
                 <ion-icon (click)="action('removeAttachment')" class=" ion-ios-remove-circle"
-                    color="stable" data-comp-id="icon.1" style="font-size: 24px; padding: 10px;"></ion-icon>
+                    color="stable" data-comp-id="icon.3" style="font-size: 24px; padding: 10px;"></ion-icon>
             </ion-col>
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.2" mode="ios">
@@ -104,13 +120,13 @@
         <ion-row data-comp-id="row.3" style="padding: 8px 0px 0px 16px;">
             <ion-col col-auto data-comp-id="column.6" style="padding: 8px 0;">
                 <ion-icon *ngIf="showAddInfo" class=" ion-ios-arrow-down-outline"
-                    color="primary" data-comp-id="icon.2" style="font-size: 17px;"></ion-icon>
+                    color="primary" data-comp-id="icon.4" style="font-size: 17px;"></ion-icon>
                 <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
-                    color="primary" data-comp-id="icon.3" style="font-size: 17px;"></ion-icon>
+                    color="primary" data-comp-id="icon.5" style="font-size: 17px;"></ion-icon>
             </ion-col>
             <ion-col (click)="showAddInfo = !showAddInfo" col-auto data-comp-id="column.7"
                 style="padding: 8px;">
-                <div color="primary" data-comp-id="text.2" ion-text style>Additional Information</div>
+                <div color="primary" data-comp-id="text.6" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>
         <ion-item *ngIf="showAddInfo" data-comp-id="textarea.2" mode="ios">
@@ -136,12 +152,12 @@
             </ion-col>
             <ion-col data-comp-id="column.9"
                 style="padding: 0; margin: 0; text-align: left;">
-                <div color="black" data-comp-id="text.3" ion-text
+                <div color="black" data-comp-id="text.7" ion-text
                     style="font-size: 17px; margin: 8px 8px 0 16px;">Order Total:</div>
             </ion-col>
             <ion-col data-comp-id="column.10"
                 style="margin: 0; padding: 0; text-align: right;">
-                <div color="contrast" data-comp-id="text.4" ion-text
+                <div color="contrast" data-comp-id="text.8" ion-text
                     style="font-size: 24px; font-weight: bold; margin: 4px;">$0.00</div>
             </ion-col>
         </ion-row>
