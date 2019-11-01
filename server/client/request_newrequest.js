@@ -14,6 +14,7 @@ exports.onload = async (session, models, vars) => {
     models.request_newrequest.email = 'evan.employee@acme.com';
     models.request_newrequest.phone = '6523455679';
     models.request_newrequest.shortDescription = `I need help`;
+    models.request_newrequest.shortDescription = `I would like to order ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ models.request_newrequest.subCategory }`;
     models.request_newrequest.urgency = vars.session.urgencyMap;
     models.request_newrequest.service = vars.session.requestService;
     models.request_newrequest.category = vars.session.requestCategory;
@@ -34,7 +35,7 @@ exports.submit = async (session, models, vars) => {
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            template.fields[i].value = `TODO: add descr`;
+            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ models.request_newrequest.subCategory }, LOCATION/SEAT: ${ models.incident_newissue.seat }, ${ models.incident_newissue.description }`;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'ShortDescription') {
