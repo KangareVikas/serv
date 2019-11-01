@@ -8,6 +8,13 @@ exports.onload = async (session, models, vars) => {
         let data = await session.rest.cherwellapi.getBusinessObjectSummaryRequest({ access_token: vars.session.access_token });
         vars.session.problemBusObId = data.body[0].busObId;
     }
+    models.request_newrequest = {};
+    models.request_newrequest.byUser = vars.session.byUser || 'Evan Employee';
+    models.request_newrequest.forUser = vars.session.forUser || 'Evan Employee';
+    models.request_newrequest.email = 'evan.employee@acme.com';
+    models.request_newrequest.phone = '6523455679';
+    models.request_newrequest.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
+    models.request_newrequest.urgency = vars.session.urgencyMap;
 };
 /**
  * @param {Session} session
