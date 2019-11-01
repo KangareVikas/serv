@@ -26,5 +26,8 @@ screen-tickets-mytickets_phoneportrait {
                 }
             }
         }
+        ion-item-sliding > ion-item > .item-inner{
+            border-bottom: none !important;
+        }
     }
 }
