@@ -419,9 +419,6 @@
       "back": {
         "type": "action"
       },
-      "type": {
-        "type": "select"
-      },
       "seat": {
         "type": "string"
       },
