@@ -393,6 +393,9 @@
             }
           }
         }
+      },
+      "category": {
+        "type": "string"
       }
     },
     "id": "request_subservices"
