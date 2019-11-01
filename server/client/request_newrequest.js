@@ -14,7 +14,7 @@ exports.onload = async (session, models, vars) => {
     models.request_newrequest.email = 'evan.employee@acme.com';
     models.request_newrequest.phone = '6523455679';
     models.request_newrequest.shortDescription = `I need help`;
-    models.request_newrequest.shortDescription = `I would like to order ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ models.request_newrequest.subCategory }`;
+    models.request_newrequest.shortDescription = `I would like to order ${ vars.session.requestService }, ${ vars.session.requestCategory }, ${ vars.session.requestSubCategory }`;
     models.request_newrequest.urgency = vars.session.urgencyMap;
     models.request_newrequest.service = vars.session.requestService;
     models.request_newrequest.category = vars.session.requestCategory;
