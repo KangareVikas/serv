@@ -13,12 +13,6 @@
       },
       "call": {
         "type": "action"
-      },
-      "about": {
-        "type": "action"
-      },
-      "settings": {
-        "type": "action"
       }
     },
     "id": "menu"
