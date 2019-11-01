@@ -1,5 +1,9 @@
 screen-articles-viewarticle-phoneportrait,
 screen-articles-viewarticle_phoneportrait {
+    .article-title-big {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     .issue-button {
         height: 42px;
     }
