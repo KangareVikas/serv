@@ -1,0 +1,25 @@
+{
+  "template": {
+    "url": "/api/V1/GetBusinessObjectTemplate",
+    "method": "POST",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "bearerToken",
+      "token": "{access_token}"
+    },
+    "form": {
+      "busObId": "{busObId}",
+      "includeRequired": "true",
+      "includeAll": "false"
+    },
+    "options": {},
+    "bodyType": "form"
+  },
+  "functions": {
+    "getBusinessObjectTemplate": [
+      "access_token",
+      "busObId"
+    ]
+  }
+}
