@@ -517,6 +517,12 @@
     "properties": {
       "back": {
         "type": "action"
+      },
+      "home": {
+        "type": "action"
+      },
+      "createIncident": {
+        "type": "action"
       }
     },
     "id": "articles_viewarticle"
