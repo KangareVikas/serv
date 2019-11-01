@@ -4,16 +4,6 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (!vars.session.kbBusObId) {
-        let output = await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
-        vars.session.kbBusObId = output.body[0].busObId;
-        vars.session.kbStateFieldId = output.body[0].stateFieldId;
-        await session.rest.cherwellapi.getKBBaseArticles({
-            access_token: vars.session.access_token,
-            kbBusObId: vars.session.kbBusObId,
-            kbStateFieldId: vars.session.kbStateFieldId
-        });
-    }
     if (!vars.session.incidentBusObId) {
         console.log('Fetching incidentBusObId');
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
@@ -42,7 +32,7 @@ exports.onload = async (session, models, vars) => {
         }
         models.home.tickets.push(ticket);
     }
-    models.home.footer.active = 'home';
+    models.home.footer = { active: 'home' };
 };
 /**
  * @param {Session} session
