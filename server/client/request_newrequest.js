@@ -71,13 +71,10 @@ exports.submit = async (session, models, vars) => {
             fields: fields,
             persist: true
         });
-        models.request_newrequest.result = { error: errorOutput.message };
         if (result.body.errorMessage) {
-            models.request_newrequest.result = { error: result.body.errorMessage };
-        } else {
-            if (result.body.busObPublicId) {
-                models.request_newrequest.result = { busObPublicId: result.body.busObPublicId };
-            }
+            models.request_newrequest.result.error = result.body.errorMessage;
+        } else if (result.body.busObPublicId) {
+            models.request_newrequest.result.busObPublicId = result.body.busObPublicId;
         }
     } catch (e) {
     }
