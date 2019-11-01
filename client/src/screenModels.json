@@ -275,6 +275,9 @@
             "CreatedDateTime": {
               "type": "date",
               "format": "M/D/YYYY h:mm:ss a"
+            },
+            "Select": {
+              "type": "action"
             }
           }
         }
