@@ -26,7 +26,11 @@ exports.onload = async (session, models, vars) => {
             }
         }
     }
-    let validValues = await session.rest.cherwellapi.getValidValues({ access_token: vars.session.access_token });
+    let validValues = await session.rest.cherwellapi.getValidValues({
+        access_token: vars.session.access_token,
+        serviceFieldId: vars.session.serviceFieldId,
+        incidentBusObId: vars.session.incidentBusObId
+    });
     let list = validValues.body.values;
     let categories = [];
     models.request_services.services = categories;
