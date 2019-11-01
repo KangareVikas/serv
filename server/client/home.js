@@ -64,6 +64,14 @@ exports.onload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
+exports.search = async (session, models, vars) => {
+    await session.screen('articles_findarticle');
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.doRequest = async (session, models, vars) => {
     await session.screen('request_services');
 };
