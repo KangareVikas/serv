@@ -533,6 +533,9 @@
             "type": "string"
           }
         }
+      },
+      "home": {
+        "type": "action"
       }
     },
     "id": "request_newrequest"
