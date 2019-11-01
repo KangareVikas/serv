@@ -9,7 +9,7 @@
                     <span style="padding: 0 0 0 8px;">Back</span>
                 </button>
             </ion-col>
-            <ion-col col-12 data-comp-id="column.2" style="padding: 0 0 4px 16px;">
+            <ion-col col-12 data-comp-id="column.2" style="padding: 0 16px 4px 16px;">
                 <div [innerHTML]="data.Description" class="article-title-big" color="black"
                     data-comp-id="text.1" ion-text style="font-size: 34px; white-space: nowrap;"></div>
             </ion-col>
@@ -20,18 +20,13 @@
     <ion-row data-comp-id="row.2" style="margin: 0px 0px 30px; padding: 5px 16px;">
         <ion-col data-comp-id="column.3">
             <ion-title data-comp-id="title.1">
-                <h1 color="primary" data-comp-id="text.2" ion-text
-                    style="text-align: left; margin: 10px 0px; white-space: normal; font-weight: normal;">Computer Server Outage detected</h1>
+                <h1 [innerHTML]="data.Description" class="article-title" color="primary"
+                    data-comp-id="text.2" ion-text
+                    style="text-align: left; margin: 10px 0px; white-space: normal; font-weight: normal;"></h1>
             </ion-title>
             <div color="medium" data-comp-id="text.3" ion-text style="font-size: 17px;">September 23, 3:05 PM by Evan Employee</div>
-            <div data-comp-id="text.4" ion-text
-                style="margin: 25px 0px 0px; font-size: 17px;">Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div [innerHTML]="data.Description" data-comp-id="text.4" ion-text
+                style="margin: 25px 0px 0px; font-size: 17px;"></div>
         </ion-col>
     </ion-row>
     <ion-row data-comp-id="row.3"
