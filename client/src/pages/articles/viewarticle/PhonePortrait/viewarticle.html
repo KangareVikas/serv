@@ -24,7 +24,12 @@
                     data-comp-id="text.2" ion-text
                     style="text-align: left; margin: 10px 0px; white-space: normal; font-weight: normal;"></h1>
             </ion-title>
-            <div color="medium" data-comp-id="text.3" ion-text style="font-size: 17px;">September 23, 3:05 PM by Evan Employee</div>
+            <span [innerHTML]="data.CreatedDateTime" color="medium" data-comp-id="text.3"
+                formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
+                output-format="MMMM D, h:mm A" style="font-size: 17px; width: auto;"></span>
+            <span color="medium" data-comp-id="text.6" ion-text
+                style="font-size: 17px; margin: 0px 0px 0px 5px;">by
+                {{data.OwnedBy}}</span>
             <div [innerHTML]="data.Description" data-comp-id="text.4" ion-text
                 style="margin: 25px 0px 0px; font-size: 17px;"></div>
         </ion-col>
