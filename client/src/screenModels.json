@@ -356,63 +356,63 @@
     "type": "object",
     "comment": "Blank",
     "properties": {
-        "back": {
-            "type": "action"
-        },
-        "footer": {
-            "type": "model",
-            "model": "footer"
-        },
-        "CreatedDateTime": {
-            "type": "string",
-            "update": {
-                "type": "none"
-            }
-        },
-        "urgency": {
-            "type": "string",
-            "update": {
-                "type": "none"
-            }
-        },
-        "byUser": {
-            "type": "string",
-            "update": {
-                "type": "none"
-            }
-        },
-        "forUser": {
-            "type": "string",
-            "update": {
-                "type": "none"
-            }
-        },
-        "description": {
-            "type": "string",
-            "update": {
-                "type": "none"
-            }
-        },
-        "shortDescription": {
-            "type": "string",
-            "update": {
-                "type": "none"
-            }
-        },
-        "attachments": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "download": {
-                        "type": "action"
-                    }
-                }
-            }
+      "back": {
+        "type": "action"
+      },
+      "footer": {
+        "type": "model",
+        "model": "footer"
+      },
+      "CreatedDateTime": {
+        "type": "string",
+        "update": {
+          "type": "none"
         }
+      },
+      "urgency": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "byUser": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "forUser": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "description": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "shortDescription": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "attachments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "download": {
+              "type": "action"
+            }
+          }
+        }
+      }
     },
     "id": "tickets_viewincident"
   },
@@ -578,6 +578,9 @@
         "type": "string"
       },
       "OwnedBy": {
+        "type": "string"
+      },
+      "CreatedDateTime": {
         "type": "string"
       }
     },
