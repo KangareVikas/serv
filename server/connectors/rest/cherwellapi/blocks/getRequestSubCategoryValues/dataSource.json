@@ -1,0 +1,26 @@
+{
+  "template": {
+    "url": "/api/V1/fieldvalueslookup",
+    "method": "POST",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "bearerToken",
+      "token": "{access_token}"
+    },
+    "body": "\\{\n \"busObId\" : \"{incidentBusObId}\",\n \"fieldId\" : \"{subcategoryFieldId}\",\n \"fieldName\" : \"Subcategory\",\n \"fields\": [\n\\{\n   \"dirty\" : true,\n   \"fieldId\" : \"{categoryFieldId}\",\n   \"value\": \"{categoryTitle}\"\n  },\n \\{\n   \"dirty\" : true,\n   \"fieldId\" : \"{serviceFieldId}\",\n   \"value\": \"{serviceTitle}\"\n  }\n ]\n}\n",
+    "options": {},
+    "bodyType": "body"
+  },
+  "functions": {
+    "getRequestSubCategoryValues": [
+      "incidentBusObId",
+      "subcategoryFieldId",
+      "serviceFieldId",
+      "serviceTitle",
+      "access_token",
+      "categoryFieldId",
+      "categoryTitle"
+    ]
+  }
+}
