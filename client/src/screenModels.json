@@ -523,6 +523,12 @@
       },
       "createIncident": {
         "type": "action"
+      },
+      "Description": {
+        "type": "string"
+      },
+      "OwnedBy": {
+        "type": "string"
       }
     },
     "id": "articles_viewarticle"
