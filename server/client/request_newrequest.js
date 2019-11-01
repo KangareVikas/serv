@@ -15,6 +15,8 @@ exports.onload = async (session, models, vars) => {
     models.request_newrequest.phone = '6523455679';
     models.request_newrequest.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.request_newrequest.urgency = vars.session.urgencyMap;
+    models.request_newrequest.service = vars.session.requestService;
+    models.request_newrequest.category = vars.session.requestCategory;
 };
 /**
  * @param {Session} session

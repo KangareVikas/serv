@@ -37,6 +37,7 @@ exports['subservices[].select'] = async (session, models, vars) => {
         });
         let list = validValues.body.values;
         let subservices = [];
+        list.map(item => { subservices.push({ "title": item }) });
         models.request_subservices.subservices = subservices;
     } else {
         vars.session.requestCategory = categoryTitle;
