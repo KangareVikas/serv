@@ -22,10 +22,11 @@
         <ion-col data-comp-id="column.3" style="padding: 0px;">
             <ion-list data-comp-id="list.1" style="margin: 0px;">
                 <div data-comp-id="touchid-enable-toggle.1">
-                    <ion-item data-comp-id="toggle.2" no-lines>
+                    <ion-item data-comp-id="toggle.1" no-lines>
                         <ion-label>Enable
                             {{getBiometricAuthType()}}</ion-label>
-                        <ion-toggle (ionChange)="toggleTouchid($event)" [checked]="touchidEnabled()"></ion-toggle>
+                        <ion-toggle (ionChange)="toggleTouchid($event)" [checked]="touchidEnabled()"
+                            color="secondary" style></ion-toggle>
                     </ion-item>
                     <ion-row data-comp-id="row.3">
                         <ion-col data-comp-id="column.4"
@@ -36,9 +37,9 @@
                         </ion-col>
                     </ion-row>
                 </div>
-                <ion-item data-comp-id="toggle.1">
+                <ion-item data-comp-id="toggle.2">
                     <ion-label>Notifications</ion-label>
-                    <ion-toggle></ion-toggle>
+                    <ion-toggle color="secondary" style></ion-toggle>
                 </ion-item>
             </ion-list>
         </ion-col>
