@@ -14,15 +14,17 @@ exports.onload = async (session, models, vars) => {
         kbBusObId: vars.session.kbBusObId,
         kbStateFieldId: vars.session.kbStateFieldId
     });
-    let articles = requestData.body.businessObjects;
+    let data = requestData.body.businessObjects;
     console.log('zzz123: -> ', requestData.body.businessObjects[0].fields[0].name);
-    for (var i = 0; i < articles.length; i++) {
-        for (var j = 0; j < articles[i].fields.length; j++) {
-            if (articles[i].fields[j].name === 'CreatedDateTime') {
-                models.articles_findarticle.articles[i].CreatedDateTime = articles[i].fields[j].value;
-            } else if (articles[i].fields[j].name === 'Description') {
-                models.articles_findarticle.articles[i].Description = articles[i].fields[j].value;
+    for (var i = 0; i < data.length; i++) {
+        for (var j = 0; j < data[i].fields.length; j++) {
+            let article = {};
+            if (data[i].fields[j].name === 'CreatedDateTime') {
+                article.CreatedDateTime = data[i].fields[j].value;
+            } else if (data[i].fields[j].name === 'Description') {
+                article.Description = data[i].fields[j].value;
             }
+            models.articles_findarticle.articles.push(article);
         }
     }
 };
