@@ -18,14 +18,14 @@ exports.onload = async (session, models, vars) => {
     let data = requestData.body.businessObjects;
     console.log('zzz123: -> ', requestData.body.businessObjects[0].fields[0].name);
     for (var i = 0; i < data.length; i++) {
+        let article = {};
         for (var j = 0; j < data[i].fields.length; j++) {
-            let article = {};
             if (data[i].fields[j].name === 'CreatedDateTime') {
                 article.CreatedDateTime = data[i].fields[j].value;
             } else if (data[i].fields[j].name === 'Description') {
                 article.Description = data[i].fields[j].value;
             }
-            models.articles_findarticle.articles.push(article);
         }
+        models.articles_findarticle.articles.push(article);
     }
 };
