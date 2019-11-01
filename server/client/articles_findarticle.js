@@ -16,9 +16,12 @@ exports.onload = async (session, models, vars) => {
     });
     let articles = requestData.body.businessObjects;
     for (var i = 0; i < articles.length; i++) {
-        if (articles[i].name === 'CreatedDateTime') {
-            vars.session.serviceFieldId = articles.fields[i].fieldId;
-            continue;
+        for (var j = 0; j < articles[i].fields.length; j++) {
+            if (articles[i].fields[j].name === 'CreatedDateTime') {
+                models.articles_findarticle.articles[i].CreatedDateTime = articles[i].fields[j].value;
+            } else if (articles[i].fields[j].name === 'Description') {
+                models.articles_findarticle.articles[i].Description = articles[i].fields[j].value;
+            }
         }
     }
 };
