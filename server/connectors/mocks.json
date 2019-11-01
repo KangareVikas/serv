@@ -304,7 +304,22 @@
           },
           "home": {},
           "inserts_homelogo": {},
-          "inserts_footer": {}
+          "inserts_footer": {},
+          "incident_categories": {},
+          "incident_subcategories": {},
+          "incident_newissue": {
+            "result": {}
+          },
+          "request_services": {},
+          "articles_findarticle": {},
+          "tickets_mytickets": {},
+          "tickets_viewincident": {},
+          "request_subservices": {},
+          "request_newrequest": {},
+          "finduser": {},
+          "articles_viewarticle": {},
+          "findticket": {},
+          "footer": {}
         },
         "expressions": {},
         "vars": {
