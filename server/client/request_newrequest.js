@@ -57,26 +57,28 @@ exports.submit = async (session, models, vars) => {
             template.fields[i].value = models.request_newrequest.category;
             template.fields[i].dirty = true;
         }
-        if (template.fields[i].name === 'AffectedCI')  {
-            template.fields[i].value  = "ASM0002204 Iris 5875";
-            template.fields[i].dirty  = true;
+        if (template.fields[i].name === 'AffectedCI') {
+            template.fields[i].value = 'ASM0002204 Iris 5875';
+            template.fields[i].dirty = true;
         }
     }
     let fields = JSON.stringify(template.fields);
     try {
-        var result = await session.rest.cherwellapi.saveBusinessObject({
+        let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.problemBusObId,
             fields: fields,
             persist: true
         });
+        models.request_newrequest.result = { error: errorOutput.message };
         if (result.body.errorMessage) {
-            models.request_newrequest.result.error = result.body.errorMessage;
-        } else if (result.body.busObPublicId) {
-            models.request_newrequest.result.busObPublicId = result.body.busObPublicId;
+            models.request_newrequest.result = { error: result.body.errorMessage };
+        } else {
+            if (result.body.busObPublicId) {
+                models.request_newrequest.result = { busObPublicId: result.body.busObPublicId };
+            }
         }
     } catch (e) {
-        models.request_newrequest.result.error = e.message;
     }
 };
 /**
@@ -93,6 +95,7 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.cancel = async (session, models, vars) => {
+    vars.session.forUser = null;
     await session.screen('home');
 };
 /**
@@ -102,4 +105,13 @@ exports.cancel = async (session, models, vars) => {
 */
 exports.search = async (session, models, vars) => {
     await session.screen('finduser');
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.home = async (session, models, vars) => {
+    vars.session.forUser = null;
+    await session.screen('home');
 };
