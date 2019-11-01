@@ -46,10 +46,6 @@ exports.submit = async (session, models, vars) => {
             template.fields[i].value = models.request_newrequest.urgency.selected;
             template.fields[i].dirty = true;
         }
-        if (template.fields[i].name === 'IncidentCount') {
-            template.fields[i].value = models.request_newrequest.quantity;
-            template.fields[i].dirty = true;
-        }
         if (template.fields[i].name === 'Source') {
             template.fields[i].value = 'Unresolved Incident';
             template.fields[i].dirty = true;
