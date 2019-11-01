@@ -36,7 +36,7 @@ exports.search = async (session, models, vars) => {
                 user[fieldName] = result.body.businessObjects[i].fields[j].value;
             }
         }
-        user.name = user['FirstName'] + ' ' + user['LastName']
+        user.name = user['FirstName'] + ' ' + user['LastName'];
         models.finduser.users.push(user);
     }
 };
@@ -46,7 +46,12 @@ exports.search = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
-    await session.screen('incident_newissue');
+    if (vars.session.newrequest) {
+        await session.screen('request_newrequest');
+        vars.session.newrequest = null;
+    } else {
+        await session.screen('incident_newissue');
+    }
 };
 /**
  * @param {Session} session
@@ -56,5 +61,10 @@ exports.back = async (session, models, vars) => {
 exports['users[].select'] = async (session, models, vars) => {
     vars.session.customerRecId = vars.item.customerRecId;
     vars.session.forUser = vars.item.name;
-    await session.screen('incident_newissue');
+    if (vars.session.newrequest) {
+        await session.screen('request_newrequest');
+        vars.session.newrequest = null;
+    } else {
+        await session.screen('incident_newissue');
+    }
 };

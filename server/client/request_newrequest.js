@@ -105,6 +105,7 @@ exports.cancel = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
+    vars.session.newrequest = true;
     await session.screen('finduser');
 };
 /**
@@ -113,6 +114,5 @@ exports.search = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.home = async (session, models, vars) => {
-    vars.session.forUser = null;
     await session.screen('home');
 };
