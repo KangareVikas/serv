@@ -134,7 +134,6 @@ exports.submit = async (session, models, vars) => {
             incidentBusObId: vars.session.incidentBusObId,
             fields: fields
         });
-        console.log(result);
         if (result.body.errorMessage) {
             models.incident_newissue.result.error = result.body.errorMessage;
         } else if (result.body.busObPublicId) {
@@ -142,7 +141,6 @@ exports.submit = async (session, models, vars) => {
         }
     } catch (e) {
         models.incident_newissue.result.error = e.message;
-        console.log(e);
     }
 };
 /**
