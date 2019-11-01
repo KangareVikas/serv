@@ -86,7 +86,7 @@
             <ion-col col-auto data-comp-id="column.5"
                 style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
                 <ion-icon (click)="action('removeAttachment')" class=" ion-ios-remove-circle"
-                    color="stable" data-comp-id="icon.3" style="font-size: 24px; padding: 10px;"></ion-icon>
+                    color="stable" data-comp-id="icon.1" style="font-size: 24px; padding: 10px;"></ion-icon>
             </ion-col>
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
@@ -104,15 +104,15 @@
             <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
                 placeholder="Type here..." rows="5"></ion-textarea>
         </ion-item>
-        <ion-row data-comp-id="row.3" style="padding: 8px 0px 0px 16px;">
+        <ion-row (click)="showAddInfo = !showAddInfo" data-comp-id="row.3"
+            style="padding: 8px 0px 0px 16px;">
             <ion-col col-auto data-comp-id="column.6" style="padding: 8px 0;">
                 <ion-icon *ngIf="showAddInfo" class=" ion-ios-arrow-down-outline"
-                    color="primary" data-comp-id="icon.4" style="font-size: 17px;"></ion-icon>
+                    color="primary" data-comp-id="icon.2" style="font-size: 17px;"></ion-icon>
                 <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
-                    color="primary" data-comp-id="icon.5" style="font-size: 17px;"></ion-icon>
+                    color="primary" data-comp-id="icon.3" style="font-size: 17px;"></ion-icon>
             </ion-col>
-            <ion-col (click)="showAddInfo = !showAddInfo" data-comp-id="column.7"
-                style="padding: 8px;">
+            <ion-col data-comp-id="column.7" style="padding: 8px;">
                 <div color="primary" data-comp-id="text.6" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>
