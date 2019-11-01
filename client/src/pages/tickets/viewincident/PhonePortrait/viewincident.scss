@@ -1,2 +1,6 @@
-screen-tickets-viewincident_phoneportrait {
+screen-tickets-viewincident_phoneportrait,
+screen-tickets-viewincident-phoneportrait {
+    .ion-md-attach {
+        transform: rotate(45deg);
+    }
 }

@@ -2,18 +2,74 @@
     <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
         <ion-row data-comp-id="row.1" style="padding: 0 0 4px;">
             <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
-                <button (click)="action('back')" class="button-label-primary" clear data-comp-id="button.1" ion-button mode="ios" small style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
+                <button (click)="action('back')" class="button-label-primary" clear
+                    data-comp-id="button.1" ion-button mode="ios" small
+                    style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
                     <ion-icon class=" ion-ios-arrow-back" color="primary" style="font-size: 28px;"></ion-icon>
                     <span style="padding: 0 0 0 8px;">Back</span>
                 </button>
             </ion-col>
-            <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 4px 16px;">
+            <ion-col col-12 data-comp-id="column.2" style="padding: 0 0 4px 16px;">
                 <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">View Incident</div>
             </ion-col>
         </ion-row>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-calm ignore-footer" data-comp-id="content.1" style></ion-content>
+<ion-content class="content-calm ignore-footer" data-comp-id="content.1" style>
+    <ion-list data-comp-id="list.1" style="margin: -1px 0px 16px;">
+        <ion-item data-comp-id="input.1" mode="ios">
+            <ion-label mode="ios" style="width: 82px; font-size: 16px;">Created</ion-label>
+            <ion-input [(ngModel)]="data.CreatedDateTime" [readonly]="true" mode="ios"
+                placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="input.2" mode="ios">
+            <ion-label mode="ios" style="width: 82px; font-size: 16px;">Urgency</ion-label>
+            <ion-input [(ngModel)]="data.urgency" [readonly]="true" mode="ios"
+                placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="input.3" mode="ios">
+            <ion-label mode="ios" style="width: 82px; font-size: 16px;">Requester</ion-label>
+            <ion-input [(ngModel)]="data.byUser" [readonly]="true" mode="ios"
+                placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="input.4" mode="ios">
+            <ion-label mode="ios" style="width: 82px; font-size: 16px;">Technician</ion-label>
+            <ion-input [(ngModel)]="data.forUser" [readonly]="true" mode="ios"
+                placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="item.1">
+            <div color="dark" data-comp-id="text.2" ion-text
+                style="font-size: 16px; margin: 0 0 8px 0;">Short Description</div>
+            <div [innerHTML]="data.shortDescription" data-comp-id="text.3" ion-text
+                style="white-space: normal;"></div>
+        </ion-item>
+        <ion-item data-comp-id="item.2">
+            <div color="dark" data-comp-id="text.4" ion-text
+                style="font-size: 16px; margin: 0 0 8px 0;">Short Description</div>
+            <div [innerHTML]="data.description" data-comp-id="text.5" ion-text
+                style="white-space: normal;"></div>
+        </ion-item>
+    </ion-list>
+    <ion-list data-comp-id="list.2" style="margin: -1px 0px 82px;">
+        <ion-list-header color="transparent" data-comp-id="list-header.1" mode="wp"
+            style>
+            <span color="black" data-comp-id="text.6" ion-text
+                style="float: left; font-size: 18px;" text-uppercase>Attachments</span>
+            <span color="black" data-comp-id="text.7" ion-text
+                style="float: left; margin: 0 0 0 4px; font-size: 18px;">(</span>
+            <span [innerHTML]="data.attachments.length" color="black" data-comp-id="text.8"
+                ion-text style="float: left; font-size: 18px;"></span>
+            <span color="black" data-comp-id="text.9" ion-text
+                style="float: left; font-size: 18px;">)</span>
+        </ion-list-header>
+        <ion-item (click)="action('attachments.download',[i])"
+            *ngFor="let item of data.attachments; let i = index" data-comp-id="item.3">
+            <ion-icon class="ion-md-attach" color="contrast" data-comp-id="icon.1"
+                style="float: left; margin: 0 12px 0 4px; font-size: 22px;"></ion-icon>
+            <div [innerHTML]="item.name" data-comp-id="text.10" ion-text></div>
+        </ion-item>
+    </ion-list>
+</ion-content>
 <ion-footer class="footer-white" data-comp-id="footer.1" style="height: 63px;">
     <include-screen data-comp-id="include-screen.1" name="inserts_footer"></include-screen>
 </ion-footer>
