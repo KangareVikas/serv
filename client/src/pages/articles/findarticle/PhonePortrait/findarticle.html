@@ -19,9 +19,9 @@
                     <ion-col col-12 data-comp-id="column.5"
                         style="padding: 0; min-width: calc(100% - 60px);">
                         <ion-list data-comp-id="list.1" style="margin: 0;">
-                            <ion-searchbar (ionInput)="method('search')" [(ngModel)]="data.article"
-                                cancelButtonText="Cancel" data-comp-id="searchbar.1" mode="md"
-                                placeholder="Find an article"
+                            <ion-searchbar (ionInput)="method('search', {article: data.article})"
+                                [(ngModel)]="data.article" cancelButtonText="Cancel" data-comp-id="searchbar.1"
+                                mode="md" placeholder="Find an article"
                                 style="padding: 0; margin: 0; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);"
                                 type="search"></ion-searchbar>
                         </ion-list>
