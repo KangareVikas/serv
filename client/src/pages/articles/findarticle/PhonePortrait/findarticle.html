@@ -2,20 +2,27 @@
     <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
         <ion-row data-comp-id="row.1" style="padding: 0 0 4px;">
             <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
-                <button (click)="action('back')" class="button-label-primary" clear data-comp-id="button.1" ion-button mode="ios" small style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
+                <button (click)="action('back')" class="button-label-primary" clear
+                    data-comp-id="button.1" ion-button mode="ios" small
+                    style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
                     <ion-icon class=" ion-ios-arrow-back" color="primary" style="font-size: 28px;"></ion-icon>
                     <span style="padding: 0 0 0 8px;">Back</span>
                 </button>
             </ion-col>
             <ion-col data-comp-id="column.2" style="text-align: right; padding: 0 4px;"></ion-col>
             <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 8px 16px;">
-                <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px; margin: 0;">Find Article</div>
+                <div color="black" data-comp-id="text.1" ion-text
+                    style="font-size: 34px; margin: 0;">Find Article</div>
             </ion-col>
             <ion-col data-comp-id="column.4" style="padding: 0 8px 6px; margin: 0;">
                 <ion-row data-comp-id="row.2" style="padding: 0; margin: 0;">
-                    <ion-col col-12 data-comp-id="column.5" style="padding: 0; min-width: calc(100% - 60px);">
+                    <ion-col col-12 data-comp-id="column.5"
+                        style="padding: 0; min-width: calc(100% - 60px);">
                         <ion-list data-comp-id="list.1" style="margin: 0;">
-                            <ion-searchbar cancelButtonText="Cancel" data-comp-id="searchbar.1" mode="md" placeholder="Find an article" style="padding: 0; margin: 0; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);" type="search"></ion-searchbar>
+                            <ion-searchbar [(ngModel)]="data.article" cancelButtonText="Cancel"
+                                data-comp-id="searchbar.1" mode="md" placeholder="Find an article"
+                                style="padding: 0; margin: 0; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);"
+                                type="search"></ion-searchbar>
                         </ion-list>
                     </ion-col>
                 </ion-row>
@@ -25,15 +32,23 @@
 </ion-header>
 <ion-content class="content-calm ignore-footer" data-comp-id="content.1" style>
     <ion-title data-comp-id="title.1" mode="ios">
-        <h5 data-comp-id="text.2" ion-text style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">{{data.articles.length || 'No'}}
+        <h5 data-comp-id="text.2" ion-text
+            style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">{{data.articles.length || 'No'}}
             Results</h5>
     </ion-title>
     <ion-list data-comp-id="list.2" style="margin: -1px 0px 82px;">
-        <ion-item *ngFor="let item of data.articles; let i = index" class="article-item" data-comp-id="item.1">
-            <div [innerHTML]="item.Description" class="article-title" data-comp-id="text.3" ion-text style="font-size: 17px;"></div>
-            <ion-icon color="primary" data-comp-id="icon.1" item-end name="arrow-forward" style="font-size: 24px;"></ion-icon>
-            <div [innerHTML]="item.Description" class="article-description" color="dark" data-comp-id="text.4" ion-text style="white-space: normal; font-size: 15px; margin: 0;"></div>
-            <div [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5" formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text output-format="MMMM D, h:mm A" style="font-size: 13px; margin: 7px 0 0 0;"></div>
+        <ion-item *ngFor="let item of data.articles; let i = index" class="article-item"
+            data-comp-id="item.1">
+            <div [innerHTML]="item.Description" class="article-title" data-comp-id="text.3"
+                ion-text style="font-size: 17px;"></div>
+            <ion-icon color="primary" data-comp-id="icon.1" item-end name="arrow-forward"
+                style="font-size: 24px;"></ion-icon>
+            <div [innerHTML]="item.Description" class="article-description" color="dark"
+                data-comp-id="text.4" ion-text
+                style="white-space: normal; font-size: 15px; margin: 0;"></div>
+            <div [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5"
+                formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
+                output-format="MMMM D, h:mm A" style="font-size: 13px; margin: 7px 0 0 0;"></div>
         </ion-item>
     </ion-list>
 </ion-content>
