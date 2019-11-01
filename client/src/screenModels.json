@@ -2,9 +2,6 @@
   "menu": {
     "type": "object",
     "properties": {
-      "logout": {
-        "type": "action"
-      },
       "newIssue": {
         "type": "action"
       },
