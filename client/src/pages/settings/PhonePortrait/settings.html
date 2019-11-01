@@ -28,8 +28,10 @@
                         <ion-toggle (ionChange)="toggleTouchid($event)" [checked]="touchidEnabled()"></ion-toggle>
                     </ion-item>
                     <ion-row data-comp-id="row.3">
-                        <ion-col data-comp-id="column.4">
-                            <div color="dark" data-comp-id="text.2" ion-text>All
+                        <ion-col data-comp-id="column.4"
+                            style="padding: 0px 15px 15px; margin: -15px 0px 0px;">
+                            <div color="dark" data-comp-id="text.2" ion-text
+                                style="width: 80%; line-height: 1.5em;">All
                                 {{getBiometricAuthType()}}s stored on this device can be used to log into this app.</div>
                         </ion-col>
                     </ion-row>
