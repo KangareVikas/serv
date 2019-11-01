@@ -4,6 +4,24 @@
     "properties": {
       "logout": {
         "type": "action"
+      },
+      "newIssue": {
+        "type": "action"
+      },
+      "myTickets": {
+        "type": "action"
+      },
+      "chat": {
+        "type": "action"
+      },
+      "call": {
+        "type": "action"
+      },
+      "about": {
+        "type": "action"
+      },
+      "settings": {
+        "type": "action"
       }
     },
     "id": "menu"
