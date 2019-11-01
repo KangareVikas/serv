@@ -31,6 +31,7 @@ exports.submit = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
+    await session.screen('request_subservices');
 };
 /**
  * @param {Session} session
@@ -38,4 +39,5 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.cancel = async (session, models, vars) => {
+    await session.screen('home');
 };
