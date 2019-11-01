@@ -609,5 +609,30 @@
       }
     },
     "id": "findticket"
+  },
+  "about": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "back": {
+        "type": "action"
+      },
+      "home": {
+        "type": "action"
+      },
+      "createIncident": {
+        "type": "action"
+      },
+      "Description": {
+        "type": "string"
+      },
+      "OwnedBy": {
+        "type": "string"
+      },
+      "CreatedDateTime": {
+        "type": "string"
+      }
+    },
+    "id": "about"
   }
 }
