@@ -522,6 +522,17 @@
       },
       "category": {
         "type": "string"
+      },
+      "result": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "busObPublicId": {
+            "type": "string"
+          }
+        }
       }
     },
     "id": "request_newrequest"
