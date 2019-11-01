@@ -71,7 +71,7 @@ exports.home = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.submit = async (session, models, vars) => {
-    let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
+    let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
         access_token: vars.session.access_token,
         busObId: vars.session.incidentBusObId,
         includeRequired: true,
