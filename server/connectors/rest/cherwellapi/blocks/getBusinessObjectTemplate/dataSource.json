@@ -9,7 +9,7 @@
       "token": "{access_token}"
     },
     "form": {
-      "busObId": "{incidentBusObId}",
+      "busObId": "{busObId}",
       "includeRequired": "true",
       "includeAll": "true"
     },
@@ -19,7 +19,7 @@
   "functions": {
     "getBusinessObjectTemplate": [
       "access_token",
-      "incidentBusObId"
+      "busObId"
     ]
   }
 }
