@@ -4,6 +4,31 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    if (!vars.session.firstNamefieldId || !vars.session.lastNamefieldId) {
+        console.log('Fetching firstNamefieldId and lastNamefieldId');
+        let output = await session.rest.cherwellapi.getBusinessObjectSchema({
+            custBusObId: vars.session.custBusObId,
+            access_token: vars.session.access_token
+        });
+        let parsed = output.body;
+        let firstNameFound = false;
+        let lastNameFound = false;
+        for (let i = 0; i < parsed.fieldDefinitions.length; i++) {
+            if (parsed.fieldDefinitions[i].displayName === 'First name') {
+                vars.session.firstNamefieldId = parsed.fieldDefinitions[i].fieldId;
+                firstNameFound = true;
+            }
+            if (parsed.fieldDefinitions[i].displayName === 'Last Name') {
+                vars.session.lastNamefieldId = parsed.fieldDefinitions[i].fieldId;
+                lastNameFound = true;
+            }
+            if (firstNameFound && lastNameFound) {
+                break;
+            }
+        }
+    }
+    console.log('firstNamefieldId: ' + vars.session.firstNamefieldId);
+    console.log('lastNamefieldId: ' + vars.session.lastNamefieldId);
     if (!vars.session.incidentBusObId) {
         console.log('Fetching incidentBusObId');
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
@@ -48,30 +73,5 @@ exports.doRequest = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.doReport = async (session, models, vars) => {
-    if (!vars.session.firstNamefieldId || !vars.session.lastNamefieldId) {
-        console.log('Fetching firstNamefieldId and lastNamefieldId');
-        let output = await session.rest.cherwellapi.getBusinessObjectSchema({
-            custBusObId: vars.session.custBusObId,
-            access_token: vars.session.access_token
-        });
-        let parsed = output.body;
-        let firstNameFound = false;
-        let lastNameFound = false;
-        for (let i = 0; i < parsed.fieldDefinitions.length; i++) {
-            if (parsed.fieldDefinitions[i].displayName === 'First name') {
-                vars.session.firstNamefieldId = parsed.fieldDefinitions[i].fieldId;
-                firstNameFound = true;
-            }
-            if (parsed.fieldDefinitions[i].displayName === 'Last Name') {
-                vars.session.lastNamefieldId = parsed.fieldDefinitions[i].fieldId;
-                lastNameFound = true;
-            }
-            if (firstNameFound && lastNameFound) {
-                break;
-            }
-        }
-    }
-    console.log('firstNamefieldId: ' + vars.session.firstNamefieldId);
-    console.log('lastNamefieldId: ' + vars.session.lastNamefieldId);
     await session.screen('incident_categories');
 };
