@@ -292,6 +292,9 @@
       },
       "article": {
         "type": "string"
+      },
+      "back": {
+        "type": "action"
       }
     },
     "id": "articles_findarticle"
