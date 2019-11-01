@@ -15,7 +15,7 @@ exports.onload = async (session, models, vars) => {
         kbStateFieldId: vars.session.kbStateFieldId
     });
     let articles = requestData.body.businessObjects;
-    console.log('zzz123: -> ', requestData.body.businessObjects[0].fields);
+    console.log('zzz123: -> ', requestData.body.businessObjects[0].fields[0].name);
     for (var i = 0; i < articles.length; i++) {
         for (var j = 0; j < articles[i].fields.length; j++) {
             if (articles[i].fields[j].name === 'CreatedDateTime') {
