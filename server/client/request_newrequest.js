@@ -4,10 +4,6 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (!vars.session.problemBusObId) {
-        let data = await session.rest.cherwellapi.getBusinessObjectSummaryRequest({ access_token: vars.session.access_token });
-        vars.session.problemBusObId = data.body[0].busObId;
-    }
     models.request_newrequest = {};
     models.request_newrequest.byUser = vars.session.byUser || 'Evan Employee';
     models.request_newrequest.forUser = vars.session.forUser || 'Evan Employee';
@@ -27,7 +23,7 @@ exports.onload = async (session, models, vars) => {
 exports.submit = async (session, models, vars) => {
     let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
         access_token: vars.session.access_token,
-        busObId: vars.session.problemBusObId,
+        busObId: vars.session.incidentBusObId,
         includeRequired: true,
         includeAll: true
     });
@@ -35,11 +31,15 @@ exports.submit = async (session, models, vars) => {
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ models.request_newrequest.subCategory }, LOCATION/SEAT: ${ models.incident_newissue.seat }, ${ models.incident_newissue.description }`;
+            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ models.request_newrequest.subCategory }, LOCATION/SEAT: ${ models.request_newrequest.seat }, ${ models.request_newrequest.description }`;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'ShortDescription') {
             template.fields[i].value = models.request_newrequest.shortDescription;
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'CustomerRecID') {
+            template.fields[i].value = vars.session.customerRecId || '9451f6c8b5609372c4e86b440db32353b488fb4206';
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'Priority') {
@@ -47,19 +47,23 @@ exports.submit = async (session, models, vars) => {
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'Source') {
-            template.fields[i].value = 'Unresolved Incident';
+            template.fields[i].value = 'Portal';
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'Service') {
-            template.fields[i].value = models.request_newrequest.service;
+            template.fields[i].value = 'Access Management';
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'Category') {
-            template.fields[i].value = models.request_newrequest.category;
+            template.fields[i].value = 'Identity and Access Management';
             template.fields[i].dirty = true;
         }
-        if (template.fields[i].name === 'AffectedCI') {
-            template.fields[i].value = 'ASM0002204 Iris 5875';
+        if (template.fields[i].name === 'Subcategory') {
+            template.fields[i].value = 'Submit Incident';
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'OwnedByTeam') {
+            template.fields[i].value = 'Service Desk';
             template.fields[i].dirty = true;
         }
     }
@@ -67,7 +71,7 @@ exports.submit = async (session, models, vars) => {
     try {
         let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.problemBusObId,
+            incidentBusObId: vars.session.incidentBusObId,
             fields: fields,
             persist: true
         });
@@ -85,6 +89,7 @@ exports.submit = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
+    vars.session.customerRecId = null;
     await session.screen('request_subservices');
 };
 /**
@@ -93,6 +98,7 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.cancel = async (session, models, vars) => {
+    vars.session.customerRecId = null;
     vars.session.forUser = null;
     await session.screen('home');
 };
@@ -111,5 +117,6 @@ exports.search = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.home = async (session, models, vars) => {
+    vars.session.customerRecId = null;
     await session.screen('home');
 };
