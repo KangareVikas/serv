@@ -138,7 +138,8 @@
                     <ion-item data-comp-id="input.6"
                         style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
                         <ion-label color="black" style>Quantity:</ion-label>
-                        <ion-input color="black" placeholder="Type here..." style type="text"></ion-input>
+                        <ion-input [(ngModel)]="data.quantity" color="black" placeholder="Type here..."
+                            style type="text"></ion-input>
                     </ion-item>
                 </ion-list>
             </ion-col>
