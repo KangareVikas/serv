@@ -97,6 +97,10 @@ exports.submit = async (session, models, vars) => {
             template.fields[i].value = models.incident_newissue.urgency.selected;
             template.fields[i].dirty = true;
         }
+        if (template.fields[i].name === 'Urgency' && models.incident_newissue.urgency.selected) {
+            template.fields[i].value = models.incident_newissue.urgency.selected;
+            template.fields[i].dirty = true;
+        }
         if (template.fields[i].name === 'Source') {
             template.fields[i].value = 'Portal';
             template.fields[i].dirty = true;
@@ -131,6 +135,7 @@ exports.submit = async (session, models, vars) => {
             models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
         }
     } catch (e) {
+        console.log("ERROR:", e);
         models.incident_newissue.result.error = e.message;
     }
 };

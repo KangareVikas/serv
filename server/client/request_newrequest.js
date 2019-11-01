@@ -27,23 +27,26 @@ exports.submit = async (session, models, vars) => {
         includeRequired: true,
         includeAll: true
     });
-    console.log(requestData.body);
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ models.request_newrequest.subCategory }, LOCATION/SEAT: ${ models.request_newrequest.seat }, ${ models.request_newrequest.description }`;
+            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ vars.session.requestSubCategory }, LOCATION/SEAT: ${ models.request_newrequest.seat }, ${ models.request_newrequest.description }`;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'ShortDescription') {
             template.fields[i].value = models.request_newrequest.shortDescription;
             template.fields[i].dirty = true;
         }
+        if (template.fields[i].name === 'Service') {
+            template.fields[i].value = models.request_newrequest.service;
+            template.fields[i].dirty = true;
+        }
         if (template.fields[i].name === 'Category') {
-            template.fields[i].value = 'Identity and Access Management';
+            template.fields[i].value = models.request_newrequest.category;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'Subcategory') {
-            template.fields[i].value = 'Submit Incident';
+            template.fields[i].value = vars.session.requestSubCategory;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'CustomerRecID') {
@@ -54,20 +57,16 @@ exports.submit = async (session, models, vars) => {
             template.fields[i].value = models.request_newrequest.urgency.selected;
             template.fields[i].dirty = true;
         }
+        if (template.fields[i].name === 'Urgency' && models.request_newrequest.urgency.selected) {
+            template.fields[i].value = models.request_newrequest.urgency.selected;
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'GBP_generic_Quantity' && models.request_newrequest.quantity) {
+            template.fields[i].value = models.request_newrequest.quantity;
+            template.fields[i].dirty = true;
+        }
         if (template.fields[i].name === 'Source') {
             template.fields[i].value = 'Portal';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Service') {
-            template.fields[i].value = 'Access Management';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Category') {
-            template.fields[i].value = 'Identity and Access Management';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Subcategory') {
-            template.fields[i].value = 'Submit Incident';
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'OwnedByTeam') {
@@ -77,19 +76,18 @@ exports.submit = async (session, models, vars) => {
     }
     let fields = JSON.stringify(template.fields);
     try {
-        console.log(fields)
         let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
             fields: fields
         });
-        console.log(result)
         if (result.body.errorMessage) {
             models.request_newrequest.result.error = result.body.errorMessage;
         } else if (result.body.busObPublicId) {
             models.request_newrequest.result.busObPublicId = result.body.busObPublicId;
         }
     } catch (e) {
+        console.log("ERROR:", e);
     }
 };
 /**
