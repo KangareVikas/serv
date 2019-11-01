@@ -626,6 +626,12 @@
     "properties": {
       "back": {
         "type": "action"
+      },
+      "notificationsEnabled": {
+        "type": "boolean"
+      },
+      "toggleNotifications": {
+        "type": "action"
       }
     },
     "id": "settings"

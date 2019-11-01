@@ -39,7 +39,8 @@
                 </div>
                 <ion-item data-comp-id="toggle.2">
                     <ion-label>Notifications</ion-label>
-                    <ion-toggle color="secondary" style></ion-toggle>
+                    <ion-toggle (ionChange)="action('toggleNotifications')"
+                        [checked]="data.notificationsEnabled" color="secondary" style></ion-toggle>
                 </ion-item>
             </ion-list>
         </ion-col>
