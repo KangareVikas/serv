@@ -1,1 +1,19 @@
-{}
+{
+    "footer": {},
+    "attachments": [
+        {
+            "name": "image 1",
+            "download": ""
+        },
+        {
+            "name": "image 2",
+            "download": ""
+        }
+    ],
+    "CreatedDateTime": "9/30/2019 12:00:00 am",
+    "urgency": "3-Low",
+    "byUser": "Evan Employee",
+    "forUser": "Unassigned",
+    "description": "I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse.",
+    "shortDescription": "I need help with my Desk Environment regarding my keyboard and/or mouse."
+}
