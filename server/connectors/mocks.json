@@ -632,10 +632,13 @@
           "tickets_mytickets": {},
           "tickets_viewincident": {},
           "request_subservices": {},
-          "request_newrequest": {},
+          "request_newrequest": {
+            "result": {}
+          },
           "finduser": {},
           "articles_viewarticle": {},
           "findticket": {},
+          "about": {},
           "footer": {}
         },
         "expressions": {},
