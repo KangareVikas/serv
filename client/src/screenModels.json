@@ -449,6 +449,12 @@
       },
       "quantity": {
         "type": "select"
+      },
+      "service": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
       }
     },
     "id": "request_newrequest"
