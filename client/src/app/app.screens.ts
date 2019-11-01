@@ -9,10 +9,10 @@ import { incident_categories_PhonePortrait } from '../pages/incident/categories/
 import { incident_newissue_PhonePortrait } from '../pages/incident/newissue/PhonePortrait/newissue';
 import { request_services_PhonePortrait } from '../pages/request/services/PhonePortrait/services';
 import { request_subservices_PhonePortrait } from '../pages/request/subservices/PhonePortrait/subservices';
-import { request_mytickets_PhonePortrait } from '../pages/request/mytickets/PhonePortrait/mytickets';
 import { request_newrequest_PhonePortrait } from '../pages/request/newrequest/PhonePortrait/newrequest';
 import { articles_findarticle_PhonePortrait } from '../pages/articles/findarticle/PhonePortrait/findarticle';
 import { articles_viewarticle_PhonePortrait } from '../pages/articles/viewarticle/PhonePortrait/viewarticle';
+import { tickets_mytickets_PhonePortrait } from '../pages/tickets/mytickets/PhonePortrait/mytickets';
 import { tickets_viewincident_PhonePortrait } from '../pages/tickets/viewincident/PhonePortrait/viewincident';
 import { finduser_PhonePortrait } from '../pages/finduser/PhonePortrait/finduser';
 import { findticket_PhonePortrait } from '../pages/findticket/PhonePortrait/findticket';
@@ -28,10 +28,10 @@ export class Screens {
     incident_newissue_PhonePortrait,
     request_services_PhonePortrait,
     request_subservices_PhonePortrait,
-    request_mytickets_PhonePortrait,
     request_newrequest_PhonePortrait,
     articles_findarticle_PhonePortrait,
     articles_viewarticle_PhonePortrait,
+    tickets_mytickets_PhonePortrait,
     tickets_viewincident_PhonePortrait,
     finduser_PhonePortrait,
     findticket_PhonePortrait
@@ -64,9 +64,6 @@ export class Screens {
     'request_subservices': {
       PhonePortrait: request_subservices_PhonePortrait
     },
-    'request_mytickets': {
-      PhonePortrait: request_mytickets_PhonePortrait
-    },
     'request_newrequest': {
       PhonePortrait: request_newrequest_PhonePortrait
     },
@@ -75,6 +72,9 @@ export class Screens {
     },
     'articles_viewarticle': {
       PhonePortrait: articles_viewarticle_PhonePortrait
+    },
+    'tickets_mytickets': {
+      PhonePortrait: tickets_mytickets_PhonePortrait
     },
     'tickets_viewincident': {
       PhonePortrait: tickets_viewincident_PhonePortrait
