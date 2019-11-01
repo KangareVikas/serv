@@ -1,0 +1,175 @@
+{
+  "body": {
+    "type": "object",
+    "properties": {
+      "businessObjects": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "busObId": {
+              "type": "String",
+              "id": "body.businessObjects.busObId"
+            },
+            "busObPublicId": {
+              "type": "String",
+              "id": "body.businessObjects.busObPublicId"
+            },
+            "busObRecId": {
+              "type": "String",
+              "id": "body.businessObjects.busObRecId"
+            },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "dirty": {
+                    "type": "Boolean",
+                    "id": "body.businessObjects.fields.dirty"
+                  },
+                  "displayName": {
+                    "type": "String",
+                    "id": "body.businessObjects.fields.displayName"
+                  },
+                  "fieldId": {
+                    "type": "String",
+                    "id": "body.businessObjects.fields.fieldId"
+                  },
+                  "html": {
+                    "type": "Any",
+                    "id": "body.businessObjects.fields.html"
+                  },
+                  "name": {
+                    "type": "String",
+                    "id": "body.businessObjects.fields.name"
+                  },
+                  "value": {
+                    "type": "String",
+                    "id": "body.businessObjects.fields.value"
+                  }
+                }
+              }
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "String",
+                    "id": "body.businessObjects.links.name"
+                  },
+                  "url": {
+                    "type": "String",
+                    "id": "body.businessObjects.links.url"
+                  }
+                }
+              }
+            },
+            "errorCode": {
+              "type": "Any",
+              "id": "body.businessObjects.errorCode"
+            },
+            "errorMessage": {
+              "type": "Any",
+              "id": "body.businessObjects.errorMessage"
+            },
+            "hasError": {
+              "type": "Boolean",
+              "id": "body.businessObjects.hasError"
+            }
+          }
+        }
+      },
+      "hasPrompts": {
+        "type": "Boolean",
+        "id": "body.hasPrompts"
+      },
+      "links": {
+        "type": "Array",
+        "id": "body.links"
+      },
+      "prompts": {
+        "type": "Array",
+        "id": "body.prompts"
+      },
+      "searchResultsFields": {
+        "type": "Array",
+        "id": "body.searchResultsFields"
+      },
+      "simpleResults": {
+        "type": "Any",
+        "id": "body.simpleResults"
+      },
+      "totalRows": {
+        "type": "Number",
+        "id": "body.totalRows"
+      },
+      "errorCode": {
+        "type": "Any",
+        "id": "body.errorCode"
+      },
+      "errorMessage": {
+        "type": "Any",
+        "id": "body.errorMessage"
+      },
+      "hasError": {
+        "type": "Boolean",
+        "id": "body.hasError"
+      }
+    }
+  },
+  "headers": {
+    "type": "object",
+    "properties": {
+      "content-type": {
+        "type": "String",
+        "id": "headers.content-type"
+      },
+      "server": {
+        "type": "String",
+        "id": "headers.server"
+      },
+      "x-powered-by": {
+        "type": "String",
+        "id": "headers.x-powered-by"
+      },
+      "access-control-allow-methods": {
+        "type": "String",
+        "id": "headers.access-control-allow-methods"
+      },
+      "access-control-allow-headers": {
+        "type": "String",
+        "id": "headers.access-control-allow-headers"
+      },
+      "content-length": {
+        "type": "String",
+        "id": "headers.content-length"
+      },
+      "date": {
+        "type": "String",
+        "id": "headers.date"
+      },
+      "connection": {
+        "type": "String",
+        "id": "headers.connection"
+      }
+    }
+  },
+  "status": {
+    "type": "Number",
+    "id": "status"
+  },
+  "rawBody": {
+    "type": "String",
+    "body": "string",
+    "id": "rawBody"
+  },
+  "id": {
+    "type": "Number",
+    "id": "id",
+    "generated": true,
+    "updateOnly": true
+  }
+}
