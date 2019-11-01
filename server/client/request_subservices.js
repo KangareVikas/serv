@@ -40,8 +40,10 @@ exports['subservices[].select'] = async (session, models, vars) => {
         list.map(item => { subservices.push({ "title": item }) });
         models.request_subservices.subservices = subservices;
     } else {
-        vars.session.requestCategory = categoryTitle;
+        models.request_subservices.subCategory = categoryTitle;
         vars.session.requestService = serviceTitle;
+        vars.session.requestCategory = models.request_subservices.category;
+        vars.session.requestSubCategory = categoryTitle;
         await session.screen('request_newrequest');
     }
 };

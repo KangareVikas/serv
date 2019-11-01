@@ -13,7 +13,7 @@ exports.onload = async (session, models, vars) => {
     models.request_newrequest.forUser = vars.session.forUser || 'Evan Employee';
     models.request_newrequest.email = 'evan.employee@acme.com';
     models.request_newrequest.phone = '6523455679';
-    models.request_newrequest.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
+    models.request_newrequest.shortDescription = `I need help`;
     models.request_newrequest.urgency = vars.session.urgencyMap;
     models.request_newrequest.service = vars.session.requestService;
     models.request_newrequest.category = vars.session.requestCategory;
@@ -40,4 +40,12 @@ exports.back = async (session, models, vars) => {
 */
 exports.cancel = async (session, models, vars) => {
     await session.screen('home');
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.search = async (session, models, vars) => {
+    await session.screen('finduser');
 };
