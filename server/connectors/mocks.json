@@ -319,11 +319,27 @@
           "inserts_footer": {},
           "incident_categories": {},
           "incident_subcategories": {},
-          "incident_newissue": {}
+          "incident_newissue": {
+            "result": {}
+          },
+          "request_services": {},
+          "articles_findarticle": {},
+          "tickets_mytickets": {},
+          "tickets_viewincident": {},
+          "request_subservices": {},
+          "request_newrequest": {},
+          "finduser": {},
+          "articles_viewarticle": {},
+          "findticket": {},
+          "footer": {}
         },
         "expressions": {},
         "vars": {
-          "session": {},
+          "session": {
+            "kbBusObId": "934c68436065e717e2d7ca4e9992f112d80031cedc",
+            "access_token": "d7gf3WCEiKt3oLnq3P4bEUBEKN3yz1uunbgJmvcw9wEvnnYMMfeFtddV7J_D0LprFhhavuLiYfqrISaQH93LCyeAu0Y5E7neCc9hbls1iwuxeDJqC-bFn5boZ1LueHjLzjQVa8unlFFwe9uWpJ800Prvvt-DDG1rELtlLWyjVOw_0nxINTH_mSxC9B5qeLQxBVf9qDC7pkZAYnr-g-9DZfz9FUSdZ3CcGRlepEmKeJNFSisZ83y5OZZSjPCByXtumtdjpL-J_eHcz-ubm6YWVtVvoQVWApiDwtchFkypKHL9Yfr9R6iYOrP3myfB9DRi-HNz9ZenN_cOwYU3HxWV9jKNF0JvgUnWkxgOFGWqCc8O4MzS6PCJPZmd92yp-WDUuhFUt1DXKx8pJrsy6NwRVQ70le0wNzccqwrYhoH0uha9NDIbQima8CqwUtx7p-JlLtwV3Ydi0ix2iIjc-tgpXO3gCQAFuv8_bkQS_Eqn82wn0WaNipwjJNHnHepW5YRB0nBpxR7OLQvbLtEuoYpEFPSuX3YDuARQhmHuywBoZsw",
+            "kbStateFieldId": "9366b34e57ce9dc2514b7b47c4a4f5c457a02749c6"
+          },
           "local": {},
           "screen": {},
           "request": {},
@@ -339,7 +355,11 @@
             }
           }
         },
-        "tokens": {}
+        "tokens": {
+          "access_token": "d7gf3WCEiKt3oLnq3P4bEUBEKN3yz1uunbgJmvcw9wEvnnYMMfeFtddV7J_D0LprFhhavuLiYfqrISaQH93LCyeAu0Y5E7neCc9hbls1iwuxeDJqC-bFn5boZ1LueHjLzjQVa8unlFFwe9uWpJ800Prvvt-DDG1rELtlLWyjVOw_0nxINTH_mSxC9B5qeLQxBVf9qDC7pkZAYnr-g-9DZfz9FUSdZ3CcGRlepEmKeJNFSisZ83y5OZZSjPCByXtumtdjpL-J_eHcz-ubm6YWVtVvoQVWApiDwtchFkypKHL9Yfr9R6iYOrP3myfB9DRi-HNz9ZenN_cOwYU3HxWV9jKNF0JvgUnWkxgOFGWqCc8O4MzS6PCJPZmd92yp-WDUuhFUt1DXKx8pJrsy6NwRVQ70le0wNzccqwrYhoH0uha9NDIbQima8CqwUtx7p-JlLtwV3Ydi0ix2iIjc-tgpXO3gCQAFuv8_bkQS_Eqn82wn0WaNipwjJNHnHepW5YRB0nBpxR7OLQvbLtEuoYpEFPSuX3YDuARQhmHuywBoZsw",
+          "kbBusObId": "934c68436065e717e2d7ca4e9992f112d80031cedc",
+          "kbStateFieldId": "9366b34e57ce9dc2514b7b47c4a4f5c457a02749c6"
+        }
       },
       "getAllincidents": {
         "models": {
