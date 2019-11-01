@@ -515,7 +515,7 @@
         "model": "footer"
       },
       "quantity": {
-        "type": "select"
+        "type": "string"
       },
       "service": {
         "type": "string"
