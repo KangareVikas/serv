@@ -5,4 +5,9 @@ screen-request-newrequest-phoneportrait {
             width: 70px;
         }
     }
+    .quantity-form {
+        [data-comp-id^="select."] {
+            border-radius: 4px;
+        }
+    }
 }
