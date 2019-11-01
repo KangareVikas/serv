@@ -1,4 +1,4 @@
-export let mock_tickets_mytickets = {
+export let mock_request_mytickets = {
     search: async function search(params) {
         await this.go("findticket");
     },

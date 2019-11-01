@@ -279,59 +279,6 @@
     },
     "id": "articles_findarticle"
   },
-  "tickets_mytickets": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {
-      "search": {
-        "type": "action"
-      },
-      "footer": {
-        "type": "model",
-        "model": "footer"
-      },
-      "ticketsType": {
-        "type": "string"
-      },
-      "statusFilter": {
-        "type": "string"
-      },
-      "tickets": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "Description": {
-              "type": "string"
-            },
-            "CreatedDateTime": {
-              "type": "date",
-              "format": "M/D/YYYY h:mm:ss a"
-            },
-            "view": {
-              "type": "action"
-            }
-          }
-        }
-      },
-      "showIncidents": {
-        "type": "action"
-      },
-      "showRequests": {
-        "type": "action"
-      },
-      "showOpenTickets": {
-        "type": "action"
-      },
-      "showNeedAttention": {
-        "type": "action"
-      }
-    },
-    "id": "tickets_mytickets"
-  },
   "tickets_viewincident": {
     "type": "object",
     "comment": "Blank",
@@ -505,5 +452,58 @@
       }
     },
     "id": "findticket"
+  },
+  "request_mytickets": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "search": {
+        "type": "action"
+      },
+      "footer": {
+        "type": "model",
+        "model": "footer"
+      },
+      "ticketsType": {
+        "type": "string"
+      },
+      "statusFilter": {
+        "type": "string"
+      },
+      "tickets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "Description": {
+              "type": "string"
+            },
+            "CreatedDateTime": {
+              "type": "date",
+              "format": "M/D/YYYY h:mm:ss a"
+            },
+            "view": {
+              "type": "action"
+            }
+          }
+        }
+      },
+      "showIncidents": {
+        "type": "action"
+      },
+      "showRequests": {
+        "type": "action"
+      },
+      "showOpenTickets": {
+        "type": "action"
+      },
+      "showNeedAttention": {
+        "type": "action"
+      }
+    },
+    "id": "tickets_mytickets"
   }
 }
