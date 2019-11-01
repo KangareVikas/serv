@@ -63,15 +63,6 @@
             <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.2" item-end
                 style></ion-icon>
         </ion-item>
-        <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
-            <ion-label mode="ios">Type</ion-label>
-            <ion-select [(ngModel)]="data.type.selected"
-                [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
-                name="select.1">
-                <ion-option *ngFor="let item of data.type.options" [innerHTML]="item.label"
-                    [value]="item.value" data-comp-id="option.1"></ion-option>
-            </ion-select>
-        </ion-item>
         <ion-item data-comp-id="input.5" mode="ios">
             <ion-label mode="ios">Location or Seats</ion-label>
             <ion-input [(ngModel)]="data.seat" mode="ios" placeholder="Type here..."
