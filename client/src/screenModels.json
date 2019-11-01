@@ -276,9 +276,17 @@
               "type": "date",
               "format": "M/D/YYYY h:mm:ss a"
             },
-            "Select": {
+            "select": {
               "type": "action"
             }
+          }
+        }
+      },
+      "search": {
+        "type": "method",
+        "parameters": {
+          "article": {
+            "type": "string"
           }
         }
       }
