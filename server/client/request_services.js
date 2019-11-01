@@ -5,7 +5,7 @@
 */
 exports.onload = async (session, models, vars) => {
     if (!vars.session.serviceFieldId || !vars.session.categoryFieldId || !vars.session.subcategoryFieldId) {
-        let requestData = await session.rest.cherwellapi.GetBusinessObjectTemplate({
+        let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
             access_token: vars.session.access_token,
             busObId: vars.session.incidentBusObId,
             includeRequired: true,
@@ -33,7 +33,6 @@ exports.onload = async (session, models, vars) => {
     });
     let list = validValues.body.values;
     let categories = [];
-    list.map(item => { categories.push({ "title": item }) });
     models.request_services.services = categories;
 };
 /**
@@ -50,8 +49,8 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.selectService = async (session, models, vars) => {
-    var subCategoryTitle = vars.params.title;
-    var data = await session.rest.cherwellapi.getRequestSubCategory({
+    let subCategoryTitle = vars.params.title;
+    let data = await session.rest.cherwellapi.getRequestCategoryValues({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
         categoryFieldId: vars.session.categoryFieldId,
@@ -60,7 +59,6 @@ exports.selectService = async (session, models, vars) => {
     });
     let list = data.body.values;
     let subCategories = [];
-    list.map(item => { subCategories.push({ "title": item }) });
     models.request_subservices.subservices = subCategories;
     await session.screen('request_subservices');
 };
