@@ -17,11 +17,46 @@
         </ion-navbar>
     </ion-header>
     <ion-content class="content-calm" data-comp-id="content.1" menuClose style>
-        <ion-list data-comp-id="list.1">
-            <ion-item (click)="logout()" data-comp-id="item.1" menuClose>
-                <ion-icon class=" ion-ios-exit-outline" color="primary" data-comp-id="icon.1"
-                    item-start style></ion-icon>
-                <div data-comp-id="text.2" ion-text>Logout</div>
+        <ion-list data-comp-id="list.1" mode="ios" no-lines>
+            <ion-item (click)="logout()" data-comp-id="item.1" menuClose mode="ios">
+                <ion-row data-comp-id="row.2">
+                    <ion-col data-comp-id="column.4" style="max-width: 40px; padding: 0;"><img data-comp-id="img.1" src="assets/images/add_issue_icon_act.png"
+                        style="float: left; height: 24px;"></ion-col>
+                    <ion-col data-comp-id="column.3"
+                        style="padding: 0; border-bottom: 1px solid #ccc;">
+                        <div data-comp-id="text.2" ion-text style="line-height: 26px;">New Request</div>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+            <ion-item (click)="logout()" data-comp-id="item.2" menuClose mode="ios">
+                <img data-comp-id="img.2" src="assets/images/add_issue_icon_act.png"
+                    style="float: left; height: 22px;">
+                <div data-comp-id="text.3" ion-text>My Tickets</div>
+            </ion-item>
+            <ion-item (click)="logout()" data-comp-id="item.3" menuClose mode="ios">
+                <img data-comp-id="img.3" src="assets/images/add_issue_icon_act.png"
+                    style="float: left; height: 22px;">
+                <div data-comp-id="text.4" ion-text>Chat</div>
+            </ion-item>
+            <ion-item (click)="logout()" data-comp-id="item.4" menuClose mode="ios">
+                <img data-comp-id="img.4" src="assets/images/add_issue_icon_act.png"
+                    style="float: left; height: 22px;">
+                <div data-comp-id="text.5" ion-text>Call</div>
+            </ion-item>
+            <ion-item (click)="About" data-comp-id="item.5" menuClose mode="ios">
+                <img data-comp-id="img.5" src="assets/images/add_issue_icon_act.png"
+                    style="float: left; height: 22px;">
+                <div data-comp-id="text.6" ion-text>About</div>
+            </ion-item>
+            <ion-item (click)="logout()" data-comp-id="item.6" menuClose mode="ios">
+                <img data-comp-id="img.6" src="assets/images/add_issue_icon_act.png"
+                    style="float: left; height: 22px;">
+                <div data-comp-id="text.7" ion-text>Settings</div>
+            </ion-item>
+            <ion-item (click)="logout()" data-comp-id="item.7" menuClose mode="ios">
+                <img data-comp-id="img.7" src="assets/images/add_issue_icon_act.png"
+                    style="float: left; height: 22px;">
+                <div data-comp-id="text.8" ion-text>Logout</div>
             </ion-item>
         </ion-list>
     </ion-content>
