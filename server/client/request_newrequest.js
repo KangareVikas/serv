@@ -24,6 +24,60 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.submit = async (session, models, vars) => {
+    let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
+        access_token: vars.session.access_token,
+        busObId: vars.session.problemBusObId,
+        includeRequired: true,
+        includeAll: true
+    });
+    console.log(requestData.body);
+    let template = requestData.body;
+    for (var i = 0; i < template.fields.length; i++) {
+        if (template.fields[i].name === 'Description') {
+            template.fields[i].value = `TODO: add descr`;
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'ShortDescription') {
+            template.fields[i].value = models.request_newrequest.shortDescription;
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'Priority') {
+            template.fields[i].value = models.request_newrequest.urgency.selected;
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'Source') {
+            template.fields[i].value = 'Unresolved Incident';
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'Service') {
+            template.fields[i].value = models.request_newrequest.service;
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'Category') {
+            template.fields[i].value = models.request_newrequest.category;
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'AffectedCI')  {
+            template.fields[i].value  = "ASM0002204 Iris 5875";
+            template.fields[i].dirty  = true;
+        }
+    }
+    let fields = JSON.stringify(template.fields);
+    try {
+        var result = await session.rest.cherwellapi.saveBusinessObject({
+            access_token: vars.session.access_token,
+            incidentBusObId: vars.session.problemBusObId,
+            fields: fields,
+            persist: true
+        });
+        if (result.body.errorMessage) {
+            models.request_newrequest.result.error = result.body.errorMessage;
+        } else if (result.body.busObPublicId) {
+            models.request_newrequest.result.busObPublicId = result.body.busObPublicId;
+        }
+    } catch (e) {
+        models.request_newrequest.result.error = e.message;
+    }
 };
 /**
  * @param {Session} session

@@ -75,7 +75,7 @@ exports.submit = async (session, models, vars) => {
         access_token: vars.session.access_token,
         busObId: vars.session.incidentBusObId,
         includeRequired: true,
-        includeAll: false
+        includeAll: true
     });
     console.log(requestData.body);
     let template = requestData.body;
@@ -84,47 +84,38 @@ exports.submit = async (session, models, vars) => {
             var type = models.incident_newissue.type.selected || "Other"
             template.fields[i].value = `TYPE: ${models.incident_newissue.type.selected}, LOCATION/SEAT: ${models.incident_newissue.seat}, ${models.incident_newissue.description}`;
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'ShortDescription') {
             template.fields[i].value = models.incident_newissue.shortDescription;
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'CustomerRecID') {
             template.fields[i].value = vars.session.customerRecId || '9451f6c8b5609372c4e86b440db32353b488fb4206';
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'Priority') {
             template.fields[i].value = models.incident_newissue.urgency.selected;
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'Source') {
             template.fields[i].value = 'Portal';
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'Service') {
             template.fields[i].value = 'Access Management';
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'Category') {
             template.fields[i].value = 'Identity and Access Management';
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'Subcategory') {
             template.fields[i].value = 'Submit Incident';
             template.fields[i].dirty = true;
-            continue;
         }
         if (template.fields[i].name === 'OwnedByTeam') {
             template.fields[i].value = 'Service Desk';
             template.fields[i].dirty = true;
-            continue;
         }
     }
     let fields = JSON.stringify(template.fields);

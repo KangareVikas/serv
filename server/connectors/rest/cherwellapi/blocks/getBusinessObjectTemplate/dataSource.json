@@ -11,7 +11,7 @@
     "form": {
       "busObId": "{busObId}",
       "includeRequired": "true",
-      "includeAll": "false"
+      "includeAll": "true"
     },
     "options": {},
     "bodyType": "form"
