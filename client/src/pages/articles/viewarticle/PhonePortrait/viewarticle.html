@@ -25,14 +25,8 @@
                     style="text-align: left; margin: 10px 0px; white-space: normal; font-weight: normal;"></h1>
             </ion-title>
             <div color="medium" data-comp-id="text.3" ion-text style="font-size: 17px;">September 23, 3:05 PM by Evan Employee</div>
-            <div data-comp-id="text.4" ion-text
-                style="margin: 25px 0px 0px; font-size: 17px;">Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div [innerHTML]="data.Description" data-comp-id="text.4" ion-text
+                style="margin: 25px 0px 0px; font-size: 17px;"></div>
         </ion-col>
     </ion-row>
     <ion-row data-comp-id="row.3"
