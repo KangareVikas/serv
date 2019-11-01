@@ -4,6 +4,8 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    models.request_subservices.service = '';
+    models.request_subservices.selectedServices = [];
     if (!vars.session.serviceFieldId || !vars.session.categoryFieldId || !vars.session.subcategoryFieldId) {
         let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
             access_token: vars.session.access_token,
@@ -51,6 +53,8 @@ exports.back = async (session, models, vars) => {
 */
 exports.selectService = async (session, models, vars) => {
     let subCategoryTitle = vars.params.title;
+    models.request_subservices.service = subCategoryTitle;
+    models.request_subservices.selectedServices = [{ title: subCategoryTitle}];
     let data = await session.rest.cherwellapi.getRequestCategoryValues({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
