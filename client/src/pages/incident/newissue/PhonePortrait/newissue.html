@@ -87,7 +87,7 @@
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.2" mode="ios">
             <ion-label mode="ios">Urgency</ion-label>
-            <ion-select [(ngModel)]="data.urgency.selected" [disabled]="true"
+            <ion-select [(ngModel)]="data.urgency.selected"
                 [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
                 name="select.2">
                 <ion-option *ngFor="let item of data.urgency.options" [innerHTML]="item.label"
