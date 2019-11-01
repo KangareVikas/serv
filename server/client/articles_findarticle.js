@@ -15,8 +15,8 @@ exports.onload = async (session, models, vars) => {
         kbStateFieldId: vars.session.kbStateFieldId
     });
     let articles = requestData.body.businessObjects;
-    for (var i = 0; i < articles.fields.length; i++) {
-        if (articles.fields[i].name === 'Service') {
+    for (var i = 0; i < articles.length; i++) {
+        if (articles[i].name === 'CreatedDateTime') {
             vars.session.serviceFieldId = articles.fields[i].fieldId;
             continue;
         }
