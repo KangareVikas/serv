@@ -2,7 +2,9 @@
     <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
         <ion-row data-comp-id="row.1" style="padding: 0 0 4px;">
             <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
-                <button (click)="action('back')" class="button-label-primary" clear data-comp-id="button.1" ion-button mode="ios" small style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
+                <button (click)="action('back')" class="button-label-primary" clear
+                    data-comp-id="button.1" ion-button mode="ios" small
+                    style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
                     <ion-icon class=" ion-ios-arrow-back" color="primary" style="font-size: 28px;"></ion-icon>
                     <span style="padding: 0 0 0 8px;">Back</span>
                 </button>
@@ -17,10 +19,12 @@
     <ion-row data-comp-id="row.2" style="margin: 0px 0px 30px; padding: 5px 16px;">
         <ion-col data-comp-id="column.3">
             <ion-title data-comp-id="title.1">
-                <h1 color="primary" data-comp-id="text.2" ion-text style="text-align: left; margin: 10px 0px; white-space: normal; font-weight: normal;">Computer Server Outage detected</h1>
+                <h1 color="primary" data-comp-id="text.2" ion-text
+                    style="text-align: left; margin: 10px 0px; white-space: normal; font-weight: normal;">Computer Server Outage detected</h1>
             </ion-title>
             <div color="medium" data-comp-id="text.3" ion-text style="font-size: 17px;">September 23, 3:05 PM by Evan Employee</div>
-            <div data-comp-id="text.4" ion-text style="margin: 25px 0px 0px; font-size: 17px;">Lorem
+            <div data-comp-id="text.4" ion-text
+                style="margin: 25px 0px 0px; font-size: 17px;">Lorem
                 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -29,17 +33,24 @@
                 culpa qui officia deserunt mollit anim id est laborum.</div>
         </ion-col>
     </ion-row>
-    <ion-row data-comp-id="row.3" style="border-top: 1px solid rgb(226, 226, 226); padding: 15px 16px;">
+    <ion-row data-comp-id="row.3"
+        style="border-top: 1px solid rgb(226, 226, 226); padding: 15px 16px;">
         <ion-col data-comp-id="column.4" style="margin: 10px 0px 20px; min-width: 100%;">
             <div color="contrast" data-comp-id="text.5" ion-text style="font-size: 17px;">Did this resolve your issue?</div>
         </ion-col>
-        <ion-col data-comp-id="column.5" style="max-width: 50%; min-width: 50%; padding: 5px 10px 0px 0px;">
-            <button block class="issue-button" data-comp-id="button.2" ion-button style="border-radius: 21px; font-size: 17px; padding: 0px 16px;">
+        <ion-col data-comp-id="column.5"
+            style="max-width: 50%; min-width: 50%; padding: 5px 10px 0px 0px;">
+            <button (click)="action('home')" block class="issue-button"
+                data-comp-id="button.2" ion-button
+                style="border-radius: 21px; font-size: 17px; padding: 0px 16px;">
                 <span style="padding: 0px;">Yes</span>
             </button>
         </ion-col>
-        <ion-col align-self-start data-comp-id="column.6" style="max-width: 50%; min-width: 50%; padding: 5px 0px 0px 10px;">
-            <button block class="issue-button" color="secondary" data-comp-id="button.3" ion-button style="border-radius: 21px; font-size: 17px;">
+        <ion-col align-self-start data-comp-id="column.6"
+            style="max-width: 50%; min-width: 50%; padding: 5px 0px 0px 10px;">
+            <button (click)="action('createIncident')" block class="issue-button"
+                color="secondary" data-comp-id="button.3" ion-button
+                style="border-radius: 21px; font-size: 17px;">
                 <span>Open Incident</span>
             </button>
         </ion-col>
