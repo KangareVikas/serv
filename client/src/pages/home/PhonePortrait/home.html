@@ -28,15 +28,11 @@
             <ion-col class="column-white" col-12 data-comp-id="column.3"
                 style="padding: 58px 10px 16px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-radius: 4px;">
                 <ion-list data-comp-id="list.1" style="margin: 0;">
-                    <ion-item data-comp-id="input.1" mode="ios"
-                        style="border-top: 1px solid #1d428a; border-right: 1px solid #1d428a; border-bottom: 1px solid #1d428a; border-left: 1px solid #1d428a; padding: 0px 0px 0px 16px;">
-                        <ion-icon class=" ion-ios-search" color="dark" item-left
-                            style="font-size: 24px; padding-top: 2px;"></ion-icon>
-                        <ion-input mode="ios" placeholder="Find an article" type="text"></ion-input>
-                    </ion-item>
-                    <ion-item data-comp-id="item.2">
-                        <div data-comp-id="text.9" ion-text>List Item</div>
-                        <ion-icon data-comp-id="icon.1" item-start name="arrow-forward"></ion-icon>
+                    <ion-item data-comp-id="item.1"
+                        style="border-top: 1px solid #1d428a; border-right: 1px solid #1d428a; border-bottom: 1px solid #1d428a; border-left: 1px solid #1d428a;">
+                        <div color="medium" data-comp-id="text.2" ion-text style>Find an article</div>
+                        <ion-icon class=" ion-ios-search" color="dark" data-comp-id="icon.1" item-start
+                            style="font-size: 24px;"></ion-icon>
                     </ion-item>
                 </ion-list>
             </ion-col>
@@ -45,7 +41,7 @@
             <ion-col (click)="action('doReport')" data-comp-id="column.4" data-img
                 style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; padding: 10px 10px 35px; background-repeat: no-repeat; border-radius: 4px; max-width: calc(50% - 4px); background-image: url(assets/images/report_new_issue_bg.png);"><img data-comp-id="img.1" src="assets/images/report_icon.png"
                 style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-                <div color="white" data-comp-id="text.2" ion-text
+                <div color="white" data-comp-id="text.3" ion-text
                     style="font-size: 25px; margin: 0 5px;">Report
                     <br>
                     a New Issue</div>
@@ -53,7 +49,7 @@
             <ion-col (click)="action('doRequest')" data-comp-id="column.5" data-img
                 style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; padding: 10px 10px 35px; background-repeat: no-repeat; border-radius: 4px; max-width: calc(50% - 4px); background-image: url(assets/images/request_something_bg.png);"><img data-comp-id="img.2" src="assets/images/request_icon.png"
                 style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-                <div color="white" data-comp-id="text.3" ion-text
+                <div color="white" data-comp-id="text.4" ion-text
                     style="font-size: 25px; margin: 0 5px;">Request
                     <br>
                     Something
@@ -64,21 +60,21 @@
             <ion-col data-comp-id="column.6" style="padding: 8px;">
                 <ion-list-header color="transparent" data-comp-id="list-header.1"
                     style="border-bottom: 0px none rgb(0, 0, 0);">
-                    <span color="black" data-comp-id="text.4" ion-text style="font-size: 17px;"
+                    <span color="black" data-comp-id="text.5" ion-text style="font-size: 17px;"
                         text-capitalize>Opened tickets</span>
                 </ion-list-header>
                 <ion-list data-comp-id="list.2" mode="ios">
                     <ion-item-sliding *ngFor="let item of data.tickets; let i = index"
                         data-comp-id="item-sliding.1"
                         style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
-                        <ion-item data-comp-id="item.1" detail-push mode="ios"
+                        <ion-item data-comp-id="item.2" detail-push mode="ios"
                             style="border-bottom: 0px none rgb(0, 0, 0);">
-                            <div [innerHTML]="item.id" color="primary" data-comp-id="text.5" ion-text
+                            <div [innerHTML]="item.id" color="primary" data-comp-id="text.6" ion-text
                                 style="font-size: 14px; margin: 0 0 4px 0;"></div>
-                            <div [innerHTML]="item.Description" data-comp-id="text.6" ion-text
+                            <div [innerHTML]="item.Description" data-comp-id="text.7" ion-text
                                 style="margin: 0 0 4px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
-                            <span color="medium" data-comp-id="text.7" ion-text style="font-size: 13px;">Date Created:</span>
-                            <span [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.8"
+                            <span color="medium" data-comp-id="text.8" ion-text style="font-size: 13px;">Date Created:</span>
+                            <span [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.9"
                                 formatting="date" ion-text output-format="M/D/YYYY h:mm a"
                                 style="font-size: 13px; margin: 0 0 0 4px;"></span>
                         </ion-item>
