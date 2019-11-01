@@ -31,9 +31,11 @@ declare module 'app/app.screens' {
 	import { request_subservices_PhonePortrait } from 'app/../pages/request/subservices/PhonePortrait/subservices';
 	import { request_newrequest_PhonePortrait } from 'app/../pages/request/newrequest/PhonePortrait/newrequest';
 	import { articles_findarticle_PhonePortrait } from 'app/../pages/articles/findarticle/PhonePortrait/findarticle';
+	import { articles_viewarticle_PhonePortrait } from 'app/../pages/articles/viewarticle/PhonePortrait/viewarticle';
 	import { tickets_mytickets_PhonePortrait } from 'app/../pages/tickets/mytickets/PhonePortrait/mytickets';
 	import { tickets_viewincident_PhonePortrait } from 'app/../pages/tickets/viewincident/PhonePortrait/viewincident';
 	import { finduser_PhonePortrait } from 'app/../pages/finduser/PhonePortrait/finduser';
+	import { findticket_PhonePortrait } from 'app/../pages/findticket/PhonePortrait/findticket';
 	export class Screens {
 	    static declarations: typeof MenuComponent[];
 	    static mapping: {
@@ -70,6 +72,9 @@ declare module 'app/app.screens' {
 	        'articles_findarticle': {
 	            PhonePortrait: typeof articles_findarticle_PhonePortrait;
 	        };
+	        'articles_viewarticle': {
+	            PhonePortrait: typeof articles_viewarticle_PhonePortrait;
+	        };
 	        'tickets_mytickets': {
 	            PhonePortrait: typeof tickets_mytickets_PhonePortrait;
 	        };
@@ -78,6 +83,9 @@ declare module 'app/app.screens' {
 	        };
 	        'finduser': {
 	            PhonePortrait: typeof finduser_PhonePortrait;
+	        };
+	        'findticket': {
+	            PhonePortrait: typeof findticket_PhonePortrait;
 	        };
 	    };
 	}
