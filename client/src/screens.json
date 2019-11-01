@@ -82,12 +82,6 @@
           "sourceAppId": "cherwellrequest"
         },
         {
-          "id": "mytickets",
-          "name": "My Tickets",
-          "sourceScreenId": "request_services",
-          "sourceAppId": "cherwellrequest"
-        },
-        {
           "id": "newrequest",
           "name": "New Request",
           "sourceScreenId": "incident_newissue",
@@ -119,6 +113,12 @@
       "name": "Tickets",
       "folder": true,
       "screens": [
+        {
+          "id": "mytickets",
+          "name": "My Tickets",
+          "sourceScreenId": "request_services",
+          "sourceAppId": "cherwellrequest"
+        },
         {
           "id": "viewincident",
           "name": "View Incident",

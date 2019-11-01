@@ -3,10 +3,10 @@ import { Screen } from 'app/screen';
 declare var window: any;
 
 @Component({
-  selector: 'screen-request-mytickets_phoneportrait',
+  selector: 'screen-tickets-mytickets_phoneportrait',
   templateUrl: 'mytickets.html'
 })
-export class request_mytickets_PhonePortrait extends Screen {
+export class tickets_mytickets_PhonePortrait extends Screen {
   data: any;
 
   ngOnInit(): void {
