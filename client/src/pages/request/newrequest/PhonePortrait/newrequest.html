@@ -125,9 +125,11 @@
                     <ion-item class="wrap-field" data-comp-id="select.3" mode="ios"
                         style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
                         <ion-label color="black" mode="ios" style>Quantity:</ion-label>
-                        <ion-select [selectOptions]="{cssClass: 'select-full'}" arrow-color="coal"
-                            color="coal" interface="alert" mode="ios" style>
-                            <ion-option data-comp-id="option.3"></ion-option>
+                        <ion-select [(ngModel)]="data.quantity.selected"
+                            [selectOptions]="{cssClass: 'select-full'}" arrow-color="coal" color="coal"
+                            interface="alert" mode="ios" name="select.3" style>
+                            <ion-option *ngFor="let item of data.quantity.options" [innerHTML]="item.label"
+                                [value]="item.value" data-comp-id="option.3"></ion-option>
                         </ion-select>
                     </ion-item>
                 </ion-list>
