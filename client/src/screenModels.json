@@ -383,18 +383,6 @@
           "type": "none"
         }
       },
-      "urgency": {
-        "type": "string",
-        "update": {
-          "type": "none"
-        }
-      },
-      "byUser": {
-        "type": "string",
-        "update": {
-          "type": "none"
-        }
-      },
       "forUser": {
         "type": "string",
         "update": {
@@ -425,6 +413,18 @@
               "type": "action"
             }
           }
+        }
+      },
+      "CustomerDisplayName": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "Urgency": {
+        "type": "string",
+        "update": {
+          "type": "none"
         }
       }
     },
