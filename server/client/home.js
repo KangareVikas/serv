@@ -111,3 +111,11 @@ exports.doRequest = async (session, models, vars) => {
 exports.doReport = async (session, models, vars) => {
     await session.screen('incident_categories');
 };
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.footer = async (session, models, vars) => {
+    await session.screen('tickets_mytickets');
+};
