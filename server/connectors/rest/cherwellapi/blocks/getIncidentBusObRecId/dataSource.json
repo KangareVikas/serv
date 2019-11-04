@@ -1,6 +1,6 @@
 {
   "template": {
-    "url": "/api/V1/getbusinessobject/busobid/\\{\\{incidentBusObId}}/publicid/{busObPublicId}",
+    "url": "/api/V1/getbusinessobject/busobid/{incidentBusObId}/publicid/{busObPublicId}",
     "method": "GET",
     "query": {},
     "headers": {},
@@ -15,7 +15,8 @@
   "functions": {
     "getIncidentBusObRecId": [
       "busObPublicId",
-      "access_token"
+      "access_token",
+      "incidentBusObId"
     ]
   }
 }
