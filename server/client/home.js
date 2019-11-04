@@ -49,6 +49,11 @@ exports.onload = async (session, models, vars) => {
             }
         });
     }
+    let ticketsFilter = [{
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'In Progress'
+        }];
     let openedTickets = await session.rest.cherwellapi.getAllOpenedTickets({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
