@@ -5,7 +5,8 @@
     "query": {},
     "headers": {},
     "auth": {
-      "type": "none"
+      "type": "bearerToken",
+      "token": "{access_token}"
     },
     "form": {
       "busObId": "{incidentBusObId}",
@@ -17,7 +18,8 @@
   },
   "functions": {
     "GetIncedentTemplate": [
-      "incidentBusObId"
+      "incidentBusObId",
+      "access_token"
     ]
   }
 }
