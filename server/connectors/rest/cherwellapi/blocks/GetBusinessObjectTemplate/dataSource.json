@@ -1,0 +1,23 @@
+{
+  "template": {
+    "url": "api/V1/GetBusinessObjectTemplate",
+    "method": "GET",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "none"
+    },
+    "form": {
+      "busObId": "{incidentBusObId}",
+      "includeRequired": "true",
+      "includeAll": "true"
+    },
+    "options": {},
+    "bodyType": "form"
+  },
+  "functions": {
+    "GetBusinessObjectTemplate": [
+      "incidentBusObId"
+    ]
+  }
+}
