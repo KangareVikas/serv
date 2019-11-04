@@ -37,7 +37,7 @@ exports.onload = async (session, models, vars) => {
     }
     console.log('incidentBusObId: ' + vars.session.incidentBusObId);
     if (!vars.session.incidentFieldsIds) {
-        vars.session.incidentFieldsIds = {};
+        vars.session.incidentFieldsIds = { status: '' };
         console.log('Fetching fields IDs for Incedent');
         let tmplData = await session.rest.cherwellapi.getIncedentTemplate({
             access_token: vars.session.access_token,
