@@ -51,4 +51,5 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.selectTicket = async (session, models, vars) => {
+    await session.rest.cherwellapi.getIncidentBusObRecId();
 };
