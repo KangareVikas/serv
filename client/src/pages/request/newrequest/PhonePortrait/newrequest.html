@@ -82,6 +82,15 @@
                     </ion-item>
                     <camera-canvas></camera-canvas>
                 </div>
+                <ion-list data-comp-id="list.3">
+                    <ion-item data-comp-id="attachment.1">
+                        <ion-label>
+                            <span class="label">Attachment</span>
+                            <span class="input"><input [(ngModel)]="data.photo" file-upload type="file"></span>
+                        </ion-label>
+                        <ion-icon color="primary" item-end name="attach"></ion-icon>
+                    </ion-item>
+                </ion-list>
             </ion-col>
             <ion-col col-auto data-comp-id="column.5"
                 style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
