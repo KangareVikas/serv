@@ -5,7 +5,7 @@
 */
 exports.onload = async (session, models, vars) => {
     if (!vars.session.firstNamefieldId || !vars.session.lastNamefieldId) {
-        console.log('Fetching firstNamefieldId and lastNamefieldId');
+        console.log('Fetching firstNamefieldId, lastNamefieldId and fullNamefieldId');
         let output = await session.rest.cherwellapi.getBusinessObjectSchema({
             custBusObId: vars.session.custBusObId,
             access_token: vars.session.access_token
@@ -13,6 +13,7 @@ exports.onload = async (session, models, vars) => {
         let parsed = output.body;
         let firstNameFound = false;
         let lastNameFound = false;
+        let fullNameFound = false;
         for (let i = 0; i < parsed.fieldDefinitions.length; i++) {
             if (parsed.fieldDefinitions[i].displayName === 'First name') {
                 vars.session.firstNamefieldId = parsed.fieldDefinitions[i].fieldId;
@@ -22,7 +23,11 @@ exports.onload = async (session, models, vars) => {
                 vars.session.lastNamefieldId = parsed.fieldDefinitions[i].fieldId;
                 lastNameFound = true;
             }
-            if (firstNameFound && lastNameFound) {
+            if (parsed.fieldDefinitions[i].displayName  === 'Full name') {
+                vars.session.fullNamefieldId = parsed.fieldDefinitions[i].fieldId;
+                fullNameFound = true;
+            }
+            if (firstNameFound && lastNameFound && fullNameFound) {
                 break;
             }
         }
