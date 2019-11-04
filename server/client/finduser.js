@@ -17,8 +17,8 @@ exports.search = async (session, models, vars) => {
     let result = await session.rest.cherwellapi.getCustomerRecId({
         name: name,
         custBusObId: vars.session.custBusObId,
-        firstNamefieldId: vars.session.firstNamefieldId,
-        access_token: vars.session.access_token
+        access_token: vars.session.access_token,
+        fullNamefieldId: vars.session.fullNamefieldId
     });
     console.log(result.body);
     models.finduser.users = [];
