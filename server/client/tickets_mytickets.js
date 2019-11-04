@@ -17,4 +17,10 @@ exports.onload = async (session, models, vars) => {
         }
     ];
     let data = await session.rest.cherwellapi.getTickets();
+    data.body.businessObjects.forEach(busOb => {
+        busOb.fields.forEach(field => {
+            console.log('hello');
+        });
+    });
+    data = models.tickets_mytickets;
 };
