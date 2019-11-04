@@ -23,7 +23,7 @@ exports.onload = async (session, models, vars) => {
                 vars.session.lastNamefieldId = parsed.fieldDefinitions[i].fieldId;
                 lastNameFound = true;
             }
-            if (parsed.fieldDefinitions[i].displayName  === 'Full name') {
+            if (parsed.fieldDefinitions[i].displayName === 'Full name') {
                 vars.session.fullNamefieldId = parsed.fieldDefinitions[i].fieldId;
                 fullNameFound = true;
             }
@@ -59,7 +59,7 @@ exports.onload = async (session, models, vars) => {
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'In Progress'
         }];
-    let openedTickets = await session.rest.cherwellapi.getAllOpenedTickets({
+    let openedTickets = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
         ticketsFilter: ticketsFilter
