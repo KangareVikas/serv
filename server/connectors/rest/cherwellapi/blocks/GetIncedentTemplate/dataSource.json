@@ -1,6 +1,6 @@
 {
   "template": {
-    "url": "api/V1/GetBusinessObjectTemplate",
+    "url": "/api/V1/GetBusinessObjectTemplate",
     "method": "POST",
     "query": {},
     "headers": {},
@@ -18,8 +18,8 @@
   },
   "functions": {
     "GetIncedentTemplate": [
-      "incidentBusObId",
-      "access_token"
+      "access_token",
+      "incidentBusObId"
     ]
   }
 }
