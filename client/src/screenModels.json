@@ -330,9 +330,6 @@
         "items": {
           "type": "object",
           "properties": {
-            "id": {
-              "type": "string"
-            },
             "Description": {
               "type": "string"
             },
@@ -342,6 +339,9 @@
             },
             "view": {
               "type": "action"
+            },
+            "ID": {
+              "type": "string"
             }
           }
         }
