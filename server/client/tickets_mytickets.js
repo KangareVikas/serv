@@ -16,4 +16,5 @@ exports.onload = async (session, models, vars) => {
             'value': 'Identity and Access Management'
         }
     ];
+    let data = await session.rest.cherwellapi.getTickets();
 };
