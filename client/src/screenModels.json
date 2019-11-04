@@ -340,7 +340,7 @@
             "view": {
               "type": "action"
             },
-            "ID": {
+            "IncidentID": {
               "type": "string"
             }
           }
