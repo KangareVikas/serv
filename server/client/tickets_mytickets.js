@@ -71,3 +71,11 @@ exports.selectTicket = async (session, models, vars) => {
     });
     await session.screen('tickets_viewincident');
 };
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.onunload = async (session, models, vars) => {
+    models.tickets_mytickets.footer = { active: '' };
+};
