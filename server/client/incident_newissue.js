@@ -6,21 +6,20 @@ const fs = require('fs');
 */
 exports.onload = async (session, models, vars) => {
     models.incident_newissue = {};
-    vars.session.selectionItemsMap.selected = '';
-    vars.session.urgencyMap.selected = '';
     models.incident_newissue.byUser = vars.session.byUser || 'Evan Employee';
     models.incident_newissue.forUser = vars.session.forUser || 'Evan Employee';
     models.incident_newissue.email = 'evan.employee@acme.com';
     models.incident_newissue.phone = '6523455679';
     models.incident_newissue.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.incident_newissue.urgency = vars.session.urgencyMap;
+    vars.session.selectionItemsMap = { selected: '' };
+    vars.session.urgencyMap = { selected: '' };
     if (vars.session.selectedCatagoryLabel) {
-        vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
+        vars.session.selectionItemsMap = { selected: vars.session.selectedCatagoryLabel };
     }
     models.incident_newissue.type = vars.session.selectionItemsMap;
     models.incident_newissue.footer = { active: 'newIssue' };
 };
-
 /**
  * @param {Session} session
  * @param {Models} models
@@ -33,7 +32,6 @@ exports.cancel = async (session, models, vars) => {
     vars.session.customerRecId = null;
     await session.screen('home');
 };
-
 /**
  * @param {Session} session
  * @param {Models} models
@@ -51,8 +49,7 @@ exports.back = async (session, models, vars) => {
             await session.screen('home');
         }
     }
-}
-
+};
 /**
  * @param {Session} session
  * @param {Models} models
@@ -65,7 +62,6 @@ exports.home = async (session, models, vars) => {
     vars.session.customerRecId = null;
     await session.screen('home');
 };
-
 /**
  * @param {Session} session
  * @param {Models} models
@@ -82,8 +78,8 @@ exports.submit = async (session, models, vars) => {
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            var type = models.incident_newissue.type.selected || "Other"
-            template.fields[i].value = `TYPE: ${models.incident_newissue.type.selected}, LOCATION/SEAT: ${models.incident_newissue.seat}, ${models.incident_newissue.description}`;
+            var type = models.incident_newissue.type.selected || 'Other';
+            template.fields[i].value = `TYPE: ${ models.incident_newissue.type.selected }, LOCATION/SEAT: ${ models.incident_newissue.seat }, ${ models.incident_newissue.description }`;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'ShortDescription') {
@@ -130,43 +126,45 @@ exports.submit = async (session, models, vars) => {
             incidentBusObId: vars.session.incidentBusObId,
             fields: fields
         });
+        models.incident_newissue.result = { error: errorOutput.message };
         if (result.body.errorMessage) {
-            models.incident_newissue.result.error = result.body.errorMessage;
-        } else if (result.body.busObPublicId) {
-            console.log("busObPublicId: " + result.body.busObPublicId)
-            models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
-            let data = await session.rest.cherwellapi.getIncidentBusObRecId({
-                busObPublicId: models.incident_newissue.result.busObPublicId,
-                access_token: vars.session.access_token,
-                incidentBusObId: vars.session.incidentBusObId
-            });
-            let incidentBusObRecId = data.body.busObRecId;
-            let offset = 0;
-            let filename = 'filename.png';
-            let file = models.incident_newissue.photo;
-            let fileData = fs.statSync(file);
-            let totalsize = fileData.size;
-            let attachResult = await session.rest.cherwellapi.attachFile({
-                access_token: vars.session.access_token,
-                file: file,
-                filename: filename,
-                incidentBusObId: vars.session.incidentBusObId,
-                offset: offset,
-                totalsize: totalsize,
-                busobrecid: incidentBusObRecId
-            });
-            console.log(attachResult);
-            console.log("incidentBusObRecId: " + incidentBusObRecId)
-            let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
-                incidentBusObId: vars.session.incidentBusObId,
-                busObPublicId: models.incident_newissue.result.busObPublicId,
-                access_token: vars.session.access_token
-            });
-            console.log(attachmentsResponse.body)
+            models.incident_newissue.result = { error: result.body.errorMessage };
+        } else {
+            if (result.body.busObPublicId) {
+                console.log('busObPublicId: ' + result.body.busObPublicId);
+                models.incident_newissue.result = { busObPublicId: result.body.busObPublicId };
+                let data = await session.rest.cherwellapi.getIncidentBusObRecId({
+                    busObPublicId: models.incident_newissue.result.busObPublicId,
+                    access_token: vars.session.access_token,
+                    incidentBusObId: vars.session.incidentBusObId
+                });
+                let incidentBusObRecId = data.body.busObRecId;
+                let offset = 0;
+                let filename = 'filename.png';
+                let file = models.incident_newissue.photo;
+                let fileData = fs.statSync(file);
+                let totalsize = fileData.size;
+                await session.rest.cherwellapi.attachFile({
+                    access_token: vars.session.access_token,
+                    file: file,
+                    filename: filename,
+                    incidentBusObId: vars.session.incidentBusObId,
+                    offset: offset,
+                    totalsize: totalsize,
+                    busobrecid: incidentBusObRecId
+                });
+                console.log(attachResult);
+                console.log('incidentBusObRecId: ' + incidentBusObRecId);
+                let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
+                    incidentBusObId: vars.session.incidentBusObId,
+                    busObPublicId: models.incident_newissue.result.busObPublicId,
+                    access_token: vars.session.access_token
+                });
+                console.log(attachmentsResponse.body);
+            }
         }
     } catch (e) {
-        console.log("ERROR:", e);
-        models.incident_newissue.result.error = e.message;
+        console.log('ERROR:', e);
     }
 };
 /**
@@ -176,4 +174,12 @@ exports.submit = async (session, models, vars) => {
 */
 exports.search = async (session, models, vars) => {
     await session.screen('finduser');
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.onunload = async (session, models, vars) => {
+    models.incident_newissue.footer = { active: '' };
 };
