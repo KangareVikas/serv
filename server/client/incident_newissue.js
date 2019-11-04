@@ -6,6 +6,7 @@ const fs = require('fs');
 */
 exports.onload = async (session, models, vars) => {
     models.incident_newissue = {};
+    models.incident_newissue.footer = { active: 'newIssue' };
     vars.session.selectionItemsMap.selected = '';
     vars.session.urgencyMap.selected = '';
     models.incident_newissue.byUser = vars.session.byUser || 'Evan Employee';
