@@ -45,10 +45,3 @@ exports.onload = async (session, models, vars) => {
         models.tickets_mytickets.tickets.push(result);
     });
 };
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
-*/
-exports.showOpenTickets = async (session, models, vars) => {
-};
