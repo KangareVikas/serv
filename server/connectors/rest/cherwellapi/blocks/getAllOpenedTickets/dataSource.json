@@ -8,14 +8,15 @@
       "type": "bearerToken",
       "token": "{access_token}"
     },
-    "body": "\\{\n \"busObID\": \"{incidentBusObId}\",\n \"filters\": \n}",
+    "body": "\\{\n \"busObID\": \"{incidentBusObId}\",\n \"filters\": {ticketsFilter}\n}",
     "options": {},
     "bodyType": "body"
   },
   "functions": {
     "getAllOpenedTickets": [
       "access_token",
-      "incidentBusObId"
+      "incidentBusObId",
+      "ticketsFilter"
     ]
   }
 }
