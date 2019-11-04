@@ -17,6 +17,11 @@ exports.onload = async (session, models, vars) => {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Category'].fieldId,
             'value': 'Identity and Access Management'
+        },
+        {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'New'
         }
     ];
     let fieldsList = [
