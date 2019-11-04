@@ -1,0 +1,103 @@
+{
+  "body": {
+    "type": "object",
+    "properties": {
+      "fields": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "dirty": {
+              "type": "Boolean",
+              "id": "body.fields.dirty"
+            },
+            "displayName": {
+              "type": "String",
+              "id": "body.fields.displayName"
+            },
+            "fieldId": {
+              "type": "String",
+              "id": "body.fields.fieldId"
+            },
+            "html": {
+              "type": "Any",
+              "id": "body.fields.html"
+            },
+            "name": {
+              "type": "String",
+              "id": "body.fields.name"
+            },
+            "value": {
+              "type": "String",
+              "id": "body.fields.value"
+            }
+          }
+        }
+      },
+      "errorCode": {
+        "type": "Any",
+        "id": "body.errorCode"
+      },
+      "errorMessage": {
+        "type": "Any",
+        "id": "body.errorMessage"
+      },
+      "hasError": {
+        "type": "Boolean",
+        "id": "body.hasError"
+      }
+    }
+  },
+  "headers": {
+    "type": "object",
+    "properties": {
+      "content-type": {
+        "type": "String",
+        "id": "headers.content-type"
+      },
+      "server": {
+        "type": "String",
+        "id": "headers.server"
+      },
+      "x-powered-by": {
+        "type": "String",
+        "id": "headers.x-powered-by"
+      },
+      "access-control-allow-methods": {
+        "type": "String",
+        "id": "headers.access-control-allow-methods"
+      },
+      "access-control-allow-headers": {
+        "type": "String",
+        "id": "headers.access-control-allow-headers"
+      },
+      "content-length": {
+        "type": "String",
+        "id": "headers.content-length"
+      },
+      "date": {
+        "type": "String",
+        "id": "headers.date"
+      },
+      "connection": {
+        "type": "String",
+        "id": "headers.connection"
+      }
+    }
+  },
+  "status": {
+    "type": "Number",
+    "id": "status"
+  },
+  "rawBody": {
+    "type": "String",
+    "body": "string",
+    "id": "rawBody"
+  },
+  "id": {
+    "type": "Number",
+    "id": "id",
+    "generated": true,
+    "updateOnly": true
+  }
+}
