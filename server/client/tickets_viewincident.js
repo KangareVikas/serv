@@ -4,4 +4,5 @@
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
+    await session.screen('tickets_mytickets');
 };
