@@ -52,6 +52,6 @@ exports.onload = async (session, models, vars) => {
 */
 exports['tickets.view'] = async (session, models, vars) => {
     console.log(' === Here ===');
-    console.log(JSON.stringify(vars.params));
+    console.log(JSON.stringify(vars));
     // await session.screen('tickets_viewincident');
 };
