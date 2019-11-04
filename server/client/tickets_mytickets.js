@@ -34,7 +34,7 @@ exports.onload = async (session, models, vars) => {
         incidentBusObId: vars.session.incidentBusObId,
         ticketsFilter: ticketsFilter
     });
-    console.log('Tickets count: ', data.body.businessObjects.length);
+    console.log('Tickets count:', data.body.businessObjects.length);
     data.body.businessObjects.forEach(busOb => {
         let result = {};
         busOb.fields.forEach(field => {
