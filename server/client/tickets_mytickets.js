@@ -52,7 +52,7 @@ exports.onload = async (session, models, vars) => {
 */
 exports.selectTicket = async (session, models, vars) => {
     let data = await session.rest.cherwellapi.getIncidentBusObRecId({
-        busObPublicId: models.incident_newissue.result.busObPublicId,
+        busObPublicId: vars.params.id,
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId
     });
