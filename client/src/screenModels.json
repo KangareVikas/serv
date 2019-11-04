@@ -337,9 +337,6 @@
               "type": "date",
               "format": "M/D/YYYY h:mm:ss a"
             },
-            "view": {
-              "type": "action"
-            },
             "IncidentID": {
               "type": "string"
             }
