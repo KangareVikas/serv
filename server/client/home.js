@@ -37,10 +37,16 @@ exports.onload = async (session, models, vars) => {
     }
     console.log('incidentBusObId: ' + vars.session.incidentBusObId);
     if (!vars.session.incidentFieldsIds) {
+        vars.session.incidentFieldsIds = {};
         console.log('Fetching fields IDs for Incedent');
-        await session.rest.cherwellapi.getIncedentTemplate({
+        let tmplData = await session.rest.cherwellapi.getIncedentTemplate({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId
+        });
+        tmplData.fields.forEach(field => {
+            if (field.name === 'Status') {
+                vars.session.incidentFieldsIds[field.name] = field;
+            }
         });
     }
     let openedTickets = await session.rest.cherwellapi.getAllincidents({
