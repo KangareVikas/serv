@@ -82,7 +82,14 @@
                     </ion-item>
                     <camera-canvas></camera-canvas>
                 </div>
-                <ion-list data-comp-id="list.3">
+            </ion-col>
+            <ion-col col-auto data-comp-id="column.5"
+                style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
+                <ion-icon (click)="action('removeAttachment')" class=" ion-ios-remove-circle"
+                    color="stable" data-comp-id="icon.1" style="font-size: 24px; padding: 10px;"></ion-icon>
+            </ion-col>
+            <ion-col data-comp-id="column.11" style="padding: 0;">
+                <ion-list data-comp-id="list.2">
                     <ion-item data-comp-id="attachment.1">
                         <ion-label>
                             <span class="label">Attachment</span>
@@ -91,11 +98,6 @@
                         <ion-icon color="primary" item-end name="attach"></ion-icon>
                     </ion-item>
                 </ion-list>
-            </ion-col>
-            <ion-col col-auto data-comp-id="column.5"
-                style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
-                <ion-icon (click)="action('removeAttachment')" class=" ion-ios-remove-circle"
-                    color="stable" data-comp-id="icon.1" style="font-size: 24px; padding: 10px;"></ion-icon>
             </ion-col>
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
@@ -133,7 +135,7 @@
         <ion-row class="row-calm quantity-form" data-comp-id="row.4"
             style="margin: 32px 16px 16px; padding: 16px 16px 8px; border-radius: 6px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
             <ion-col col-12 data-comp-id="column.8" style="padding: 0; margin: 0;">
-                <ion-list data-comp-id="list.2" style="margin: 0 0 8px;">
+                <ion-list data-comp-id="list.3" style="margin: 0 0 8px;">
                     <ion-item data-comp-id="input.6"
                         style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
                         <ion-label color="black" style>Quantity:</ion-label>
