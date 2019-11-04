@@ -24,7 +24,6 @@ exports.onload = async (session, models, vars) => {
         'CreatedDateTime'
     ];
     let data = await session.rest.cherwellapi.getTickets();
-    console.log('Tickets Count: ', data.body.businessObjects.length);
     data.body.businessObjects.forEach(busOb => {
         let result = {};
         busOb.fields.forEach(field => {
