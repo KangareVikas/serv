@@ -1,0 +1,21 @@
+{
+  "template": {
+    "url": "/api/V1/getsearchresults",
+    "method": "POST",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "bearerToken",
+      "token": "{access_token}"
+    },
+    "body": "\\{\n \"busObID\": \"{incidentBusObId}\",\n \"filters\": \n}",
+    "options": {},
+    "bodyType": "body"
+  },
+  "functions": {
+    "getAllOpenedTickets": [
+      "access_token",
+      "incidentBusObId"
+    ]
+  }
+}
