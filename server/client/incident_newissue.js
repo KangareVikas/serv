@@ -138,6 +138,18 @@ exports.submit = async (session, models, vars) => {
                 access_token: vars.session.access_token
             });
             let incidentBusObRecId = data.body.busObRecId;
+            let totalsize = 500;
+            let offset = 0;
+            let filename = 'filename.png';
+            let result = await session.rest.cherwellapi.attachFile({
+                access_token: vars.session.access_token,
+                file: file,
+                filename: filename,
+                incidentBusObId: vars.session.incidentBusObId,
+                offset: offset,
+                totalsize: totalsize,
+                busobrecid: incidentBusObRecId
+            });
             console.log("incidentBusObRecId: " + incidentBusObRecId)
         }
     } catch (e) {
