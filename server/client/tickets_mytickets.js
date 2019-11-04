@@ -51,6 +51,4 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.selectTicket = async (session, models, vars) => {
-    console.log('=========== ID: ', vars.params.id);
-    
 };
