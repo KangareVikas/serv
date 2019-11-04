@@ -389,18 +389,6 @@
           "type": "none"
         }
       },
-      "description": {
-        "type": "string",
-        "update": {
-          "type": "none"
-        }
-      },
-      "shortDescription": {
-        "type": "string",
-        "update": {
-          "type": "none"
-        }
-      },
       "attachments": {
         "type": "array",
         "items": {
@@ -422,6 +410,18 @@
         }
       },
       "Urgency": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "ShortDescription": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "Description": {
         "type": "string",
         "update": {
           "type": "none"
