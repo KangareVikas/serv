@@ -12,7 +12,6 @@ export class incident_categories_PhonePortrait extends Screen {
   ngOnInit(): void {
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
-    this.data.footer = { active: '' };
   }
 
   ngOnDestroy(): void {

@@ -12,7 +12,6 @@ export class home_PhonePortrait extends Screen {
   ngOnInit(): void {
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
-    this.data.footer = { active: 'home' };
   }
 
   ngOnDestroy(): void {
