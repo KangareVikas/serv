@@ -808,9 +808,7 @@
             }
           }
         },
-        "tokens": {
-          "access_token": "25opEzIDFGU7CtnLrTfbEuuUe1VcFsS121SZnfZvLPZ3GV6UhllX5RTkP-n202nCiXoqO90z9eZ-FzpCPiKZbnMtNW-JKbcHYgLOoQG0Hctcsv76ZEy1zK7AQn_RtMLSYHtstmOGTBW_LJywTjGuJKso7iDHulaY4LKvu4FjDQPFy2XzZphDCOioIjlO6XNX2CnIG1z2-RVP0S4M3RS946ZZB2ykog4U6pCYSvt39BS1NOiBDmYrOFu0Rc7vKCr8yoabFgosZsWvjpzgP3_BYb-ewPB1M8Vkvr9SVZBl3cU85nYyRIJie7Qo8wZT5596bQc9IOq2JHZTqd041yPcJFkNIdYtUE-krQ8YquHkzgsK96pnY2Vmr29yqvqwfegJRPhH8rKdaScTmAmN9cYJhXLCfLt88fU3w9CpatxkiPaNPJTx3eFB9oSP1dcZOEvqnxBSuIG2tlZTke01P1621BH5N_KfQYvTZ4y9Lbw9gN0hf_79fhhi_gCimrbMRdnLlC7mUF-ZOPkF3gS4x7v8sBpX4yGW6R0ETFsYVrmHcco"
-        }
+        "tokens": {}
       }
     }
   }
