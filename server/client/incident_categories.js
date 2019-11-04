@@ -6,7 +6,7 @@
 exports.selectCategory = async (session, models, vars) => {
     console.log(vars.params.title);
     if (vars.params.title === 'other') {
-        vars.session.selectedCatagoryLabel = vars.session.selectionItems[vars.params.title].label;
+        vars.session.selectedCatagoryLabel = 'Other Technology';
         vars.session.selectedCatagorySuffix = '';
         vars.session.selectedSubCatagoryLabel = '';
         await session.screen('incident_newissue');
