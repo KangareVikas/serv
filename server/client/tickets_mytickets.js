@@ -4,6 +4,7 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    models.tickets_mytickets.footer = { active: 'myTickets' };
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
