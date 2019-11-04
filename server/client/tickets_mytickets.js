@@ -4,7 +4,7 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    models.tickets_mytickets = [];
+    models.tickets_mytickets.tickets = [];
     let ticketsFilter = [
         {
             'dirty': true,
@@ -35,7 +35,7 @@ exports.onload = async (session, models, vars) => {
                 result[field.name] = field.value;
             }
         });
-        models.tickets_mytickets.push(result);
+        models.tickets_mytickets.tickets.push(result);
     });
 };
 /**
