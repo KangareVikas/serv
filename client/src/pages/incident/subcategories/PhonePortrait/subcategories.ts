@@ -12,6 +12,7 @@ export class incident_subcategories_PhonePortrait extends Screen {
   ngOnInit(): void {
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
+    data.footer = { 'active': 'chat' };
   }
 
   ngOnDestroy(): void {
