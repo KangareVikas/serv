@@ -1,0 +1,27 @@
+{
+  "template": {
+    "url": "/api/V1/uploadbusinessobjectattachment/filename/{filename}/busobid/{incidentBusObId}/busobrecid/{busobrecid}/offset/{offset}/totalsize/{totalsize}",
+    "method": "POST",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "bearerToken",
+      "token": "{access_token}"
+    },
+    "options": {
+      "binary": "{file}"
+    },
+    "bodyType": "binary"
+  },
+  "functions": {
+    "attachFile": [
+      "access_token",
+      "file",
+      "filename",
+      "incidentBusObId",
+      "offset",
+      "totalsize",
+      "busobrecid"
+    ]
+  }
+}
