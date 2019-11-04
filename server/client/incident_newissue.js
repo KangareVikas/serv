@@ -131,7 +131,7 @@ exports.submit = async (session, models, vars) => {
         if (result.body.errorMessage) {
             models.incident_newissue.result.error = result.body.errorMessage;
         } else if (result.body.busObPublicId) {
-            console.log("busObPublicId: " + busObPublicId)
+            console.log("busObPublicId: " + result.body.busObPublicId)
             models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
             let data = await session.rest.cherwellapi.getIncidentBusObRecId({
                 busObPublicId: models.incident_newissue.result.busObPublicId,
