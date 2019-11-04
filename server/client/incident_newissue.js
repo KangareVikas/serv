@@ -123,7 +123,7 @@ exports.submit = async (session, models, vars) => {
     }
     let fields = JSON.stringify(template.fields);
     try {
-        var result = await session.rest.cherwellapi.saveBusinessObject({
+        let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
             fields: fields
@@ -144,7 +144,7 @@ exports.submit = async (session, models, vars) => {
             let file = models.incident_newissue.photo;
             console.log("file: ")
             console.log(file)
-            let result = await session.rest.cherwellapi.attachFile({
+            let attachResult = await session.rest.cherwellapi.attachFile({
                 access_token: vars.session.access_token,
                 file: file,
                 filename: filename,
@@ -153,6 +153,7 @@ exports.submit = async (session, models, vars) => {
                 totalsize: totalsize,
                 busobrecid: incidentBusObRecId
             });
+            console.log(attachResult)
             console.log("incidentBusObRecId: " + incidentBusObRecId)
         }
     } catch (e) {
