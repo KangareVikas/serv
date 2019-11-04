@@ -45,7 +45,7 @@
     <ion-row data-comp-id="row.2">
         <ion-col data-comp-id="column.5" style="padding: 8px;">
             <ion-list data-comp-id="list.1" mode="ios">
-                <ion-item-sliding (click)="method('selectTicket', {id: IncidentID})"
+                <ion-item-sliding (click)="method('selectTicket', {id: item.IncidentID})"
                     *ngFor="let item of data.tickets; let i = index" data-comp-id="item-sliding.1"
                     style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
                     <ion-item data-comp-id="item.1" detail-push mode="ios"
