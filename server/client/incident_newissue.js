@@ -132,6 +132,10 @@ exports.submit = async (session, models, vars) => {
             models.incident_newissue.result.error = result.body.errorMessage;
         } else if (result.body.busObPublicId) {
             models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
+            await session.rest.cherwellapi.getIncidentBusObRecId({
+                busObPublicId: models.incident_newissue.result.busObPublicId,
+                access_token: vars.session.access_token
+            });
         }
     } catch (e) {
         console.log("ERROR:", e);
