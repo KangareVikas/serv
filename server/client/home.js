@@ -43,7 +43,7 @@ exports.onload = async (session, models, vars) => {
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId
         });
-        tmplData.fields.forEach(field => {
+        tmplData.body.fields.forEach(field => {
             if (field.name === 'Status') {
                 vars.session._incidentFieldsIds[field.name] = field;
             }
