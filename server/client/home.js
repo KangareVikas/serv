@@ -45,7 +45,7 @@ exports.onload = async (session, models, vars) => {
         });
         tmplData.body.fields.forEach(field => {
             if (field.name === 'Status') {
-                vars.session._incidentFieldsIds[field.name] = field;
+                vars.session.incidentFieldsIds[field.name] = field;
             }
         });
     }
