@@ -116,6 +116,14 @@ exports.doReport = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
+exports.onunload = async (session, models, vars) => {
+    models.home.footer = { active: '' };
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports['footer.myTickets'] = async (session, models, vars) => {
     await session.screen('tickets_mytickets');
 };
