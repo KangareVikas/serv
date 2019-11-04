@@ -135,7 +135,8 @@ exports.submit = async (session, models, vars) => {
             models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
             let data = await session.rest.cherwellapi.getIncidentBusObRecId({
                 busObPublicId: models.incident_newissue.result.busObPublicId,
-                access_token: vars.session.access_token
+                access_token: vars.session.access_token,
+                incidentBusObId: vars.session.incidentBusObId
             });
             let incidentBusObRecId = data.body.busObRecId;
             let totalsize = 500;
