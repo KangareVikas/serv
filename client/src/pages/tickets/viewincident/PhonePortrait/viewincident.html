@@ -50,7 +50,8 @@
                 style="white-space: normal;"></div>
         </ion-item>
     </ion-list>
-    <ion-list data-comp-id="list.2" style="margin: -1px 0px 82px;">
+    <ion-list *ngIf="data.attachments.length" data-comp-id="list.2"
+        style="margin: -1px 0px 82px;">
         <ion-list-header color="transparent" data-comp-id="list-header.1" mode="wp"
             style>
             <span color="black" data-comp-id="text.6" ion-text
