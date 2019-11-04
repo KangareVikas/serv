@@ -117,5 +117,6 @@ exports.doReport = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.footer = async (session, models, vars) => {
+    console.log('models: ', models);
     await session.screen('tickets_mytickets');
 };
