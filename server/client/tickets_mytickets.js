@@ -5,6 +5,7 @@
 */
 exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.tickets = [];
+    models.tickets_mytickets.statusFilter = 'openTickets';
     let ticketsFilter = [
         {
             'dirty': true,
