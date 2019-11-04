@@ -990,9 +990,7 @@
             }
           }
         },
-        "tokens": {
-          "access_token": "pzW71hWtSEQ60i-nPCCTcvpGW2wme7Tb3nolABhVJjQHzhu5cQ2POSrkmObUSjqRSzb832-rpmDUl7qcYCNdqr6Or6WVsaxe691b9umK0oS1XVIYJu6cwL-zdH0BPiGyNIs-VXuATlbi937rthwNGL6NAAVk5eDD0iuDCtT0PNRAD4XjrKxeveIMlay2rK-EXsmshdz-Xj3cXvDmy9sFg-EqfSiqgaNERFHd9jnVnz_WGJ-C6MS5R4Z30vKHQd2ApONlQjdOhBi6i0uWjHr4S1w76VqSWRfS8mvGulydB8sxeQoFWVCtoGVHgDv59NuCUL64ZJfDGPJZeWLxS3JEDx-E9UzfTkkBZXAhe7ZW0M__vRCLrXQ6KZfX2mBFLFHpjusNStAwFeOnQvrumpwiMWC0E6fdpY0ky49tB4J-XARGd4nNghH6liIl5nUguWVTqNc5Az-Gfqb_H60l19_HgkCEV5rrajXhyDCNKiXvq0Ph8VUz2SAKN_Kgga9jNBKo3_Iv8MET2nC-kOiDptmU7J4kEN9gtnnOo-AoABGxNC8"
-        }
+        "tokens": {}
       }
     }
   }
