@@ -354,6 +354,14 @@
       },
       "showNeedAttention": {
         "type": "action"
+      },
+      "selectTicket": {
+        "type": "method",
+        "parameters": {
+          "id": {
+            "type": "string"
+          }
+        }
       }
     },
     "id": "tickets_mytickets"
