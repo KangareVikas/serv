@@ -49,9 +49,10 @@ exports.onload = async (session, models, vars) => {
             }
         });
     }
-    let openedTickets = await session.rest.cherwellapi.getAllincidents({
+    let openedTickets = await session.rest.cherwellapi.getAllOpenedTickets({
         access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId
+        incidentBusObId: vars.session.incidentBusObId,
+        ticketsFilter: ticketsFilter
     });
     models.home.tickets = [];
     let requiredFields = [
