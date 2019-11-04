@@ -1,3 +1,4 @@
+const fs = require('fs');
 /**
  * @param {Session} session
  * @param {Models} models
@@ -139,12 +140,11 @@ exports.submit = async (session, models, vars) => {
                 incidentBusObId: vars.session.incidentBusObId
             });
             let incidentBusObRecId = data.body.busObRecId;
-            let totalsize = 500;
             let offset = 0;
             let filename = 'filename.png';
             let file = models.incident_newissue.photo;
-            console.log("file: ")
-            console.log(file)
+            let fileData = fs.statSync(file);
+            let totalsize = fileData.size;
             let attachResult = await session.rest.cherwellapi.attachFile({
                 access_token: vars.session.access_token,
                 file: file,
@@ -154,7 +154,7 @@ exports.submit = async (session, models, vars) => {
                 totalsize: totalsize,
                 busobrecid: incidentBusObRecId
             });
-            console.log(attachResult)
+            console.log(attachResult);
             console.log("incidentBusObRecId: " + incidentBusObRecId)
             let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
                 incidentBusObId: vars.session.incidentBusObId,
