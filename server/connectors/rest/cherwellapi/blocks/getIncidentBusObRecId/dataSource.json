@@ -14,9 +14,9 @@
   },
   "functions": {
     "getIncidentBusObRecId": [
+      "incidentBusObId",
       "busObPublicId",
-      "access_token",
-      "incidentBusObId"
+      "access_token"
     ]
   }
 }
