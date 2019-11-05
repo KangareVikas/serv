@@ -100,4 +100,17 @@ export class tickets_viewincident_PhonePortrait extends Screen {
     // false - stop the event propogation
       return true;
   }
+
+  // Handle displaying file after file is ready.
+  onReady() {
+    // Read file, and convert to base64 data
+    // See: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+    let reader = new FileReader();
+    console.log(this.data.file)
+    reader.readAsDataURL(this.data.file);
+    reader.onload = () => {
+      // Set fileData, which is used in the image
+      this.data.fileData = reader.result;
+    }
+  }
 }

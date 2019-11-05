@@ -71,5 +71,5 @@ exports['attachments[].download'] = async (session, models, vars) => {
         attachmentId: vars.item.attachmentId,
         access_token: vars.session.access_token
     });
-    console.log(result);
+    models.tickets_viewincident.file = result.body;
 };

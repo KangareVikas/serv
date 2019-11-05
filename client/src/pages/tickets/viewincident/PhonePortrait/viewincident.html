@@ -68,6 +68,8 @@
             <div [innerHTML]="item.name" data-comp-id="text.10" ion-text></div>
         </ion-item>
     </ion-list>
+  <img *ngIf="data.fileData" [src]="data.fileData" data-comp-id="img.1"
+       style="width: calc(100% - 20px); margin: 10px;">
 </ion-content>
 <ion-footer class="footer-white" data-comp-id="footer.1" style="height: 63px;">
     <include-screen data-comp-id="include-screen.1" name="inserts_footer"></include-screen>
