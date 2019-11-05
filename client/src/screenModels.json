@@ -313,9 +313,6 @@
     "type": "object",
     "comment": "Blank",
     "properties": {
-      "search": {
-        "type": "action"
-      },
       "footer": {
         "type": "model",
         "model": "footer"
