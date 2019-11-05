@@ -34,12 +34,12 @@
 <ion-content class="content-calm ignore-footer" data-comp-id="content.1" style>
     <ion-title data-comp-id="title.1" mode="ios">
         <h5 data-comp-id="text.2" ion-text
-            style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">{{data.articles.length || 'No'}}
+            style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">{{result.length || data.articles.length || 'No'}}
             Results</h5>
     </ion-title>
     <ion-list data-comp-id="list.2" style="margin: -1px 0px 82px;">
         <ion-item (click)="action('articles[item].select',[i])"
-            *ngFor="let item of data.articles | search:data.searchKey:'Description'; let i = index"
+            *ngFor="let item of data.articles | search:data.searchKey:'Description' as result; let i = index"
             class="article-item" data-comp-id="item.1">
             <div [innerHTML]="item.Description" class="article-title" data-comp-id="text.3"
                 ion-text style="font-size: 17px;"></div>
