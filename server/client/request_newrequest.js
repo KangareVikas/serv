@@ -16,6 +16,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.urgency.selected = 2;
     models.request_newrequest.service = vars.session.requestService;
     models.request_newrequest.category = vars.session.requestCategory;
+    models.request_newrequest.quantity = 1;
 };
 /**
  * @param {Session} session
