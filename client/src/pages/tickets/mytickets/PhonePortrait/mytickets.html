@@ -41,6 +41,16 @@
             <ion-segment-button (ionSelect)="action('showNeedAttention')"
                 data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
         </ion-segment>
+        <ion-list data-comp-id="list.2">
+            <ion-item class="wrap-field" color="transparent" data-comp-id="select.1"
+                style="border-bottom: none;">
+                <ion-label style="font-size: 16px;">Select</ion-label>
+                <ion-select [selectOptions]="{cssClass: 'select-full'}" arrow-color="primary"
+                    color="primary" interface="alert" style>
+                    <ion-option data-comp-id="option.1"></ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
     </ion-toolbar>
     <ion-row data-comp-id="row.2">
         <ion-col data-comp-id="column.5" style="padding: 8px;">
