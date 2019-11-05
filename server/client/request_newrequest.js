@@ -86,34 +86,36 @@ exports.submit = async (session, models, vars) => {
             models.request_newrequest.result.error = result.body.errorMessage;
         } else if (result.body.busObPublicId) {
             models.request_newrequest.result.busObPublicId = result.body.busObPublicId;
-            let data = await session.rest.cherwellapi.getIncidentBusObRecId({
-                busObPublicId: models.request_newrequest.result.busObPublicId,
-                access_token: vars.session.access_token,
-                incidentBusObId: vars.session.incidentBusObId
-            });
-            let incidentBusObRecId = data.body.busObRecId;
-            let offset = 0;
-            let filename = 'filename.png';
-            let file = models.request_newrequest.photo;
-            let fileData = fs.statSync(file);
-            let totalsize = fileData.size;
-            let attachResult = await session.rest.cherwellapi.attachFile({
-                access_token: vars.session.access_token,
-                file: file,
-                filename: filename,
-                incidentBusObId: vars.session.incidentBusObId,
-                offset: offset,
-                totalsize: totalsize,
-                busobrecid: incidentBusObRecId
-            });
-            console.log(attachResult);
-            console.log("incidentBusObRecId: " + incidentBusObRecId)
-            let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
-                incidentBusObId: vars.session.incidentBusObId,
-                busObPublicId: models.request_newrequest.result.busObPublicId,
-                access_token: vars.session.access_token
-            });
-            console.log(attachmentsResponse.body)
+            if (models.request_newrequest.photo) {
+                let data = await session.rest.cherwellapi.getIncidentBusObRecId({
+                    busObPublicId: models.request_newrequest.result.busObPublicId,
+                    access_token: vars.session.access_token,
+                    incidentBusObId: vars.session.incidentBusObId
+                });
+                let incidentBusObRecId = data.body.busObRecId;
+                let offset = 0;
+                let filename = 'filename.png';
+                let file = models.request_newrequest.photo;
+                let fileData = fs.statSync(file);
+                let totalsize = fileData.size;
+                let attachResult = await session.rest.cherwellapi.attachFile({
+                    access_token: vars.session.access_token,
+                    file: file,
+                    filename: filename,
+                    incidentBusObId: vars.session.incidentBusObId,
+                    offset: offset,
+                    totalsize: totalsize,
+                    busobrecid: incidentBusObRecId
+                });
+                console.log(attachResult);
+                console.log("incidentBusObRecId: " + incidentBusObRecId)
+                let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
+                    incidentBusObId: vars.session.incidentBusObId,
+                    busObPublicId: models.request_newrequest.result.busObPublicId,
+                    access_token: vars.session.access_token
+                });
+                console.log(attachmentsResponse.body)
+            }
         }
     } catch (e) {
         console.log("ERROR:", e);
