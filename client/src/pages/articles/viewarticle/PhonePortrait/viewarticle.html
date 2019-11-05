@@ -10,8 +10,8 @@
                 </button>
             </ion-col>
             <ion-col col-12 data-comp-id="column.2" style="padding: 0 16px 4px 16px;">
-                <div [innerHTML]="data.Description" class="article-title-big" color="black"
-                    data-comp-id="text.1" ion-text style="font-size: 34px; white-space: nowrap;"></div>
+                <div class="article-title-big" color="black" data-comp-id="text.1" ion-text
+                    style="font-size: 34px; white-space: nowrap;">Article</div>
             </ion-col>
         </ion-row>
     </ion-navbar>
@@ -27,17 +27,17 @@
             <span [innerHTML]="data.CreatedDateTime" color="medium" data-comp-id="text.3"
                 formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
                 output-format="MMMM D, h:mm A" style="font-size: 17px; width: auto;"></span>
-            <span color="medium" data-comp-id="text.6" ion-text
+            <span color="medium" data-comp-id="text.4" ion-text
                 style="font-size: 17px; margin: 0px 0px 0px 5px;">by
                 {{data.OwnedBy}}</span>
-            <div [innerHTML]="data.Description" data-comp-id="text.4" ion-text
+            <div [innerHTML]="data.Description" data-comp-id="text.5" ion-text
                 style="margin: 25px 0px 0px; font-size: 17px;"></div>
         </ion-col>
     </ion-row>
     <ion-row data-comp-id="row.3"
         style="border-top: 1px solid rgb(226, 226, 226); padding: 15px 16px;">
         <ion-col data-comp-id="column.4" style="margin: 10px 0px 20px; min-width: 100%;">
-            <div color="contrast" data-comp-id="text.5" ion-text style="font-size: 17px;">Did this resolve your issue?</div>
+            <div color="contrast" data-comp-id="text.6" ion-text style="font-size: 17px;">Did this resolve your issue?</div>
         </ion-col>
         <ion-col data-comp-id="column.5"
             style="max-width: 50%; min-width: 50%; padding: 5px 10px 0px 0px;">
