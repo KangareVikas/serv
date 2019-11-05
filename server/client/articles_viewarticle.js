@@ -13,3 +13,17 @@ exports.onload = async (session, models, vars) => {
 exports.back = async (session, models, vars) => {
     await session.screen('articles_findarticle');
 };
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.home = async (session, models, vars) => {
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.createIncident = async (session, models, vars) => {
+};
