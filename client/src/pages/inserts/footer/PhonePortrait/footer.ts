@@ -34,8 +34,10 @@ export class inserts_footer_PhonePortrait extends Screen {
     goTo(action): void {
         switch (action) {
             case 'chat':
+                // do chat stuff here
                 break;
             case 'call':
+                // do call stuff here
                 break;
             default:
                 if (action !== this.data.footer.active) {
