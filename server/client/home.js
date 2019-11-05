@@ -4,6 +4,24 @@
  * @param {Vars} vars
 */
 exports['tickets[].select'] = async (session, models, vars) => {
+    let data = await session.rest.cherwellapi.getIncidentBusObRecId({
+        busObPublicId: vars.item.id,
+        access_token: vars.session.access_token,
+        incidentBusObId: vars.session.incidentBusObId
+    });
+    let fieldsList = [
+        'CreatedDateTime',
+        'Urgency',
+        'CustomerDisplayName',
+        'ShortDescription',
+        'Description'
+    ];
+    data.body.fields.forEach(field => {
+        if (fieldsList.includes(field.name)) {
+            models.tickets_viewincident[field.name] = field.value;
+        }
+    });
+    await session.screen('tickets_viewincident');
 };
 /**
  * @param {Session} session
