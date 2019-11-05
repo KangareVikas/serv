@@ -31,4 +31,7 @@ export class inserts_footer_PhonePortrait extends Screen {
         // false - stop the event propogation
         return true;
     }
+    goTo(): void {
+        action('footer.home');
+    }
 }
