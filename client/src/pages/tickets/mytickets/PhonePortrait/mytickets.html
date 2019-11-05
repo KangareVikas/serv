@@ -41,21 +41,25 @@
             <ion-segment-button (ionSelect)="action('showNeedAttention')"
                 data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
         </ion-segment>
-        <ion-list data-comp-id="list.1" style="margin: 0px;">
-            <ion-item class="wrap-field" color="transparent" data-comp-id="select.1"
-                style="border-bottom: none; border-top: none; width: 210px;">
-                <ion-label color="primary" style="font-size: 16px; width: 70px;">Sorted by</ion-label>
-                <ion-select [(ngModel)]="data.sortOptions.selected"
-                    [selectOptions]="{cssClass: 'select-full'}" arrow-color="primary"
-                    color="primary" interface="alert" name="select.1" style>
-                    <ion-option *ngFor="let item of data.sortOptions.options"
-                        [innerHTML]="item.label" [value]="item.value" data-comp-id="option.1"></ion-option>
-                </ion-select>
-            </ion-item>
-            <button clear data-comp-id="button.3" icon-only icon-start ion-button>
-                <ion-icon class=" fa fa-sort-amount-asc" style="font-size: 18px;"></ion-icon>
-            </button>
-        </ion-list>
+        <ion-row data-comp-id="row.3">
+            <ion-col data-comp-id="column.6" style="padding: 0px;">
+                <ion-item class="wrap-field" color="transparent" data-comp-id="select.1"
+                    style="border-bottom: none; border-top: none; width: 200px; padding: 0px 0px 0px 0px;">
+                    <ion-label color="primary" style="font-size: 16px; width: 70px;">Sorted by</ion-label>
+                    <ion-select [(ngModel)]="data.sortOptions.selected" arrow-color="primary"
+                        color="primary" interface="alert" name="select.1" style>
+                        <ion-option *ngFor="let item of data.sortOptions.options"
+                            [innerHTML]="item.label" [value]="item.value" data-comp-id="option.1"></ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col data-comp-id="column.7" style="max-width: 45px; padding: 0px;">
+                <button clear data-comp-id="button.3" icon-only icon-start ion-button
+                    style="float: right;">
+                    <ion-icon class=" fa fa-sort-amount-asc" style="font-size: 18px;"></ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
     </ion-toolbar>
     <ion-row data-comp-id="row.2">
         <ion-col data-comp-id="column.5" style="padding: 8px;">
