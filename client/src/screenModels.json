@@ -562,6 +562,9 @@
       },
       "home": {
         "type": "action"
+      },
+      "filename": {
+        "type": "string"
       }
     },
     "id": "request_newrequest"

@@ -88,12 +88,13 @@
                 <ion-icon (click)="action('removeAttachment')" class=" ion-ios-remove-circle"
                     color="stable" data-comp-id="icon.1" style="font-size: 24px; padding: 10px;"></ion-icon>
             </ion-col>
-            <ion-col data-comp-id="column.11" style="padding: 0;">
+            <ion-col data-comp-id="column.6" style="padding: 0;">
                 <ion-list data-comp-id="list.2">
                     <ion-item data-comp-id="attachment.1">
                         <ion-label>
                             <span class="label">Attachment</span>
-                            <span class="input"><input [(ngModel)]="data.photo" file-upload type="file"></span>
+                            <span class="input"><input (change)="fileEvent($event)" [(ngModel)]="data.photo" file-upload
+                                type="file"></span>
                         </ion-label>
                         <ion-icon color="primary" item-end name="attach"></ion-icon>
                     </ion-item>
@@ -117,13 +118,13 @@
         </ion-item>
         <ion-row (click)="showAddInfo = !showAddInfo" data-comp-id="row.3"
             style="padding: 8px 0px 0px 16px;">
-            <ion-col col-auto data-comp-id="column.6" style="padding: 8px 0;">
+            <ion-col col-auto data-comp-id="column.7" style="padding: 8px 0;">
                 <ion-icon *ngIf="showAddInfo" class=" ion-ios-arrow-down-outline"
                     color="primary" data-comp-id="icon.2" style="font-size: 17px;"></ion-icon>
                 <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
                     color="primary" data-comp-id="icon.3" style="font-size: 17px;"></ion-icon>
             </ion-col>
-            <ion-col data-comp-id="column.7" style="padding: 8px;">
+            <ion-col data-comp-id="column.8" style="padding: 8px;">
                 <div color="primary" data-comp-id="text.6" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>
@@ -134,7 +135,7 @@
         </ion-item>
         <ion-row class="row-calm quantity-form" data-comp-id="row.4"
             style="margin: 32px 16px 16px; padding: 16px 16px 8px; border-radius: 6px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
-            <ion-col col-12 data-comp-id="column.8" style="padding: 0; margin: 0;">
+            <ion-col col-12 data-comp-id="column.9" style="padding: 0; margin: 0;">
                 <ion-list data-comp-id="list.3" style="margin: 0 0 8px;">
                     <ion-item data-comp-id="input.6"
                         style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
@@ -144,12 +145,12 @@
                     </ion-item>
                 </ion-list>
             </ion-col>
-            <ion-col data-comp-id="column.9"
+            <ion-col data-comp-id="column.10"
                 style="padding: 0; margin: 0; text-align: left;">
                 <div color="black" data-comp-id="text.7" ion-text
                     style="font-size: 17px; margin: 8px 8px 0 16px;">Order Total:</div>
             </ion-col>
-            <ion-col data-comp-id="column.10"
+            <ion-col data-comp-id="column.11"
                 style="margin: 0; padding: 0; text-align: right;">
                 <div color="contrast" data-comp-id="text.8" ion-text
                     style="font-size: 24px; font-weight: bold; margin: 4px;">$0.00</div>
