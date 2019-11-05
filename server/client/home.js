@@ -74,45 +74,58 @@ exports.onload = async (session, models, vars) => {
             incidentBusObId: vars.session.incidentBusObId
         });
         tmplData.body.fields.forEach(field => {
-            if (['Status', 'Service', 'Category',
-                'CustomerDisplayName', 'CreatedDateTime'].includes(field.name)) {
+            if ([
+                    'Status',
+                    'Service',
+                    'Category',
+                    'CustomerDisplayName',
+                    'CreatedDateTime'
+                ].includes(field.name)) {
                 vars.session.incidentFieldsIds[field.name] = field;
             }
         });
     }
     let ticketsSorting = [{
-        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
-        'sortDirection': 0
-    }];
-    let ticketsFilter = [{
+            'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+            'sortDirection': 0
+        }];
+    let ticketsFilter = [
+        {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
             'value': 'Evan Employee'
-        },{
+        },
+        {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'Assigned'
-        }, {
+        },
+        {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'In Progress'
-        }, {
+        },
+        {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'New'
-        }, {
+        },
+        {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'Pending'
-        }, {
+        },
+        {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'Pending Approval'
-        }];
+        }
+    ];
     let openedTickets = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
-        ticketsFilter: ticketsFilter
+        ticketsFilter: ticketsFilter,
+        ticketsSorting: ticketsSorting
     });
     models.home.tickets = [];
     let requiredFields = [
