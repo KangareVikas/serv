@@ -10,7 +10,7 @@ import { SearchPipe } from "./search.pipe";
 
 @NgModule({
     bootstrap: [IonicApp],
-    declarations: [ClientApp, ...Screens.declarations],
+    declarations: [ClientApp, SearchPipe, ...Screens.declarations],
     entryComponents: Screens.declarations,
     imports: [
         IonicModule.forRoot(ClientApp, config.ionic),
@@ -19,8 +19,7 @@ import { SearchPipe } from "./search.pipe";
     ],
     providers: [
         Hooks,
-        GlobalData,
-        SearchPipe
+        GlobalData
     ]
 })
 export class AppModule {
