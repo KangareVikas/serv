@@ -19,7 +19,16 @@
             <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 4px 16px;">
                 <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">My Tickets</div>
             </ion-col>
-            <ion-col col-12 data-comp-id="column.4" style="padding: 16px 8px 0;">
+            <ion-col col-12 data-comp-id="column.4" style="padding: 0 16px 4px 16px;">
+                <ion-list data-comp-id="list.1" style="margin: 0;">
+                    <ion-searchbar *ngIf="data.showSearch" [(ngModel)]="data.searchKey"
+                        cancelButtonText="Cancel" data-comp-id="searchbar.1" debounce="500" mode="md"
+                        placeholder="Find a ticket"
+                        style="padding: 0; margin: 0; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);"
+                        type="search"></ion-searchbar>
+                </ion-list>
+            </ion-col>
+            <ion-col col-12 data-comp-id="column.5" style="padding: 16px 8px 0;">
                 <ion-segment [(ngModel)]="data.ticketsType" color="contrast"
                     data-comp-id="segment.1" mode="md" style>
                     <ion-segment-button (ionSelect)="action('showIncidents')"
@@ -42,7 +51,7 @@
                 data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
         </ion-segment>
         <ion-row data-comp-id="row.2">
-            <ion-col align-self-center data-comp-id="column.5" style="padding: 0px;">
+            <ion-col align-self-center data-comp-id="column.6" style="padding: 0px;">
                 <ion-item class="wrap-field" color="transparent" data-comp-id="select.1"
                     style="border-bottom: none; border-top: none; width: 200px; padding: 0px 0px 0px 0px;">
                     <ion-label color="primary" style="font-size: 16px; width: 70px;">Sorted by</ion-label>
@@ -53,7 +62,7 @@
                     </ion-select>
                 </ion-item>
             </ion-col>
-            <ion-col data-comp-id="column.6" style="max-width: 45px; padding: 0px;">
+            <ion-col data-comp-id="column.7" style="max-width: 45px; padding: 0px;">
                 <button (click)="handleOrder()" *ngIf="data.descending" clear
                     data-comp-id="button.3" icon-only icon-start ion-button style="float: right;">
                     <ion-icon class=" fa fa-sort-amount-desc" style="font-size: 18px;"></ion-icon>
@@ -66,8 +75,8 @@
         </ion-row>
     </ion-toolbar>
     <ion-row data-comp-id="row.3">
-        <ion-col data-comp-id="column.7" style="padding: 8px;">
-            <ion-list data-comp-id="list.1" mode="ios">
+        <ion-col data-comp-id="column.8" style="padding: 8px;">
+            <ion-list data-comp-id="list.2" mode="ios">
                 <ion-item-sliding (click)="action('tickets[item].select',[i])"
                     *ngFor="let item of data.tickets; let i = index" data-comp-id="item-sliding.1"
                     style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">

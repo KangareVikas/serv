@@ -372,6 +372,9 @@
       },
       "descending": {
         "type": "boolean"
+      },
+      "showSearch": {
+        "type": "boolean"
       }
     },
     "id": "tickets_mytickets"
