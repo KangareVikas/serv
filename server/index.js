@@ -14,4 +14,5 @@ require('./client/tickets_mytickets');
 require('./client/tickets_viewincident');
 require('./client/menu');
 require('./client/about');
+require('./client/settings');
 session.start();
