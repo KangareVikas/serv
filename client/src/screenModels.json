@@ -368,6 +368,20 @@
             "type": "string"
           }
         }
+      },
+      "sortOptions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        }
       }
     },
     "id": "tickets_mytickets"
