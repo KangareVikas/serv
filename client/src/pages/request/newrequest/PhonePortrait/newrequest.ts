@@ -36,8 +36,10 @@ export class request_newrequest_PhonePortrait extends Screen {
       this.data.photo = null;
   }
 
-  fileEvent(fileInput: Event) {
-      console.log(this.data.photo)
+  fileEvent() {
+      this.data.filename = this.data.photo[0].name;
+      this.data.size = this.data.photo[0].size;
       console.log(this.data.filename)
+      console.log(this.data.size)
   }
 }
