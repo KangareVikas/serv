@@ -3,6 +3,13 @@
  * @param {Models} models
  * @param {Vars} vars
 */
+exports['tickets[].select'] = async (session, models, vars) => {
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
