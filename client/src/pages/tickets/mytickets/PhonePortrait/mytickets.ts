@@ -27,6 +27,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
             "selected": "CreatedDateTime"
         };
         this.data.descending = true;
+        this.handleSort();
     }
 
     ngOnDestroy(): void {
