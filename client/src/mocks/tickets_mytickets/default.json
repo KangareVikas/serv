@@ -20,5 +20,19 @@
       "CreatedDateTime": "9/30/2019 12:00:00 am",
       "IncidentID": "1003423"
     }
-  ]
+  ],
+  "selectTicket": {},
+  "sortOptions": {
+    "options": [
+      {
+        "label": "Date",
+        "value": "CreatedDateTime"
+      },
+      {
+        "value": "IncidentID",
+        "label": "Ticket ID"
+      }
+    ],
+    "selected": "CreatedDateTime"
+  }
 }
