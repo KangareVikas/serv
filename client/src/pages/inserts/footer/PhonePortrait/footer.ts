@@ -32,6 +32,6 @@ export class inserts_footer_PhonePortrait extends Screen {
         return true;
     }
     goTo(): void {
-        action('footer.home');
+        this.action('footer.home');
     }
 }
