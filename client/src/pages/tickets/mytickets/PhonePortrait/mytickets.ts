@@ -45,8 +45,10 @@ export class tickets_mytickets_PhonePortrait extends Screen {
     }
 
     parseItem(sortField) {
-        if (sortField === "rowIndex" || sortField === "price") {
+        if (sortField === "IncidentID") {
             return (item) => parseInt(item);
+        } else if (sortField === "CreatedDateTime") {
+            return (item) => new Date(item);
         } else {
             return (item) => item;
         }
