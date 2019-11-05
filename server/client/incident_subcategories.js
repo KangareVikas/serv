@@ -28,3 +28,18 @@ exports.back = async (session, models, vars) => {
 exports.search = async (session, models, vars) => {
     vars.session.selectedSubCatagoryLabel = null;
 };
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.myTickets'] = async (session, models, vars) => {
+    await session.screen('tickets_mytickets');
+};/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.home'] = async (session, models, vars) => {
+    await session.screen('home');
+};
