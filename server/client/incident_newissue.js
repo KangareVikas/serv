@@ -15,8 +15,6 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
     models.incident_newissue.urgency = vars.session.urgencyMap;
-    vars.session.selectionItemsMap = { selected: '' };
-    vars.session.urgencyMap = { selected: '' };
     if (vars.session.selectedCatagoryLabel) {
         vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
     }
@@ -135,34 +133,36 @@ exports.submit = async (session, models, vars) => {
             if (result.body.busObPublicId) {
                 console.log('busObPublicId: ' + result.body.busObPublicId);
                 models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
-                let data = await session.rest.cherwellapi.getIncidentBusObRecId({
-                    busObPublicId: models.incident_newissue.result.busObPublicId,
-                    access_token: vars.session.access_token,
-                    incidentBusObId: vars.session.incidentBusObId
-                });
-                let incidentBusObRecId = data.body.busObRecId;
-                let offset = 0;
-                let filename = 'filename.png';
-                let file = models.incident_newissue.photo;
-                let fileData = fs.statSync(file);
-                let totalsize = fileData.size;
-                let attachResult = await session.rest.cherwellapi.attachFile({
-                    access_token: vars.session.access_token,
-                    file: file,
-                    filename: filename,
-                    incidentBusObId: vars.session.incidentBusObId,
-                    offset: offset,
-                    totalsize: totalsize,
-                    busobrecid: incidentBusObRecId
-                });
-                console.log(attachResult);
-                console.log('incidentBusObRecId: ' + incidentBusObRecId);
-                let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
-                    incidentBusObId: vars.session.incidentBusObId,
-                    busObPublicId: models.incident_newissue.result.busObPublicId,
-                    access_token: vars.session.access_token
-                });
-                console.log(attachmentsResponse.body);
+                if (models.incident_newissue.photo) {
+                    let data = await session.rest.cherwellapi.getIncidentBusObRecId({
+                        busObPublicId: models.incident_newissue.result.busObPublicId,
+                        access_token: vars.session.access_token,
+                        incidentBusObId: vars.session.incidentBusObId
+                    });
+                    let incidentBusObRecId = data.body.busObRecId;
+                    let offset = 0;
+                    let filename = 'filename.png';
+                    let file = models.incident_newissue.photo;
+                    let fileData = fs.statSync(file);
+                    let totalsize = fileData.size;
+                    let attachResult = await session.rest.cherwellapi.attachFile({
+                        access_token: vars.session.access_token,
+                        file: file,
+                        filename: filename,
+                        incidentBusObId: vars.session.incidentBusObId,
+                        offset: offset,
+                        totalsize: totalsize,
+                        busobrecid: incidentBusObRecId
+                    });
+                    console.log(attachResult);
+                    console.log('incidentBusObRecId: ' + incidentBusObRecId);
+                    let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
+                        incidentBusObId: vars.session.incidentBusObId,
+                        busObPublicId: models.incident_newissue.result.busObPublicId,
+                        access_token: vars.session.access_token
+                    });
+                    console.log(attachmentsResponse.body);
+                }
             }
         }
     } catch (e) {
