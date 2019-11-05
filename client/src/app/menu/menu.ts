@@ -6,4 +6,10 @@ import { Screen } from 'app/screen';
   templateUrl: 'menu.html'
 })
 export class MenuComponent extends Screen {
+    doChat(): void {
+        // do chat stuff here
+    }
+    doCall(): void {
+        // do call stuff here
+    }
 }
