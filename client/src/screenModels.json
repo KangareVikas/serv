@@ -300,17 +300,6 @@
           }
         }
       },
-      "search": {
-        "type": "method",
-        "parameters": {
-          "article": {
-            "type": "string"
-          }
-        }
-      },
-      "article": {
-        "type": "string"
-      },
       "back": {
         "type": "action"
       }
