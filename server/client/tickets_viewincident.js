@@ -57,3 +57,12 @@ exports['footer.newIssue'] = async (session, models, vars) => {
     vars.session.selectedSubCatagoryLabel = '';
     await session.screen('incident_newissue');
 };
+
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+ */
+exports['attachments.download'] = async (session, models, vars) => {
+    console.log(vars.item.attachmentId);
+};

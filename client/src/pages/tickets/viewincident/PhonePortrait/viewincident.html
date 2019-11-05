@@ -61,7 +61,7 @@
             <span color="black" data-comp-id="text.9" ion-text
                 style="float: left; font-size: 18px;">)</span>
         </ion-list-header>
-        <ion-item (click)="action('attachments.download',[i])"
+        <ion-item (click)="action('attachments[item].download',[i])"
             *ngFor="let item of data.attachments; let i = index" data-comp-id="item.3">
             <ion-icon class="ion-md-attach" color="contrast" data-comp-id="icon.1"
                 style="float: left; margin: 0 12px 0 4px; font-size: 22px;"></ion-icon>
