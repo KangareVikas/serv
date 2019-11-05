@@ -4,6 +4,9 @@
  * @param {Vars} vars
 */
 exports['articles[].select'] = async (session, models, vars) => {
+    let article = models.articles_findarticle.articles.find(article => {
+        return article.busObRecId === vars.item.busObRecId;
+    });
 };
 /**
  * @param {Session} session
@@ -24,7 +27,9 @@ exports.onload = async (session, models, vars) => {
     });
     let data = requestData.body.businessObjects;
     data.forEach(article => {
-        let result = {};
+        let result = {
+            busObRecId: article.busObRecId
+        };
         article.fields.forEach(field => {
             if (['CreatedDateTime', 'Description'].includes(field.name)) {
                 result[field.name] = field.value;
