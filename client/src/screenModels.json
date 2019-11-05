@@ -239,6 +239,9 @@
       },
       "size": {
         "type": "string"
+      },
+      "filename": {
+        "type": "string"
       }
     },
     "id": "incident_newissue"
