@@ -6,6 +6,8 @@ import { Screens } from "./app.screens";
 import { ClientApp } from "./app.component";
 import { Hooks } from "./app.hooks";
 import { GlobalData } from "./globaldata.service";
+import { SearchPipe } from "./search.pipe";
+
 @NgModule({
     bootstrap: [IonicApp],
     declarations: [ClientApp, ...Screens.declarations],
@@ -17,7 +19,8 @@ import { GlobalData } from "./globaldata.service";
     ],
     providers: [
         Hooks,
-        GlobalData
+        GlobalData,
+        SearchPipe
     ]
 })
 export class AppModule {
