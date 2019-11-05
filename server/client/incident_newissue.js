@@ -6,6 +6,8 @@ const fs = require('fs');
 */
 exports.onload = async (session, models, vars) => {
     models.incident_newissue = {};
+    vars.session.selectionItemsMap.selected = '';
+    vars.session.urgencyMap.selected = '';
     models.incident_newissue.byUser = vars.session.byUser || 'Evan Employee';
     models.incident_newissue.forUser = vars.session.forUser || 'Evan Employee';
     models.incident_newissue.email = 'evan.employee@acme.com';
@@ -16,7 +18,7 @@ exports.onload = async (session, models, vars) => {
     vars.session.selectionItemsMap = { selected: '' };
     vars.session.urgencyMap = { selected: '' };
     if (vars.session.selectedCatagoryLabel) {
-        vars.session.selectionItemsMap = { selected: vars.session.selectedCatagoryLabel };
+        vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
     }
     models.incident_newissue.type = vars.session.selectionItemsMap;
     models.incident_newissue.footer = { active: 'newIssue' };
@@ -127,13 +129,12 @@ exports.submit = async (session, models, vars) => {
             incidentBusObId: vars.session.incidentBusObId,
             fields: fields
         });
-        models.incident_newissue.result = { error: errorOutput.message };
         if (result.body.errorMessage) {
-            models.incident_newissue.result = { error: result.body.errorMessage };
+            models.incident_newissue.result.error = result.body.errorMessage;
         } else {
             if (result.body.busObPublicId) {
                 console.log('busObPublicId: ' + result.body.busObPublicId);
-                models.incident_newissue.result = { busObPublicId: result.body.busObPublicId };
+                models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
                 let data = await session.rest.cherwellapi.getIncidentBusObRecId({
                     busObPublicId: models.incident_newissue.result.busObPublicId,
                     access_token: vars.session.access_token,
@@ -145,7 +146,7 @@ exports.submit = async (session, models, vars) => {
                 let file = models.incident_newissue.photo;
                 let fileData = fs.statSync(file);
                 let totalsize = fileData.size;
-                await session.rest.cherwellapi.attachFile({
+                let attachResult = await session.rest.cherwellapi.attachFile({
                     access_token: vars.session.access_token,
                     file: file,
                     filename: filename,
@@ -166,6 +167,7 @@ exports.submit = async (session, models, vars) => {
         }
     } catch (e) {
         console.log('ERROR:', e);
+        models.incident_newissue.result.error = e.message;
     }
 };
 /**
