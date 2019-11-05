@@ -1,4 +1,3 @@
-const fs = require('fs');
 /**
  * @param {Session} session
  * @param {Models} models
@@ -142,9 +141,8 @@ exports.submit = async (session, models, vars) => {
                     let incidentBusObRecId = data.body.busObRecId;
                     let offset = 0;
                     let file = models.incident_newissue.photo;
-                    let filename = models.incident_newissue.fileName;
-                    let fileData = fs.statSync(file);
-                    let totalsize = fileData.size;
+                    let filename = models.incident_newissue.filename;
+                    let totalsize = models.incident_newissue.size;
                     let attachResult = await session.rest.cherwellapi.attachFile({
                         access_token: vars.session.access_token,
                         file: file,
