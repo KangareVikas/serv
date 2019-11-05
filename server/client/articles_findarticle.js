@@ -23,17 +23,15 @@ exports.onload = async (session, models, vars) => {
         kbStateFieldId: vars.session.kbStateFieldId
     });
     let data = requestData.body.businessObjects;
-    for (var i = 0; i < data.length; i++) {
-        let article = {};
-        for (var j = 0; j < data[i].fields.length; j++) {
-            if (data[i].fields[j].name === 'CreatedDateTime') {
-                article.CreatedDateTime = data[i].fields[j].value;
-            } else if (data[i].fields[j].name === 'Description') {
-                article.Description = data[i].fields[j].value;
+    data.forEach(article => {
+        let result = {};
+        article.fields.forEach(field => {
+            if (['CreatedDateTime', 'Description'].includes(field.name)) {
+                result[field.name] = field.value;
             }
-        }
-        models.articles_findarticle.articles.push(article);
-    }
+        });
+        models.articles_findarticle.articles.push(result);
+    });
 };
 /**
  * @param {Session} session
