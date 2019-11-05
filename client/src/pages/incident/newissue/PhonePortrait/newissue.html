@@ -64,7 +64,8 @@
             style="margin: 0; padding: 0; border-top: none; border-right: none; border-bottom: none; border-left: none;">
             <ion-col col-auto data-comp-id="column.4"
                 style="padding: 0; margin: 0; min-width: calc(100% - 50px);">
-                <div [(ngModel)]="data.photo" data-comp-id="take-photo.1" take-photo>
+                <div (fileReady)="fileEvent()" [(ngModel)]="data.photo"
+                    data-comp-id="take-photo.1" take-photo>
                     <ion-item>
                         <ion-thumbnail item-right>
                             <img #thumbnail>
@@ -84,16 +85,8 @@
                 <ion-icon (click)="action('removeAttachment')" class=" ion-ios-remove-circle"
                     color="stable" data-comp-id="icon.2" style="font-size: 24px; padding: 10px;"></ion-icon>
             </ion-col>
-            <ion-col data-comp-id="column.8" style="padding: 0; margin: 0;">
-                <ion-list data-comp-id="list.2">
-                    <ion-item data-comp-id="attachment.1">
-                        <ion-label>
-                            <span class="label">Attachment</span>
-                            <span class="input"><input [(ngModel)]="data.photo" file-upload type="file"></span>
-                        </ion-label>
-                        <ion-icon color="primary" item-end name="attach"></ion-icon>
-                    </ion-item>
-                </ion-list>
+            <ion-col data-comp-id="column.6" style="padding: 0; margin: 0;">
+                <ion-list data-comp-id="list.2"></ion-list>
             </ion-col>
         </ion-row>
         <ion-item class="wrap-field" data-comp-id="select.2" mode="ios">
@@ -113,13 +106,13 @@
         </ion-item>
         <ion-row (click)="showAddInfo = !showAddInfo" data-comp-id="row.3"
             style="padding: 8px 0px 0px 16px;">
-            <ion-col col-auto data-comp-id="column.6" style="padding: 8px 0;">
+            <ion-col col-auto data-comp-id="column.7" style="padding: 8px 0;">
                 <ion-icon *ngIf="showAddInfo" class=" ion-ios-arrow-down-outline"
                     color="primary" data-comp-id="icon.3" style="font-size: 17px;"></ion-icon>
                 <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
                     color="primary" data-comp-id="icon.4" style="font-size: 17px;"></ion-icon>
             </ion-col>
-            <ion-col data-comp-id="column.7" style="padding: 8px;">
+            <ion-col data-comp-id="column.8" style="padding: 8px;">
                 <div color="primary" data-comp-id="text.4" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>

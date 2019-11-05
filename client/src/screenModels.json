@@ -236,6 +236,9 @@
       },
       "home": {
         "type": "action"
+      },
+      "size": {
+        "type": "string"
       }
     },
     "id": "incident_newissue"
@@ -562,6 +565,12 @@
       },
       "home": {
         "type": "action"
+      },
+      "filename": {
+        "type": "string"
+      },
+      "size": {
+        "type": "string"
       }
     },
     "id": "request_newrequest"

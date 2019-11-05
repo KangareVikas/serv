@@ -31,4 +31,11 @@ export class incident_newissue_PhonePortrait extends Screen {
       await this.action('removeAttachment');
       this.data.photo = null;
   }
+  
+  fileEvent(fileInput: Event) {
+      this.data.filename = this.data.photo[0].name;
+      this.data.size = this.data.photo[0].size;
+      console.log(this.data.filename)
+      console.log(this.data.size)
+  }
 }

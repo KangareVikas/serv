@@ -94,7 +94,7 @@ exports.submit = async (session, models, vars) => {
                 });
                 let incidentBusObRecId = data.body.busObRecId;
                 let offset = 0;
-                let filename = 'filename.png';
+                let filename = models.request_newrequest.fileName;
                 let file = models.request_newrequest.photo;
                 let fileData = fs.statSync(file);
                 let totalsize = fileData.size;
@@ -172,4 +172,15 @@ exports['footer.myTickets'] = async (session, models, vars) => {
 */
 exports['footer.home'] = async (session, models, vars) => {
     await session.screen('home');
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.newIssue'] = async (session, models, vars) => {
+    vars.session.selectedCatagoryLabel = '';
+    vars.session.selectedCatagorySuffix = '';
+    vars.session.selectedSubCatagoryLabel = '';
+    await session.screen('incident_newissue');
 };

@@ -27,6 +27,7 @@ exports.back = async (session, models, vars) => {
 */
 exports.search = async (session, models, vars) => {
     vars.session.selectedSubCatagoryLabel = null;
+    await session.screen('articles_findarticle');
 };
 /**
  * @param {Session} session
@@ -42,4 +43,15 @@ exports['footer.myTickets'] = async (session, models, vars) => {
 */
 exports['footer.home'] = async (session, models, vars) => {
     await session.screen('home');
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.newIssue'] = async (session, models, vars) => {
+    vars.session.selectedCatagoryLabel = '';
+    vars.session.selectedCatagorySuffix = '';
+    vars.session.selectedSubCatagoryLabel = '';
+    await session.screen('incident_newissue');
 };

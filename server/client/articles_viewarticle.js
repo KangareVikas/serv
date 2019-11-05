@@ -27,4 +27,8 @@ exports.home = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.createIncident = async (session, models, vars) => {
+    vars.session.selectedCatagoryLabel = '';
+    vars.session.selectedCatagorySuffix = '';
+    vars.session.selectedSubCatagoryLabel = '';
+    await session.screen('incident_newissue');
 };
