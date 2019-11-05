@@ -7,6 +7,10 @@ exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
+    let ticketsSorting = [{
+        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+        'sortDirection': 0
+    }];
     let ticketsFilter = [
         {
             'dirty': true,
@@ -20,8 +24,33 @@ exports.onload = async (session, models, vars) => {
         },
         {
             'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
+            'value': 'Evan Employee'
+        },
+        {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'Assigned'
+        },
+        {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'In Progress'
+        },
+        {
+            'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'New'
+        },
+        {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'Pending'
+        },
+        {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'Pending Approval'
         }
     ];
     let fieldsList = [
@@ -32,7 +61,8 @@ exports.onload = async (session, models, vars) => {
     let data = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
-        ticketsFilter: ticketsFilter
+        ticketsFilter: ticketsFilter,
+        ticketsSorting: ticketsSorting
     });
     console.log('Tickets count:', data.body.businessObjects.length);
     data.body.businessObjects.forEach(busOb => {
