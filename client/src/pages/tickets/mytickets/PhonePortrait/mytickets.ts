@@ -44,7 +44,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
         // false - stop the event propogation
         return true;
     }
-    
+
     handleSort() {
         let lessThan = -1;
         let greaterThan = 1
@@ -79,6 +79,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
     }
 
     toggleSearch() {
+        if (this.data.showSearch) this.data.searchKey = '';
         this.data.showSearch = !this.data.showSearch;
     }
 
