@@ -3,6 +3,13 @@
  * @param {Models} models
  * @param {Vars} vars
 */
+exports['articles[].select'] = async (session, models, vars) => {
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.onload = async (session, models, vars) => {
     models.articles_findarticle.articles = [];
     if (!vars.session.kbBusObId || vars.session.kbStateFieldId) {
@@ -44,7 +51,8 @@ exports.back = async (session, models, vars) => {
 */
 exports['footer.myTickets'] = async (session, models, vars) => {
     await session.screen('tickets_mytickets');
-};/**
+};
+/**
  * @param {Session} session
  * @param {Models} models
  * @param {Vars} vars
