@@ -371,6 +371,9 @@
       },
       "sortOptions": {
         "type": "select"
+      },
+      "descending": {
+        "type": "boolean"
       }
     },
     "id": "tickets_mytickets"

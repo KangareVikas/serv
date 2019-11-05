@@ -26,6 +26,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
             ],
             "selected": "CreatedDateTime"
         };
+        this.data.descending = true;
     }
 
     ngOnDestroy(): void {
@@ -41,5 +42,31 @@ export class tickets_mytickets_PhonePortrait extends Screen {
         // true - handle the event in App Hooks
         // false - stop the event propogation
         return true;
+    }
+
+    parseItem(sortField) {
+        if (sortField === "rowIndex" || sortField === "price") {
+            return (item) => parseInt(item);
+        } else {
+            return (item) => item;
+        }
+    }
+
+    sortBy(sortField, lessThan, greaterThan) {
+        let parseItem = this.parseItem(sortField);
+        this.data.items.sort((a, b) => {
+            return parseItem(a[sortField]) < parseItem(b[sortField]) ? lessThan : greaterThan;
+        })
+    }
+
+    handleSort() {
+        let lessThan = -1;
+        let greaterThan = 1
+        if (this.data.descending) {
+            lessThan = 1;
+            greaterThan = -1
+        }
+
+        this.sortBy(this.data.filter.selected, lessThan, greaterThan);
     }
 }

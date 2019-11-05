@@ -34,5 +34,6 @@
       }
     ],
     "selected": "CreatedDateTime"
-  }
+  },
+  "descending": true
 }
