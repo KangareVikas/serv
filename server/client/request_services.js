@@ -67,3 +67,18 @@ exports.selectService = async (session, models, vars) => {
     models.request_subservices.subservices = subCategories;
     await session.screen('request_subservices');
 };
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.myTickets'] = async (session, models, vars) => {
+    await session.screen('tickets_mytickets');
+};/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.home'] = async (session, models, vars) => {
+    await session.screen('home');
+};
