@@ -32,9 +32,12 @@
     "default": true
   },
   {
+    "id": "phonegap-plugin-barcodescanner"
+  },
+  {
     "id": "cordova-plugin-keychain-touch-id"
   },
   {
-    "id": "phonegap-plugin-barcodescanner"
+    "id": "cordova-plugin-camera"
   }
 ]
