@@ -35,4 +35,11 @@ export class request_newrequest_PhonePortrait extends Screen {
       await this.action('removeAttachment');
       this.data.photo = null;
   }
+
+  fileEvent(fileInput: Event) {
+      let file = fileInput.target.files[0];
+      let fileName = file.name;
+      this.data.filename = fileName;
+      console.log(this.data.filename)
+  }
 }
