@@ -37,6 +37,8 @@ exports.onload = async (session, models, vars) => {
                 result[field.name] = field.value;
             }
         });
+        // truncate description for the title
+        result['title'] = result['Description'].split('.')[0];
         models.articles_findarticle.articles.push(result);
     });
 };
