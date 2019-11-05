@@ -12,8 +12,15 @@ exports.onload = async (session, models, vars) => {
     });
     let list = attachmentsResponse.body.attachments;
     let attachments = [];
-    list.map(item => { attachments.push({ "name": item.attachmentFileName}) });
-    models.request_subservices.attachments = attachments;
+    list.map(item => {
+        attachments.push({
+            "name": item.attachmentFileName,
+            "attachmentId" : item.attachmentId,
+            "attachmentBusObId": item.busObId,
+            "attachmentbusObRedId": item.busObRecId
+        })
+    });
+    models.tickets_viewincident.attachments = attachments;
     models.tickets_viewincident.footer = { active: '' };
 };
 /**
