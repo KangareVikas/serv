@@ -3,13 +3,6 @@
  * @param {Models} models
  * @param {Vars} vars
 */
-exports['tickets[].select'] = async (session, models, vars) => {
-};
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
-*/
 exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
@@ -58,9 +51,9 @@ exports.onload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.selectTicket = async (session, models, vars) => {
+exports['tickets[].select'] = async (session, models, vars) => {
     let data = await session.rest.cherwellapi.getIncidentBusObRecId({
-        busObPublicId: vars.params.id,
+        busObPublicId: vars.item.IncidentID,
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId
     });
