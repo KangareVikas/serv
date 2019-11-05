@@ -82,8 +82,28 @@ exports.onload = async (session, models, vars) => {
     }
     let ticketsFilter = [{
             'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
+            'value': 'Evan Employee'
+        },{
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'Assigned'
+        }, {
+            'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
             'value': 'In Progress'
+        }, {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'New'
+        }, {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'Pending'
+        }, {
+            'dirty': true,
+            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'value': 'Pending Approval'
         }];
     let openedTickets = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
