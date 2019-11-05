@@ -78,4 +78,8 @@ export class tickets_mytickets_PhonePortrait extends Screen {
         })
     }
 
+    toggleSearch() {
+        this.data.showSearch = !this.data.showSearch;
+    }
+
 }
