@@ -37,6 +37,7 @@ exports.selectCategory = async (session, models, vars) => {
 */
 exports.search = async (session, models, vars) => {
     vars.session.selectedCatagoryLabel = null;
+    await session.screen('articles_findarticle');
 };
 /**
  * @param {Session} session
