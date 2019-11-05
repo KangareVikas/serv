@@ -43,24 +43,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
         // false - stop the event propogation
         return true;
     }
-
-    parseItem(sortField) {
-        if (sortField === "IncidentID") {
-            return (item) => parseInt(item);
-        } else if (sortField === "CreatedDateTime") {
-            return (item) => new Date(item);
-        } else {
-            return (item) => item;
-        }
-    }
-
-    sortBy(sortField, lessThan, greaterThan) {
-        let parseItem = this.parseItem(sortField);
-        this.data.tickets.sort((a, b) => {
-            return parseItem(a[sortField]) < parseItem(b[sortField]) ? lessThan : greaterThan;
-        })
-    }
-
+    
     handleSort() {
         let lessThan = -1;
         let greaterThan = 1
@@ -71,4 +54,22 @@ export class tickets_mytickets_PhonePortrait extends Screen {
 
         this.sortBy(this.data.sortOptions.selected, lessThan, greaterThan);
     }
+
+    private parseItem(sortField) {
+        if (sortField === "IncidentID") {
+            return (item) => parseInt(item);
+        } else if (sortField === "CreatedDateTime") {
+            return (item) => new Date(item);
+        } else {
+            return (item) => item;
+        }
+    }
+
+    private sortBy(sortField, lessThan, greaterThan) {
+        let parseItem = this.parseItem(sortField);
+        this.data.tickets.sort((a, b) => {
+            return parseItem(a[sortField]) < parseItem(b[sortField]) ? lessThan : greaterThan;
+        })
+    }
+
 }
