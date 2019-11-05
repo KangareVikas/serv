@@ -141,8 +141,8 @@ exports.submit = async (session, models, vars) => {
                     });
                     let incidentBusObRecId = data.body.busObRecId;
                     let offset = 0;
-                    let filename = 'filename.png';
                     let file = models.incident_newissue.photo;
+                    let filename = models.incident_newissue.fileName;
                     let fileData = fs.statSync(file);
                     let totalsize = fileData.size;
                     let attachResult = await session.rest.cherwellapi.attachFile({

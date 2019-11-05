@@ -94,7 +94,7 @@ exports.submit = async (session, models, vars) => {
                 });
                 let incidentBusObRecId = data.body.busObRecId;
                 let offset = 0;
-                let filename = 'filename.png';
+                let filename = models.request_newrequest.fileName;
                 let file = models.request_newrequest.photo;
                 let fileData = fs.statSync(file);
                 let totalsize = fileData.size;
