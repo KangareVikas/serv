@@ -12,4 +12,8 @@ exports.myTickets = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.newIssue = async (session, models, vars) => {
+    vars.session.selectedCatagoryLabel = '';
+    vars.session.selectedCatagorySuffix = '';
+    vars.session.selectedSubCatagoryLabel = '';
+    await session.screen('incident_newissue');
 };
