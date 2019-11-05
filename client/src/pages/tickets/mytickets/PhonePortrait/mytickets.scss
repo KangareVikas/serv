@@ -30,4 +30,10 @@ screen-tickets-mytickets_phoneportrait {
             border-bottom: none !important;
         }
     }
+
+    .item-ios.item-block {
+        .item-inner {
+            border: none;
+        }
+    } 
 }
