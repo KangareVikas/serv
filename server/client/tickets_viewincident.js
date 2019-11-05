@@ -71,5 +71,26 @@ exports['attachments[].download'] = async (session, models, vars) => {
         attachmentId: vars.item.attachmentId,
         access_token: vars.session.access_token
     });
-    models.tickets_viewincident.file = result.body;
+    console.log(result)
+    const fs = require('fs');
+    var path = '/home/yrudyi/image.jpeg';
+    var buffer = new Buffer(result.rawBody.body);
+
+    fs.open(path, 'w', function(err, fd) {
+        if (err) {
+            throw 'error opening file: ' + err;
+        }
+
+        fs.write(fd, buffer, 0, buffer.length, null, function(err) {
+            if (err) throw 'error writing file: ' + err;
+            fs.close(fd, function() {
+                console.log('file written');
+            })
+        });
+    });
+    // // let file = result.body;
+    // // //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    // // file.lastModifiedDate = new Date();
+    // // file.name = 'fileName.jpeg';
+    // models.tickets_viewincident.file = result.rawBody.body;
 };
