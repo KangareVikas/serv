@@ -34,6 +34,11 @@ screen-tickets-mytickets_phoneportrait {
     .item-ios.item-block {
         .item-inner {
             border: none;
+
+            .select-ios {
+                padding: 11px 8px 11px 0px;
+                width: unset;
+            }
         }
     } 
 }
