@@ -5,6 +5,7 @@
  */
 exports.onload = async (session, models, vars) => {
     models.request_newrequest = {};
+    vars.session.urgencyMap.selected = '';
     models.request_newrequest.byUser = vars.session.byUser || 'Evan Employee';
     models.request_newrequest.forUser = vars.session.forUser || 'Evan Employee';
     models.request_newrequest.email = 'evan.employee@acme.com';
@@ -12,6 +13,7 @@ exports.onload = async (session, models, vars) => {
     models.request_newrequest.shortDescription = `I need help`;
     models.request_newrequest.shortDescription = `I would like to order ${ vars.session.requestService }, ${ vars.session.requestCategory }, ${ vars.session.requestSubCategory }`;
     models.request_newrequest.urgency = vars.session.urgencyMap;
+    models.incident_newissue.urgency.selected = 2;
     models.request_newrequest.service = vars.session.requestService;
     models.request_newrequest.category = vars.session.requestCategory;
 };

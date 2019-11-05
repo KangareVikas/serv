@@ -17,6 +17,7 @@ exports.onload = async (session, models, vars) => {
     if (vars.session.selectedCatagoryLabel) {
         vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
     }
+    models.incident_newissue.urgency.selected = 2;
     models.incident_newissue.type = vars.session.selectionItemsMap;
     models.incident_newissue.footer = { active: 'newIssue' };
 };
