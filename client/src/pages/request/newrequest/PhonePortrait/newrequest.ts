@@ -37,9 +37,7 @@ export class request_newrequest_PhonePortrait extends Screen {
   }
 
   fileEvent(fileInput: Event) {
-      let file = fileInput.target.files[0];
-      let fileName = file.name;
-      this.data.filename = fileName;
+      console.log(this.data.photo)
       console.log(this.data.filename)
   }
 }

@@ -64,7 +64,7 @@
             style="margin: 0; padding: 0; border-top: none; border-right: none; border-bottom: none; border-left: none;">
             <ion-col col-auto data-comp-id="column.4"
                 style="padding: 0; margin: 0; min-width: calc(100% - 50px);">
-                <div (fileReady)="fileEvent($event)" [(ngModel)]="data.photo"
+                <div (fileReady)="fileEvent()" [(ngModel)]="data.photo"
                     data-comp-id="take-photo.1" take-photo>
                     <ion-item>
                         <ion-thumbnail item-right>
@@ -90,7 +90,7 @@
                     <ion-item data-comp-id="attachment.1">
                         <ion-label>
                             <span class="label">Attachment</span>
-                            <span class="input"><input (fileReady)="fileEvent($event)" [(ngModel)]="data.photo" file-upload
+                            <span class="input"><input (fileReady)="fileEvent()" [(ngModel)]="data.photo" file-upload
                                 type="file"></span>
                         </ion-label>
                         <ion-icon color="primary" item-end name="attach"></ion-icon>
