@@ -20,7 +20,8 @@ import { SearchPipe } from "./search.pipe";
     providers: [
         Hooks,
         GlobalData
-    ]
+    ],
+    exports: [SearchPipe]
 })
 export class AppModule {
 }
