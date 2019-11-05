@@ -12,4 +12,5 @@ require('./client/articles_findarticle');
 require('./client/articles_viewarticle');
 require('./client/tickets_mytickets');
 require('./client/tickets_viewincident');
+require('./client/menu');
 session.start();
