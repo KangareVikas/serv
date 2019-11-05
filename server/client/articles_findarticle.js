@@ -7,6 +7,8 @@ exports['articles[].select'] = async (session, models, vars) => {
     let article = models.articles_findarticle.articles.find(article => {
         return article.busObRecId === vars.item.busObRecId;
     });
+    models.articles_viewarticle = article;
+    await session.screen('articles_viewarticle');
 };
 /**
  * @param {Session} session
