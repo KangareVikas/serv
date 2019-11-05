@@ -56,6 +56,12 @@ export class tickets_mytickets_PhonePortrait extends Screen {
         this.sortBy(this.data.sortOptions.selected, lessThan, greaterThan);
     }
 
+    handleOrder() {
+        this.data.descending = !this.data.descending;
+
+        this.handleSort();
+    }
+
     private parseItem(sortField) {
         if (sortField === "IncidentID") {
             return (item) => parseInt(item);
