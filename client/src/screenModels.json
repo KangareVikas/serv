@@ -619,6 +619,9 @@
       },
       "CreatedDateTime": {
         "type": "string"
+      },
+      "title": {
+        "type": "string"
       }
     },
     "id": "articles_viewarticle"
