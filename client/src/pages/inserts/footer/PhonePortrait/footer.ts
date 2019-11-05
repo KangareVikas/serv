@@ -31,7 +31,16 @@ export class inserts_footer_PhonePortrait extends Screen {
         // false - stop the event propogation
         return true;
     }
-    goTo(): void {
-        this.action('footer.home');
+    goTo(action): void {
+        switch (action) {
+            case 'chat':
+                break;
+            case 'call':
+                break;
+            default:
+                if (action !== this.data.footer.active) {
+                    this.action('footer.' + action);
+                }
+        }
     }
 }
