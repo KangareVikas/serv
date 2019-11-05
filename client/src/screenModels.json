@@ -409,6 +409,15 @@
             },
             "download": {
               "type": "action"
+            },
+            "attachmentId": {
+              "type": "string"
+            },
+            "attachmentBusObId": {
+              "type": "string"
+            },
+            "attachmentbusObRedId": {
+              "type": "string"
             }
           }
         }
