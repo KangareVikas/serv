@@ -80,6 +80,10 @@ exports.onload = async (session, models, vars) => {
             }
         });
     }
+    let ticketsSorting = [{
+        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+        'sortDirection': 0
+    }];
     let ticketsFilter = [{
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
