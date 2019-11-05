@@ -99,7 +99,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
             models.tickets_viewincident[field.name] = field.value;
         }
     });
-    vars.session.currentIncidentBusObRecId = data.body.busObRecId;
+    vars.session.busObPublicId = vars.item.IncidentID;
     await session.screen('tickets_viewincident');
 };
 /**

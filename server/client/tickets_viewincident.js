@@ -4,13 +4,16 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    console.log("vars.session.currentIncidentBusObRecId " + vars.session.currentIncidentBusObRecId)
+    console.log("vars.session.busObPublicId  " + vars.session.busObPublicId)
     let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
         incidentBusObId: vars.session.incidentBusObId,
-        busObPublicId: vars.session.currentIncidentBusObRecId,
+        busObPublicId: vars.session.busObPublicId,
         access_token: vars.session.access_token
     });
-    console.log(attachmentsResponse.body);
+    let list = attachmentsResponse.body.attachments;
+    let attachments = [];
+    list.map(item => { attachments.push({ "name": item.attachmentFileName}) });
+    models.request_subservices.attachments = attachments;
     models.tickets_viewincident.footer = { active: '' };
 };
 /**
