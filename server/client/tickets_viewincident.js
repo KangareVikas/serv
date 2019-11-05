@@ -65,4 +65,11 @@ exports['footer.newIssue'] = async (session, models, vars) => {
  */
 exports['attachments[].download'] = async (session, models, vars) => {
     console.log(vars.item.attachmentId);
+    let result = await session.rest.cherwellapi.getSpecificAttachment({
+        attachmentbusObRedId: vars.item.attachmentbusObRedId,
+        attachmentBusObId: vars.item.attachmentBusObId,
+        attachmentId: vars.item.attachmentId,
+        access_token: vars.session.access_token
+    });
+    console.log(result);
 };

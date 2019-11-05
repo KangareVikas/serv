@@ -1,6 +1,6 @@
 {
   "template": {
-    "url": "/api/V1/getbusinessobjectattachment/attachmentid/{attachmentId}/busobid/{attachmentBusObId}/busobrecid{attachmentbusObRedId}/",
+    "url": "/api/V1/getbusinessobjectattachment/attachmentid/{attachmentId}/busobid/{attachmentBusObId}/busobrecid/{attachmentbusObRedId}",
     "method": "GET",
     "query": {},
     "headers": {},
@@ -14,9 +14,9 @@
   },
   "functions": {
     "getSpecificAttachment": [
-      "attachmentbusObRedId",
-      "attachmentBusObId",
       "attachmentId",
+      "attachmentBusObId",
+      "attachmentbusObRedId",
       "access_token"
     ]
   }
