@@ -69,3 +69,18 @@ exports['users[].select'] = async (session, models, vars) => {
         await session.screen('incident_newissue');
     }
 };
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.myTickets'] = async (session, models, vars) => {
+    await session.screen('tickets_mytickets');
+};/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports['footer.home'] = async (session, models, vars) => {
+    await session.screen('home');
+};
