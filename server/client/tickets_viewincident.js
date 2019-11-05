@@ -63,6 +63,6 @@ exports['footer.newIssue'] = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
  */
-exports['attachments.download'] = async (session, models, vars) => {
+exports['attachments[].download'] = async (session, models, vars) => {
     console.log(vars.item.attachmentId);
 };
