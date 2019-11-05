@@ -149,6 +149,17 @@ exports['footer.myTickets'] = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
+exports['footer.newIssue'] = async (session, models, vars) => {
+    vars.session.selectedCatagoryLabel = '';
+    vars.session.selectedCatagorySuffix = '';
+    vars.session.selectedSubCatagoryLabel = '';
+    await session.screen('incident_newissue');
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.onunload = async (session, models, vars) => {
     models.home.footer = { active: '' };
 };
