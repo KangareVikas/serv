@@ -19,6 +19,7 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.home = async (session, models, vars) => {
+    await session.screen('home');
 };
 /**
  * @param {Session} session
