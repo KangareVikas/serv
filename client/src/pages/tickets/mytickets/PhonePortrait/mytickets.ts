@@ -54,7 +54,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
 
     sortBy(sortField, lessThan, greaterThan) {
         let parseItem = this.parseItem(sortField);
-        this.data.items.sort((a, b) => {
+        this.data.tickets.sort((a, b) => {
             return parseItem(a[sortField]) < parseItem(b[sortField]) ? lessThan : greaterThan;
         })
     }
@@ -67,6 +67,6 @@ export class tickets_mytickets_PhonePortrait extends Screen {
             greaterThan = -1
         }
 
-        this.sortBy(this.data.filter.selected, lessThan, greaterThan);
+        this.sortBy(this.data.sortOptions.selected, lessThan, greaterThan);
     }
 }
