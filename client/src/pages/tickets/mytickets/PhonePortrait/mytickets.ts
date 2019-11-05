@@ -58,7 +58,6 @@ export class tickets_mytickets_PhonePortrait extends Screen {
 
     handleOrder() {
         this.data.descending = !this.data.descending;
-
         this.handleSort();
     }
 

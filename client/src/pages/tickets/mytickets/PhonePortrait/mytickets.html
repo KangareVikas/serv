@@ -54,11 +54,11 @@
                 </ion-item>
             </ion-col>
             <ion-col data-comp-id="column.6" style="max-width: 45px; padding: 0px;">
-                <button (click)="handleSort()" *ngIf="data.descending" clear
+                <button (click)="handleOrder()" *ngIf="data.descending" clear
                     data-comp-id="button.3" icon-only icon-start ion-button style="float: right;">
                     <ion-icon class=" fa fa-sort-amount-desc" style="font-size: 18px;"></ion-icon>
                 </button>
-                <button (click)="handleSort()" *ngIf="!data.descending" clear
+                <button (click)="handleOrder()" *ngIf="!data.descending" clear
                     data-comp-id="button.4" icon-only icon-start ion-button style="float: right;">
                     <ion-icon class=" fa fa-sort-amount-asc" style="font-size: 18px;"></ion-icon>
                 </button>
