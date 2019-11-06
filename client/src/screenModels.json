@@ -62,9 +62,6 @@
             "id": {
               "type": "string"
             },
-            "Description": {
-              "type": "string"
-            },
             "CreatedDateTime": {
               "type": "date",
               "format": "M/D/YYYY h:mm:ss a"
