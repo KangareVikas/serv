@@ -22,6 +22,10 @@ export class tickets_mytickets_PhonePortrait extends Screen {
                 {
                     "value": "IncidentID",
                     "label": "Ticket ID"
+                },
+                {
+                    "value": "ShortDescription",
+                    "label": "Description"
                 }
             ],
             "selected": "CreatedDateTime"
