@@ -25,22 +25,23 @@
                     <span [innerHTML]="item.title" color="primary" data-comp-id="text.3" ion-text
                         style="font-size: 17px; padding: 0 2px;"></span>
                     <span *ngIf="i !== data.selectedServices.length-1" color="coal"
-                        data-comp-id="text.7" ion-text
+                        data-comp-id="text.4" ion-text
                         style="font-size: 17px; font-weight: 100; margin: 0px 2px;">➜</span>
                 </div>
-                <span [innerHTML]="data.suffix" data-comp-id="text.4" ion-text
+                <span [innerHTML]="data.suffix" data-comp-id="text.5" ion-text
                     style="font-size: 17px;"></span>
-                <span data-comp-id="text.5" ion-text>...</span>
+                <span data-comp-id="text.6" ion-text>...</span>
             </ion-col>
         </ion-row>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-calm ignore-footer" data-comp-id="content.1" style>
+<ion-content #content class="content-calm ignore-footer"
+    data-comp-id="content.1" style>
     <ion-list data-comp-id="list.1" style="margin: -1px 0px 82px;">
         <ion-item (click)="action('subservices[item].select',[i])"
             *ngFor="let item of data.subservices; let i = index" data-comp-id="item.1"
             detail-none>
-            <div [innerHTML]="item.title" data-comp-id="text.6" ion-text></div>
+            <div [innerHTML]="item.title" data-comp-id="text.7" ion-text></div>
         </ion-item>
     </ion-list>
 </ion-content>

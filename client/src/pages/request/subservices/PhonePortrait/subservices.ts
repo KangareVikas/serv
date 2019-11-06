@@ -8,7 +8,8 @@ declare var window: any;
   templateUrl: 'subservices.html'
 })
 export class request_subservices_PhonePortrait extends Screen {
-    @ViewChild(Content) content: Content;
+    // @ViewChild(Content) content: Content;
+    @ViewChild('content') content;
   data: any;
 
   ngOnInit(): void {
