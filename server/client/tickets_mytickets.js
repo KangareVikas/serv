@@ -47,47 +47,67 @@ exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
+    vars.page.filters = {
+        'common': [
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
+                'value': 'Evan Employee'
+            }
+        ],
+        'incidents': [
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Service'].fieldId,
+                'value': 'Access Management'
+            },
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Category'].fieldId,
+                'value': 'Identity and Access Management'
+            }
+        ],
+        'requests': [
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'Pending Approval'
+            }
+        ],
+        'opened': [
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'Assigned'
+            },
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'In Progress'
+            },
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'New'
+            },
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'Pending'
+            }
+        ],
+        'needAttencion': [
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'In Progress'
+            }
+        ]
+    };
     let ticketsFilter = [
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Service'].fieldId,
-            'value': 'Access Management'
-        },
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Category'].fieldId,
-            'value': 'Identity and Access Management'
-        },
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
-            'value': 'Evan Employee'
-        },
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-            'value': 'Assigned'
-        },
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-            'value': 'In Progress'
-        },
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-            'value': 'New'
-        },
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-            'value': 'Pending'
-        },
-        {
-            'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-            'value': 'Pending Approval'
-        }
+        ...vars.page.filters.common,
+        ...vars.page.filters.incidents,
+        ...vars.page.filters.opened
     ];
     let ticketsSorting = [{
             'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
