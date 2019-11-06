@@ -334,9 +334,6 @@
         "items": {
           "type": "object",
           "properties": {
-            "Description": {
-              "type": "string"
-            },
             "CreatedDateTime": {
               "type": "date",
               "format": "M/D/YYYY h:mm:ss a"
