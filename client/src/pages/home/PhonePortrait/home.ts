@@ -28,4 +28,8 @@ export class home_PhonePortrait extends Screen {
     // false - stop the event propogation
       return true;
   }
+
+  searchArticle() {
+      this.method('search', { searchKey: data.searchKey });
+  }
 }
