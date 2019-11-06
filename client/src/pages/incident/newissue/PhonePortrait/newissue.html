@@ -100,7 +100,7 @@
         </ion-item>
         <ion-item *ngIf="data.urgency.selected == '1'" class="wrap-field"
             data-comp-id="select.3" mode="ios">
-            <ion-label mode="ios">Config Item Name</ion-label>
+            <ion-label mode="ios" text-wrap>Item Name</ion-label>
             <ion-select [(ngModel)]="data.ConfigItemSelect.selected"
                 [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
                 name="select.3">
