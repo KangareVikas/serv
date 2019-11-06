@@ -601,6 +601,9 @@
       },
       "size": {
         "type": "string"
+      },
+      "ConfigItemSelect": {
+        "type": "select"
       }
     },
     "id": "request_newrequest"
