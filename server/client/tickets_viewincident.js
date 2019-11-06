@@ -1,3 +1,4 @@
+const fs = require('fs');
 /**
  * @param {Session} session
  * @param {Models} models
@@ -64,13 +65,14 @@ exports['footer.newIssue'] = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports['attachments[].download'] = async (session, models, vars) => {
-    console.log(vars.item.attachmentId);
     let result = await session.rest.cherwellapi.getSpecificAttachment({
         attachmentbusObRedId: vars.item.attachmentbusObRedId,
         attachmentBusObId: vars.item.attachmentBusObId,
         attachmentId: vars.item.attachmentId,
         access_token: vars.session.access_token
     });
-    // TODO save file and send to the user
-    console.log(result)
+    let tempFileName = vars.item.attachmentId + '_' + Math.floor((Math.random()*(new Date()).getTime()));
+    fs.writeFileSync(tempFileName, result.body);
+    console.log(`Wrote attachment with id '${vars.item.attachmentId}' to file '${tempFileName}'`);
+    await session.openFile({name: vars.item.attachmentId, file: tempFileName});
 };

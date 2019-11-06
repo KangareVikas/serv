@@ -9,7 +9,9 @@
       "token": "{access_token}"
     },
     "form": {},
-    "options": {},
+    "options": {
+      "encoding": null
+    },
     "bodyType": "form"
   },
   "functions": {
