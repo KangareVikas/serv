@@ -111,7 +111,7 @@ exports.onload = async (session, models, vars) => {
     ];
     let ticketsSorting = [{
             'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
-            'sortDirection': 0
+            'sortDirection': 1
         }];
     let fieldsList = [
         'IncidentID',
