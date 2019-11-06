@@ -34,11 +34,28 @@
                         <ion-icon class=" ion-ios-search" color="dark" data-comp-id="icon.1" item-end
                             style="font-size: 24px;"></ion-icon>
                     </ion-item>
+                    <ion-row data-comp-id="row.3"
+                        style="border-top: 1px solid #1d428a; border-right: 1px solid #1d428a; border-bottom: 1px solid #1d428a; border-left: 1px solid #1d428a; margin: 10px 0px 0px;">
+                        <ion-col data-comp-id="column.4" style="padding: 0px; margin: 1px 0px 0px;">
+                            <ion-list data-comp-id="list.2" style="margin: -1px 0px 0px;">
+                                <ion-item data-comp-id="input.1"
+                                    style="border-top: none; border-left: none; padding: 0px 0px 0px 11px;">
+                                    <ion-input color="coal" placeholder="Find an article" style type="text"></ion-input>
+                                </ion-item>
+                            </ion-list>
+                        </ion-col>
+                        <ion-col data-comp-id="column.5" style="max-width: 50px; padding: 0px;">
+                            <button clear color="coal" data-comp-id="button.2" icon-only icon-start
+                                ion-button style>
+                                <ion-icon class=" ion-ios-search" style="font-size: 24px;"></ion-icon>
+                            </button>
+                        </ion-col>
+                    </ion-row>
                 </ion-list>
             </ion-col>
         </ion-row>
-        <ion-row data-comp-id="row.3" justify-content-between style="padding: 0px 8px;">
-            <ion-col (click)="action('doReport')" data-comp-id="column.4" data-img
+        <ion-row data-comp-id="row.4" justify-content-between style="padding: 0px 8px;">
+            <ion-col (click)="action('doReport')" data-comp-id="column.6" data-img
                 style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; padding: 10px 10px 35px; background-repeat: no-repeat; border-radius: 4px; max-width: calc(50% - 4px); background-image: url(assets/images/report_new_issue_bg.png);"><img data-comp-id="img.1" src="assets/images/report_icon.png"
                 style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
                 <div color="white" data-comp-id="text.3" ion-text
@@ -46,7 +63,7 @@
                     <br>
                     a New Issue</div>
             </ion-col>
-            <ion-col (click)="action('doRequest')" data-comp-id="column.5" data-img
+            <ion-col (click)="action('doRequest')" data-comp-id="column.7" data-img
                 style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; padding: 10px 10px 35px; background-repeat: no-repeat; border-radius: 4px; max-width: calc(50% - 4px); background-image: url(assets/images/request_something_bg.png);"><img data-comp-id="img.2" src="assets/images/request_icon.png"
                 style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
                 <div color="white" data-comp-id="text.4" ion-text
@@ -56,14 +73,14 @@
                 </div>
             </ion-col>
         </ion-row>
-        <ion-row data-comp-id="row.4">
-            <ion-col data-comp-id="column.6" style="padding: 8px;">
+        <ion-row data-comp-id="row.5">
+            <ion-col data-comp-id="column.8" style="padding: 8px;">
                 <ion-list-header color="transparent" data-comp-id="list-header.1"
                     style="border-bottom: 0px none rgb(0, 0, 0);">
                     <span color="black" data-comp-id="text.5" ion-text style="font-size: 17px;"
                         text-capitalize>Open tickets</span>
                 </ion-list-header>
-                <ion-list data-comp-id="list.2" mode="ios">
+                <ion-list data-comp-id="list.3" mode="ios">
                     <ion-item-sliding *ngFor="let item of data.tickets; let i = index"
                         data-comp-id="item-sliding.1"
                         style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
