@@ -59,6 +59,7 @@ exports.showRequests = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
+        models.tickets_mytickets.$$partialFields.part = 'sortOptions';
 };
 /**
  * @param {Session} session
