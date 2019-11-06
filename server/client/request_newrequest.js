@@ -133,7 +133,11 @@ exports.submit = async (session, models, vars) => {
             }
         }
     } catch (e) {
-        console.log("ERROR:", e);
+        try {
+            let error = JSON.parse(e.message);
+            models.request_newrequest.result.error = error.errorMessage;
+        } catch (e) {
+        }
     }
 };
 /**
