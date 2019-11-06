@@ -26,7 +26,7 @@ exports.onload = async (session, models, vars) => {
     });
     let list = configItem.body.values;
     let options = [];
-    list.map(item => { subservices.push({ "label": item, "value": item }) });
+    list.map(item => { options.push({ "label": item, "value": item }) });
     models.incident_newissue.ConfigItemSelect = { "options": options, "selected": "" };
 };
 /**
