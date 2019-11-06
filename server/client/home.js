@@ -153,6 +153,7 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
+    vars.session.searchKey = session.vars.params.searchKey;
     await session.screen('articles_findarticle');
 };
 /**
