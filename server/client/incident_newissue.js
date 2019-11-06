@@ -20,6 +20,14 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.urgency.selected = 2;
     models.incident_newissue.type = vars.session.selectionItemsMap;
     models.incident_newissue.footer = { active: 'newIssue' };
+    let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
+        access_token: vars.session.access_token,
+        incidentBusObId: vars.session.incidentBusObId
+    });
+    let list = configItem.body.values;
+    let options = [];
+    list.map(item => { subservices.push({ "label": item, "value": item }) });
+    models.incident_newissue.ConfigItemSelect = { "options": options, "selected": "" };
 };
 /**
  * @param {Session} session
