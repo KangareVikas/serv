@@ -1,6 +1,6 @@
 {
   "id": "__BASE__",
-  "name": "CHP",
+  "name": "Requester",
   "screens": [
     {
       "id": "login",

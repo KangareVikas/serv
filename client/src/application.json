@@ -1,5 +1,5 @@
 {
-  "name": "CHP",
+  "name": "Requester",
   "defaultLayout": "PhonePortrait",
   "previewToken": "8ae9a50f",
   "theme": "CHP color theme",
@@ -8,7 +8,7 @@
   "isBuiltInTemplate": false,
   "disableSideMenu": false,
   "offlineSupport": false,
-  "description": "Cherwell HCL PowWow application.\nUses Cherwell API.",
+  "description": "Cherwell requester app.",
   "creatorId": "oleksii",
   "created": 1571835853608,
   "screensCount": 2,
