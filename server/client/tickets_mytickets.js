@@ -72,6 +72,7 @@ exports.showRequests = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showNeedAttention = async (session, models, vars) => {
+    console.log(' $ $ $ $ $ : ', models.tickets_mytickets.statusFilter);
     if (models.tickets_mytickets.statusFilter !== 'needAttention') {
         models.tickets_mytickets.tickets = [];
         models.tickets_mytickets.statusFilter = 'needAttention';
