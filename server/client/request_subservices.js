@@ -81,3 +81,25 @@ exports['footer.newIssue'] = async (session, models, vars) => {
     vars.session.selectedSubCatagoryLabel = '';
     await session.screen('incident_newissue');
 };
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.previousService = async (session, models, vars) => {
+    let subCategoryTitle = vars.params.title;
+    models.request_subservices.service = subCategoryTitle;
+    models.request_subservices.selectedServices = [{ title: subCategoryTitle }];
+    let data = await session.rest.cherwellapi.getRequestCategoryValues({
+        access_token: vars.session.access_token,
+        incidentBusObId: vars.session.incidentBusObId,
+        categoryFieldId: vars.session.categoryFieldId,
+        serviceFieldId: vars.session.serviceFieldId,
+        subCategoryTitle: subCategoryTitle
+    });
+    let list = data.body.values;
+    let subCategories = [];
+    list.map(item => { subCategories.push({ "title": item }) });
+    models.request_subservices.subservices = subCategories;
+    await session.screen('request_subservices');
+};
