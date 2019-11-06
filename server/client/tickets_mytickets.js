@@ -129,20 +129,22 @@ exports.onload = async (session, models, vars) => {
             }
         ]
     };
+    vars.page.ticketsSorting = [{
+        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+        'sortDirection': 1
+    }];
+    vars.page.fieldsList = [
+        'IncidentID',
+        'ShortDescription',
+        'CreatedDateTime'
+    ];
     let ticketsFilter = [
         ...vars.page.filters.common,
         ...vars.page.filters.incidents,
         ...vars.page.filters.opened
     ];
-    let ticketsSorting = [{
-            'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
-            'sortDirection': 1
-        }];
-    let fieldsList = [
-        'IncidentID',
-        'ShortDescription',
-        'CreatedDateTime'
-    ];
+    let ticketsSorting = vars.page.ticketsSorting;
+    let fieldsList = vars.page.fieldsList;
     let data = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
