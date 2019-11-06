@@ -514,6 +514,14 @@
       },
       "category": {
         "type": "string"
+      },
+      "goBack": {
+        "type": "method",
+        "parameters": {
+          "title": {
+            "type": "string"
+          }
+        }
       }
     },
     "id": "request_subservices"
