@@ -84,9 +84,6 @@
       "footer": {
         "type": "model",
         "model": "footer"
-      },
-      "search": {
-        "type": "action"
       }
     },
     "id": "home"
