@@ -385,7 +385,10 @@
         }
       },
       "sortOptions": {
-        "type": "select"
+        "type": "select",
+        "update": {
+          "type": "none"
+        }
       },
       "descending": {
         "type": "boolean"

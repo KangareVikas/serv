@@ -41,7 +41,7 @@ declare module 'app/app.screens' {
 	import { about_PhonePortrait } from 'app/../pages/about/PhonePortrait/about';
 	import { settings_PhonePortrait } from 'app/../pages/settings/PhonePortrait/settings';
 	export class Screens {
-	    static declarations: (typeof MenuComponent | typeof home_PhonePortrait | typeof incident_newissue_PhonePortrait)[];
+	    static declarations: (typeof MenuComponent | typeof inserts_homelogo_PhonePortrait | typeof incident_newissue_PhonePortrait)[];
 	    static mapping: {
 	        'login': {
 	            PhonePortrait: typeof login_PhonePortrait;
