@@ -4,6 +4,9 @@
  * @param {Vars} vars
 */
 exports.showIncidents = async (session, models, vars) => {
+    if (models.tickets_mytickets.ticketsType !== 'incidents') {
+
+    }
 };
 /**
  * @param {Session} session
@@ -11,6 +14,9 @@ exports.showIncidents = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showRequests = async (session, models, vars) => {
+    if (models.tickets_mytickets.ticketsType !== 'requests') {
+
+    }
 };
 /**
  * @param {Session} session
@@ -18,6 +24,9 @@ exports.showRequests = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showNeedAttention = async (session, models, vars) => {
+    if (models.tickets_mytickets.statusFilter !== 'needAttention') {
+
+    }
 };
 /**
  * @param {Session} session
@@ -25,6 +34,9 @@ exports.showNeedAttention = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showOpenTickets = async (session, models, vars) => {
+    if (models.tickets_mytickets.statusFilter !== 'openTickets') {
+
+    }
 };
 /**
  * @param {Session} session
