@@ -30,6 +30,6 @@ export class home_PhonePortrait extends Screen {
   }
 
   searchArticle() {
-      this.method('search', { searchKey: data.searchKey });
+      this.method('search', { searchKey: this.data.searchKey });
   }
 }
