@@ -47,6 +47,14 @@ exports.onload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
+exports.onunload = async (session, models, vars) => { 
+    models.articles_findarticle.searchKey = '';
+}
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.back = async (session, models, vars) => {
     await session.screen('home');
 };
