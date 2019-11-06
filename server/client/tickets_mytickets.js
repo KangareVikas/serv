@@ -107,7 +107,31 @@ exports.showNeedAttention = async (session, models, vars) => {
 */
 exports.showOpenTickets = async (session, models, vars) => {
     if (models.tickets_mytickets.statusFilter !== 'openTickets') {
-        
+        models.tickets_mytickets.tickets = [];
+        models.tickets_mytickets.statusFilter = 'openTickets';
+        let ticketsFilter = [
+            ...vars.page.filters.common,
+            ...vars.page.filters.incidents,
+            ...vars.page.filters.opened
+        ];
+        let ticketsSorting = vars.page.ticketsSorting;
+        let fieldsList = vars.page.fieldsList;
+        let data = await session.rest.cherwellapi.getTickets({
+            access_token: vars.session.access_token,
+            incidentBusObId: vars.session.incidentBusObId,
+            ticketsFilter: ticketsFilter,
+            ticketsSorting: ticketsSorting
+        });
+        console.log('Tickets count:', data.body.businessObjects.length);
+        data.body.businessObjects.forEach(busOb => {
+            let result = {};
+            busOb.fields.forEach(field => {
+                if (fieldsList.includes(field.name)) {
+                    result[field.name] = field.value;
+                }
+            });
+            models.tickets_mytickets.tickets.push(result);
+        });
     }
 };
 /**
