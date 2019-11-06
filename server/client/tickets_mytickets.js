@@ -8,9 +8,9 @@ exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
     let ticketsSorting = [{
-        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
-        'sortDirection': 0
-    }];
+            'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+            'sortDirection': 0
+        }];
     let ticketsFilter = [
         {
             'dirty': true,
@@ -56,6 +56,7 @@ exports.onload = async (session, models, vars) => {
     let fieldsList = [
         'IncidentID',
         'Description',
+        'ShortDescription',
         'CreatedDateTime'
     ];
     let data = await session.rest.cherwellapi.getTickets({
