@@ -346,6 +346,9 @@
             },
             "select": {
               "type": "action"
+            },
+            "ShortDescription": {
+              "type": "string"
             }
           }
         }
