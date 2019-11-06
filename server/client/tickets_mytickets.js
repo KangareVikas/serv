@@ -55,7 +55,6 @@ exports.onload = async (session, models, vars) => {
     ];
     let fieldsList = [
         'IncidentID',
-        'Description',
         'ShortDescription',
         'CreatedDateTime'
     ];
