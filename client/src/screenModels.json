@@ -86,7 +86,7 @@
         "model": "footer"
       },
       "search": {
-        "type": "action"
+        "type": "method"
       }
     },
     "id": "home"
