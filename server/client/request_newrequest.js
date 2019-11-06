@@ -41,8 +41,8 @@ exports.submit = async (session, models, vars) => {
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            let locationString = `, LOCATION/SEAT: ${ models.request_newrequest.seat }`;
-            let descriptionString = `, ${ models.request_newrequest.description }`;
+            let locationString = models.request_newrequest.seat ? `, LOCATION/SEAT: ${ models.request_newrequest.seat }` : '';
+            let descriptionString = models.request_newrequest.description ? `, ${ models.request_newrequest.description }` : '';
             template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ vars.session.requestSubCategory }${locationString}${descriptionString}`;
             template.fields[i].dirty = true;
         }
