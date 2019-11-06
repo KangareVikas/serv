@@ -17,6 +17,14 @@ exports.onload = async (session, models, vars) => {
     models.request_newrequest.service = vars.session.requestService;
     models.request_newrequest.category = vars.session.requestCategory;
     models.request_newrequest.quantity = 1;
+    let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
+        access_token: vars.session.access_token,
+        incidentBusObId: vars.session.incidentBusObId
+    });
+    let list = configItem.body.values;
+    let options = [];
+    list.map(item => { options.push({ "label": item, "value": item }) });
+    models.request_newrequest.ConfigItemSelect = { "options": options, "selected": "" };
 };
 /**
  * @param {Session} session
@@ -33,7 +41,9 @@ exports.submit = async (session, models, vars) => {
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ vars.session.requestSubCategory }, LOCATION/SEAT: ${ models.request_newrequest.seat }, ${ models.request_newrequest.description }`;
+            let locationString = `, LOCATION/SEAT: ${ models.request_newrequest.seat }`;
+            let descriptionString = `, ${ models.request_newrequest.description }`;
+            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ vars.session.requestSubCategory }${locationString}${descriptionString}`;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'ShortDescription') {
@@ -74,6 +84,10 @@ exports.submit = async (session, models, vars) => {
         }
         if (template.fields[i].name === 'OwnedByTeam') {
             template.fields[i].value = 'Service Desk';
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'ConfigItemDisplayName' && models.request_newrequest.urgency.selected === '1') {
+            template.fields[i].value = models.request_newrequest.ConfigItemSelect.selected;
             template.fields[i].dirty = true;
         }
     }

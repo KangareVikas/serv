@@ -87,8 +87,10 @@ exports.submit = async (session, models, vars) => {
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
-            var type = models.incident_newissue.type.selected || 'Other';
-            template.fields[i].value = `TYPE: ${ models.incident_newissue.type.selected }, LOCATION/SEAT: ${ models.incident_newissue.seat }, ${ models.incident_newissue.description }`;
+            let type = models.incident_newissue.type.selected || 'Other';
+            let locationString = `, LOCATION/SEAT: ${ models.incident_newissue.seat }`;
+            let descriptionString = `, ${ models.incident_newissue.description }`;
+            template.fields[i].value = `TYPE: ${ type }${locationString}${descriptionString}`;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'ShortDescription') {
@@ -125,6 +127,10 @@ exports.submit = async (session, models, vars) => {
         }
         if (template.fields[i].name === 'OwnedByTeam') {
             template.fields[i].value = 'Service Desk';
+            template.fields[i].dirty = true;
+        }
+        if (template.fields[i].name === 'ConfigItemDisplayName' && models.incident_newissue.urgency.selected === '1') {
+            template.fields[i].value = models.incident_newissue.ConfigItemSelect.selected;
             template.fields[i].dirty = true;
         }
     }
