@@ -56,7 +56,6 @@ exports.onload = async (session, models, vars) => {
     let fieldsList = [
         'IncidentID',
         'ShortDescription',
-        'Description',
         'CreatedDateTime'
     ];
     let data = await session.rest.cherwellapi.getTickets({
