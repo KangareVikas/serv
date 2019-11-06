@@ -7,6 +7,8 @@ declare var window: any;
   templateUrl: 'newissue.html'
 })
 export class incident_newissue_PhonePortrait extends Screen {
+    @ViewChild('thumbnail') thumbnail;
+
     data: any;
     showAddInfo: boolean;
 
@@ -27,15 +29,13 @@ export class incident_newissue_PhonePortrait extends Screen {
       return true;
   }
 
-  async removeAttachment() {
-      await this.action('removeAttachment');
+  removeAttachment() {
       this.data.photo = null;
+      this.thumbnail.nativeElement.src = 'assets/images/pixel.png';
   }
   
   fileEvent(fileInput: Event) {
       this.data.filename = this.data.photo[0].name;
       this.data.size = this.data.photo[0].size;
-      console.log(this.data.filename)
-      console.log(this.data.size)
   }
 }
