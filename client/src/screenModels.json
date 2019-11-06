@@ -196,7 +196,13 @@
         "type": "string"
       },
       "photo": {
-        "type": "file"
+        "type": "file",
+        "update": {
+          "type": "action",
+          "action": [
+            "submit"
+          ]
+        }
       },
       "removeAttachment": {
         "type": "action"
