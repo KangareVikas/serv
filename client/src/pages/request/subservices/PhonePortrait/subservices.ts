@@ -38,7 +38,7 @@ export class request_subservices_PhonePortrait extends Screen {
             this.data.selectedServices.pop();
             const servicesQuantity = this.data.selectedServices.length;
             const title = this.data.selectedServices[servicesQuantity - 1].title;
-            this.method('goBack', { title: title });
+            this.method('previousService', { title: title });
         } else {
             this.action('back');
         }

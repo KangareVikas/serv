@@ -515,7 +515,7 @@
       "category": {
         "type": "string"
       },
-      "goBack": {
+      "previousService": {
         "type": "method",
         "parameters": {
           "title": {
