@@ -48,7 +48,7 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onunload = async (session, models, vars) => { 
-    delete models.articles_findarticle.searchKey;
+    models.articles_findarticle.searchKey = '';
 }
 /**
  * @param {Session} session
