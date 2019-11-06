@@ -98,7 +98,6 @@ exports.showNeedAttention = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
-
     }
 };
 /**
@@ -108,7 +107,7 @@ exports.showNeedAttention = async (session, models, vars) => {
 */
 exports.showOpenTickets = async (session, models, vars) => {
     if (models.tickets_mytickets.statusFilter !== 'openTickets') {
-
+        
     }
 };
 /**
