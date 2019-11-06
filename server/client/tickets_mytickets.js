@@ -3,6 +3,34 @@
  * @param {Models} models
  * @param {Vars} vars
 */
+exports.showIncidents = async (session, models, vars) => {
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.showRequests = async (session, models, vars) => {
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.showNeedAttention = async (session, models, vars) => {
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.showOpenTickets = async (session, models, vars) => {
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
@@ -50,9 +78,9 @@ exports.onload = async (session, models, vars) => {
         }
     ];
     let ticketsSorting = [{
-        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
-        'sortDirection': 0
-    }];
+            'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+            'sortDirection': 0
+        }];
     let fieldsList = [
         'IncidentID',
         'ShortDescription',
