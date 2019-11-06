@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Content } from 'ionic-angular';
 import { Screen } from 'app/screen';
 declare var window: any;
 
@@ -7,6 +8,7 @@ declare var window: any;
   templateUrl: 'subservices.html'
 })
 export class request_subservices_PhonePortrait extends Screen {
+    @ViewChild(Content) content: Content;
   data: any;
 
   ngOnInit(): void {
@@ -20,6 +22,7 @@ export class request_subservices_PhonePortrait extends Screen {
   }
 
   onDataLoad(data: any): void {
+      this.content.resize();
     // Logic to run when the screen's data is updated goes here.
   }
   onBackButton(): boolean {
