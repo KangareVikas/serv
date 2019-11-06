@@ -346,6 +346,9 @@
             },
             "ShortDescription": {
               "type": "string"
+            },
+            "Description": {
+              "type": "string"
             }
           }
         }
