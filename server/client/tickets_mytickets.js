@@ -59,7 +59,7 @@ exports.showRequests = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
-        models.tickets_mytickets.$$partialFields = { part: 'sortOptions' };
+        models.tickets_mytickets.$$partialFields = { full: ['tickets'], part: ['tickets'] };
 };
 /**
  * @param {Session} session
