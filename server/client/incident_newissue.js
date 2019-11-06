@@ -88,8 +88,8 @@ exports.submit = async (session, models, vars) => {
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
             let type = models.incident_newissue.type.selected || 'Other';
-            let locationString = `, LOCATION/SEAT: ${ models.incident_newissue.seat }`;
-            let descriptionString = `, ${ models.incident_newissue.description }`;
+            let locationString = models.incident_newissue.seat ? `, LOCATION/SEAT: ${ models.incident_newissue.seat }` : '';
+            let descriptionString = models.incident_newissue.description ? `, ${ models.incident_newissue.description }` : '';
             template.fields[i].value = `TYPE: ${ type }${locationString}${descriptionString}`;
             template.fields[i].dirty = true;
         }
