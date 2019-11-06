@@ -29,6 +29,10 @@ exports.showIncidents = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
+        models.tickets_mytickets.$$partialFields = {
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+        };
 };
 /**
  * @param {Session} session
@@ -59,7 +63,10 @@ exports.showRequests = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
-        models.tickets_mytickets.$$partialFields = { part: 'sortOptions' };
+        models.tickets_mytickets.$$partialFields = {
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+        };
 };
 /**
  * @param {Session} session
@@ -91,6 +98,10 @@ exports.showNeedAttention = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
+        models.tickets_mytickets.$$partialFields = {
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+        };
 };
 /**
  * @param {Session} session
@@ -122,6 +133,10 @@ exports.showOpenTickets = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
+        models.tickets_mytickets.$$partialFields = {
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+        };
 };
 /**
  * @param {Session} session
