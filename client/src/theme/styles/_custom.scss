@@ -9,3 +9,16 @@ ion-searchbar {
         box-shadow: none !important;
     }
 }
+
+ion-spinner {
+    transform: scale(2);
+}
+
+ion-app .loading-wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.loading-ios .spinner-ios line, .loading-ios .spinner-ios-small line {
+    stroke: #030e4e !important;
+}
