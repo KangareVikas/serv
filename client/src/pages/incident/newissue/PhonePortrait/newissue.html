@@ -48,7 +48,8 @@
         </ion-item>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
             <ion-label mode="ios">Type</ion-label>
-            <ion-select [(ngModel)]="data.type.selected" [disabled]="data.type.selected"
+            <ion-select [(ngModel)]="data.type.selected"
+                [disabled]="data.type.selected && data.type.selected !=''"
                 [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
                 name="select.1">
                 <ion-option *ngFor="let item of data.type.options" [innerHTML]="item.label"
