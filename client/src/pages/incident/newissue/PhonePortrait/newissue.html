@@ -98,6 +98,16 @@
                     [value]="item.value" data-comp-id="option.2"></ion-option>
             </ion-select>
         </ion-item>
+        <ion-item *ngIf="data.urgency.selected === 3" class="wrap-field"
+            data-comp-id="select.3" mode="ios">
+            <ion-label mode="ios">Item Display Name</ion-label>
+            <ion-select [(ngModel)]="data.ConfigItemSelect.selected"
+                [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
+                name="select.3">
+                <ion-option *ngFor="let item of data.ConfigItemSelect.options"
+                    [innerHTML]="item.label" [value]="item.value" data-comp-id="option.3"></ion-option>
+            </ion-select>
+        </ion-item>
         <ion-item data-comp-id="textarea.1" mode="ios">
             <ion-label class=" required" color="dark" mode="ios" stacked
                 style="font-size: 16px;">Short Description</ion-label>

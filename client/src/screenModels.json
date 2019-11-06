@@ -248,6 +248,9 @@
       },
       "filename": {
         "type": "string"
+      },
+      "ConfigItemSelect": {
+        "type": "select"
       }
     },
     "id": "incident_newissue"
