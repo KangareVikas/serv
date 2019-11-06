@@ -4,9 +4,7 @@
  * @param {Vars} vars
 */
 exports.showIncidents = async (session, models, vars) => {
-    if (models.tickets_mytickets.ticketsType !== 'incidents') {
         models.tickets_mytickets.tickets = [];
-        models.tickets_mytickets.ticketsType = 'incidents';
         models.tickets_mytickets.statusFilter = 'openTickets';
         let ticketsFilter = [
             ...vars.page.filters.common,
@@ -31,7 +29,6 @@ exports.showIncidents = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
-    }
 };
 /**
  * @param {Session} session
@@ -39,9 +36,7 @@ exports.showIncidents = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showRequests = async (session, models, vars) => {
-    if (models.tickets_mytickets.ticketsType !== 'requests') {
         models.tickets_mytickets.tickets = [];
-        models.tickets_mytickets.ticketsType = 'requests';
         let ticketsFilter = [
             ...vars.page.filters.common,
             ...vars.page.filters.requests
@@ -64,7 +59,6 @@ exports.showRequests = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
-    }
 };
 /**
  * @param {Session} session
@@ -72,10 +66,7 @@ exports.showRequests = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showNeedAttention = async (session, models, vars) => {
-    console.log(' $ $ $ $ $ : ', models.tickets_mytickets.statusFilter);
-    if (models.tickets_mytickets.statusFilter !== 'needAttention') {
         models.tickets_mytickets.tickets = [];
-        models.tickets_mytickets.statusFilter = 'needAttention';
         let ticketsFilter = [
             ...vars.page.filters.common,
             ...vars.page.filters.incidents,
@@ -99,7 +90,6 @@ exports.showNeedAttention = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
-    }
 };
 /**
  * @param {Session} session
@@ -107,9 +97,7 @@ exports.showNeedAttention = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showOpenTickets = async (session, models, vars) => {
-    if (models.tickets_mytickets.statusFilter !== 'openTickets') {
         models.tickets_mytickets.tickets = [];
-        models.tickets_mytickets.statusFilter = 'openTickets';
         let ticketsFilter = [
             ...vars.page.filters.common,
             ...vars.page.filters.incidents,
@@ -133,7 +121,6 @@ exports.showOpenTickets = async (session, models, vars) => {
             });
             models.tickets_mytickets.tickets.push(result);
         });
-    }
 };
 /**
  * @param {Session} session
