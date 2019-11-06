@@ -7,10 +7,6 @@ exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
-    let ticketsSorting = [{
-            'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
-            'sortDirection': 0
-        }];
     let ticketsFilter = [
         {
             'dirty': true,
@@ -53,9 +49,14 @@ exports.onload = async (session, models, vars) => {
             'value': 'Pending Approval'
         }
     ];
+    let ticketsSorting = [{
+        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+        'sortDirection': 0
+    }];
     let fieldsList = [
         'IncidentID',
         'ShortDescription',
+        'Description',
         'CreatedDateTime'
     ];
     let data = await session.rest.cherwellapi.getTickets({
