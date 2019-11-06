@@ -14,6 +14,8 @@ declare module 'app/screen' {
 declare module 'app/menu/menu' {
 	import { Screen } from 'app/screen';
 	export class MenuComponent extends Screen {
+	    doChat(): void;
+	    doCall(): void;
 	}
 
 }
@@ -36,8 +38,10 @@ declare module 'app/app.screens' {
 	import { tickets_viewincident_PhonePortrait } from 'app/../pages/tickets/viewincident/PhonePortrait/viewincident';
 	import { finduser_PhonePortrait } from 'app/../pages/finduser/PhonePortrait/finduser';
 	import { findticket_PhonePortrait } from 'app/../pages/findticket/PhonePortrait/findticket';
+	import { about_PhonePortrait } from 'app/../pages/about/PhonePortrait/about';
+	import { settings_PhonePortrait } from 'app/../pages/settings/PhonePortrait/settings';
 	export class Screens {
-	    static declarations: typeof MenuComponent[];
+	    static declarations: (typeof MenuComponent | typeof home_PhonePortrait | typeof incident_newissue_PhonePortrait)[];
 	    static mapping: {
 	        'login': {
 	            PhonePortrait: typeof login_PhonePortrait;
@@ -86,6 +90,12 @@ declare module 'app/app.screens' {
 	        };
 	        'findticket': {
 	            PhonePortrait: typeof findticket_PhonePortrait;
+	        };
+	        'about': {
+	            PhonePortrait: typeof about_PhonePortrait;
+	        };
+	        'settings': {
+	            PhonePortrait: typeof settings_PhonePortrait;
 	        };
 	    };
 	}
@@ -173,6 +183,13 @@ declare module 'app/app.component' {
 	import { TBootstrap } from 'smartux-client';
 	export class ClientApp extends Screen {
 	    constructor(bootstrap: TBootstrap, hooks: Hooks);
+	}
+
+}
+declare module 'app/search.pipe' {
+	import { PipeTransform } from 'app/@angular/core';
+	export class SearchPipe implements PipeTransform {
+	    transform(items: any[], terms: string, field: string): any[];
 	}
 
 }
