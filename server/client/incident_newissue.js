@@ -5,6 +5,7 @@
 */
 exports.onload = async (session, models, vars) => {
     vars.page.prevScreen = session.currentScreen();
+    console.log('prevvvv ------> ', vars.page.prevScreen);
     if (session.currentScreen() !== 'finduser') {
         models.incident_newissue = {};
     }
