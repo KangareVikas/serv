@@ -48,8 +48,7 @@ exports.onload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.onunload = async (session, models, vars) => {
-    console.log('ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD');
+exports.clearSearch = async (session, models, vars) => {
     models.articles_findarticle.searchKey = '';
 };
 /**
