@@ -10,4 +10,7 @@ screen-home-phoneportrait {
     .search-button {
         height: 40px;
     }
+    ion-item, .item-inner {
+        box-shadow: none !important;
+    }
 }
