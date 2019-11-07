@@ -10,6 +10,9 @@ export class login_PhonePortrait extends Screen {
   data: any;
 
   ngOnInit(): void {
+    if (window && window.screen && window.screen.orientation) {
+      window.screen.orientation.lock('portrait');
+    }
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
   }
