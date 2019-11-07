@@ -89,7 +89,6 @@ exports.submit = async (session, models, vars) => {
         includeRequired: true,
         includeAll: true
     });
-    console.log(requestData.body);
     let template = requestData.body;
     for (var i = 0; i < template.fields.length; i++) {
         if (template.fields[i].name === 'Description') {
@@ -151,7 +150,6 @@ exports.submit = async (session, models, vars) => {
             models.incident_newissue.result.error = result.body.errorMessage;
         } else {
             if (result.body.busObPublicId) {
-                console.log('busObPublicId: ' + result.body.busObPublicId);
                 models.incident_newissue.result.busObPublicId = result.body.busObPublicId;
                 if (models.incident_newissue.photo) {
                     let data = await session.rest.cherwellapi.getIncidentBusObRecId({
@@ -173,14 +171,11 @@ exports.submit = async (session, models, vars) => {
                         totalsize: totalsize,
                         busobrecid: incidentBusObRecId
                     });
-                    console.log(attachResult);
-                    console.log('incidentBusObRecId: ' + incidentBusObRecId);
                     let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
                         incidentBusObId: vars.session.incidentBusObId,
                         busObPublicId: models.incident_newissue.result.busObPublicId,
                         access_token: vars.session.access_token
                     });
-                    console.log(attachmentsResponse.body);
                 }
             }
         }

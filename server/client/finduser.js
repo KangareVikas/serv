@@ -21,7 +21,6 @@ exports.search = async (session, models, vars) => {
         access_token: vars.session.access_token,
         fullNamefieldId: vars.session.fullNamefieldId
     });
-    console.log(result.body);
     models.finduser.users = [];
     let requiredFields = [
         'LastName',
