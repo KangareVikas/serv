@@ -144,7 +144,7 @@ exports.showOpenTickets = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    console.log('Prev: ', session.currentScreen());
+    vars.page.prevScreen = session.currentScreen();
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
@@ -263,7 +263,6 @@ exports['tickets[].select'] = async (session, models, vars) => {
         }
     });
     vars.session.busObPublicId = vars.item.IncidentID;
-    console.log('Prev 2 & & & & & --->: ', session.currentScreen());
     await session.screen('tickets_viewincident');
 };
 /**
