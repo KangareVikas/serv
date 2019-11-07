@@ -198,4 +198,5 @@ exports['footer.newIssue'] = async (session, models, vars) => {
 */
 exports.onunload = async (session, models, vars) => {
     models.home.footer = { active: '' };
+    vars.session.prevScreen = session.currentScreen();
 };
