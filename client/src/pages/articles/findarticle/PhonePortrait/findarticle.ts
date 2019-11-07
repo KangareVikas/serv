@@ -30,7 +30,8 @@ export class articles_findarticle_PhonePortrait extends Screen {
       return true;
   }
 
-  ionViewWillLeave() {
-      this.action('clearSearch');
+  ionViewWillLeave(): Promise<void> {
+      super.ionViewWillLeave();
+      return this.action('clearSearch');
   }
 }
