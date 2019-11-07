@@ -1,3 +1,10 @@
+const trigger = require('smartux-connect').trigger;
+trigger({
+    id: 'client.home.onunload',
+    events: ['client.home.onunload']
+}, async (session, models, vars) => {
+    vars.session.prevScreen = session.currentScreen();
+    });
 /**
  * @param {Session} session
  * @param {Models} models
