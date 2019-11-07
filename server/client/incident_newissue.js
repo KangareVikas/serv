@@ -20,6 +20,21 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.urgency.selected = 2;
     models.incident_newissue.type = vars.session.selectionItemsMap;
     models.incident_newissue.footer = { active: 'newIssue' };
+    if (!vars.session.configItemDisplayNameFieldId) {
+        let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
+            access_token: vars.session.access_token,
+            busObId: vars.session.incidentBusObId,
+            includeRequired: true,
+            includeAll: false
+        });
+        let data = requestData.body;
+        for (var i = 0; i < data.fields.length; i++) {
+            if (data.fields[i].name === 'ConfigItemDisplayName') {
+                vars.session.configItemDisplayNameFieldId = data.fields[i].fieldId;
+                break;
+            }
+        }
+    }
     let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId
