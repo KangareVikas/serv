@@ -322,6 +322,9 @@
       },
       "searchKey": {
         "type": "string"
+      },
+      "clearSearch": {
+        "type": "action"
       }
     },
     "id": "articles_findarticle"
