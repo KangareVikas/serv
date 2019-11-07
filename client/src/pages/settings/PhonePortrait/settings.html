@@ -30,7 +30,7 @@
                     </ion-item>
                     <ion-row data-comp-id="row.3">
                         <ion-col data-comp-id="column.4"
-                            style="padding: 0px 15px 15px; margin: -15px 0px 0px;">
+                            style="padding: 0px 15px 15px;">
                             <div color="dark" data-comp-id="text.2" ion-text
                                 style="width: 80%; line-height: 1.5em;">All
                                 {{getBiometricAuthType()}}s stored on this device can be used to log into this app.</div>
@@ -39,8 +39,7 @@
                 </div>
                 <ion-item data-comp-id="toggle.2">
                     <ion-label>Notifications</ion-label>
-                    <ion-toggle (ionChange)="action('toggleNotifications')"
-                        [checked]="data.notificationsEnabled" color="secondary" style></ion-toggle>
+                    <ion-toggle [checked]="data.notificationsEnabled" color="secondary" style></ion-toggle>
                 </ion-item>
             </ion-list>
         </ion-col>
