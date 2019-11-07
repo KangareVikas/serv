@@ -28,38 +28,39 @@
             <ion-input [(ngModel)]="data.byUser" mode="ios" placeholder="Type here..."
                 type="text"></ion-input>
         </ion-item>
-        <div (click)="action('search')" data-comp-id="div.1"
-            style="margin: 0; padding: 0;">
-            <ion-item data-comp-id="input.2" mode="ios">
-                <ion-icon class=" ion-ios-search" color="primary" item-right style></ion-icon>
-                <ion-label mode="ios">For</ion-label>
-                <ion-input [(ngModel)]="data.forUser" mode="ios" placeholder="Search..."
-                    type="text"></ion-input>
-            </ion-item>
-        </div>
-        <ion-item data-comp-id="input.3" mode="ios">
+        <ion-item (click)="action('search')" data-comp-id="item.1" mode="ios">
+            <span color="dark" data-comp-id="text.2" ion-text
+                style="width: 70px; margin: 0 65px 0 0;">For</span>
+            <span *ngIf="!data.forUser" color="medium" data-comp-id="text.3" ion-text
+                style="width: 70px;">Search...</span>
+            <span *ngIf="data.forUser" [innerHTML]="data.forUser" color="black"
+                data-comp-id="text.4" ion-text style="width: 70px;"></span>
+            <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.1" item-end
+                style></ion-icon>
+        </ion-item>
+        <ion-item data-comp-id="input.2" mode="ios">
             <ion-label mode="ios">Email</ion-label>
             <ion-input [(ngModel)]="data.email" mode="ios" placeholder="Type here..."
                 type="text"></ion-input>
         </ion-item>
-        <ion-item data-comp-id="input.4" mode="ios">
+        <ion-item data-comp-id="input.3" mode="ios">
             <ion-label class=" required" mode="ios">Phone</ion-label>
             <ion-input [(ngModel)]="data.phone" mode="ios" placeholder="Type here..."
                 type="text"></ion-input>
         </ion-item>
-        <ion-item data-comp-id="item.1" mode="ios">
-            <span color="dark" data-comp-id="text.2" ion-text
-                style="width: 90px; display: inline-block;">Service</span>
-            <span [innerHTML]="data.service" color="medium" data-comp-id="text.3" ion-text
-                style="width: 70px;"></span>
-        </ion-item>
         <ion-item data-comp-id="item.2" mode="ios">
-            <span color="dark" data-comp-id="text.4" ion-text
-                style="width: 90px; display: inline-block;">Category</span>
-            <span [innerHTML]="data.category" color="medium" data-comp-id="text.5" ion-text
+            <span color="dark" data-comp-id="text.5" ion-text
+                style="width: 90px; display: inline-block;">Service</span>
+            <span [innerHTML]="data.service" color="medium" data-comp-id="text.6" ion-text
                 style="width: 70px;"></span>
         </ion-item>
-        <ion-item data-comp-id="input.5" mode="ios">
+        <ion-item data-comp-id="item.3" mode="ios">
+            <span color="dark" data-comp-id="text.7" ion-text
+                style="width: 90px; display: inline-block;">Category</span>
+            <span [innerHTML]="data.category" color="medium" data-comp-id="text.8" ion-text
+                style="width: 70px;"></span>
+        </ion-item>
+        <ion-item data-comp-id="input.4" mode="ios">
             <ion-label mode="ios">Location or Seats</ion-label>
             <ion-input [(ngModel)]="data.seat" mode="ios" placeholder="Type here..."
                 type="text"></ion-input>
@@ -87,7 +88,7 @@
             <ion-col col-auto data-comp-id="column.5"
                 style="margin: 0; padding: 0; min-width: 50px; text-align: center; border-bottom: 0.55px solid #c8c7cc;">
                 <ion-icon (click)="action('removeAttachment')" class=" ion-ios-remove-circle"
-                    color="stable" data-comp-id="icon.1" style="font-size: 24px; padding: 10px;"></ion-icon>
+                    color="stable" data-comp-id="icon.2" style="font-size: 24px; padding: 10px;"></ion-icon>
             </ion-col>
             <ion-col data-comp-id="column.6" style="padding: 0;">
                 <ion-list data-comp-id="list.2"></ion-list>
@@ -122,12 +123,12 @@
             style="padding: 8px 0px 0px 16px;">
             <ion-col col-auto data-comp-id="column.7" style="padding: 8px 0;">
                 <ion-icon *ngIf="showAddInfo" class=" ion-ios-arrow-down-outline"
-                    color="primary" data-comp-id="icon.2" style="font-size: 17px;"></ion-icon>
-                <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
                     color="primary" data-comp-id="icon.3" style="font-size: 17px;"></ion-icon>
+                <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
+                    color="primary" data-comp-id="icon.4" style="font-size: 17px;"></ion-icon>
             </ion-col>
             <ion-col data-comp-id="column.8" style="padding: 8px;">
-                <div color="primary" data-comp-id="text.6" ion-text style>Additional Information</div>
+                <div color="primary" data-comp-id="text.9" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>
         <ion-item *ngIf="showAddInfo" data-comp-id="textarea.2" mode="ios">
@@ -139,7 +140,7 @@
             style="margin: 32px 16px 16px; padding: 16px 16px 8px; border-radius: 6px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
             <ion-col col-12 data-comp-id="column.9" style="padding: 0; margin: 0;">
                 <ion-list data-comp-id="list.3" style="margin: 0 0 8px;">
-                    <ion-item data-comp-id="input.6"
+                    <ion-item data-comp-id="input.5"
                         style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
                         <ion-label color="black" style>Quantity:</ion-label>
                         <ion-input [(ngModel)]="data.quantity" [readonly]="true" color="black"
@@ -149,16 +150,16 @@
             </ion-col>
             <ion-col data-comp-id="column.10"
                 style="padding: 0; margin: 0; text-align: left;">
-                <div color="black" data-comp-id="text.7" ion-text
+                <div color="black" data-comp-id="text.10" ion-text
                     style="font-size: 17px; margin: 8px 8px 0 16px;">Order Total:</div>
             </ion-col>
             <ion-col data-comp-id="column.11"
                 style="margin: 0; padding: 0; text-align: right;">
-                <div color="contrast" data-comp-id="text.8" ion-text
+                <div color="contrast" data-comp-id="text.11" ion-text
                     style="font-size: 24px; font-weight: bold; margin: 4px;">$0.00</div>
             </ion-col>
         </ion-row>
-        <div data-comp-id="div.2" style="padding: 16px; margin: 0;">
+        <div data-comp-id="div.1" style="padding: 16px; margin: 0;">
             <button (click)="action('submit')" color="secondary" data-comp-id="button.3"
                 full ion-button mode="ios" style="border-radius: 20px;">
                 <span>Submit</span>
