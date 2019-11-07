@@ -26,6 +26,46 @@
       "path": "grant_type_refresh_token",
       "arrayId": "customSettingsSchema.grant_type_refresh_token",
       "arrayPath": "grant_type_refresh_token"
+    },
+    "byUser": {
+      "type": "string",
+      "id": "customSettingsSchema.byUser",
+      "name": "byUser",
+      "path": "byUser",
+      "arrayId": "customSettingsSchema.byUser",
+      "arrayPath": "byUser"
+    },
+    "forUser": {
+      "type": "string",
+      "id": "customSettingsSchema.forUser",
+      "name": "forUser",
+      "path": "forUser",
+      "arrayId": "customSettingsSchema.forUser",
+      "arrayPath": "forUser"
+    },
+    "email": {
+      "type": "string",
+      "id": "customSettingsSchema.email",
+      "name": "email",
+      "path": "email",
+      "arrayId": "customSettingsSchema.email",
+      "arrayPath": "email"
+    },
+    "phone": {
+      "type": "string",
+      "id": "customSettingsSchema.phone",
+      "name": "phone",
+      "path": "phone",
+      "arrayId": "customSettingsSchema.phone",
+      "arrayPath": "phone"
+    },
+    "customerRecId": {
+      "type": "string",
+      "id": "customSettingsSchema.customerRecId",
+      "name": "customerRecId",
+      "path": "customerRecId",
+      "arrayId": "customSettingsSchema.customerRecId",
+      "arrayPath": "customerRecId"
     }
   },
   "arrayId": "customSettingsSchema",

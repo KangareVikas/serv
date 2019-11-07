@@ -78,7 +78,6 @@ module.exports = {
                 auth: { type: 'none' },
                 custom: {
                     apikey: '81b8a693-a448-4275-bd9e-937ae6387b7c',
-                    grant_type: 'password',
                     grant_type_password: 'password',
                     grant_type_refresh_token: 'refresh_token',
                     byUser: 'Evan Employee',
