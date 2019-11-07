@@ -41,7 +41,7 @@ export class incident_newissue_PhonePortrait extends Screen {
 
   ionViewWillLeave(): Promise<void> {
     super.ionViewWillLeave();
-    this.action('clearData');
+    return this.action('clearData');
   }
 
 }
