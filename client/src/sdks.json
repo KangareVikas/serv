@@ -38,18 +38,21 @@
     "id": "cordova-plugin-camera"
   },
   {
+    "id": "cordova-plugin-file-transfer"
+  },
+  {
     "id": "cordova-plugin-keychain-touch-id"
   },
   {
     "id": "cordova-plugin-file-opener2"
   },
   {
-    "id": "cordova-plugin-file"
-  },
-  {
     "id": "cordova-plugin-x-socialsharing"
   },
   {
-    "id": "cordova-plugin-file-transfer"
+    "id": "cordova-plugin-file"
+  },
+  {
+    "id": "cordova-plugin-splashscreen"
   }
 ]
