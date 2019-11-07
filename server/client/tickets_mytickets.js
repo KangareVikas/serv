@@ -269,14 +269,6 @@ exports['tickets[].select'] = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.onunload = async (session, models, vars) => {
-    models.tickets_mytickets.footer = { active: '' };
-};
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
-*/
 exports['footer.home'] = async (session, models, vars) => {
     await session.screen('home');
 };

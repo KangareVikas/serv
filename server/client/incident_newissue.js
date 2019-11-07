@@ -210,7 +210,6 @@ exports.clearData = async (session, models, vars) => {
     vars.session.forUser = null;
     vars.session.customerRecId = null;
     vars.session.prevScreen = null;
-    models.incident_newissue.footer = { active: '' };
 };
 /**
  * @param {Session} session
