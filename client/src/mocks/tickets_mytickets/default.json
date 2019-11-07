@@ -6,19 +6,19 @@
   "statusFilter": "openTickets",
   "tickets": [
     {
-      "CreatedDateTime": "10/16/2019 12:00:00 am",
       "IncidentID": "1003425",
-      "ShortDescription": "I need help with my Computer or Device because it will not startup"
+      "ShortDescription": "I need help with my Computer or Device because it will not startup",
+      "CreatedDateTime": "10/16/2019 12:00:00 am"
     },
     {
-      "CreatedDateTime": "10/10/2019 12:00:00 am",
       "IncidentID": "1003424",
-      "ShortDescription": "I need help with my Building / Facilities relating to conference / room reservations"
+      "ShortDescription": "I need help with my Building / Facilities relating to conference / room reservations",
+      "CreatedDateTime": "10/10/2019 12:00:00 am"
     },
     {
-      "CreatedDateTime": "9/30/2019 12:00:00 am",
       "IncidentID": "1003423",
-      "ShortDescription": "I need help with my Desk Environment regarding my monitor"
+      "ShortDescription": "I need help with my Desk Environment regarding my monitor",
+      "CreatedDateTime": "9/30/2019 12:00:00 am"
     }
   ],
   "selectTicket": {},

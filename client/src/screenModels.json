@@ -350,8 +350,7 @@
           "type": "object",
           "properties": {
             "CreatedDateTime": {
-              "type": "date",
-              "format": "M/D/YYYY h:mm:ss a"
+              "type": "string"
             },
             "IncidentID": {
               "type": "string"
