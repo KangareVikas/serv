@@ -263,6 +263,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
         }
     });
     vars.session.busObPublicId = vars.item.IncidentID;
+    console.log('Prev 2 & & & & & --->: ', session.currentScreen());
     await session.screen('tickets_viewincident');
 };
 /**
