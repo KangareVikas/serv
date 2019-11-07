@@ -24,25 +24,29 @@
     </ion-col>
     <ion-col (click)="goTo('chat')" data-comp-id="column.3"
         style="text-align: center; padding: 10px 0 0; max-width: 18%;">
-        <img *ngIf="data.footer.active === 'chat'" data-comp-id="img.5"
-            src="assets/images/inserts/footer/chat_icon_act.png"
-            style="width: auto; height: 23px;">
-        <img *ngIf="data.footer.active !== 'chat'" data-comp-id="img.6"
-            src="assets/images/inserts/footer/chat_icon.png"
-            style="width: auto; height: 23px;">
-        <div color="{{data.footer.active === 'chat' ? 'primary' : 'dark'}}"
-            data-comp-id="text.3" ion-text style="font-size: 12px; line-height: 30px;">Chat</div>
+        <a href="slack://open">
+            <img *ngIf="data.footer.active === 'chat'" data-comp-id="img.5"
+                src="assets/images/inserts/footer/chat_icon_act.png"
+                style="width: auto; height: 23px;">
+            <img *ngIf="data.footer.active !== 'chat'" data-comp-id="img.6"
+                src="assets/images/inserts/footer/chat_icon.png"
+                style="width: auto; height: 23px;">
+            <div color="{{data.footer.active === 'chat' ? 'primary' : 'dark'}}"
+                data-comp-id="text.3" ion-text style="font-size: 12px; line-height: 30px;">Chat</div>
+        </a>
     </ion-col>
     <ion-col (click)="goTo('call')" data-comp-id="column.4"
         style="text-align: center; padding: 10px 0 0; max-width: 17%;">
-        <img *ngIf="data.footer.active === 'call'" data-comp-id="img.7"
-            src="assets/images/inserts/footer/call_icon_act.png"
-            style="width: auto; height: 23px;">
-        <img *ngIf="data.footer.active !== 'call'" data-comp-id="img.8"
-            src="assets/images/inserts/footer/call_icon.png"
-            style="width: auto; height: 23px;">
-        <div color="{{data.footer.active === 'call' ? 'primary' : 'dark'}}"
-            data-comp-id="text.4" ion-text style="font-size: 12px; line-height: 30px;">Call</div>
+        <a href="tel:1234567890">
+            <img *ngIf="data.footer.active === 'call'" data-comp-id="img.7"
+                src="assets/images/inserts/footer/call_icon_act.png"
+                style="width: auto; height: 23px;">
+            <img *ngIf="data.footer.active !== 'call'" data-comp-id="img.8"
+                src="assets/images/inserts/footer/call_icon.png"
+                style="width: auto; height: 23px;">
+            <div color="{{data.footer.active === 'call' ? 'primary' : 'dark'}}"
+                data-comp-id="text.4" ion-text style="font-size: 12px; line-height: 30px;">Call</div>
+        </a>
     </ion-col>
     <ion-col (click)="goTo('newIssue')" data-comp-id="column.5"
         style="text-align: center; padding: 10px 0 0;">
