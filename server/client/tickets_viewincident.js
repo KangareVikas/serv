@@ -5,6 +5,7 @@ const fs = require('fs');
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    vars.page.prevScreen = session.currentScreen();
     console.log("vars.session.busObPublicId  " + vars.session.busObPublicId)
     let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
         incidentBusObId: vars.session.incidentBusObId,
