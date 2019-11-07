@@ -22,10 +22,15 @@ export class articles_findarticle_PhonePortrait extends Screen {
   onDataLoad(data: any): void {
     // Logic to run when the screen's data is updated goes here.
   }
+
   onBackButton(): boolean {
     //(Android) returns :
     // true - handle the event in App Hooks
     // false - stop the event propogation
       return true;
+  }
+
+  ionViewDidLeave() {
+      this.data.searchKey = '';
   }
 }

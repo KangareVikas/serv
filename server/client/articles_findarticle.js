@@ -16,6 +16,7 @@ exports['articles[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    console.log('ONLOAD ONLOAD ONLOAD ONLOAD ONLOAD ONLOAD');
     models.articles_findarticle.articles = [];
     if (!vars.session.kbBusObId || vars.session.kbStateFieldId) {
         let output = await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
@@ -47,9 +48,10 @@ exports.onload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.onunload = async (session, models, vars) => { 
+exports.onunload = async (session, models, vars) => {
+    console.log('ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD ONUNLOAD');
     models.articles_findarticle.searchKey = '';
-}
+};
 /**
  * @param {Session} session
  * @param {Models} models
