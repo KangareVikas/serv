@@ -30,6 +30,8 @@ exports['tickets[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    vars.page.prevScreen = vars.session.prevScreen;
+    vars.session.prevScreen = session.currentScreen();
     if (!vars.session.firstNamefieldId || !vars.session.lastNamefieldId) {
         console.log('Fetching firstNamefieldId, lastNamefieldId and fullNamefieldId');
         let output = await session.rest.cherwellapi.getBusinessObjectSchema({
