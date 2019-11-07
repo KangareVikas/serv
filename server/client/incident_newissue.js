@@ -6,20 +6,21 @@
 exports.onload = async (session, models, vars) => {
     vars.page.prevScreen = session.currentScreen();
     console.log('prevvvv ------> ', vars.page.prevScreen);
-    if (session.currentScreen() !== 'finduser') {
+    if (vars.page.prevScreen !== 'finduser') {
         models.incident_newissue = {};
     }
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
     models.incident_newissue.forUser = models.incident_newissue.forUser || vars.session.forUser || vars.config.rest.cherwellapi.custom.forUser;
     models.incident_newissue.email = vars.config.rest.cherwellapi.custom.email;
     models.incident_newissue.phone = vars.config.rest.cherwellapi.custom.phone;
-    models.incident_newissue.typeDisabled = !!vars.session.selectedCatagoryLabel;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
     models.incident_newissue.urgency = models.incident_newissue.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
     models.incident_newissue.urgency.selected = models.incident_newissue.urgency.selected || 2;
-    models.incident_newissue.type = JSON.parse(JSON.stringify(vars.session.selectionItemsMap));
-    models.incident_newissue.type.selected = vars.session.selectedCatagoryLabel;
+    models.incident_newissue.type = models.incident_newissue.type || JSON.parse(JSON.stringify(vars.session.selectionItemsMap));
+    models.incident_newissue.type.selected = models.incident_newissue.type.selected || vars.session.selectedCatagoryLabel;
+    models.incident_newissue.typeDisabled = typeof models.incident_newissue.typeDisabled === "boolean" ?
+        models.incident_newissue.typeDisabled : !!models.incident_newissue.type.selected;
     models.incident_newissue.footer = { active: 'newIssue' };
     if (!vars.session.configItemDisplayNameFieldId) {
         let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
