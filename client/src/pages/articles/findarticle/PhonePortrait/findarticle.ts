@@ -31,6 +31,6 @@ export class articles_findarticle_PhonePortrait extends Screen {
   }
 
   ionViewDidLeave() {
-      this.data.searchKey = '';
+      this.action('clearSearch');
   }
 }
