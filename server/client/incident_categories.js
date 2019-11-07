@@ -12,7 +12,6 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.selectCategory = async (session, models, vars) => {
-    console.log(vars.params.title);
     if (vars.params.title === 'other') {
         vars.session.selectedCatagoryLabel = '';
         vars.session.selectedCatagorySuffix = '';

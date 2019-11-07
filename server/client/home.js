@@ -30,8 +30,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (!vars.session.firstNamefieldId || !vars.session.lastNamefieldId) {
-        console.log('Fetching firstNamefieldId, lastNamefieldId and fullNamefieldId');
+    if (!vars.session.fullNamefieldId) {
         let output = await session.rest.cherwellapi.getBusinessObjectSchema({
             custBusObId: vars.session.custBusObId,
             access_token: vars.session.access_token
@@ -57,16 +56,11 @@ exports.onload = async (session, models, vars) => {
                 break;
             }
         }
-    }
-    console.log('firstNamefieldId: ' + vars.session.firstNamefieldId);
-    console.log('lastNamefieldId: ' + vars.session.lastNamefieldId);
+    };
     if (!vars.session.incidentBusObId) {
-        console.log('Fetching incidentBusObId');
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
         vars.session.incidentBusObId = data1.body[0].busObId;
-        console.log(data1.body);
     }
-    console.log('incidentBusObId: ' + vars.session.incidentBusObId);
     if (!vars.session.incidentFieldsIds) {
         vars.session.incidentFieldsIds = {};
         console.log('Fetching fields IDs for Incedent');

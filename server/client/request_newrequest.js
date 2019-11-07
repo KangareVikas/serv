@@ -142,14 +142,11 @@ exports.submit = async (session, models, vars) => {
                     totalsize: totalsize,
                     busobrecid: incidentBusObRecId
                 });
-                console.log(attachResult);
-                console.log("incidentBusObRecId: " + incidentBusObRecId)
                 let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
                     incidentBusObId: vars.session.incidentBusObId,
                     busObPublicId: models.request_newrequest.result.busObPublicId,
                     access_token: vars.session.access_token
                 });
-                console.log(attachmentsResponse.body)
             }
         }
     } catch (e) {
