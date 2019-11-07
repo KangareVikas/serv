@@ -30,7 +30,7 @@ export class articles_findarticle_PhonePortrait extends Screen {
       return true;
   }
 
-  ionViewDidLeave() {
+  ionViewWillLeave() {
       this.action('clearSearch');
   }
 }
