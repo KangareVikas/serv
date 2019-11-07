@@ -54,5 +54,9 @@
   },
   {
     "id": "cordova-plugin-splashscreen"
+  },
+  {
+    "id": "cordova-plugin-wkkeyboardfix",
+    "default": true
   }
 ]
