@@ -310,8 +310,7 @@
               "type": "string"
             },
             "CreatedDateTime": {
-              "type": "date",
-              "format": "M/D/YYYY h:mm:ss a"
+              "type": "string"
             },
             "select": {
               "type": "action"
