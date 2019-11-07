@@ -32,6 +32,10 @@
     "default": true
   },
   {
+    "id": "cordova-plugin-wkkeyboardfix",
+    "default": true
+  },
+  {
     "id": "phonegap-plugin-barcodescanner"
   },
   {
@@ -39,6 +43,9 @@
   },
   {
     "id": "cordova-plugin-file-transfer"
+  },
+  {
+    "id": "cordova-plugin-splashscreen"
   },
   {
     "id": "cordova-plugin-keychain-touch-id"
@@ -53,10 +60,6 @@
     "id": "cordova-plugin-file"
   },
   {
-    "id": "cordova-plugin-splashscreen"
-  },
-  {
-    "id": "cordova-plugin-wkkeyboardfix",
-    "default": true
+    "id": "phonegap-plugin-push"
   }
 ]
