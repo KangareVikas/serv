@@ -40,9 +40,9 @@ module.exports = {
     // Configure how long the session lives without client connections.
     connectionWaitTimes: {
         // # of seconds that a disconnected session stays.
-        disconnected: 5 * 60,
+        disconnected: 25 * 60,
         // # of seconds to wait for the first initial connection.  If not set, defaults to 'disconnected' time.
-        firstconnect: 3 * 60
+        firstconnect: 5 * 60
     },
     // How long a file download token is valid for once it's first accessed. (Default is 10 minutes)
     fileDownloadTokenValidTime: 10 * 60 * 1000,
