@@ -76,10 +76,6 @@ exports.start = async (session, models, vars) => {
     vars.session.urgencyMap = {
         options: [
             {
-                'label': '',
-                'value': ''
-            },
-            {
                 'label': '1- High',
                 'value': '1'
             },

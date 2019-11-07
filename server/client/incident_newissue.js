@@ -37,7 +37,8 @@ exports.onload = async (session, models, vars) => {
     }
     let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
         access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId
+        incidentBusObId: vars.session.incidentBusObId,
+        configItemDisplayNameFieldId: vars.session.configItemDisplayNameFieldId
     });
     let list = configItem.body.values;
     let options = [];
