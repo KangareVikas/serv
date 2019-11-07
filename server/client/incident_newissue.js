@@ -68,7 +68,7 @@ exports.back = async (session, models, vars) => {
         if (vars.session.selectedCatagoryLabel) {
             await session.screen('incident_categories');
         } else {
-            await session.screen(vars.page.prevScreen || 'home');
+            await session.screen(vars.session.prevScreen || 'home');
         }
     }
 };
@@ -209,6 +209,7 @@ exports.clearData = async (session, models, vars) => {
     vars.session.selectedSubCatagoryLabel = null;
     vars.session.forUser = null;
     vars.session.customerRecId = null;
+    vars.session.prevScreen = null;
     models.incident_newissue.footer = { active: '' };
 };
 /**
