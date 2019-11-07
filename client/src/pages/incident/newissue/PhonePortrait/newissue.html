@@ -25,7 +25,7 @@
     <ion-list data-comp-id="list.1" style="margin: -1px 0px 82px;">
         <ion-item data-comp-id="input.1" mode="ios">
             <ion-label class=" required" mode="ios">By</ion-label>
-            <ion-input [(ngModel)]="data.byUser" [readonly]="true" mode="ios"
+            <ion-input [(ngModel)]="data.byUser" disabled mode="ios"
                 placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item (click)="action('search')" data-comp-id="item.1" mode="ios">
@@ -34,18 +34,18 @@
             <span *ngIf="!data.forUser" color="medium" data-comp-id="text.3" ion-text
                 style="width: 70px;">Search...</span>
             <span *ngIf="data.forUser" [innerHTML]="data.forUser" color="black"
-                data-comp-id="text.5" ion-text style="width: 70px;"></span>
+                data-comp-id="text.4" ion-text style="width: 70px;"></span>
             <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.1" item-end
                 style></ion-icon>
         </ion-item>
         <ion-item data-comp-id="input.2" mode="ios">
             <ion-label mode="ios">Email</ion-label>
-            <ion-input [(ngModel)]="data.email" [readonly]="true" mode="ios"
+            <ion-input [(ngModel)]="data.email" disabled mode="ios"
                 placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item data-comp-id="input.3" mode="ios">
             <ion-label class=" required" mode="ios">Phone</ion-label>
-            <ion-input [(ngModel)]="data.phone" [readonly]="true" mode="ios"
+            <ion-input [(ngModel)]="data.phone" disabled mode="ios"
                 placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
@@ -125,7 +125,7 @@
                     color="primary" data-comp-id="icon.4" style="font-size: 17px;"></ion-icon>
             </ion-col>
             <ion-col data-comp-id="column.8" style="padding: 8px;">
-                <div color="primary" data-comp-id="text.4" ion-text style>Additional Information</div>
+                <div color="primary" data-comp-id="text.5" ion-text style>Additional Information</div>
             </ion-col>
         </ion-row>
         <ion-item *ngIf="showAddInfo" data-comp-id="textarea.2" mode="ios">
