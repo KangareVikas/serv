@@ -4,6 +4,7 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    vars.page.prevScreen = session.currentScreen();
 };
 /**
  * @param {Session} session
@@ -11,7 +12,7 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
-    await session.screen('articles_findarticle');
+    await session.screen(vars.page.prevScreen || 'articles_findarticle');
 };
 /**
  * @param {Session} session
