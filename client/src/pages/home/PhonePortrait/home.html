@@ -32,16 +32,16 @@
                         style="border-top: 1px solid #1d428a; border-right: 1px solid #1d428a; border-bottom: 1px solid #1d428a; border-left: 1px solid #1d428a; margin: 10px 0px 0px;">
                         <ion-col align-self-center data-comp-id="column.4"
                             style="padding: 0px; margin: 0px 0px 0px;">
-                            <ion-list data-comp-id="list.2" style="margin: 0px 0px 0px;">
-                                <ion-item data-comp-id="input.1"
-                                    style="border-top: none; border-left: none; padding: 0px 0px 0px 16px; border-bottom: none;">
-                                    <form action=".">
+                            <form action=".">
+                                <ion-list data-comp-id="list.2" style="margin: 0px 0px 0px;">
+                                    <ion-item data-comp-id="input.1"
+                                        style="border-top: none; border-left: none; padding: 0px 0px 0px 16px; border-bottom: none;">
                                         <ion-input (keyup.enter)="searchArticle()" [(ngModel)]="data.searchKey"
                                             [ngModelOptions]="{standalone: true}" color="coal" placeholder="Find an article"
                                             style type="search"></ion-input>
-                                    </form>
-                                </ion-item>
-                            </ion-list>
+                                    </ion-item>
+                                </ion-list>
+                            </form>
                         </ion-col>
                         <ion-col data-comp-id="column.5" style="max-width: 47px; padding: 0px;">
                             <button (click)="method('search', {searchKey: data.searchKey})"
