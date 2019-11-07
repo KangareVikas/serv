@@ -4,20 +4,17 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    models.incident_newissue = {};
-    vars.session.selectionItemsMap.selected = '';
-    vars.session.urgencyMap.selected = '';
-    models.incident_newissue.byUser = vars.session.byUser || 'Evan Employee';
-    models.incident_newissue.forUser = vars.session.forUser || 'Evan Employee';
+    models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.byUser || 'Evan Employee';
+    models.incident_newissue.forUser = models.incident_newissue.forUser || vars.session.forUser || 'Evan Employee';
     models.incident_newissue.email = 'evan.employee@acme.com';
     models.incident_newissue.phone = '6523455679';
-    models.incident_newissue.shortDescription = `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
+    models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
-    models.incident_newissue.urgency = vars.session.urgencyMap;
+    models.incident_newissue.urgency = models.incident_newissue.urgency || vars.session.urgencyMap;
     if (vars.session.selectedCatagoryLabel) {
         vars.session.selectionItemsMap.selected = vars.session.selectedCatagoryLabel;
     }
-    models.incident_newissue.urgency.selected = 2;
+    models.incident_newissue.urgency.selected = models.incident_newissue.urgency.selected || 2;
     models.incident_newissue.type = vars.session.selectionItemsMap;
     models.incident_newissue.footer = { active: 'newIssue' };
     if (!vars.session.configItemDisplayNameFieldId) {
@@ -35,15 +32,17 @@ exports.onload = async (session, models, vars) => {
             }
         }
     }
-    let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
-        access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId,
-        configItemDisplayNameFieldId: vars.session.configItemDisplayNameFieldId
-    });
-    let list = configItem.body.values;
-    let options = [];
-    list.map(item => { options.push({ "label": item, "value": item }) });
-    models.incident_newissue.ConfigItemSelect = { "options": options, "selected": "" };
+    if (!models.incident_newissue.ConfigItemSelect) {
+        let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
+            access_token: vars.session.access_token,
+            incidentBusObId: vars.session.incidentBusObId,
+            configItemDisplayNameFieldId: vars.session.configItemDisplayNameFieldId
+        });
+        let list = configItem.body.values;
+        let options = [];
+        list.map(item => { options.push({ "label": item, "value": item }) });
+        models.incident_newissue.ConfigItemSelect = { "options": options, "selected": "" };
+    }
 };
 /**
  * @param {Session} session
@@ -51,10 +50,7 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.cancel = async (session, models, vars) => {
-    vars.session.selectedCatagoryLabel = null;
-    vars.session.selectedSubCatagoryLabel = null;
-    vars.session.forUser = null;
-    vars.session.customerRecId = null;
+    models.incident_newissue = {};
     await session.screen('home');
 };
 /**
@@ -63,8 +59,7 @@ exports.cancel = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
-    vars.session.forUser = null;
-    vars.session.customerRecId = null;
+    models.incident_newissue = {};
     if (vars.session.selectedSubCatagoryLabel) {
         await session.screen('incident_subcategories');
     } else {
@@ -81,10 +76,7 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.home = async (session, models, vars) => {
-    vars.session.selectedCatagoryLabel = null;
-    vars.session.selectedSubCatagoryLabel = null;
-    vars.session.forUser = null;
-    vars.session.customerRecId = null;
+    models.incident_newissue = {};
     await session.screen('home');
 };
 /**
@@ -215,7 +207,14 @@ exports.search = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.onunload = async (session, models, vars) => {
+exports.clearData = async (session, models, vars) => {
+    vars.session.selectionItemsMap.selected = '';
+    vars.session.urgencyMap.selected = '';
+    vars.session.selectedCatagoryLabel = null;
+    vars.session.selectedCatagorySuffix = null;
+    vars.session.selectedSubCatagoryLabel = null;
+    vars.session.forUser = null;
+    vars.session.customerRecId = null;
     models.incident_newissue.footer = { active: '' };
 };
 /**
@@ -224,6 +223,7 @@ exports.onunload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.myTickets'] = async (session, models, vars) => {
+    models.incident_newissue = {};
     await session.screen('tickets_mytickets');
 };/**
  * @param {Session} session
@@ -231,5 +231,6 @@ exports['footer.myTickets'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.home'] = async (session, models, vars) => {
+    models.incident_newissue = {};
     await session.screen('home');
 };

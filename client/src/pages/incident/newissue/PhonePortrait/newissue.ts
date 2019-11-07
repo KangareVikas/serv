@@ -33,9 +33,15 @@ export class incident_newissue_PhonePortrait extends Screen {
       this.data.photo = null;
       this.thumbnail.nativeElement.src = 'assets/images/pixel.png';
   }
-  
+
   fileEvent(fileInput: Event) {
       this.data.filename = this.data.photo[0].name;
       this.data.size = this.data.photo[0].size;
   }
+
+  ionViewWillLeave(): void {
+    super.ionViewWillLeave();
+    this.action('clearData');
+  }
+
 }

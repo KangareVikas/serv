@@ -4,19 +4,16 @@
  * @param {Vars} vars
  */
 exports.onload = async (session, models, vars) => {
-    models.request_newrequest = {};
-    vars.session.urgencyMap.selected = '';
-    models.request_newrequest.byUser = vars.session.byUser || 'Evan Employee';
-    models.request_newrequest.forUser = vars.session.forUser || 'Evan Employee';
+    models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.byUser || 'Evan Employee';
+    models.request_newrequest.forUser = models.request_newrequest.forUser || vars.session.forUser || 'Evan Employee';
     models.request_newrequest.email = 'evan.employee@acme.com';
     models.request_newrequest.phone = '6523455679';
-    models.request_newrequest.shortDescription = `I need help`;
-    models.request_newrequest.shortDescription = `I would like to order ${ vars.session.requestService }, ${ vars.session.requestCategory }, ${ vars.session.requestSubCategory }`;
-    models.request_newrequest.urgency = vars.session.urgencyMap;
-    models.request_newrequest.urgency.selected = 2;
-    models.request_newrequest.service = vars.session.requestService;
-    models.request_newrequest.category = vars.session.requestCategory;
-    models.request_newrequest.quantity = 1;
+    models.request_newrequest.shortDescription = models.request_newrequest.shortDescription || `I would like to order ${ vars.session.requestService }, ${ vars.session.requestCategory }, ${ vars.session.requestSubCategory }`;
+    models.request_newrequest.urgency = models.request_newrequest.urgency || vars.session.urgencyMap;
+    models.request_newrequest.urgency.selected = models.request_newrequest.urgency.selected || 2;
+    models.request_newrequest.service = models.request_newrequest.service || vars.session.requestService;
+    models.request_newrequest.category = models.request_newrequest.category || vars.session.requestCategory;
+    models.request_newrequest.quantity = models.request_newrequest.quantity || 1;
     if (!vars.session.configItemDisplayNameFieldId) {
         let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
             access_token: vars.session.access_token,
@@ -32,15 +29,19 @@ exports.onload = async (session, models, vars) => {
             }
         }
     }
-    let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
-        access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId,
-        configItemDisplayNameFieldId: vars.session.configItemDisplayNameFieldId
-    });
-    let list = configItem.body.values;
-    let options = [];
-    list.map(item => { options.push({ "label": item, "value": item }) });
-    models.request_newrequest.ConfigItemSelect = { "options": options, "selected": "" };
+    if (!models.request_newrequest.ConfigItemSelect) {
+        let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
+            access_token: vars.session.access_token,
+            incidentBusObId: vars.session.incidentBusObId,
+            configItemDisplayNameFieldId: vars.session.configItemDisplayNameFieldId
+        });
+        let list = configItem.body.values;
+        let options = [];
+        list.map(item => {
+            options.push({"label": item, "value": item})
+        });
+        models.request_newrequest.ConfigItemSelect = {"options": options, "selected": ""};
+    }
 };
 /**
  * @param {Session} session
@@ -162,7 +163,7 @@ exports.submit = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.back = async (session, models, vars) => {
-    vars.session.customerRecId = null;
+    models.request_newrequest = {};
     await session.screen('request_subservices');
 };
 /**
@@ -171,8 +172,7 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.cancel = async (session, models, vars) => {
-    vars.session.customerRecId = null;
-    vars.session.forUser = null;
+    models.request_newrequest = {};
     await session.screen('home');
 };
 /**
@@ -190,7 +190,7 @@ exports.search = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.home = async (session, models, vars) => {
-    vars.session.customerRecId = null;
+    models.request_newrequest = {};
     await session.screen('home');
 };
 /**
@@ -199,6 +199,7 @@ exports.home = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.myTickets'] = async (session, models, vars) => {
+    models.request_newrequest = {};
     await session.screen('tickets_mytickets');
 };/**
  * @param {Session} session
@@ -206,6 +207,7 @@ exports['footer.myTickets'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.home'] = async (session, models, vars) => {
+    models.request_newrequest = {};
     await session.screen('home');
 };
 /**
@@ -214,8 +216,18 @@ exports['footer.home'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.newIssue'] = async (session, models, vars) => {
-    vars.session.selectedCatagoryLabel = '';
-    vars.session.selectedCatagorySuffix = '';
-    vars.session.selectedSubCatagoryLabel = '';
+    models.request_newrequest = {};
     await session.screen('incident_newissue');
+};
+
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+ */
+exports.clearData = async (session, models, vars) => {
+    vars.session.urgencyMap.selected = '';
+    vars.session.forUser = null;
+    vars.session.customerRecId = null;
+    models.request_newrequest.footer = { active: '' };
 };
