@@ -57,7 +57,7 @@ exports.clearSearch = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
-    await session.screen('home');
+    await session.screen(vars.page.prevScreen || 'home');
 };
 /**
  * @param {Session} session
