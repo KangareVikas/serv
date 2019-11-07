@@ -4,6 +4,7 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    vars.page.prevScreen = session.currentScreen();
     if (session.currentScreen() !== 'finduser') {
         models.incident_newissue = {};
     }
@@ -65,7 +66,7 @@ exports.back = async (session, models, vars) => {
         if (vars.session.selectedCatagoryLabel) {
             await session.screen('incident_categories');
         } else {
-            await session.screen('home');
+            await session.screen(vars.page.prevScreen || 'home');
         }
     }
 };
