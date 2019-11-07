@@ -1,13 +1,13 @@
 {
   "smartuxApp": "1.0",
-  "version": "1.0.6",
-  "date": 1573117012027,
-  "creator": "Yuriy Rudyi",
+  "version": "1.0.7",
+  "date": 1573132922972,
+  "creator": "Vitalii Romaniv",
   "clientVersion": "6.1.0-dev",
   "id": "cherwellrequest",
   "name": "Requester",
   "serverVersion": "6.1.0-dev",
   "serverModulesIncluded": true,
-  "buildType": "Production",
+  "buildType": "AOT",
   "cbUrl": "/cb"
 }
