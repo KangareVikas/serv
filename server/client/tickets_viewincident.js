@@ -31,7 +31,7 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.back = async (session, models, vars) => {
-    await session.screen('tickets_mytickets');
+    await session.screen(vars.page.prevScreen || 'tickets_mytickets');
 };
 /**
  * @param {Session} session
