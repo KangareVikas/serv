@@ -259,6 +259,9 @@
       },
       "ConfigItemSelect": {
         "type": "select"
+      },
+      "typeDisabled": {
+        "type": "boolean"
       }
     },
     "id": "incident_newissue"

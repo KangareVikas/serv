@@ -13,6 +13,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.forUser = models.incident_newissue.forUser || vars.session.forUser || vars.config.rest.cherwellapi.custom.forUser;
     models.incident_newissue.email = vars.config.rest.cherwellapi.custom.email;
     models.incident_newissue.phone = vars.config.rest.cherwellapi.custom.phone;
+    models.incident_newissue.typeDisabled = !!vars.session.selectedCatagoryLabel;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
     models.incident_newissue.urgency = models.incident_newissue.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
