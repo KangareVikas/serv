@@ -94,7 +94,7 @@ exports.onload = async (session, models, vars) => {
         {
             'dirty': true,
             'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
-            'value': 'Evan Employee'
+            'value': vars.config.rest.cherwellapi.custom.byUser
         },
         {
             'dirty': true,

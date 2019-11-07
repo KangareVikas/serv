@@ -80,7 +80,12 @@ module.exports = {
                     apikey: '81b8a693-a448-4275-bd9e-937ae6387b7c',
                     grant_type: 'password',
                     grant_type_password: 'password',
-                    grant_type_refresh_token: 'refresh_token'
+                    grant_type_refresh_token: 'refresh_token',
+                    byUser: 'Evan Employee',
+                    forUser: 'Evan Employee',
+                    email: 'evan.employee@acme.com',
+                    phone: '6523455679',
+                    customerRecId: '9451f6c8b5609372c4e86b440db32353b488fb4206'
                 }
             }
         }

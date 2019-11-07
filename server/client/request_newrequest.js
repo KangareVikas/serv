@@ -4,12 +4,15 @@
  * @param {Vars} vars
  */
 exports.onload = async (session, models, vars) => {
-    models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.byUser || 'Evan Employee';
-    models.request_newrequest.forUser = models.request_newrequest.forUser || vars.session.forUser || 'Evan Employee';
-    models.request_newrequest.email = 'evan.employee@acme.com';
-    models.request_newrequest.phone = '6523455679';
+    if (session.currentScreen() !== 'finduser') {
+        models.request_newrequest = {};
+    }
+    models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
+    models.request_newrequest.forUser = models.request_newrequest.forUser || vars.session.forUser || vars.config.rest.cherwellapi.custom.forUser;
+    models.request_newrequest.email = vars.config.rest.cherwellapi.custom.email;
+    models.request_newrequest.phone = vars.config.rest.cherwellapi.custom.phone;
     models.request_newrequest.shortDescription = models.request_newrequest.shortDescription || `I would like to order ${ vars.session.requestService }, ${ vars.session.requestCategory }, ${ vars.session.requestSubCategory }`;
-    models.request_newrequest.urgency = models.request_newrequest.urgency || vars.session.urgencyMap;
+    models.request_newrequest.urgency = models.request_newrequest.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
     models.request_newrequest.urgency.selected = models.request_newrequest.urgency.selected || 2;
     models.request_newrequest.service = models.request_newrequest.service || vars.session.requestService;
     models.request_newrequest.category = models.request_newrequest.category || vars.session.requestCategory;
@@ -80,7 +83,7 @@ exports.submit = async (session, models, vars) => {
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'CustomerRecID') {
-            template.fields[i].value = vars.session.customerRecId || '9451f6c8b5609372c4e86b440db32353b488fb4206';
+            template.fields[i].value = vars.session.customerRecId || vars.config.rest.cherwellapi.custom.customerRecId;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'Priority') {
@@ -163,7 +166,6 @@ exports.submit = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.back = async (session, models, vars) => {
-    models.request_newrequest = {};
     await session.screen('request_subservices');
 };
 /**
@@ -172,7 +174,6 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.cancel = async (session, models, vars) => {
-    models.request_newrequest = {};
     await session.screen('home');
 };
 /**
@@ -190,7 +191,6 @@ exports.search = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.home = async (session, models, vars) => {
-    models.request_newrequest = {};
     await session.screen('home');
 };
 /**
@@ -199,7 +199,6 @@ exports.home = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.myTickets'] = async (session, models, vars) => {
-    models.request_newrequest = {};
     await session.screen('tickets_mytickets');
 };/**
  * @param {Session} session
@@ -207,7 +206,6 @@ exports['footer.myTickets'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.home'] = async (session, models, vars) => {
-    models.request_newrequest = {};
     await session.screen('home');
 };
 /**
@@ -216,7 +214,6 @@ exports['footer.home'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.newIssue'] = async (session, models, vars) => {
-    models.request_newrequest = {};
     await session.screen('incident_newissue');
 };
 
@@ -226,7 +223,6 @@ exports['footer.newIssue'] = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.clearData = async (session, models, vars) => {
-    vars.session.urgencyMap.selected = '';
     vars.session.forUser = null;
     vars.session.customerRecId = null;
     models.request_newrequest.footer = { active: '' };
