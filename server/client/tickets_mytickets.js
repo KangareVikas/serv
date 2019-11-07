@@ -144,7 +144,6 @@ exports.showOpenTickets = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    vars.page.prevScreen = session.currentScreen();
     models.tickets_mytickets.tickets = [];
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
