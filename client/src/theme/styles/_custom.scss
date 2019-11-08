@@ -23,7 +23,6 @@ ion-app .loading-wrapper {
     stroke: #030e4e !important;
 }
 
-ion-app {
-  margin-top: env(safe-area-inset-top);
+body {
   margin-bottom: env(safe-area-inset-bottom)
 }
