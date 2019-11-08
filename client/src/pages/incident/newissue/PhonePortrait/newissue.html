@@ -49,7 +49,7 @@
         <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
             <ion-label mode="ios">Type</ion-label>
             <ion-select [(ngModel)]="data.type.selected" [disabled]="data.typeDisabled"
-                [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
+                [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios"
                 name="select.1">
                 <ion-option *ngFor="let item of data.type.options" [innerHTML]="item.label"
                     [value]="item.value" data-comp-id="option.1"></ion-option>
@@ -92,7 +92,7 @@
         <ion-item class="wrap-field" data-comp-id="select.2" mode="ios">
             <ion-label mode="ios">Urgency</ion-label>
             <ion-select [(ngModel)]="data.urgency.selected"
-                [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
+                [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios"
                 name="select.2">
                 <ion-option *ngFor="let item of data.urgency.options" [innerHTML]="item.label"
                     [value]="item.value" data-comp-id="option.2"></ion-option>
@@ -102,7 +102,7 @@
             data-comp-id="select.3" mode="ios">
             <ion-label mode="ios" text-wrap>Item Name</ion-label>
             <ion-select [(ngModel)]="data.ConfigItemSelect.selected"
-                [selectOptions]="{cssClass: 'select-full'}" interface="alert" mode="ios"
+                [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios"
                 name="select.3">
                 <ion-option *ngFor="let item of data.ConfigItemSelect.options"
                     [innerHTML]="item.label" [value]="item.value" data-comp-id="option.3"></ion-option>
