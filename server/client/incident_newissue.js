@@ -9,7 +9,8 @@ exports.onload = async (session, models, vars) => {
         models.incident_newissue = {};
     }
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
-    models.incident_newissue.forUser = models.incident_newissue.forUser || vars.session.forUser || vars.config.rest.cherwellapi.custom.forUser;
+    models.incident_newissue.forUser = vars.session.forUser || models.incident_newissue.forUser || vars.config.rest.cherwellapi.custom.forUser;
+    models.incident_newissue.customerRecId = vars.session.customerRecId || models.incident_newissue.customerRecId || vars.config.rest.cherwellapi.custom.customerRecId;
     models.incident_newissue.email = vars.config.rest.cherwellapi.custom.email;
     models.incident_newissue.phone = vars.config.rest.cherwellapi.custom.phone;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel } ${ vars.session.selectedCatagorySuffix } ${ vars.session.selectedSubCatagoryLabel }`;
@@ -106,7 +107,7 @@ exports.submit = async (session, models, vars) => {
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'CustomerRecID') {
-            template.fields[i].value = vars.session.customerRecId || vars.config.rest.cherwellapi.custom.customerRecId;
+            template.fields[i].value = models.incident_newissue.customerRecId;
             template.fields[i].dirty = true;
         }
         if (template.fields[i].name === 'Priority') {
@@ -165,7 +166,8 @@ exports.submit = async (session, models, vars) => {
                     let file = models.incident_newissue.photo;
                     let filename = models.incident_newissue.filename;
                     let totalsize = models.incident_newissue.size;
-                    let attachResult = await session.rest.cherwellapi.attachFile({
+                    console.log('Attache new file:')
+                    await session.rest.cherwellapi.attachFile({
                         access_token: vars.session.access_token,
                         file: file,
                         filename: filename,
@@ -173,11 +175,6 @@ exports.submit = async (session, models, vars) => {
                         offset: offset,
                         totalsize: totalsize,
                         busobrecid: incidentBusObRecId
-                    });
-                    let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
-                        incidentBusObId: vars.session.incidentBusObId,
-                        busObPublicId: models.incident_newissue.result.busObPublicId,
-                        access_token: vars.session.access_token
                     });
                 }
             }

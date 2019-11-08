@@ -74,6 +74,8 @@ exports['users[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.myTickets'] = async (session, models, vars) => {
+    vars.session.customerRecId = null;
+    vars.session.forUser = null;
     await session.screen('tickets_mytickets');
 };/**
  * @param {Session} session
@@ -81,6 +83,8 @@ exports['footer.myTickets'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.home'] = async (session, models, vars) => {
+    vars.session.customerRecId = null;
+    vars.session.forUser = null;
     await session.screen('home');
 };
 /**

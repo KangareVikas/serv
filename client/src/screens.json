@@ -132,7 +132,6 @@
       "name": "Find User",
       "sourceScreenId": "searchuser",
       "sourceAppId": "cherwellrequest",
-      "modal": true,
       "statusbarContent": null,
       "statusbarHidden": null
     },
