@@ -42,9 +42,8 @@
             placeholder="Find a ticket"
             style="padding: 0; margin: 0 0 20px; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);"
             type="search"></ion-searchbar>
-        <ion-segment *ngIf="data.ticketsType === 'incidents'"
-            [(ngModel)]="data.statusFilter" color="contrast" data-comp-id="segment.2"
-            mode="ios" style>
+        <ion-segment [(ngModel)]="data.statusFilter" color="contrast"
+            data-comp-id="segment.2" mode="ios" style>
             <ion-segment-button (ionSelect)="action('showOpenTickets')"
                 data-comp-id="segment-button.3" value="openTickets">Open Tickets</ion-segment-button>
             <ion-segment-button (ionSelect)="action('showNeedAttention')"
