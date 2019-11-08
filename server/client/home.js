@@ -122,6 +122,7 @@ exports.onload = async (session, models, vars) => {
         ticketsFilter: ticketsFilter,
         ticketsSorting: ticketsSorting
     });
+    models.home.refresh_token = vars.session.refresh_token;
     models.home.tickets = [];
     let requiredFields = [
         'ShortDescription',
