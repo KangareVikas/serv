@@ -9,7 +9,7 @@
       "sourceAppId": "default",
       "disableMenuSwipe": true,
       "statusbarContent": null,
-      "statusbarHidden": null
+      "statusbarHidden": true
     },
     {
       "id": "home",
