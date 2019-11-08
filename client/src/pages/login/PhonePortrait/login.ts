@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Screen } from 'app/screen';
+import { TouchId } from 'smartux-client';
+
 declare var window: any;
 
 @Component({
@@ -8,6 +10,10 @@ declare var window: any;
 })
 export class login_PhonePortrait extends Screen {
   data: any;
+
+  constructor(private touchid: TouchId) {
+      super();
+  }
 
   ngOnInit(): void {
     super.ngOnInit();
@@ -33,6 +39,15 @@ export class login_PhonePortrait extends Screen {
   }
   callSupport() {
       window.location.href = `tel:8778004381`
+  }
+
+  async ionViewWillEnter() {
+      await super.ionViewWillEnter();
+      let refreshToken = localStorage.getItem('refresh_token');
+      if (refreshToken) {
+          // Disable touch if we have a refresh token.
+          this.touchid.disable();
+      }
   }
 
   async ionViewDidEnter() {
