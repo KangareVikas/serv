@@ -28,4 +28,8 @@ export class finduser_PhonePortrait extends Screen {
     // false - stop the event propogation
       return true;
   }
+  ionViewWillLeave(): Promise<void> {
+      super.ionViewWillLeave();
+      return this.action('clearSearch');
+  }
 }
