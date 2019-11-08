@@ -158,6 +158,6 @@
   ],
   "startScreen": "login",
   "statusbarContent": "dark",
-  "statusbarHidden": false,
+  "statusbarHidden": true,
   "statusbarBackground": null
 }
