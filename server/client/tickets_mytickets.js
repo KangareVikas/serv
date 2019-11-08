@@ -158,13 +158,8 @@ exports.onload = async (session, models, vars) => {
         'incidents': [
             {
                 'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Service'].fieldId,
-                'value': 'Access Management'
-            },
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Category'].fieldId,
-                'value': 'Identity and Access Management'
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'Incidents'
             }
         ],
         'requests': [
