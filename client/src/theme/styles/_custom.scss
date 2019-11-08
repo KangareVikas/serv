@@ -17,6 +17,11 @@ ion-spinner {
 ion-app .loading-wrapper {
     background: transparent !important;
     box-shadow: none !important;
+    flex-direction: column;
+    .loading-content {
+        margin-top: 18px;
+        color: #030e4e !important;
+    }
 }
 
 .loading-ios .spinner-ios line, .loading-ios .spinner-ios-small line {
