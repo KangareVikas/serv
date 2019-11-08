@@ -210,7 +210,7 @@ exports.onload = async (session, models, vars) => {
     };
     vars.page.ticketsSorting = [{
         'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
-        'sortDirection': 1
+        'sortDirection': 0
     }];
     vars.page.fieldsList = [
         'IncidentID',
