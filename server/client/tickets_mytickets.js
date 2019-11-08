@@ -112,10 +112,11 @@ exports.showNeedAttention = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showOpenTickets = async (session, models, vars) => {
-        models.tickets_mytickets.tickets = [];
+    models.tickets_mytickets.tickets = [];
+    let ticketsType = models.tickets_mytickets.ticketsType;
         let ticketsFilter = [
             ...vars.page.filters.common,
-            ...vars.page.filters.incidents,
+            ...vars.page.filters[ticketsType],
             ...vars.page.filters.opened
         ];
         let ticketsSorting = vars.page.ticketsSorting;
