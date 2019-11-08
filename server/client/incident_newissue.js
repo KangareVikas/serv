@@ -193,6 +193,7 @@ exports.submit = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.search = async (session, models, vars) => {
+    models.finduser.searchKey = models.incident_newissue.forUser;
     await session.screen('finduser');
 };
 /**
