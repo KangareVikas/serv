@@ -40,10 +40,12 @@ exports.showIncidents = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.showRequests = async (session, models, vars) => {
-        models.tickets_mytickets.tickets = [];
+    models.tickets_mytickets.tickets = [];
+    models.tickets_mytickets.statusFilter = 'openTickets';
         let ticketsFilter = [
             ...vars.page.filters.common,
-            ...vars.page.filters.requests
+            ...vars.page.filters.requests,
+            ...vars.page.filters.opened
         ];
         let ticketsSorting = vars.page.ticketsSorting;
         let fieldsList = vars.page.fieldsList;
