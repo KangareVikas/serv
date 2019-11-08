@@ -74,7 +74,8 @@ exports.onload = async (session, models, vars) => {
                     'Service',
                     'Category',
                     'CustomerDisplayName',
-                    'CreatedDateTime'
+                    'CreatedDateTime',
+                    'IncidentType'
                 ].includes(field.name)) {
                 vars.session.incidentFieldsIds[field.name] = field;
             }
