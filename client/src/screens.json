@@ -15,7 +15,9 @@
       "id": "home",
       "name": "Home",
       "sourceScreenId": "blank",
-      "sourceAppId": "default"
+      "sourceAppId": "default",
+      "statusbarContent": null,
+      "statusbarHidden": true
     },
     {
       "id": "inserts",
