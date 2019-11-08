@@ -4,7 +4,9 @@
  * @param {Vars} vars
  */
 exports.onload = async (session, models, vars) => {
-    models.request_newrequest = {};
+    if (session.currentScreen() !== 'finduser') {
+        models.request_newrequest = {};
+    }
     models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
     models.request_newrequest.forUser = vars.session.forUser || models.request_newrequest.forUser || vars.config.rest.cherwellapi.custom.forUser;
     models.request_newrequest.customerRecId = vars.session.customerRecId || models.request_newrequest.customerRecId || vars.config.rest.cherwellapi.custom.customerRecId;
