@@ -3,37 +3,39 @@ import { Screen } from 'app/screen';
 declare var window: any;
 
 @Component({
-  selector: 'screen-home-phoneportrait',
-  templateUrl: 'home.html'
+    selector: 'screen-home-phoneportrait',
+    templateUrl: 'home.html'
 })
 export class home_PhonePortrait extends Screen {
-  data: any;
+    data: any;
 
-  ngOnInit(): void {
-    super.ngOnInit();
-    // Logic to run when the screen loads goes here.
-  }
-
-  ngOnDestroy(): void {
-    super.ngOnDestroy();
-    // Logic to run when the screen unloads goes here.
-  }
-
-  onDataLoad(data: any): void {
-    // Logic to run when the screen's data is updated goes here.
-    // If we get a refresh_token, save to localStorage.
-      if (data.refresh_token) {
-          localStorage.setItem('refresh_token', data.refresh_token);
+    ngOnInit(): void {
+        super.ngOnInit();
+        // Logic to run when the screen loads goes here.
     }
-  }
-  onBackButton(): boolean {
-    //(Android) returns :
-    // true - handle the event in App Hooks
-    // false - stop the event propogation
-      return true;
-  }
 
-  searchArticle() {
-    this.method('search', { searchKey: this.data.searchKey });
-  }
+    ngOnDestroy(): void {
+        super.ngOnDestroy();
+        // Logic to run when the screen unloads goes here.
+    }
+
+    onDataLoad(data: any): void {
+        // Logic to run when the screen's data is updated goes here.
+        // If we get a refresh_token, save to localStorage.
+        if (data.refresh_token) {
+            localStorage.setItem('refresh_token', data.refresh_token);
+        }
+    }
+    onBackButton(): boolean {
+        //(Android) returns :
+        // true - handle the event in App Hooks
+        // false - stop the event propogation
+        return true;
+    }
+
+    searchArticle(event) {
+        if (event && event.key === "Enter") {
+            this.method('search', { searchKey: this.data.searchKey });
+        }
+    }
 }

@@ -36,7 +36,7 @@
                                 <ion-list data-comp-id="list.2" style="margin: 0px 0px 0px;">
                                     <ion-item data-comp-id="input.1"
                                         style="border-top: none; border-left: none; padding: 0px 0px 0px 16px; border-bottom: none;">
-                                        <ion-input (keyup.enter)="searchArticle()" [(ngModel)]="data.searchKey"
+                                        <ion-input (keypress)="searchArticle($event)" [(ngModel)]="data.searchKey"
                                             [ngModelOptions]="{standalone: true}" color="coal" placeholder="Find an article"
                                             style type="search"></ion-input>
                                     </ion-item>
