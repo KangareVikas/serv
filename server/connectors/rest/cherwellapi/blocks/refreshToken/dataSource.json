@@ -1,7 +1,7 @@
 {
   "template": {
     "url": "/token",
-    "method": "GET",
+    "method": "POST",
     "query": {},
     "headers": {},
     "auth": {
@@ -10,7 +10,7 @@
     "form": {
       "grant_type": "{grant_type}",
       "client_id": "{apikey}",
-      "refresh_token": "todo"
+      "refresh_token": "{refresh_token}"
     },
     "options": {},
     "bodyType": "form"
@@ -18,7 +18,8 @@
   "functions": {
     "refreshToken": [
       "grant_type",
-      "apikey"
+      "apikey",
+      "refresh_token"
     ]
   }
 }

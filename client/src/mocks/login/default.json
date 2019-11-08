@@ -1,6 +1,4 @@
 {
-  "error": {
-    "error_description": "Username or Password are incorrect.                    <br>                    Please call Support.",
-    "error": "client_id_not_found"
-  }
+  "refresh_token": "sdf",
+  "errorMessage": "Invalid username or password"
 }

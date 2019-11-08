@@ -9,10 +9,11 @@
         <ion-row data-comp-id="row.2" style="margin: 0px 15px;">
             <ion-col data-comp-id="column.2" style="padding: 15px 0 0;"><img data-comp-id="img.2" src="assets/images/Service_Management_logo.png"></ion-col>
         </ion-row>
-        <ion-row *ngIf="data.hasError" data-comp-id="row.3" style="margin: 40px 0 0;">
-            <ion-col *ngIf="data.hasError" class="error-block" data-comp-id="column.3"
+        <ion-row *ngIf="data.errorMessage" data-comp-id="row.3"
+            style="margin: 40px 0 0;">
+            <ion-col class="error-block" data-comp-id="column.3"
                 style="padding: 15px 10px 12px; border-radius: 10px;">
-                <div [innerHTML]="data.error.error_description" data-comp-id="text.1" ion-text
+                <div [innerHTML]="data.errorMessage" data-comp-id="text.1" ion-text
                     style="text-align: center; font-size: 14px; color: #222222;"></div>
                 <button (click)="callSupport()" color="danger" data-comp-id="button.1" full
                     icon-start ion-button mode="ios"
@@ -24,7 +25,7 @@
             </ion-col>
         </ion-row>
     </div>
-    <div class="login-form" data-comp-id="div.2"
+    <div *ngIf="!data.refresh_token" class="login-form" data-comp-id="div.2"
         style="border-bottom: 0px none rgb(255, 255, 255); padding: 0px 16px;">
         <form (ngSubmit)="authaction('submit')" data-comp-id="form.1">
             <ion-row data-comp-id="row.4">

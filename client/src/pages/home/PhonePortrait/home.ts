@@ -21,6 +21,10 @@ export class home_PhonePortrait extends Screen {
 
   onDataLoad(data: any): void {
     // Logic to run when the screen's data is updated goes here.
+    // If we get a refresh_token, save to localStorage.
+      if (data.refresh_token) {
+          localStorage.setItem('refresh_token', data.refresh_token);
+    }
   }
   onBackButton(): boolean {
     //(Android) returns :
@@ -30,6 +34,6 @@ export class home_PhonePortrait extends Screen {
   }
 
   searchArticle() {
-      this.method('search', { searchKey: this.data.searchKey });
+    this.method('search', { searchKey: this.data.searchKey });
   }
 }

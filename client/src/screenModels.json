@@ -27,25 +27,23 @@
       "password": {
         "type": "string"
       },
+      "errorMessage": {
+        "type": "string"
+      },
       "submit": {
         "type": "action"
-      },
-      "hasError": {
-        "type": "boolean"
       },
       "apikey": {
         "type": "string"
       },
-      "error": {
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "string"
-          },
-          "error_description": {
-            "type": "string"
-          }
-        }
+      "refresh_token": {
+        "type": "string"
+      },
+      "invalid_refresh_token": {
+        "type": "boolean"
+      },
+      "tokenSubmit": {
+        "type": "action"
       }
     },
     "id": "login"
@@ -93,6 +91,9 @@
         }
       },
       "searchKey": {
+        "type": "string"
+      },
+      "refresh_token": {
         "type": "string"
       }
     },
@@ -720,5 +721,23 @@
       }
     },
     "id": "settings"
+  },
+  "nologinloadingcircle": {
+    "type": "object",
+    "comment": "Login",
+    "properties": {
+      "login": {
+        "type": "action",
+        "parameters": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "id": "nologinloadingcircle"
   }
 }

@@ -23,6 +23,9 @@ export class login_PhonePortrait extends Screen {
   }
 
   onDataLoad(data: any): void {
+      if (data.errorMessage || data.invalid_refresh_token) {
+          localStorage.removeItem('refresh_token');
+      }
     // Logic to run when the screen's data is updated goes here.
   }
   onBackButton(): boolean {
@@ -33,5 +36,14 @@ export class login_PhonePortrait extends Screen {
   }
   callSupport() {
       window.location.href = `tel:8778004381`
+  }
+
+  async ionViewDidEnter() {
+      await super.ionViewDidEnter();
+      let refreshToken = localStorage.getItem('refresh_token');
+      if (refreshToken) {
+          this.data.refresh_token = refreshToken;
+          this.action('tokenSubmit');
+      }
   }
 }

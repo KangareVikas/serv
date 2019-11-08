@@ -5,4 +5,9 @@ config.loadingTimeout = 5 * 60 * 1000;
 config.keepAliveTimeout = 3 * 60 * 1000;
 export class Screen extends BaseScreen {
     protected global: GlobalData = DI.get<GlobalData>(GlobalData);
+
+    logout(otherUserConnected?: boolean) {
+        localStorage.removeItem('refresh_token');
+        return super.logout(otherUserConnected);
+    }
 }
