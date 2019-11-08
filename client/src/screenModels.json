@@ -654,6 +654,9 @@
       },
       "back": {
         "type": "action"
+      },
+      "searchKey": {
+        "type": "string"
       }
     },
     "id": "finduser"
