@@ -51,6 +51,14 @@ exports.search = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
+exports.clearSearch = async (session, models, vars) => {
+    models.finduser.searchKey = '';
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
 exports.back = async (session, models, vars) => {
     if (vars.session.newrequest) {
         await session.screen('request_newrequest');
