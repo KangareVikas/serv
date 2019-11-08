@@ -22,7 +22,7 @@
         <div color="{{data.footer.active === 'myTickets' ? 'primary' : 'dark'}}"
             data-comp-id="text.2" ion-text style="font-size: 12px; line-height: 30px;">My Tickets</div>
     </ion-col>
-    <ion-col (click)="goTo('chat')" data-comp-id="column.3"
+    <ion-col data-comp-id="column.3"
         style="text-align: center; padding: 10px 0 0; max-width: 18%;">
         <a href="slack://open">
             <img *ngIf="data.footer.active === 'chat'" data-comp-id="img.5"
@@ -35,7 +35,7 @@
                 data-comp-id="text.3" ion-text style="font-size: 12px; line-height: 30px;">Chat</div>
         </a>
     </ion-col>
-    <ion-col (click)="goTo('call')" data-comp-id="column.4"
+    <ion-col data-comp-id="column.4"
         style="text-align: center; padding: 10px 0 0; max-width: 17%;">
         <a href="tel:8778004381">
             <img *ngIf="data.footer.active === 'call'" data-comp-id="img.7"
