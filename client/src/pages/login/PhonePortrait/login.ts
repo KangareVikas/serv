@@ -43,4 +43,10 @@ export class login_PhonePortrait extends Screen {
           this.action('tokenSubmit');
       }
   }
+
+  touchIdLogin() {
+      if (!this.data.refresh_token) {
+          this.authaction('submit');
+      }
+  }
 }
