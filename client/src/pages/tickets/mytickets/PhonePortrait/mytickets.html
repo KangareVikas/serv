@@ -75,7 +75,7 @@
     </ion-toolbar>
     <ion-row data-comp-id="row.3">
         <ion-col data-comp-id="column.8" style="padding: 8px;">
-            <ion-list data-comp-id="list.2" mode="ios">
+            <ion-list data-comp-id="list.2" mode="ios" style="margin: -1px 0px 52px;">
                 <ion-item-sliding (click)="action('tickets[item].select',[i])"
                     *ngFor="let item of data.tickets | search:data.searchKey:'ShortDescription'; let i = index"
                     data-comp-id="item-sliding.1"
