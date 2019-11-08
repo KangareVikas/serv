@@ -16,7 +16,10 @@ exports['articles[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    vars.page.prevScreen = session.currentScreen();
+    let currentScreen = session.currentScreen();
+    if (currentScreen != 'articles_viewarticle') {
+        vars.page.prevScreen = currentScreen;      
+    }
     models.articles_findarticle.articles = [];
     if (!vars.session.kbBusObId || vars.session.kbStateFieldId) {
         let output = await session.rest.cherwellapi.getKBBusinessObject({ access_token: vars.session.access_token });
