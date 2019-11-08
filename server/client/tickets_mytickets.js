@@ -195,7 +195,12 @@ exports.onload = async (session, models, vars) => {
             {
                 'dirty': true,
                 'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'In Progress'
+                'value': 'Resolved'
+            },
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'Pending'
             }
         ]
     };
