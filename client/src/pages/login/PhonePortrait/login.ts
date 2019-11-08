@@ -27,6 +27,9 @@ export class login_PhonePortrait extends Screen {
 
   onDataLoad(data: any): void {
       if (data.errorMessage || data.invalid_refresh_token) {
+          if (window.__token_touchid_disabled) {
+              this.touchid.enable();
+          }
           localStorage.removeItem('refresh_token');
       }
     // Logic to run when the screen's data is updated goes here.
@@ -46,7 +49,10 @@ export class login_PhonePortrait extends Screen {
       let refreshToken = localStorage.getItem('refresh_token');
       if (refreshToken) {
           // Disable touch if we have a refresh token.
-          this.touchid.disable();
+          if (this.touchid.isEnabled()) {
+              window.__token_touchid_disabled = true;
+              this.touchid.disable();              
+          }
       }
   }
 
