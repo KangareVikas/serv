@@ -40,3 +40,9 @@ ion-app {
   padding-bottom: constant(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-top);
 }
+
+.platform-android {
+    .submitButton {
+        margin-bottom:100px;
+    }
+}
