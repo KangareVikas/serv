@@ -11,10 +11,10 @@ exports.onload = async (session, models, vars) => {
         return;
     }
 
-    let name = vars.params.name;
-    models.finduser.name = vars.params.name;
+    // let name = vars.params.name;
+    // models.finduser.name = vars.params.name;
     let result = await session.rest.cherwellapi.getCustomerRecId({
-        name: name,
+        name: '',
         custBusObId: vars.session.custBusObId,
         access_token: vars.session.access_token,
         fullNamefieldId: vars.session.fullNamefieldId
