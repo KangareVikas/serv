@@ -165,8 +165,8 @@ exports.onload = async (session, models, vars) => {
         'requests': [
             {
                 'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'Pending Approval'
+                'fieldId': vars.session.incidentFieldsIds['IncidentType'].fieldId,
+                'value': 'Service Request'
             }
         ],
         'opened': [
