@@ -5,7 +5,9 @@
 */
 exports.onload = async (session, models, vars) => {
     vars.session.prevScreen = session.currentScreen();
-    models.incident_newissue = {};
+    if (session.currentScreen() !== 'finduser') {
+        models.incident_newissue = {};
+    }
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
     models.incident_newissue.forUser = vars.session.forUser || models.incident_newissue.forUser || vars.config.rest.cherwellapi.custom.forUser;
     models.incident_newissue.customerRecId = vars.session.customerRecId || models.incident_newissue.customerRecId || vars.config.rest.cherwellapi.custom.customerRecId;
