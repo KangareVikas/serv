@@ -47,6 +47,12 @@ exports.showRequests = async (session, models, vars) => {
             ...vars.page.filters.requests,
             ...vars.page.filters.opened
         ];
+        ticketsFilter.push(
+            {
+                'dirty': true,
+                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'value': 'Pending Approval'
+            });
         let ticketsSorting = vars.page.ticketsSorting;
         let fieldsList = vars.page.fieldsList;
         let data = await session.rest.cherwellapi.getTickets({
@@ -171,11 +177,6 @@ exports.onload = async (session, models, vars) => {
                 'dirty': true,
                 'fieldId': vars.session.incidentFieldsIds['IncidentType'].fieldId,
                 'value': 'Service Request'
-            },
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'Pending Approval'
             }
         ],
         'opened': [
