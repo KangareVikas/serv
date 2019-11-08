@@ -10,4 +10,11 @@ export class Screen extends BaseScreen {
         localStorage.removeItem('refresh_token');
         return super.logout(otherUserConnected);
     }
+
+    ngOnInit() {
+        if (window && window.screen && window.screen['orientation']) {
+            window.screen.orientation.lock('portrait');
+        }
+        super.ngOnInit();
+    }
 }
