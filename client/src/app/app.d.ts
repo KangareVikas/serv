@@ -9,6 +9,7 @@ declare module 'app/screen' {
 	export class Screen extends BaseScreen {
 	    protected global: GlobalData;
 	    logout(otherUserConnected?: boolean): any;
+	    ngOnInit(): void;
 	}
 
 }
