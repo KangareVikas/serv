@@ -58,5 +58,8 @@
   },
   {
     "id": "cordova-plugin-file"
+  },
+  {
+    "id": "cordova-plugin-screen-orientation"
   }
 ]

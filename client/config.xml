@@ -18,7 +18,6 @@
   <preference name="SplashScreenDelay" value="0"/>
   <preference name="FadeSplashScreenDuration" value="0"/>
   <preference name="ShowSplashScreen" value="0" />
-  <preference name="Orientation" value="portrait" />
   <platform name="android">
     <allow-intent href="market:*" />
   </platform>
