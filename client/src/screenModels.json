@@ -721,23 +721,5 @@
       }
     },
     "id": "settings"
-  },
-  "nologinloadingcircle": {
-    "type": "object",
-    "comment": "Login",
-    "properties": {
-      "login": {
-        "type": "action",
-        "parameters": {
-          "username": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "id": "nologinloadingcircle"
   }
 }
