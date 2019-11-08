@@ -7,6 +7,8 @@ declare var window: any;
   templateUrl: 'newrequest.html'
 })
 export class request_newrequest_PhonePortrait extends Screen {
+    @ViewChild('thumbnail') thumbnail;
+
     data: any;
     showAddInfo: boolean;
 
@@ -31,9 +33,9 @@ export class request_newrequest_PhonePortrait extends Screen {
       return true;
   }
 
-  async removeAttachment() {
-      await this.action('removeAttachment');
-      this.data.photo = null;
+  removeAttachment() {
+    this.data.photo = null;
+    this.thumbnail.nativeElement.src = 'assets/images/pixel.png';
   }
 
   fileEvent() {

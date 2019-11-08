@@ -131,7 +131,10 @@
       "id": "finduser",
       "name": "Find User",
       "sourceScreenId": "searchuser",
-      "sourceAppId": "cherwellrequest"
+      "sourceAppId": "cherwellrequest",
+      "modal": true,
+      "statusbarContent": null,
+      "statusbarHidden": null
     },
     {
       "id": "findticket",
