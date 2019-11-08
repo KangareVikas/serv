@@ -4,15 +4,13 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    models.finduser.users = [];
-    models.finduser.name = '';
-};
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
-*/
-exports.search = async (session, models, vars) => {
+    // models.finduser.users = [];
+    // models.finduser.name = '';
+
+    if (models.finduser.users && models.finduser.users.length > 0) {
+        return;
+    }
+
     let name = vars.params.name;
     models.finduser.name = vars.params.name;
     let result = await session.rest.cherwellapi.getCustomerRecId({
@@ -39,6 +37,14 @@ exports.search = async (session, models, vars) => {
         user.name = user['FirstName'] + ' ' + user['LastName'];
         models.finduser.users.push(user);
     }
+};
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+*/
+exports.search = async (session, models, vars) => {
+
 };
 /**
  * @param {Session} session
