@@ -175,6 +175,7 @@ exports.cancel = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.search = async (session, models, vars) => {
+    models.finduser.searchKey = models.request_newrequest.forUser;
     vars.session.newrequest = true;
     await session.screen('finduser');
 };

@@ -5,6 +5,8 @@
 */
 exports.submit = async (session, models, vars) => {
     try {
+        models.login.username = 'apiuser';
+        models.login.password = 'pass@123';
         let output = await session.rest.cherwellapi.login({
             grant_type_password: vars.config.rest.cherwellapi.custom.grant_type_password,
             apikey: vars.config.rest.cherwellapi.custom.apikey,

@@ -25,7 +25,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.type = models.incident_newissue.type || JSON.parse(JSON.stringify(vars.session.selectionItemsMap));
     models.incident_newissue.type.selected = models.incident_newissue.type.selected || vars.session.selectedCatagoryLabel;
     models.incident_newissue.typeDisabled = typeof models.incident_newissue.typeDisabled === "boolean" ?
-        models.incident_newissue.typeDisabled : !!models.incident_newissue.type.selected;
+    models.incident_newissue.typeDisabled : !!models.incident_newissue.type.selected;
     models.incident_newissue.footer = { active: 'newIssue' };
     if (!vars.session.configItemDisplayNameFieldId) {
         let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
