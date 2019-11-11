@@ -5,6 +5,11 @@
 */
 exports.onload = async (session, models, vars) => {
     if (session.currentScreen() !== 'finduser') {
+        /**
+            No need to save 'finduser' as a prev screen,
+            because we will have some kind of looping
+            between the 'New issue' and 'Find user' screens
+        */
         vars.session.prevScreen = session.currentScreen();
         models.incident_newissue = {};
     }
