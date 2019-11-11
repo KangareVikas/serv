@@ -135,8 +135,7 @@
       "sourceScreenId": "searchuser",
       "sourceAppId": "cherwellrequest",
       "statusbarContent": null,
-      "statusbarHidden": null,
-      "modal": true
+      "statusbarHidden": null
     },
     {
       "id": "findticket",
