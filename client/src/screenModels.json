@@ -733,5 +733,11 @@
       }
     },
     "id": "settings"
+  },
+  "del1": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {},
+    "id": "del1"
   }
 }

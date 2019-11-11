@@ -18,6 +18,7 @@ import { finduser_PhonePortrait } from '../pages/finduser/PhonePortrait/finduser
 import { findticket_PhonePortrait } from '../pages/findticket/PhonePortrait/findticket';
 import { about_PhonePortrait } from '../pages/about/PhonePortrait/about';
 import { settings_PhonePortrait } from '../pages/settings/PhonePortrait/settings';
+import { del1_PhonePortrait } from '../pages/del1/PhonePortrait/del1';
 export class Screens {
   static declarations = [
     MenuComponent,
@@ -38,7 +39,8 @@ export class Screens {
     finduser_PhonePortrait,
     findticket_PhonePortrait,
     about_PhonePortrait,
-    settings_PhonePortrait
+    settings_PhonePortrait,
+    del1_PhonePortrait
   ];
   static mapping = {
     'login': {
@@ -94,6 +96,9 @@ export class Screens {
     },
     'settings': {
       PhonePortrait: settings_PhonePortrait
+    },
+    'del1': {
+      PhonePortrait: del1_PhonePortrait
     }
   }
 }

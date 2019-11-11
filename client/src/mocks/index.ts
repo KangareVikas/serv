@@ -1,6 +1,7 @@
 export { mock_about as about } from './about/index';
 export { mock_articles_findarticle as articles_findarticle } from './articles_findarticle/index';
 export { mock_articles_viewarticle as articles_viewarticle } from './articles_viewarticle/index';
+export { mock_del1 as del1 } from './del1/index';
 export { mock_findticket as findticket } from './findticket/index';
 export { mock_finduser as finduser } from './finduser/index';
 export { mock_home as home } from './home/index';

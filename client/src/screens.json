@@ -155,6 +155,12 @@
       "name": "Settings",
       "sourceScreenId": "about",
       "sourceAppId": "cherwellrequest"
+    },
+    {
+      "id": "del1",
+      "name": "del1",
+      "sourceScreenId": "blank",
+      "sourceAppId": "default"
     }
   ],
   "startScreen": "login",
