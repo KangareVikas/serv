@@ -56,8 +56,7 @@
             </ion-row>
         </form>
         <touchid-login (onVerify)="action('submit')" [context]="this"
-            [disableAutoInvoke]="data.refresh_token" data-comp-id="touchid-login.1"
-            style="padding: 15px;" text-center>
+            data-comp-id="touchid-login.1" style="padding: 15px;" text-center>
             <ion-icon color="white" data-comp-id="icon.1" name="finger-print"
                 style="font-size: 70px;"></ion-icon>
             <div color="white" data-comp-id="text.2" ion-text style="font-size: 17px;">{{getBiometricAuthType()}}</div>
