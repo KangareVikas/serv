@@ -12,6 +12,9 @@ export class login_PhonePortrait extends Screen {
 
   ngOnInit(): void {
     super.ngOnInit();
+    if (!this.data.username) {
+        this.data.username = 'evan.employee@acme.com'
+    }
     // Logic to run when the screen loads goes here.
   }
 
