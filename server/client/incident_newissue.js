@@ -4,8 +4,8 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    vars.session.prevScreen = session.currentScreen();
     if (session.currentScreen() !== 'finduser') {
+        vars.session.prevScreen = session.currentScreen();
         models.incident_newissue = {};
     }
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
