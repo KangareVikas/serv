@@ -30,8 +30,8 @@ exports.showIncidents = async (session, models, vars) => {
             models.tickets_mytickets.tickets.push(result);
         });
         models.tickets_mytickets.$$partialFields = {
-            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
-            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
         };
 };
 /**
@@ -72,8 +72,8 @@ exports.showRequests = async (session, models, vars) => {
             models.tickets_mytickets.tickets.push(result);
         });
         models.tickets_mytickets.$$partialFields = {
-            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
-            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
         };
 };
 /**
@@ -108,8 +108,8 @@ exports.showNeedAttention = async (session, models, vars) => {
             models.tickets_mytickets.tickets.push(result);
         });
         models.tickets_mytickets.$$partialFields = {
-            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
-            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
         };
 };
 /**
@@ -144,8 +144,8 @@ exports.showOpenTickets = async (session, models, vars) => {
             models.tickets_mytickets.tickets.push(result);
         });
         models.tickets_mytickets.$$partialFields = {
-            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey'],
-            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey']
+            full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
+            part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
         };
 };
 /**
