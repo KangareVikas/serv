@@ -8,8 +8,10 @@ import { Screen } from 'app/screen';
 export class MenuComponent extends Screen {
     doChat(): void {
         // do chat stuff here
+        this.openUrl("slack://open");
     }
     doCall(): void {
         // do call stuff here
+        this.openUrl("tel:8778004381");
     }
 }
