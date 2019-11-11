@@ -15,6 +15,10 @@ export class login_PhonePortrait extends Screen {
     if (!this.data.username) {
         this.data.username = 'evan.employee@acme.com'
     }
+    let refreshToken = localStorage.getItem('refresh_token');
+    if (refreshToken) {
+        this.data.refresh_token = refreshToken;
+    }
     // Logic to run when the screen loads goes here.
   }
 
@@ -25,10 +29,13 @@ export class login_PhonePortrait extends Screen {
 
   onDataLoad(data: any): void {
       if (data.errorMessage || data.invalid_refresh_token) {
-          if (window.__token_touchid_disabled) {
-              this.touchid.enable();
-          }
           localStorage.removeItem('refresh_token');
+          this.data.refresh_token = null;
+      } else {
+          let refreshToken = localStorage.getItem('refresh_token');
+          if (refreshToken) {
+              this.data.refresh_token = refreshToken;
+          }
       }
     // Logic to run when the screen's data is updated goes here.
   }
@@ -38,20 +45,9 @@ export class login_PhonePortrait extends Screen {
     // false - stop the event propogation
       return true;
   }
+
   callSupport() {
       window.location.href = `tel:8778004381`
-  }
-
-  async ionViewWillEnter() {
-      await super.ionViewWillEnter();
-      let refreshToken = localStorage.getItem('refresh_token');
-      if (refreshToken) {
-          // Disable touch if we have a refresh token.
-          if (this.touchid.isEnabled()) {
-              window.__token_touchid_disabled = true;
-              this.touchid.disable();              
-          }
-      }
   }
 
   async ionViewDidEnter() {
