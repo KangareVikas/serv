@@ -44,7 +44,6 @@ export class request_newrequest_PhonePortrait extends Screen {
   }
 
   ionViewDidLeave(): Promise<void> {
-      super.ionViewDidLeave();
       return this.action('clearData');
   }
 }
