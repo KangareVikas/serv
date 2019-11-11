@@ -4,13 +4,10 @@
  * @param {Vars} vars
 */
 exports.submit = async (session, models, vars) => {
-    models.login.apikey = '81b8a693-a448-4275-bd9e-937ae6387b7c';
-    models.login.username = 'apiuser';
-    models.login.password = 'pass@123';
     try {
         let output = await session.rest.cherwellapi.login({
             grant_type_password: vars.config.rest.cherwellapi.custom.grant_type_password,
-            apikey: models.login.apikey,
+            apikey: vars.config.rest.cherwellapi.custom.apikey,
             username: models.login.username,
             password: models.login.password
         });
@@ -43,7 +40,7 @@ exports.submit = async (session, models, vars) => {
 */
 exports.tokenSubmit = async (session, models, vars) => {
     let refreshToken = models.login.refresh_token;
-    models.login.apikey = '81b8a693-a448-4275-bd9e-937ae6387b7c';
+    models.login.apikey = vars.config.rest.cherwellapi.custom.apikey;
     try {
         models.login.invalid_refresh_token = false;
         let output = await session.rest.cherwellapi.refreshToken({
