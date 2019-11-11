@@ -4,6 +4,7 @@
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    models.incident_newissue = {};
     if (session.currentScreen() !== 'finduser') {
         /**
             No need to save 'finduser' as a prev screen,
@@ -11,7 +12,6 @@ exports.onload = async (session, models, vars) => {
             between the 'New issue' and 'Find user' screens
         */
         vars.session.prevScreen = session.currentScreen();
-        models.incident_newissue = {};
     }
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
     models.incident_newissue.forUser = vars.session.forUser || models.incident_newissue.forUser || vars.config.rest.cherwellapi.custom.forUser;
