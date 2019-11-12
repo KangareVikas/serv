@@ -13,11 +13,13 @@ export class incident_newissue_PhonePortrait extends Screen {
     showAddInfo: boolean;
 
   ngOnInit(): void {
+    this.global.photo = null;
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
   }
 
   ngOnDestroy(): void {
+    this.global.photo = null;
     super.ngOnDestroy();
     // Logic to run when the screen unloads goes here.
   }
@@ -37,6 +39,7 @@ export class incident_newissue_PhonePortrait extends Screen {
   fileEvent(fileInput: Event) {
       this.data.filename = this.data.photo[0].name;
       this.data.size = this.data.photo[0].size;
+      this.global.photo = this.data.photo;
   }
 
   ionViewWillLeave(): Promise<void> {
@@ -46,7 +49,10 @@ export class incident_newissue_PhonePortrait extends Screen {
 
 
   submit() {
-      console.log(this.data)
+    if (!this.data.photo && this.global.photo) {
+      this.data.photo = this.global.photo
+    }
+    this.action('submit');
   }
 
 }

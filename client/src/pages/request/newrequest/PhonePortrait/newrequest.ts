@@ -13,11 +13,13 @@ export class request_newrequest_PhonePortrait extends Screen {
     showAddInfo: boolean;
 
   ngOnInit(): void {
+    this.global.photo = null;
     super.ngOnInit();
     // Logic to run when the screen loads goes here.
   }
 
   ngOnDestroy(): void {
+    this.global.photo = null;
     super.ngOnDestroy();
     // Logic to run when the screen unloads goes here.
   }
@@ -41,9 +43,17 @@ export class request_newrequest_PhonePortrait extends Screen {
   fileEvent() {
       this.data.filename = this.data.photo[0].name;
       this.data.size = this.data.photo[0].size;
+      this.global.photo = this.data.photo;
   }
 
   ionViewDidLeave(): Promise<void> {
       return this.action('clearData', null, null, { 'noLoading': true })
+  }
+
+  submit() {
+    if (!this.data.photo && this.global.photo) {
+      this.data.photo = this.global.photo
+    }
+    this.action('submit');
   }
 }
