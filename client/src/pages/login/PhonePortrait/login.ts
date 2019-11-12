@@ -16,10 +16,10 @@ export class login_PhonePortrait extends Screen {
     if (!this.data.username) {
         this.data.username = 'evan.employee@acme.com'
     }
-    let refreshToken = localStorage.getItem('refresh_token');
-    if (refreshToken) {
-        this.data.refresh_token = refreshToken;
-    }
+    // let refreshToken = localStorage.getItem('refresh_token');
+    // if (refreshToken) {
+    //     this.data.refresh_token = refreshToken;
+    // }
     window.addEventListener('native.keyboardshow', function () {
         this.content.resize();
     });
@@ -35,15 +35,15 @@ export class login_PhonePortrait extends Screen {
   }
 
   onDataLoad(data: any): void {
-      if (data.errorMessage || data.invalid_refresh_token) {
-          localStorage.removeItem('refresh_token');
-          this.data.refresh_token = null;
-      } else {
-          let refreshToken = localStorage.getItem('refresh_token');
-          if (refreshToken) {
-              this.data.refresh_token = refreshToken;
-          }
-      }
+    //   if (data.errorMessage || data.invalid_refresh_token) {
+    //       localStorage.removeItem('refresh_token');
+    //       this.data.refresh_token = null;
+    //   } else {
+    //       let refreshToken = localStorage.getItem('refresh_token');
+    //       if (refreshToken) {
+    //           this.data.refresh_token = refreshToken;
+    //       }
+    //   }
     // Logic to run when the screen's data is updated goes here.
   }
   onBackButton(): boolean {
@@ -57,12 +57,12 @@ export class login_PhonePortrait extends Screen {
       window.location.href = `tel:8778004381`
   }
 
-  async ionViewDidEnter() {
-      await super.ionViewDidEnter();
-      let refreshToken = localStorage.getItem('refresh_token');
-      if (refreshToken) {
-          this.data.refresh_token = refreshToken;
-          this.action('tokenSubmit');
-      }
-  }
+//   async ionViewDidEnter() {
+//       await super.ionViewDidEnter();
+//       let refreshToken = localStorage.getItem('refresh_token');
+//       if (refreshToken) {
+//           this.data.refresh_token = refreshToken;
+//           this.action('tokenSubmit');
+//       }
+//   }
 }
