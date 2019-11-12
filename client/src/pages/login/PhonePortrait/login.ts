@@ -8,6 +8,7 @@ declare var window: any;
   templateUrl: 'login.html'
 })
 export class login_PhonePortrait extends Screen {
+  @ViewChild('content') content;
   data: any;
 
   ngOnInit(): void {
@@ -19,6 +20,12 @@ export class login_PhonePortrait extends Screen {
     if (refreshToken) {
         this.data.refresh_token = refreshToken;
     }
+    window.addEventListener('native.keyboardshow', function () {
+        this.content.resize();
+    });
+    window.addEventListener('native.keyboardhide', function () {
+        this.content.resize();
+    });
     // Logic to run when the screen loads goes here.
   }
 
