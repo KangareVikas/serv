@@ -1,8 +1,8 @@
 {
   "smartuxApp": "1.0",
-  "version": "1.0.33",
-  "date": 1573557311541,
-  "creator": "Yuriy Rudyi",
+  "version": "1.0.34",
+  "date": 1573576795701,
+  "creator": "Samir Mahendra",
   "clientVersion": "6.1.0-dev",
   "id": "cherwellrequest",
   "name": "Requester",
