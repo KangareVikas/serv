@@ -19,6 +19,9 @@ export class login_PhonePortrait extends Screen {
     // if (refreshToken) {
     //     this.data.refresh_token = refreshToken;
     // }
+    window.addEventListener('native.keyboardshow', function () {
+        document.activeElement.scrollIntoView(false);
+    });
     // Logic to run when the screen loads goes here.
   }
 
