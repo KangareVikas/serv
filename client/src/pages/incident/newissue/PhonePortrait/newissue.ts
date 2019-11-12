@@ -44,4 +44,9 @@ export class incident_newissue_PhonePortrait extends Screen {
     return this.action('clearData');
   }
 
+
+  submit() {
+      console.log(this.data)
+  }
+
 }
