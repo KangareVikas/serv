@@ -42,6 +42,7 @@ declare module 'app/app.screens' {
 	import { findticket_PhonePortrait } from 'app/../pages/findticket/PhonePortrait/findticket';
 	import { about_PhonePortrait } from 'app/../pages/about/PhonePortrait/about';
 	import { settings_PhonePortrait } from 'app/../pages/settings/PhonePortrait/settings';
+	import { del1_PhonePortrait } from 'app/../pages/del1/PhonePortrait/del1';
 	export class Screens {
 	    static declarations: (typeof MenuComponent | typeof inserts_homelogo_PhonePortrait | typeof incident_newissue_PhonePortrait)[];
 	    static mapping: {
@@ -98,6 +99,9 @@ declare module 'app/app.screens' {
 	        };
 	        'settings': {
 	            PhonePortrait: typeof settings_PhonePortrait;
+	        };
+	        'del1': {
+	            PhonePortrait: typeof del1_PhonePortrait;
 	        };
 	    };
 	}
