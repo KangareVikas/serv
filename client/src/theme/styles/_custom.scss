@@ -2,6 +2,7 @@ ion-footer {
     box-shadow: 0 -2px 16px 0 rgba(0, 0, 0, .2);
     backdrop-filter: blur(8px);
     background-color: rgba(255,255,255, .85) !important;
+    height: calc(env(safe-area-inset-bottom) + 63px );
 }
 
 ion-searchbar {
