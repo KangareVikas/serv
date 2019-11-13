@@ -16,7 +16,6 @@ declare module 'app/screen' {
 	import { BaseScreen } from 'smartux-client';
 	export class Screen extends BaseScreen {
 	    protected global: GlobalData;
-	    logout(otherUserConnected?: boolean): any;
 	    ngOnInit(): void;
 	}
 
