@@ -1,62 +1,67 @@
 <ion-row data-comp-id="row.1"
-    style="padding: 0 4px; border-top: 0px none rgb(0, 0, 0);">
-    <ion-col (click)="goTo('home')" data-comp-id="column.1"
-        style="text-align: center; padding: 10px 0 0; max-width: 19%;">
-        <img *ngIf="data.footer.active === 'home'" data-comp-id="img.1"
-            src="assets/images/inserts/footer/home_icon_act.png"
-            style="width: auto; height: 23px;">
-        <img *ngIf="data.footer.active !== 'home'" data-comp-id="img.2"
-            src="assets/images/inserts/footer/home_icon.png"
-            style="width: auto; height: 23px;">
-        <div color="{{data.footer.active === 'home' ? 'primary' : 'dark'}}"
-            data-comp-id="text.1" ion-text style="font-size: 12px; line-height: 30px;">Home</div>
-    </ion-col>
-    <ion-col (click)="goTo('myTickets')" data-comp-id="column.2"
-        style="text-align: center; padding: 10px 0 0;">
-        <img *ngIf="data.footer.active === 'myTickets'" data-comp-id="img.3"
-            src="assets/images/inserts/footer/tickets_icon_act.png"
-            style="width: auto; height: 23px;">
-        <img *ngIf="data.footer.active !== 'myTickets'" data-comp-id="img.4"
-            src="assets/images/inserts/footer/tickets_icon.png"
-            style="width: auto; height: 23px;">
-        <div color="{{data.footer.active === 'myTickets' ? 'primary' : 'dark'}}"
-            data-comp-id="text.2" ion-text style="font-size: 12px; line-height: 30px;">My Tickets</div>
-    </ion-col>
-    <ion-col data-comp-id="column.3"
-        style="text-align: center; padding: 10px 0 0; max-width: 18%;">
-        <a href="slack://open">
-            <img *ngIf="data.footer.active === 'chat'" data-comp-id="img.5"
-                src="assets/images/inserts/footer/chat_icon_act.png"
-                style="width: auto; height: 23px;">
-            <img *ngIf="data.footer.active !== 'chat'" data-comp-id="img.6"
-                src="assets/images/inserts/footer/chat_icon.png"
-                style="width: auto; height: 23px;">
-            <div color="{{data.footer.active === 'chat' ? 'primary' : 'dark'}}"
-                data-comp-id="text.3" ion-text style="font-size: 12px; line-height: 30px;">Chat</div>
-        </a>
-    </ion-col>
-    <ion-col data-comp-id="column.4"
-        style="text-align: center; padding: 10px 0 0; max-width: 17%;">
-        <a href="tel:8778004381">
-            <img *ngIf="data.footer.active === 'call'" data-comp-id="img.7"
-                src="assets/images/inserts/footer/call_icon_act.png"
-                style="width: auto; height: 23px;">
-            <img *ngIf="data.footer.active !== 'call'" data-comp-id="img.8"
-                src="assets/images/inserts/footer/call_icon.png"
-                style="width: auto; height: 23px;">
-            <div color="{{data.footer.active === 'call' ? 'primary' : 'dark'}}"
-                data-comp-id="text.4" ion-text style="font-size: 12px; line-height: 30px;">Call</div>
-        </a>
-    </ion-col>
-    <ion-col (click)="goTo('newIssue')" data-comp-id="column.5"
-        style="text-align: center; padding: 10px 0 0;">
-        <img *ngIf="data.footer.active === 'newIssue'" data-comp-id="img.9"
-            src="assets/images/inserts/footer/add_issue_icon_act.png"
-            style="width: auto; height: 23px;">
-        <img *ngIf="data.footer.active !== 'newIssue'" data-comp-id="img.10"
-            src="assets/images/inserts/footer/add_isuue_icon.png"
-            style="width: auto; height: 23px;">
-        <div color="{{data.footer.active === 'newIssue' ? 'primary' : 'dark'}}"
-            data-comp-id="text.5" ion-text style="font-size: 12px; line-height: 30px;">New Issue</div>
-    </ion-col>
+         style="padding: 0 4px; border-top: 0px none rgb(0, 0, 0);">
+  <ion-col (click)="goTo('home')" data-comp-id="column.1"
+           style="text-align: center; padding: 10px 0 0; max-width: 19%;">
+    <img [hidden]="data.footer.active !== 'home'" data-comp-id="img.1"
+         src="assets/images/inserts/footer/home_icon_act.png"
+         style="width: auto; height: 23px;">
+    <img [hidden]="data.footer.active === 'home'" data-comp-id="img.2"
+         src="assets/images/inserts/footer/home_icon.png"
+         style="width: auto; height: 23px;">
+    <div color="{{data.footer.active === 'home' ? 'primary' : 'dark'}}"
+         data-comp-id="text.1" ion-text style="font-size: 12px; line-height: 30px;">Home
+    </div>
+  </ion-col>
+  <ion-col (click)="goTo('myTickets')" data-comp-id="column.2"
+           style="text-align: center; padding: 10px 0 0;">
+    <img [hidden]="data.footer.active !== 'myTickets'" data-comp-id="img.3"
+         src="assets/images/inserts/footer/tickets_icon_act.png"
+         style="width: auto; height: 23px;">
+    <img [hidden]="data.footer.active === 'myTickets'" data-comp-id="img.4"
+         src="assets/images/inserts/footer/tickets_icon.png"
+         style="width: auto; height: 23px;">
+    <div color="{{data.footer.active === 'myTickets' ? 'primary' : 'dark'}}"
+         data-comp-id="text.2" ion-text style="font-size: 12px; line-height: 30px;">My Tickets
+    </div>
+  </ion-col>
+  <ion-col data-comp-id="column.3"
+           style="text-align: center; padding: 10px 0 0; max-width: 18%;">
+    <a href="slack://open">
+      <img [hidden]="data.footer.active !== 'chat'" data-comp-id="img.5"
+           src="assets/images/inserts/footer/chat_icon_act.png"
+           style="width: auto; height: 23px;">
+      <img [hidden]="data.footer.active === 'chat'" data-comp-id="img.6"
+           src="assets/images/inserts/footer/chat_icon.png"
+           style="width: auto; height: 23px;">
+      <div color="{{data.footer.active === 'chat' ? 'primary' : 'dark'}}"
+           data-comp-id="text.3" ion-text style="font-size: 12px; line-height: 30px;">Chat
+      </div>
+    </a>
+  </ion-col>
+  <ion-col data-comp-id="column.4"
+           style="text-align: center; padding: 10px 0 0; max-width: 17%;">
+    <a href="tel:8778004381">
+      <img [hidden]="data.footer.active !== 'call'" data-comp-id="img.7"
+           src="assets/images/inserts/footer/call_icon_act.png"
+           style="width: auto; height: 23px;">
+      <img [hidden]="data.footer.active === 'call'" data-comp-id="img.8"
+           src="assets/images/inserts/footer/call_icon.png"
+           style="width: auto; height: 23px;">
+      <div color="{{data.footer.active === 'call' ? 'primary' : 'dark'}}"
+           data-comp-id="text.4" ion-text style="font-size: 12px; line-height: 30px;">Call
+      </div>
+    </a>
+  </ion-col>
+  <ion-col (click)="goTo('newIssue')" data-comp-id="column.5"
+           style="text-align: center; padding: 10px 0 0;">
+    <img [hidden]="data.footer.active !== 'newIssue'" data-comp-id="img.9"
+         src="assets/images/inserts/footer/add_issue_icon_act.png"
+         style="width: auto; height: 23px;">
+    <img [hidden]="data.footer.active === 'newIssue'" data-comp-id="img.10"
+         src="assets/images/inserts/footer/add_isuue_icon.png"
+         style="width: auto; height: 23px;">
+    <div color="{{data.footer.active === 'newIssue' ? 'primary' : 'dark'}}"
+         data-comp-id="text.5" ion-text style="font-size: 12px; line-height: 30px;">New Issue
+    </div>
+  </ion-col>
 </ion-row>

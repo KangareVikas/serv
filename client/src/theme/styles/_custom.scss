@@ -29,19 +29,6 @@ ion-app .loading-wrapper {
     stroke: #030e4e !important;
 }
 
-body {
-  padding-top: constant(safe-area-inset-top);
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: constant(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-top);
-}
-ion-app {
-  padding-top: constant(safe-area-inset-top);
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: constant(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-top);
-}
-
 .platform-android {
     .submitButton {
         margin-bottom:220px;
