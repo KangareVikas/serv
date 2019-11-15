@@ -8,7 +8,7 @@
       "type": "bearerToken",
       "token": "{access_token}"
     },
-    "body": "\\{\n \"busObID\": \"{kbBusObId}\",\n \"filters\": [\n  \\{\n   \"dirty\" : true,\n   \"fieldId\" : \"{kbStateFieldId}\",\n   \"value\": \"Published\"\n  }\n ]\n}",
+    "body": "\\{\n \"busObID\": \"{kbBusObId}\",\n \"fields\":{KBFields},\n \"filters\": [\n  \\{\n   \"dirty\" : true,\n   \"fieldId\" : \"{kbStateFieldId}\",\n   \"value\": \"Published\"\n  }\n ]\n}",
     "options": {},
     "bodyType": "body"
   },
@@ -16,7 +16,8 @@
     "getKBBaseArticles": [
       "access_token",
       "kbBusObId",
-      "kbStateFieldId"
+      "kbStateFieldId",
+      "KBFields"
     ]
   }
 }

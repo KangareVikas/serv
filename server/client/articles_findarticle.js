@@ -18,7 +18,7 @@ exports['articles[].select'] = async (session, models, vars) => {
 exports.onload = async (session, models, vars) => {
     let currentScreen = session.currentScreen();
     if (currentScreen != 'articles_viewarticle') {
-        vars.page.prevScreen = currentScreen;      
+        vars.page.prevScreen = currentScreen;
     }
     models.articles_findarticle.articles = [];
     if (!vars.session.kbBusObId || vars.session.kbStateFieldId) {
@@ -26,6 +26,27 @@ exports.onload = async (session, models, vars) => {
         vars.session.kbBusObId = output.body[0].busObId;
         vars.session.kbStateFieldId = output.body[0].stateFieldId;
     }
+
+    if (!vars.session.KBFields || vars.session.KBFields.length < 3) {
+        console.log('Fetching Fields for KB Articles:');
+        vars.session.KBFields = [];
+        let reqData = await session.rest.cherwellapi.getBusinessObjectTemplate({
+            access_token: vars.session.access_token,
+            busObId: vars.session.kbBusObId,
+            includeRequired: true,
+            includeAll: true
+        });
+        let fieldsData = reqData.body;
+        let requiredFields = ['Title', 'BodyText', 'CreatedDateTime', 'OwnedBy'];
+        for (var i = 0; i < fieldsData.fields.length; i++) {
+            if (requiredFields.indexOf(fieldsData.fields[i].name) > -1) {
+                console.log("Get fieldId of: " + fieldsData.fields[i].name);
+                vars.session.KBFields.push(fieldsData.fields[i].fieldId)
+            }
+        }
+    }
+    console.log(vars.session.KBFields);
+
     let requestData = await session.rest.cherwellapi.getKBBaseArticles({
         access_token: vars.session.access_token,
         kbBusObId: vars.session.kbBusObId,
