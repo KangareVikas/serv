@@ -307,9 +307,6 @@
         "items": {
           "type": "object",
           "properties": {
-            "Description": {
-              "type": "string"
-            },
             "CreatedDateTime": {
               "type": "string"
             },
@@ -317,6 +314,9 @@
               "type": "action"
             },
             "Title": {
+              "type": "string"
+            },
+            "BodyText": {
               "type": "string"
             }
           }
