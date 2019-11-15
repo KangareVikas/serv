@@ -40,15 +40,15 @@ exports.onload = async (session, models, vars) => {
         let lastNameFound = false;
         let fullNameFound = false;
         for (let i = 0; i < parsed.fieldDefinitions.length; i++) {
-            if (parsed.fieldDefinitions[i].displayName === 'First name') {
+            if (parsed.fieldDefinitions[i].name === 'FirstName') {
                 vars.session.firstNamefieldId = parsed.fieldDefinitions[i].fieldId;
                 firstNameFound = true;
             }
-            if (parsed.fieldDefinitions[i].displayName === 'Last Name') {
+            if (parsed.fieldDefinitions[i].name === 'LastName') {
                 vars.session.lastNamefieldId = parsed.fieldDefinitions[i].fieldId;
                 lastNameFound = true;
             }
-            if (parsed.fieldDefinitions[i].displayName === 'Full name') {
+            if (parsed.fieldDefinitions[i].name === 'FullName') {
                 vars.session.fullNamefieldId = parsed.fieldDefinitions[i].fieldId;
                 fullNameFound = true;
             }
