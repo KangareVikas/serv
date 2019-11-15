@@ -26,6 +26,12 @@ exports.onload = async (session, models, vars) => {
         vars.session.kbBusObId = output.body[0].busObId;
         vars.session.kbStateFieldId = output.body[0].stateFieldId;
     }
+    let requiredFields = [
+        'Title',
+        'BodyText',
+        'CreatedDateTime',
+        'OwnedBy'
+    ];
     if (!vars.session.KBFields || vars.session.KBFields.length < 3) {
         console.log('Fetching Fields for KB Articles:');
         vars.session.KBFields = [];
@@ -36,12 +42,6 @@ exports.onload = async (session, models, vars) => {
             includeAll: true
         });
         let fieldsData = reqData.body;
-        let requiredFields = [
-            'Title',
-            'BodyText',
-            'CreatedDateTime',
-            'OwnedBy'
-        ];
         for (var i = 0; i < fieldsData.fields.length; i++) {
             if (requiredFields.indexOf(fieldsData.fields[i].name) > -1) {
                 console.log('Get fieldId of: ' + fieldsData.fields[i].name);
@@ -56,18 +56,16 @@ exports.onload = async (session, models, vars) => {
         kbStateFieldId: vars.session.kbStateFieldId,
         KBFields: vars.session.KBFields
     });
-    let data = requestData.body.businessObjects[0];
+    let data = requestData.body.businessObjects;
     data.forEach(article => {
         let result = { busObRecId: article.busObRecId };
         article.fields.forEach(field => {
-            if ([
-                    'CreatedDateTime',
-                    'Description'
-                ].includes(field.name)) {
+            if (requiredFields.includes(field.name)) {
                 result[field.name] = field.value;
             }
         });
-        result['title'] = result['Description'].split('.')[0];
+        result['title'] = result['Title'];
+        result['Description'] = result['BodyText'];
         models.articles_findarticle.articles.push(result);
     });
 };

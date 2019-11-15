@@ -41,7 +41,7 @@
         <ion-item (click)="action('articles[item].select',[i])"
             *ngFor="let item of data.articles | search:data.searchKey:'Description'; let i = index"
             class="article-item" data-comp-id="item.1">
-            <div [innerHTML]="item.Description" class="article-title" data-comp-id="text.3"
+            <div [innerHTML]="item.Title" class="article-title" data-comp-id="text.3"
                 ion-text style="font-size: 17px;"></div>
             <ion-icon color="primary" data-comp-id="icon.1" item-end name="arrow-forward"
                 style="font-size: 24px;"></ion-icon>
