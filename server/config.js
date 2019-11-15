@@ -26,7 +26,7 @@ module.exports = {
         // # of seconds to send keep-alive pings.
         keepAlive: 30,
         // The maximum allowed message size in bytes.
-        maxPayload: 66000,
+        maxPayload: 660000,
         // Enable/disable permessage-deflate compression of websocket frames.
         perMessageDeflate: true
     },

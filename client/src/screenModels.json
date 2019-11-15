@@ -695,7 +695,7 @@
       "CreatedDateTime": {
         "type": "string"
       },
-      "title": {
+      "Title": {
         "type": "string"
       }
     },

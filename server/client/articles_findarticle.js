@@ -64,7 +64,6 @@ exports.onload = async (session, models, vars) => {
                 result[field.name] = field.value;
             }
         });
-        result['title'] = result['Title'];
         result['Description'] = result['BodyText'];
         models.articles_findarticle.articles.push(result);
     });
