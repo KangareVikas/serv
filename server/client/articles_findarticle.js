@@ -26,7 +26,6 @@ exports.onload = async (session, models, vars) => {
         vars.session.kbBusObId = output.body[0].busObId;
         vars.session.kbStateFieldId = output.body[0].stateFieldId;
     }
-
     if (!vars.session.KBFields || vars.session.KBFields.length < 3) {
         console.log('Fetching Fields for KB Articles:');
         vars.session.KBFields = [];
@@ -37,32 +36,37 @@ exports.onload = async (session, models, vars) => {
             includeAll: true
         });
         let fieldsData = reqData.body;
-        let requiredFields = ['Title', 'BodyText', 'CreatedDateTime', 'OwnedBy'];
+        let requiredFields = [
+            'Title',
+            'BodyText',
+            'CreatedDateTime',
+            'OwnedBy'
+        ];
         for (var i = 0; i < fieldsData.fields.length; i++) {
             if (requiredFields.indexOf(fieldsData.fields[i].name) > -1) {
-                console.log("Get fieldId of: " + fieldsData.fields[i].name);
-                vars.session.KBFields.push(fieldsData.fields[i].fieldId)
+                console.log('Get fieldId of: ' + fieldsData.fields[i].name);
+                vars.session.KBFields.push(fieldsData.fields[i].fieldId);
             }
         }
     }
     console.log(vars.session.KBFields);
-
     let requestData = await session.rest.cherwellapi.getKBBaseArticles({
         access_token: vars.session.access_token,
         kbBusObId: vars.session.kbBusObId,
-        kbStateFieldId: vars.session.kbStateFieldId
+        kbStateFieldId: vars.session.kbStateFieldId,
+        KBFields: vars.session.KBFields
     });
-    let data = requestData.body.businessObjects;
+    let data = requestData.body.businessObjects[0];
     data.forEach(article => {
-        let result = {
-            busObRecId: article.busObRecId
-        };
+        let result = { busObRecId: article.busObRecId };
         article.fields.forEach(field => {
-            if (['CreatedDateTime', 'Description'].includes(field.name)) {
+            if ([
+                    'CreatedDateTime',
+                    'Description'
+                ].includes(field.name)) {
                 result[field.name] = field.value;
             }
         });
-        // truncate description for the title
         result['title'] = result['Description'].split('.')[0];
         models.articles_findarticle.articles.push(result);
     });
