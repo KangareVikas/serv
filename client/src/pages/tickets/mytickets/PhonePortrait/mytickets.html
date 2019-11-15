@@ -77,7 +77,7 @@
     <ion-row data-comp-id="row.3">
         <ion-col data-comp-id="column.8" style="padding: 8px;">
             <ion-list data-comp-id="list.2" mode="ios" style="margin: -1px 0px 64px;">
-                <ion-item-sliding (click)="action('tickets[item].select',[i])"
+                <ion-item-sliding (click)="action('tickets[item].select',[data.tickets.indexOf(item)])"
                     *ngFor="let item of data.tickets | search:data.searchKey:'ShortDescription'; let i = index"
                     data-comp-id="item-sliding.1"
                     style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
