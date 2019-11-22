@@ -60,12 +60,11 @@ export class setup_PhonePortrait extends Screen {
         }
     }
 
-    async barcodeScanned($event) {
+    async barcodeScanned() {
         // Expecting a URL of the form:
         // http(s)://server/<appId> or
         // http(s)://server/<appId>/
-        let barcodeText = $event.text;
-        let barcodeType = $event.format;
+        const barcodeText = this.data.barcodeValue;
         let url = barcodeText.trim();
         if (url.endsWith('/')) {
             url = url.substring(0, url.length - 1);

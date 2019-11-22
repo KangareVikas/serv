@@ -21,8 +21,8 @@
         </ion-col>
     </ion-row>
     <ion-list data-comp-id="list.1" style="margin: 32px;">
-        <button (onScan)="barcodeScanned($event)" barcodeScanner block color="secondary"
-            data-comp-id="barcode-scanner.1" icon-start ion-button
+        <button (onScan)="barcodeScanned()" [(text)]="data.barcodeValue" barcodeScanner
+            block color="secondary" data-comp-id="barcode-scanner.1" icon-start ion-button
             style="border-radius: 20px;">
             <ion-icon class=" fa fa-qrcode" color="light" data-comp-id="icon.1" style></ion-icon>
             <span class="label" data-comp-id="text.3">
