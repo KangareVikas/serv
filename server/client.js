@@ -119,5 +119,5 @@ exports.start = async (session, models, vars) => {
         ],
         selected: ''
     };
-    await session.screen('login');
+    await session.screen('initialize');
 };

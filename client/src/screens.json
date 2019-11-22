@@ -175,7 +175,7 @@
       "sourceAppId": "DynamicSmartUXRuntime"
     }
   ],
-  "startScreen": "login",
+  "startScreen": "initialize",
   "statusbarContent": "dark",
   "statusbarHidden": true,
   "statusbarBackground": null
