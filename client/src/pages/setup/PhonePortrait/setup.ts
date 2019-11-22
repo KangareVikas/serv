@@ -85,7 +85,7 @@ export class setup_PhonePortrait extends Screen {
 
     async updatePublishInfoCBUrl(serverURL, appId) {
         if (!this.fileService.isAvailable()) {
-            throw("Unable to access the this app's files.");
+            throw("Unable to access this app's files.");
         }
         try {
             let dirName = 'www';
