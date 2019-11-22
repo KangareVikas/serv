@@ -167,6 +167,12 @@
       "name": "Setup",
       "sourceScreenId": "setup",
       "sourceAppId": "DynamicSmartUXRuntime"
+    },
+    {
+      "id": "initialize",
+      "name": "Initialize",
+      "sourceScreenId": "initialize",
+      "sourceAppId": "DynamicSmartUXRuntime"
     }
   ],
   "startScreen": "login",

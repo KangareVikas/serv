@@ -761,5 +761,11 @@
       }
     },
     "id": "setup"
+  },
+  "initialize": {
+    "type": "object",
+    "comment": "Login",
+    "properties": {},
+    "id": "initialize"
   }
 }

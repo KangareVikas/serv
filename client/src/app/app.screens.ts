@@ -20,6 +20,7 @@ import { about_PhonePortrait } from '../pages/about/PhonePortrait/about';
 import { settings_PhonePortrait } from '../pages/settings/PhonePortrait/settings';
 import { del1_PhonePortrait } from '../pages/del1/PhonePortrait/del1';
 import { setup_PhonePortrait } from '../pages/setup/PhonePortrait/setup';
+import { initialize_PhonePortrait } from '../pages/initialize/PhonePortrait/initialize';
 export class Screens {
   static declarations = [
     MenuComponent,
@@ -42,7 +43,8 @@ export class Screens {
     about_PhonePortrait,
     settings_PhonePortrait,
     del1_PhonePortrait,
-    setup_PhonePortrait
+    setup_PhonePortrait,
+    initialize_PhonePortrait
   ];
   static mapping = {
     'login': {
@@ -104,6 +106,9 @@ export class Screens {
     },
     'setup': {
       PhonePortrait: setup_PhonePortrait
+    },
+    'initialize': {
+      PhonePortrait: initialize_PhonePortrait
     }
   }
 }
