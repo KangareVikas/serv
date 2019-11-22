@@ -11,12 +11,15 @@
     </ion-navbar>
 </ion-header>
 <ion-content data-comp-id="content.1" style>
-    <ion-title data-comp-id="title.1" mode="ios">
-        <h5 data-comp-id="text.2" ion-text
-            style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
-            Quick Setup
-        </h5>
-    </ion-title>
+    <ion-row class="row-calm" data-comp-id="row.2"
+        style="margin: 0; border-bottom: 0.546875px solid rgb(200, 199, 204);">
+        <ion-col data-comp-id="column.4" style="padding: 5px;">
+            <h5 data-comp-id="text.2" ion-text
+                style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
+                Quick Setup
+            </h5>
+        </ion-col>
+    </ion-row>
     <ion-list data-comp-id="list.1" style="margin: 32px;">
         <button (onScan)="barcodeScanned($event)" barcodeScanner block color="secondary"
             data-comp-id="barcode-scanner.1" icon-start ion-button
@@ -27,12 +30,15 @@
             </span>
         </button>
     </ion-list>
-    <ion-title data-comp-id="title.2" mode="ios">
-        <h5 data-comp-id="text.4" ion-text
-            style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
-            SmartUX™ Runtime Settings
-        </h5>
-    </ion-title>
+    <ion-row class="row-calm" data-comp-id="row.3"
+        style="margin: 0; border-bottom: 0.546875px solid rgb(200, 199, 204); border-top: 0.546875px solid rgb(200, 199, 204);">
+        <ion-col data-comp-id="column.5" style="padding: 5px;">
+            <h5 data-comp-id="text.4" ion-text
+                style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
+                SmartUX™ Runtime Settings
+            </h5>
+        </ion-col>
+    </ion-row>
     <ion-list data-comp-id="list.2">
         <ion-item data-comp-id="input.1">
             <ion-label color="dark" stacked>SmartUX™ Runtime Server</ion-label>
