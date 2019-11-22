@@ -32,7 +32,7 @@ export class initialize_PhonePortrait extends Screen {
     async checkCbUrl() {
         const publishInfo = await this.publishInfoService.get();
         // If we don't have a cbUrl or it's the default of '/cb', let's go to setup.
-        if (_.isEmpty(publishInfo.cbUrl) || _.toLower(publishInfo.cbUrl) == '/cb') {
+        if (!publishInfo.error && (_.isEmpty(publishInfo.cbUrl) || _.toLower(publishInfo.cbUrl) == '/cb')) {
             this.go('setup');
         } else {
             this.go('login');

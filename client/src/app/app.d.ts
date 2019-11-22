@@ -50,8 +50,10 @@ declare module 'app/app.screens' {
 	import { about_PhonePortrait } from 'app/../pages/about/PhonePortrait/about';
 	import { settings_PhonePortrait } from 'app/../pages/settings/PhonePortrait/settings';
 	import { del1_PhonePortrait } from 'app/../pages/del1/PhonePortrait/del1';
+	import { setup_PhonePortrait } from 'app/../pages/setup/PhonePortrait/setup';
+	import { initialize_PhonePortrait } from 'app/../pages/initialize/PhonePortrait/initialize';
 	export class Screens {
-	    static declarations: (typeof MenuComponent | typeof inserts_homelogo_PhonePortrait | typeof incident_newissue_PhonePortrait)[];
+	    static declarations: (typeof MenuComponent | typeof inserts_homelogo_PhonePortrait | typeof incident_newissue_PhonePortrait | typeof setup_PhonePortrait | typeof initialize_PhonePortrait)[];
 	    static mapping: {
 	        'login': {
 	            PhonePortrait: typeof login_PhonePortrait;
@@ -109,6 +111,12 @@ declare module 'app/app.screens' {
 	        };
 	        'del1': {
 	            PhonePortrait: typeof del1_PhonePortrait;
+	        };
+	        'setup': {
+	            PhonePortrait: typeof setup_PhonePortrait;
+	        };
+	        'initialize': {
+	            PhonePortrait: typeof initialize_PhonePortrait;
 	        };
 	    };
 	}
