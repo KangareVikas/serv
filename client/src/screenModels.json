@@ -758,6 +758,9 @@
       },
       "appId": {
         "type": "string"
+      },
+      "barcodeValue": {
+        "type": "string"
       }
     },
     "id": "setup"
