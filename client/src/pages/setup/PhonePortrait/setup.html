@@ -1,26 +1,22 @@
 <ion-header data-comp-id="header.1">
     <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
         <ion-row data-comp-id="row.1" style="padding: 0 0 4px;">
-            <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
-                <button (click)="action('back')" class="button-label-primary" clear
-                    data-comp-id="button.1" ion-button mode="ios" small
-                    style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
-                    <ion-icon class=" ion-ios-arrow-back" color="primary" style="font-size: 28px;"></ion-icon>
-                    <span style="padding: 0 0 0 8px;">Back</span>
-                </button>
-            </ion-col>
+            <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;"></ion-col>
             <ion-col data-comp-id="column.2" style="text-align: right; padding: 0 4px;"></ion-col>
-            <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 8px 16px;">
+            <ion-col col-12 data-comp-id="column.3" style="padding: 8px 0 8px 16px;">
                 <div color="black" data-comp-id="text.1" ion-text
                     style="font-size: 34px; margin: 0;">Application Settings</div>
             </ion-col>
         </ion-row>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-light" data-comp-id="content.1" style>
-    <ion-list-header color="primary" data-comp-id="list-header.1" style>
-        <span data-comp-id="text.2" ion-text>Quick Setup</span>
-    </ion-list-header>
+<ion-content data-comp-id="content.1" style>
+    <ion-title data-comp-id="title.1" mode="ios">
+        <h5 data-comp-id="text.2" ion-text
+            style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
+            Quick Setup
+        </h5>
+    </ion-title>
     <ion-list data-comp-id="list.1" style="margin: 32px;">
         <button (onScan)="barcodeScanned($event)" barcodeScanner block color="secondary"
             data-comp-id="barcode-scanner.1" icon-start ion-button
@@ -31,9 +27,12 @@
             </span>
         </button>
     </ion-list>
-    <ion-list-header color="primary" data-comp-id="list-header.2" style>
-        <span data-comp-id="text.4" ion-text>SmartUX™ Runtime Settings</span>
-    </ion-list-header>
+    <ion-title data-comp-id="title.2" mode="ios">
+        <h5 data-comp-id="text.4" ion-text
+            style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
+            SmartUX™ Runtime Settings
+        </h5>
+    </ion-title>
     <ion-list data-comp-id="list.2">
         <ion-item data-comp-id="input.1">
             <ion-label color="dark" stacked>SmartUX™ Runtime Server</ion-label>
@@ -44,7 +43,7 @@
             <ion-input [(ngModel)]="data.appId" placeholder="Type here..." type="text"></ion-input>
         </ion-item>
         <div data-comp-id="div.1" style="margin: 32px;">
-            <button (click)="onSubmitButton()" color="secondary" data-comp-id="button.2"
+            <button (click)="onSubmitButton()" color="secondary" data-comp-id="button.1"
                 full icon-start ion-button style="border-radius: 20px;">
                 <span>Submit</span>
             </button>
