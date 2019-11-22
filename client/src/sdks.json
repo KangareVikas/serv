@@ -45,6 +45,9 @@
     "id": "cordova-plugin-file-transfer"
   },
   {
+    "id": "cordova-plugin-screen-orientation"
+  },
+  {
     "id": "cordova-plugin-splashscreen"
   },
   {
@@ -60,6 +63,6 @@
     "id": "cordova-plugin-file"
   },
   {
-    "id": "cordova-plugin-screen-orientation"
+    "id": "cordova-plugin-customurlscheme"
   }
 ]
