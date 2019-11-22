@@ -742,5 +742,24 @@
     "comment": "Blank",
     "properties": {},
     "id": "del1"
+  },
+  "setup": {
+    "type": "object",
+    "comment": "Blank",
+    "properties": {
+      "login": {
+        "type": "action"
+      },
+      "server": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
+      },
+      "appId": {
+        "type": "string"
+      }
+    },
+    "id": "setup"
   }
 }

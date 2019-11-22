@@ -161,6 +161,12 @@
       "name": "del1",
       "sourceScreenId": "blank",
       "sourceAppId": "default"
+    },
+    {
+      "id": "setup",
+      "name": "Setup",
+      "sourceScreenId": "setup",
+      "sourceAppId": "DynamicSmartUXRuntime"
     }
   ],
   "startScreen": "login",

@@ -1,0 +1,42 @@
+<ion-header data-comp-id="header.1">
+    <ion-navbar color="secondary" data-comp-id="navbar.1" style>
+        <ion-title data-comp-id="title.1">
+            <span data-comp-id="text.1" ion-text>Application Settings</span>
+        </ion-title>
+        <ion-buttons data-comp-id="buttons.1" right></ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-light" data-comp-id="content.1" style>
+    <ion-list-header color="primary" data-comp-id="list-header.1" style>
+        <span data-comp-id="text.2" ion-text>Quick Setup</span>
+    </ion-list-header>
+    <ion-list data-comp-id="list.1" style="margin: 32px;">
+        <button (onScan)="barcodeScanned($event)" barcodeScanner block color="secondary"
+            data-comp-id="barcode-scanner.1" icon-start ion-button
+            style="border-radius: 20px;">
+            <ion-icon class=" fa fa-qrcode" color="light" data-comp-id="icon.1" style></ion-icon>
+            <span class="label" data-comp-id="text.3">
+                Scan QR Code
+            </span>
+        </button>
+    </ion-list>
+    <ion-list-header color="primary" data-comp-id="list-header.2" style>
+        <span data-comp-id="text.4" ion-text>SmartUX™ Runtime Settings</span>
+    </ion-list-header>
+    <ion-list data-comp-id="list.2">
+        <ion-item data-comp-id="input.1">
+            <ion-label color="dark" stacked>SmartUX™ Runtime Server</ion-label>
+            <ion-input [(ngModel)]="data.server" placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item data-comp-id="input.2">
+            <ion-label color="dark" stacked>App Id</ion-label>
+            <ion-input [(ngModel)]="data.appId" placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <div data-comp-id="div.1" style="margin: 32px;">
+            <button (click)="onSubmitButton()" color="secondary" data-comp-id="button.1"
+                full icon-start ion-button style="border-radius: 20px;">
+                <span>Submit</span>
+            </button>
+        </div>
+    </ion-list>
+</ion-content>
