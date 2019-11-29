@@ -761,6 +761,20 @@
       },
       "barcodeValue": {
         "type": "string"
+      },
+      "fromUrlScheme": {
+        "type": "boolean"
+      },
+      "existingSettings": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          }
+        }
       }
     },
     "id": "setup"
