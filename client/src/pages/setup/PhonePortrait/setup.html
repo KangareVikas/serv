@@ -33,18 +33,40 @@
     <ion-row class="row-calm" data-comp-id="row.3"
         style="margin: 0; border-bottom: 0.546875px solid rgb(200, 199, 204); border-top: 0.546875px solid rgb(200, 199, 204);">
         <ion-col data-comp-id="column.5" style="padding: 5px;">
-            <h5 data-comp-id="text.4" ion-text
+            <h5 color="danger" data-comp-id="text.4" ion-text
+                style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
+                Existing settings
+            </h5>
+        </ion-col>
+    </ion-row>
+    <ion-list *ngIf="data.fromUrlScheme && !!data.existingSettings"
+        data-comp-id="list.2" mode="ios" style="margin: -1px 0px 0px;">
+        <ion-item color="transparent" data-comp-id="input.1" mode="ios" style>
+            <ion-label color="dark" mode="ios" stacked>SmartUX™ Runtime Server</ion-label>
+            <ion-input [(ngModel)]="data.existingSettings.server" [readonly]="true"
+                color="danger" mode="ios" placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+        <ion-item color="transparent" data-comp-id="input.2" mode="ios" style>
+            <ion-label mode="ios" stacked style>App Id</ion-label>
+            <ion-input [(ngModel)]="data.existingSettings.appId" [readonly]="true"
+                color="danger" mode="ios" placeholder="Type here..." type="text"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-row class="row-calm" data-comp-id="row.4"
+        style="margin: 0; border-bottom: 0.546875px solid rgb(200, 199, 204);">
+        <ion-col data-comp-id="column.6" style="padding: 5px;">
+            <h5 data-comp-id="text.5" ion-text
                 style="text-align: left; font-weight: normal; line-height: 28.8px; margin: 8px 16px;">
                 SmartUX™ Runtime Settings
             </h5>
         </ion-col>
     </ion-row>
-    <ion-list data-comp-id="list.2">
-        <ion-item data-comp-id="input.1">
+    <ion-list data-comp-id="list.3">
+        <ion-item data-comp-id="input.3">
             <ion-label color="dark" stacked>SmartUX™ Runtime Server</ion-label>
             <ion-input [(ngModel)]="data.server" placeholder="Type here..." type="text"></ion-input>
         </ion-item>
-        <ion-item data-comp-id="input.2">
+        <ion-item data-comp-id="input.4">
             <ion-label color="dark" stacked>App Id</ion-label>
             <ion-input [(ngModel)]="data.appId" placeholder="Type here..." type="text"></ion-input>
         </ion-item>

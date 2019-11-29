@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Screen } from 'app/screen';
-import * as _ from 'lodash';
-import { PublishInfoService, FileService, PowwowLoginService } from 'smartux-client';
+import { FileService, PowwowLoginService, PublishInfoService } from 'smartux-client';
 
 declare var window: any;
 
@@ -12,9 +11,11 @@ declare var window: any;
 export class setup_PhonePortrait extends Screen {
     data: any;
 
-    constructor(private publishInfoService: PublishInfoService,
+    constructor(
+        private publishInfoService: PublishInfoService,
         private fileService: FileService,
-        private powwowLoginService: PowwowLoginService) {
+        private powwowLoginService: PowwowLoginService
+    ) {
         super();
     }
 
@@ -31,11 +32,12 @@ export class setup_PhonePortrait extends Screen {
     onDataLoad(data: any): void {
         // Logic to run when the screen's data is updated goes here.
         if (this.data.fromUrlScheme) {
-            if (this.data.appId && this.data.appId.length && this.data.server && this.data.server.length && this.data.server.startsWith("http")) {
-                this.onSubmitButton();
-            }
+            this.proceedWithCustomUrlScheme().catch(e => {
+                this.alert(e, { title: 'Error' });
+            });
         }
     }
+
     onBackButton(): boolean {
         //(Android) returns :
         // return false to prevent the app exiting when cancelling a scan
@@ -43,81 +45,109 @@ export class setup_PhonePortrait extends Screen {
     }
 
     async onSubmitButton() {
-        if (this.data && !_.isEmpty(this.data.server) && !_.isEmpty(this.data.appId)) {
-            let appId = this.data.appId.trim();
-            let serverUrl = this.data.server.trim();
-            if (serverUrl.endsWith('/')) {
-                serverUrl = serverUrl.substring(0, serverUrl.length - 1);
-            }
-            if (appId && serverUrl) {
-                try {
-                    await this.updatePublishInfoCBUrl(serverUrl, appId);
-                    await this.go('login');
-                } catch (e) {
-                    this.alert(e);
-                }
+        if (!this.isValidCredentials()) {
+            return;
+        }
+        const appId = this.data.appId.trim();
+        let serverUrl = this.data.server.trim();
+        if (serverUrl.endsWith('/')) {
+            serverUrl = serverUrl.substring(0, serverUrl.length - 1);
+        }
+        if (appId && serverUrl) {
+            try {
+                await this.updatePublishInfoCBUrl(serverUrl, appId);
+                await this.go('login');
+            } catch (e) {
+                this.alert(e, { title: 'Error' });
             }
         }
     }
 
     async barcodeScanned($event) {
-        // Expecting a URL of the form:
-        // http(s)://server/<appId> or
-        // http(s)://server/<appId>/
+        // Expecting a URL of the form: http[s]://server/<appId>[/]
         const barcodeText = $event.text;
-        const barcodeType = $event.format;
         let url = barcodeText.trim();
-        if (url.endsWith('/')) {
+        if (url.endsWith('/')) { // remove trailing slash if exists
             url = url.substring(0, url.length - 1);
         }
-        let indexOfAppId = url.lastIndexOf('/');
-        if (indexOfAppId > 0) {
-            let appId = url.substring(indexOfAppId + 1);
-            if (appId && appId.length) {
-                this.data.appId = appId;
-                this.data.server = url.substring(0, indexOfAppId);
-                if (this.data.appId && this.data.appId.length && this.data.server && this.data.server.length && this.data.server.startsWith("http")) {
-                    await this.onSubmitButton();
+        const urlParts = url.split('/');
+        this.data.appId = urlParts.pop();
+        this.data.server = urlParts.join('/');
+        await this.onSubmitButton();
+    }
+
+    async updatePublishInfoCBUrl(serverURL, appId) {
+        const fileEntry = await this.getPublishedJsonFile();
+        const fileObject = await this.readPublishedJsonContents(fileEntry);
+        fileObject.cbUrl = serverURL + '/cb';
+        fileObject.id = appId;
+        await this.fileService.writeFile(fileEntry, JSON.stringify(fileObject, null, 2));
+        await this.publishInfoService.reload();
+        await this.powwowLoginService.initialize(true);
+    }
+
+    async getPublishedJsonFile(): Promise<any> {
+        if (!this.fileService.isAvailable()) {
+            throw (`Unable to access the this app's files.`);
+        }
+        const dir = this.fileService.getDataDirectory() + 'www';
+        const dirEntry = await this.fileService.resolveLocalFileSystemURL(dir);
+        if (!dirEntry) {
+            throw (`Unable to find "www" directory.`);
+        }
+        const fileEntry = await this.fileService.getFile(dirEntry, 'published.json', false);
+        if (!fileEntry) {
+            throw (`Unable to find "www/published.json" file.`);
+        }
+        return fileEntry;
+    }
+
+    async readPublishedJsonContents(fileEntry): Promise<any> {
+        const fileContents = await this.fileService.readFile(fileEntry);
+        if (!fileContents) {
+            throw (`The "published.json" file is empty.`);
+        }
+        try {
+            return JSON.parse(fileContents);
+        } catch (e) {
+            throw (`The "published.json" file is corrupt.`);
+        }
+    }
+
+    async proceedWithCustomUrlScheme() {
+        const fileEntry = await this.getPublishedJsonFile();
+        const fileObject = await this.readPublishedJsonContents(fileEntry);
+        if (await this.isFisrtSetup(fileObject)) {
+            const message = `Settings are changed by URL.
+                             Runtime server is: ${this.data.server}.
+                             Application ID is: ${this.data.appId}.`;
+            return this.confirm(message, { title: 'Save settings' }).then(res => {
+                if (res === true) {
+                    return this.onSubmitButton();
                 }
+            })
+        } else if (await this.isSameCredentials(fileObject)) {
+            return this.onSubmitButton();
+        } else {
+            this.data.existingSettings = {
+                server: fileObject.cbUrl.replace('/cb', ''),
+                appId: fileObject.id
             }
         }
     }
 
-    async updatePublishInfoCBUrl(serverURL, appId) {
-        if (!this.fileService.isAvailable()) {
-            throw("Unable to access this app's files.");
-        }
-        try {
-            let dirName = 'www';
-            let fileName = 'published.json';
-            let dirEntry = await this.fileService.resolveLocalFileSystemURL(this.fileService.getDataDirectory() + 'www');
-            if (!dirEntry) {
-                throw ("Unable to find 'www' directory.");
-            }
-            let fileEntry = await this.fileService.getFile(dirEntry, 'published.json', false);
-            if (!fileEntry) {
-                throw("Unable to find 'www/published.json' file.")
-            }
-            let fileContents = await this.fileService.readFile(fileEntry);
-            if (!fileContents) {
-                throw("'published.json' file is empty");
-            }
-            let fileObject:any = {};
-            try {
-                fileObject = JSON.parse(fileContents);
-            } catch (e) {
-                throw("'published.json' is corrupt.");
-            }
-            fileObject.cbUrl = serverURL + '/cb';
-            fileObject.id = appId;
-            await this.fileService.writeFile(fileEntry, JSON.stringify(fileObject,null,2));
-            await this.publishInfoService.reload();
-            await this.powwowLoginService.initialize(true);
-        }
-        catch (err) {
-            console.log("Error:", err);
-            throw ('Error updating published.json');
-        }
+    isValidCredentials() {
+        return this.data.appId && this.data.appId.length && this.data.server
+            && this.data.server.length && this.data.server.startsWith('http');
+    }
+
+    async isFisrtSetup(fileObject): Promise<boolean> {
+        return fileObject.cbUrl === '/cb' || !fileObject.cbUrl || !fileObject.id;
+    }
+
+    async isSameCredentials(fileObject): Promise<boolean> {
+        return fileObject.cbUrl === this.data.server + '/cb'
+            && fileObject.id == this.data.appId;
     }
 
 }
