@@ -30,7 +30,8 @@
             </span>
         </button>
     </ion-list>
-    <ion-row class="row-calm" data-comp-id="row.3"
+    <ion-row *ngIf="data.fromUrlScheme && !!data.existingSettings" class="row-calm"
+        data-comp-id="row.3"
         style="margin: 0; border-bottom: 0.546875px solid rgb(200, 199, 204); border-top: 0.546875px solid rgb(200, 199, 204);">
         <ion-col data-comp-id="column.5" style="padding: 5px;">
             <h5 color="danger" data-comp-id="text.4" ion-text
