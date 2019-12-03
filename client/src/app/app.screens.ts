@@ -7,8 +7,8 @@ import { inserts_footer_PhonePortrait } from '../pages/inserts/footer/PhonePortr
 import { incident_subcategories_PhonePortrait } from '../pages/incident/subcategories/PhonePortrait/subcategories';
 import { incident_categories_PhonePortrait } from '../pages/incident/categories/PhonePortrait/categories';
 import { incident_newissue_PhonePortrait } from '../pages/incident/newissue/PhonePortrait/newissue';
-import { request_subservices_PhonePortrait } from '../pages/request/subservices/PhonePortrait/subservices';
 import { request_services_PhonePortrait } from '../pages/request/services/PhonePortrait/services';
+import { request_subservices_PhonePortrait } from '../pages/request/subservices/PhonePortrait/subservices';
 import { request_newrequest_PhonePortrait } from '../pages/request/newrequest/PhonePortrait/newrequest';
 import { articles_findarticle_PhonePortrait } from '../pages/articles/findarticle/PhonePortrait/findarticle';
 import { articles_viewarticle_PhonePortrait } from '../pages/articles/viewarticle/PhonePortrait/viewarticle';
@@ -31,8 +31,8 @@ export class Screens {
     incident_subcategories_PhonePortrait,
     incident_categories_PhonePortrait,
     incident_newissue_PhonePortrait,
-    request_subservices_PhonePortrait,
     request_services_PhonePortrait,
+    request_subservices_PhonePortrait,
     request_newrequest_PhonePortrait,
     articles_findarticle_PhonePortrait,
     articles_viewarticle_PhonePortrait,
@@ -68,11 +68,11 @@ export class Screens {
     'incident_newissue': {
       PhonePortrait: incident_newissue_PhonePortrait
     },
-    'request_subservices': {
-      PhonePortrait: request_subservices_PhonePortrait
-    },
     'request_services': {
       PhonePortrait: request_services_PhonePortrait
+    },
+    'request_subservices': {
+      PhonePortrait: request_subservices_PhonePortrait
     },
     'request_newrequest': {
       PhonePortrait: request_newrequest_PhonePortrait
