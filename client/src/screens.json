@@ -72,15 +72,15 @@
       "folder": true,
       "screens": [
         {
-          "id": "services",
-          "name": "Services",
-          "sourceScreenId": "incident_categories",
-          "sourceAppId": "cherwellrequest"
-        },
-        {
           "id": "subservices",
           "name": "Subservices",
           "sourceScreenId": "incident_subcategories",
+          "sourceAppId": "cherwellrequest"
+        },
+        {
+          "id": "services",
+          "name": "Services",
+          "sourceScreenId": "incident_categories",
           "sourceAppId": "cherwellrequest"
         },
         {
