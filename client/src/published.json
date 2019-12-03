@@ -1,13 +1,13 @@
 {
   "smartuxApp": "1.0",
-  "version": "1.0.42",
-  "date": 1574443109601,
-  "creator": "Vitalii Romaniv",
+  "version": "1.0.43",
+  "date": 1575369774493,
+  "creator": "PowWow Admin",
   "clientVersion": "6.1.0-dev",
   "id": "cherwellrequest",
   "name": "Requester",
   "serverVersion": "6.1.0-dev",
   "serverModulesIncluded": true,
-  "buildType": "AOT",
+  "buildType": "Production",
   "cbUrl": "/cb"
 }
