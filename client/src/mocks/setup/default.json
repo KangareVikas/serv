@@ -1,5 +1,6 @@
 {
   "server": "https://smartux-runtime.company.com",
   "appId": "myapp",
-  "fromUrlScheme": false
+  "fromUrlScheme": false,
+  "existingSettings": null
 }
