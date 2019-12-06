@@ -117,17 +117,14 @@ export class setup_PhonePortrait extends Screen {
     async proceedWithCustomUrlScheme() {
         const fileEntry = await this.getPublishedJsonFile();
         const fileObject = await this.readPublishedJsonContents(fileEntry);
-        if (await this.isFisrtSetup(fileObject)) {
-            const message = `Settings are changed by URL.
-                             Runtime server is: ${this.data.server}.
-                             Application ID is: ${this.data.appId}.`;
-            return this.confirm(message, { title: 'Save settings' }).then(res => {
-                if (res === true) {
-                    return this.onSubmitButton();
-                }
-            })
+        if (await this.isFirstSetup(fileObject)) {
+            const message = `Server: <b>${this.data.server}</b><br/><br/>
+                             App Id: <b>${this.data.appId}</b>`;
+            if (await this.confirm(message, { title: 'Setup Confirmation', okButton: 'Submit', cancelButton: 'Setup Later' }))  {
+                await this.onSubmitButton();
+            }
         } else if (await this.isSameCredentials(fileObject)) {
-            return this.onSubmitButton();
+            await this.onSubmitButton();
         } else {
             this.data.existingSettings = {
                 server: fileObject.cbUrl.replace('/cb', ''),
@@ -141,7 +138,7 @@ export class setup_PhonePortrait extends Screen {
             && this.data.server.length && this.data.server.startsWith('http');
     }
 
-    async isFisrtSetup(fileObject): Promise<boolean> {
+    async isFirstSetup(fileObject): Promise<boolean> {
         return fileObject.cbUrl === '/cb' || !fileObject.cbUrl || !fileObject.id;
     }
 
