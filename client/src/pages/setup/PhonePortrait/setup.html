@@ -9,7 +9,8 @@
             <ion-col data-comp-id="column.2" style="padding: 15px 0 0;"><img data-comp-id="img.2" src="assets/images/Service_Management_logo.png"></ion-col>
         </ion-row>
     </div>
-    <ion-list data-comp-id="list.1" style="margin: 32px;">
+    <ion-list *ngIf="!(data.existingSettings && data.fromUrlScheme)"
+        data-comp-id="list.1" style="margin: 32px;">
         <button (onScan)="barcodeScanned($event)" barcodeScanner block color="primary"
             data-comp-id="barcode-scanner.1" icon-start ion-button
             style="border-radius: 20px;">
