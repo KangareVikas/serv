@@ -43,7 +43,7 @@
     <ion-list-header
         color="{{data.existingSettings && data.fromUrlScheme?'danger':'primary'}}"
         data-comp-id="list-header.3" mode="ios" style>
-        <span data-comp-id="text.7" ion-text>{{data.existingSettings?'Requested':''}}
+        <span data-comp-id="text.7" ion-text>{{data.existingSettings && data.fromUrlScheme?'Requested':''}}
             SmartUX™ Runtime Settings</span>
     </ion-list-header>
     <ion-list data-comp-id="list.3">
