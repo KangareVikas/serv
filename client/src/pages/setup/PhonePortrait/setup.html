@@ -20,12 +20,12 @@
             </span>
         </button>
     </ion-list>
-    <ion-list-header *ngIf="data.existingSettings" color="primary"
-        data-comp-id="list-header.2" mode="ios" style>
+    <ion-list-header *ngIf="data.existingSettings && data.fromUrlScheme"
+        color="primary" data-comp-id="list-header.2" mode="ios" style>
         <span data-comp-id="text.4" ion-text>Current SmartUX™ Runtime Settings</span>
     </ion-list-header>
-    <ion-list *ngIf="data.existingSettings" data-comp-id="list.2" mode="ios"
-        style="margin: -1px 0px 0px;">
+    <ion-list *ngIf="data.existingSettings && data.fromUrlScheme"
+        data-comp-id="list.2" mode="ios" style="margin: -1px 0px 0px;">
         <ion-item data-comp-id="input.1" mode="ios" style>
             <ion-label color="dark" mode="ios" stacked>SmartUX™ Runtime Server</ion-label>
             <ion-input [(ngModel)]="data.existingSettings.server" [readonly]="true"
@@ -38,8 +38,8 @@
         </ion-item>
     </ion-list>
     <ion-row data-comp-id="row.1" style="padding: 0px 0px 2px 0px;">
-        <ion-col *ngIf="data.existingSettings" class="column-danger"
-            data-comp-id="column.1" style="padding: 20px;">
+        <ion-col *ngIf="data.existingSettings && data.fromUrlScheme"
+            class="column-danger" data-comp-id="column.1" style="padding: 20px;">
             <span data-comp-id="text.5" ion-text style="font-weight: bold;">WARNING:</span>
             <span data-comp-id="text.6" ion-text>A request was made to change this application's server settings.</span>
             <div data-comp-id="text.7" ion-text style="margin: 10px 0px 0px 0px;">A server change is
@@ -47,7 +47,8 @@
                 came from a trusted source.</div>
         </ion-col>
     </ion-row>
-    <ion-list-header color="{{data.existingSettings?'danger':'primary'}}"
+    <ion-list-header
+        color="{{data.existingSettings && data.fromUrlScheme?'danger':'primary'}}"
         data-comp-id="list-header.3" mode="ios" style>
         <span data-comp-id="text.8" ion-text>{{data.existingSettings?'Requested':''}}
             SmartUX™ Runtime Settings</span>
@@ -63,12 +64,13 @@
         </ion-item>
         <div data-comp-id="div.1" style="margin: 32px;" text-center>
             <button (click)="onSubmitButton()"
-                color="{{data.existingSettings?'danger':'secondary'}}" data-comp-id="button.1"
-                full icon-start ion-button style="border-radius: 20px;">
+                color="{{data.existingSettings && data.fromUrlScheme?'danger':'secondary'}}"
+                data-comp-id="button.1" full icon-start ion-button style="border-radius: 20px;">
                 <span>Submit
-                    {{data.existingSettings?'Change Request':''}}</span>
+                    {{data.existingSettings && data.fromUrlScheme?'Change Request':''}}</span>
             </button>
-            <button (click)="go('login')" *ngIf="data.existingSettings" color="primary"
+            <button (click)="go('login')"
+                *ngIf="data.existingSettings && data.fromUrlScheme" color="primary"
                 data-comp-id="button.2" icon-start ion-button
                 style="border-radius: 10px;margin-top:20px">
                 <span>Cancel Change</span>
