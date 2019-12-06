@@ -1,4 +1,5 @@
 {
   "server": "https://smartux-runtime.company.com",
-  "appId": "myapp"
+  "appId": "myapp",
+  "fromUrlScheme": false
 }
