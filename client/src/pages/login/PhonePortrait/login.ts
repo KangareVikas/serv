@@ -13,23 +13,20 @@ export class login_PhonePortrait extends Screen {
 
     ngOnInit(): void {
         super.ngOnInit();
-        if (!this.data.username) {
-            this.data.username = 'evan.employee@acme.com'
-        }
         // let refreshToken = localStorage.getItem('refresh_token');
         // if (refreshToken) {
         //     this.data.refresh_token = refreshToken;
         // }
-        window.addEventListener('native.keyboardshow', this.keyboardShownHandler.bind(this));
-        window.addEventListener('native.keyboardhide', this.keyboardHiddenHandler.bind(this));
+        // window.addEventListener('native.keyboardshow', this.keyboardShownHandler.bind(this));
+        // window.addEventListener('native.keyboardhide', this.keyboardHiddenHandler.bind(this));
         // Logic to run when the screen loads goes here.
     }
 
     ngOnDestroy(): void {
         super.ngOnDestroy();
 
-        window.removeEventListener('native.keyboardshow', this.keyboardShownHandler, true);
-        window.removeEventListener('native.keyboardhide', this.keyboardHiddenHandler, true);
+        // window.removeEventListener('native.keyboardshow', this.keyboardShownHandler, true);
+        // window.removeEventListener('native.keyboardhide', this.keyboardHiddenHandler, true);
         // Logic to run when the screen unloads goes here.
     }
 
@@ -56,14 +53,14 @@ export class login_PhonePortrait extends Screen {
         window.location.href = `tel:8778004381`
     }
 
-    private keyboardShownHandler(event) {
-        this.content['_elementRef'].nativeElement.style.height = `calc(100% - ${event.keyboardHeight}px)`;
-        document.activeElement.scrollIntoView(false);
-    }
+    // private keyboardShownHandler(event) {
+    //     this.content['_elementRef'].nativeElement.style.height = `calc(100% - ${event.keyboardHeight}px)`;
+    //     document.activeElement.scrollIntoView(false);
+    // }
 
-    private keyboardHiddenHandler() {
-        this.content['_elementRef'].nativeElement.style.height = '100%';
-    }
+    // private keyboardHiddenHandler() {
+    //     this.content['_elementRef'].nativeElement.style.height = '100%';
+    // }
 
     //   async ionViewDidEnter() {
     //       await super.ionViewDidEnter();
