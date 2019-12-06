@@ -9,60 +9,62 @@
             <ion-col data-comp-id="column.2" style="padding: 15px 0 0;"><img data-comp-id="img.2" src="assets/images/Service_Management_logo.png"></ion-col>
         </ion-row>
     </div>
-    <ion-list *ngIf="!(data.existingSettings && data.fromUrlScheme)"
-        data-comp-id="list.1" style="margin: 32px;">
-        <button (onScan)="barcodeScanned($event)" barcodeScanner block color="primary"
-            data-comp-id="barcode-scanner.1" icon-start ion-button
-            style="border-radius: 20px;">
-            <ion-icon class=" fa fa-qrcode" color="light" data-comp-id="icon.1" style></ion-icon>
-            <span class="label" data-comp-id="text.1">
-                Setup with QR Code
-            </span>
-        </button>
-    </ion-list>
-    <ion-list-header *ngIf="data.existingSettings && data.fromUrlScheme"
-        color="primary" data-comp-id="list-header.1" mode="ios" style>
-        <span data-comp-id="text.2" ion-text>Current SmartUX™ Runtime Settings</span>
-    </ion-list-header>
-    <ion-list *ngIf="data.existingSettings && data.fromUrlScheme"
-        data-comp-id="list.2" mode="ios" style="margin: -1px 0px 0px;">
-        <ion-item data-comp-id="input.1" mode="ios" style>
-            <ion-label color="dark" mode="ios" stacked>SmartUX™ Runtime Server</ion-label>
-            <ion-input [(ngModel)]="data.existingSettings.server" [readonly]="true"
-                placeholder="Type here..." type="text"></ion-input>
-        </ion-item>
-        <ion-item data-comp-id="input.2" mode="ios" style>
-            <ion-label mode="ios" stacked style>App Id</ion-label>
-            <ion-input [(ngModel)]="data.existingSettings.appId" [readonly]="true"
-                placeholder="Type here..." type="text"></ion-input>
-        </ion-item>
-    </ion-list>
-    <ion-row data-comp-id="row.3" style="padding: 0px 0px 2px 0px;">
-        <ion-col *ngIf="data.existingSettings && data.fromUrlScheme"
-            class="column-danger" data-comp-id="column.3" style="padding: 20px;">
-            <span data-comp-id="text.3" ion-text style="font-weight: bold;">WARNING:</span>
-            <span data-comp-id="text.4" ion-text>A request was made to change this application's server settings.</span>
-            <div data-comp-id="text.5" ion-text style="margin: 10px 0px 0px 0px;">A server change is
-                <i>unusual</i>, and should only be Submitted if the link that brought you here
-                came from a trusted source.</div>
-        </ion-col>
-    </ion-row>
-    <ion-list-header
-        color="{{data.existingSettings && data.fromUrlScheme?'danger':'primary'}}"
-        data-comp-id="list-header.2" mode="ios" style>
-        <span data-comp-id="text.6" ion-text>{{data.existingSettings && data.fromUrlScheme?'Requested':''}}
-            SmartUX™ Runtime Settings</span>
-    </ion-list-header>
-    <ion-list data-comp-id="list.3">
-        <ion-item data-comp-id="input.3">
-            <ion-label color="dark" stacked>SmartUX™ Runtime Server</ion-label>
-            <ion-input [(ngModel)]="data.server" placeholder="Type here..." type="text"></ion-input>
-        </ion-item>
-        <ion-item data-comp-id="input.4">
-            <ion-label color="dark" stacked>App Id</ion-label>
-            <ion-input [(ngModel)]="data.appId" placeholder="Type here..." type="text"></ion-input>
-        </ion-item>
-        <div data-comp-id="div.2" style="margin: 32px;" text-center>
+    <div data-comp-id="div.2" style="margin:0px 16px;">
+        <ion-list *ngIf="!(data.existingSettings && data.fromUrlScheme)"
+            data-comp-id="list.1" style="margin: 32px 16px;">
+            <button (onScan)="barcodeScanned($event)" barcodeScanner block color="primary"
+                data-comp-id="barcode-scanner.1" icon-start ion-button
+                style="border-radius: 20px;">
+                <ion-icon class=" fa fa-qrcode" color="light" data-comp-id="icon.1" style></ion-icon>
+                <span class="label" data-comp-id="text.1">
+                    Setup with QR Code
+                </span>
+            </button>
+        </ion-list>
+        <ion-list-header *ngIf="data.existingSettings && data.fromUrlScheme"
+            color="primary" data-comp-id="list-header.1" mode="ios" style>
+            <span data-comp-id="text.2" ion-text>Current SmartUX™ Runtime Settings</span>
+        </ion-list-header>
+        <ion-list *ngIf="data.existingSettings && data.fromUrlScheme"
+            data-comp-id="list.2" mode="ios" style="margin: -1px 0px 0px;">
+            <ion-item data-comp-id="input.1" mode="ios" style>
+                <ion-label color="dark" mode="ios" stacked>SmartUX™ Runtime Server</ion-label>
+                <ion-input [(ngModel)]="data.existingSettings.server" [readonly]="true"
+                    placeholder="Type here..." type="text"></ion-input>
+            </ion-item>
+            <ion-item data-comp-id="input.2" mode="ios" style>
+                <ion-label mode="ios" stacked style>App Id</ion-label>
+                <ion-input [(ngModel)]="data.existingSettings.appId" [readonly]="true"
+                    placeholder="Type here..." type="text"></ion-input>
+            </ion-item>
+        </ion-list>
+        <ion-row data-comp-id="row.3" style="padding: 0px 0px 2px 0px;">
+            <ion-col *ngIf="data.existingSettings && data.fromUrlScheme"
+                class="column-danger" data-comp-id="column.3" style="padding: 20px;">
+                <span data-comp-id="text.3" ion-text style="font-weight: bold;">WARNING:</span>
+                <span data-comp-id="text.4" ion-text>A request was made to change this application's server settings.</span>
+                <div data-comp-id="text.5" ion-text style="margin: 10px 0px 0px 0px;">A server change is
+                    <i>unusual</i>, and should only be Submitted if the link that brought you here
+                    came from a trusted source.</div>
+            </ion-col>
+        </ion-row>
+        <ion-list-header
+            color="{{data.existingSettings && data.fromUrlScheme?'danger':'primary'}}"
+            data-comp-id="list-header.2" mode="ios" style>
+            <span data-comp-id="text.6" ion-text>{{data.existingSettings && data.fromUrlScheme?'Requested':''}}
+                SmartUX™ Runtime Settings</span>
+        </ion-list-header>
+        <ion-list data-comp-id="list.3">
+            <ion-item data-comp-id="input.3">
+                <ion-label color="dark" stacked>SmartUX™ Runtime Server</ion-label>
+                <ion-input [(ngModel)]="data.server" placeholder="Type here..." type="text"></ion-input>
+            </ion-item>
+            <ion-item data-comp-id="input.4">
+                <ion-label color="dark" stacked>App Id</ion-label>
+                <ion-input [(ngModel)]="data.appId" placeholder="Type here..." type="text"></ion-input>
+            </ion-item>
+        </ion-list>
+        <div data-comp-id="div.3" style="margin: 32px; 16px" text-center>
             <button (click)="onSubmitButton()"
                 color="{{data.existingSettings && data.fromUrlScheme?'danger':'primary'}}"
                 data-comp-id="button.1" full icon-start ion-button style="border-radius: 20px;">
@@ -76,5 +78,5 @@
                 <span>Cancel Change</span>
             </button>
         </div>
-    </ion-list>
+    </div>
 </ion-content>
