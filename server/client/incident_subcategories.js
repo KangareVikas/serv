@@ -5,9 +5,12 @@
 */
 exports['subcategories[].select'] = async (session, models, vars) => {
     if (vars.item.title === 'other') {
-        vars.session.selectedSubCatagoryLabel = '';    
+        vars.session.selectedSubCatagoryLabel = '';
     } else {
         vars.session.selectedSubCatagoryLabel = vars.item.title;
+        if (vars.item.serviceClassification) {
+            vars.session.serviceClassification = vars.item.serviceClassification;
+        }
     }
     await session.screen('incident_newissue');
 };

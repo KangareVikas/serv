@@ -1,3 +1,5 @@
+const util = require("./util");
+
 /**
  * @param {Session} session
  * @param {Models} models
@@ -13,46 +15,45 @@ exports.onload = async (session, models, vars) => {
         vars.session.prevScreen = session.currentScreen();
         models.incident_newissue = {};
     }
-    models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
-    models.incident_newissue.forUser = vars.session.forUser || models.incident_newissue.forUser || vars.config.rest.cherwellapi.custom.forUser;
-    models.incident_newissue.customerRecId = vars.session.customerRecId || models.incident_newissue.customerRecId || vars.config.rest.cherwellapi.custom.customerRecId;
-    models.incident_newissue.email = vars.config.rest.cherwellapi.custom.email;
-    models.incident_newissue.phone = vars.config.rest.cherwellapi.custom.phone;
-    models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel || '' } ${ vars.session.selectedCatagorySuffix || '' } ${ vars.session.selectedSubCatagoryLabel || '' }`;
-    models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
-    models.incident_newissue.urgency = models.incident_newissue.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
-    models.incident_newissue.urgency.selected = models.incident_newissue.urgency.selected || 2;
-    models.incident_newissue.type = models.incident_newissue.type || JSON.parse(JSON.stringify(vars.session.selectionItemsMap));
-    models.incident_newissue.type.selected = models.incident_newissue.type.selected || vars.session.selectedCatagoryLabel;
-    models.incident_newissue.typeDisabled = typeof models.incident_newissue.typeDisabled === "boolean" ?
-    models.incident_newissue.typeDisabled : !!models.incident_newissue.type.selected;
-    models.incident_newissue.footer = { active: 'newIssue' };
-    if (!vars.session.configItemDisplayNameFieldId) {
+
+    if (!vars.session.configItemDisplayNameFieldId || !vars.session.urgencyFieldId) {
         let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
             access_token: vars.session.access_token,
             busObId: vars.session.incidentBusObId,
             includeRequired: true,
             includeAll: false
         });
-        let data = requestData.body;
-        for (var i = 0; i < data.fields.length; i++) {
-            if (data.fields[i].name === 'ConfigItemDisplayName') {
-                vars.session.configItemDisplayNameFieldId = data.fields[i].fieldId;
-                break;
-            }
-        }
+        vars.session.configItemDisplayNameFieldId = util.getFieldId(requestData.body.fields, 'ConfigItemDisplayName');
+        vars.session.urgencyFieldId = util.getFieldId(requestData.body.fields, 'Urgency');
+    }
+    if (!vars.session.urgencyMap) {
+        let configItem = await session.rest.cherwellapi.getFieldValues({
+            access_token: vars.session.access_token,
+            busObId: vars.session.incidentBusObId,
+            fieldId: vars.session.urgencyFieldId
+        });
+        vars.session.urgencyMap = util.createSelectFromFieldValues(configItem.body.values);
     }
     if (!models.incident_newissue.ConfigItemSelect) {
-        let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
+        let configItem = await session.rest.cherwellapi.getFieldValues({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId,
-            configItemDisplayNameFieldId: vars.session.configItemDisplayNameFieldId
+            busObId: vars.session.incidentBusObId,
+            fieldId: vars.session.configItemDisplayNameFieldId
         });
-        let list = configItem.body.values;
-        let options = [];
-        list.map(item => { options.push({ "label": item, "value": item }) });
-        models.incident_newissue.ConfigItemSelect = { "options": options, "selected": "" };
+        models.incident_newissue.ConfigItemSelect = util.createSelectFromFieldValues(configItem.body.values);
     }
+
+    models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.user.FullName;
+    models.incident_newissue.forUser = vars.session.forUser || models.incident_newissue.forUser || vars.session.user.FullName;
+    models.incident_newissue.customerRecId = vars.session.customerRecId || models.incident_newissue.customerRecId || vars.session.user.RecID;
+    models.incident_newissue.email = vars.session.user.Email;
+    models.incident_newissue.phone = vars.session.user.CellPhone || vars.session.user.Phone;
+    models.incident_newissue.seat = vars.session.user.Office;
+    models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel || '' } ${ vars.session.selectedCatagorySuffix || '' } ${ vars.session.selectedSubCatagoryLabel || '' }`;
+    models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
+    models.incident_newissue.urgency = models.incident_newissue.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
+    models.incident_newissue.urgency.selected = models.incident_newissue.urgency.selected || vars.session.urgencyDefaultValue;
+    models.incident_newissue.footer = { active: 'newIssue' };
 };
 /**
  * @param {Session} session
@@ -98,62 +99,39 @@ exports.submit = async (session, models, vars) => {
         includeRequired: true,
         includeAll: true
     });
-    let template = requestData.body;
-    for (var i = 0; i < template.fields.length; i++) {
-        if (template.fields[i].name === 'Description') {
-            let type = models.incident_newissue.type.selected || 'Other';
-            let locationString = models.incident_newissue.seat ? `, LOCATION/SEAT: ${ models.incident_newissue.seat }` : '';
-            let descriptionString = models.incident_newissue.description ? `, ${ models.incident_newissue.description }` : '';
-            template.fields[i].value = `TYPE: ${ type }${locationString}${descriptionString}`;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'ShortDescription') {
-            template.fields[i].value = models.incident_newissue.shortDescription;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'CustomerRecID') {
-            template.fields[i].value = models.incident_newissue.customerRecId;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Priority') {
-            template.fields[i].value = models.incident_newissue.urgency.selected;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Urgency' && models.incident_newissue.urgency.selected) {
-            template.fields[i].value = models.incident_newissue.urgency.selected;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Source') {
-            template.fields[i].value = 'Portal';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Service') {
-            template.fields[i].value = 'Access Management';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Category') {
-            template.fields[i].value = 'Identity and Access Management';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Subcategory') {
-            template.fields[i].value = 'Submit Incident';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'OwnedByTeam') {
-            template.fields[i].value = 'Service Desk';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'ConfigItemDisplayName' && models.incident_newissue.urgency.selected === '1') {
-            template.fields[i].value = models.incident_newissue.ConfigItemSelect.selected;
-            template.fields[i].dirty = true;
-        }
+
+    let formattedType = models.incident_subcategories.category || 'Other';
+    let formattedLocation = models.incident_newissue.seat ? `, LOCATION/SEAT: ${models.incident_newissue.seat}` : '';
+    let formattedDescription = models.incident_newissue.description ? `, ${models.incident_newissue.description}` : '';
+    let description = `TYPE: ${formattedType}${formattedLocation}${formattedDescription}`;
+
+    let updateFields = {
+        'Description': description,
+        'ShortDescription': models.incident_newissue.shortDescription,
+        'CustomerRecID': models.incident_newissue.customerRecId,
+        'Priority': models.incident_newissue.urgency.selected,
+        'Source': 'Portal',
+        'CallSource': 'Portal',
+        'CustomerDisplayName': models.incident_newissue.forUser,
+        'Service': vars.session.serviceClassification[0],
+        'Category': vars.session.serviceClassification[1],
+        'Subcategory': vars.session.serviceClassification[2],
+        'SmartClassifySearchString': vars.session.serviceClassification[2]
+    };
+
+    if (models.incident_newissue.urgency.selected) {
+        updateFields['Urgency'] = models.incident_newissue.urgency.selected;
     }
-    let fields = JSON.stringify(template.fields);
+    if (models.incident_newissue.urgency.selected === '1') {
+        updateFields['ConfigItemDisplayName'] = models.incident_newissue.ConfigItemSelect.selected;
+    }
+
+    let stringifiedFields = JSON.stringify(util.createUpdateFields(requestData.body.fields, updateFields));
     try {
         let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
-            fields: fields
+            fields: stringifiedFields
         });
         if (result.body.errorMessage) {
             models.incident_newissue.result.error = result.body.errorMessage;
@@ -171,7 +149,7 @@ exports.submit = async (session, models, vars) => {
                     let file = models.incident_newissue.photo;
                     let filename = models.incident_newissue.filename;
                     let totalsize = models.incident_newissue.size;
-                    console.log('Attache new file:')
+                    console.log('Attach new file:')
                     await session.rest.cherwellapi.attachFile({
                         access_token: vars.session.access_token,
                         file: file,

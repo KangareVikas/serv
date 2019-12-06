@@ -1,0 +1,21 @@
+{
+  "template": {
+    "url": "/api/V1/getuserbyloginid/loginid/{username}",
+    "method": "GET",
+    "query": {},
+    "headers": {},
+    "auth": {
+      "type": "bearerToken",
+      "token": "{access_token}"
+    },
+    "form": {},
+    "options": {},
+    "bodyType": "form"
+  },
+  "functions": {
+    "getUserByLoginId": [
+      "access_token",
+      "username"
+    ]
+  }
+}

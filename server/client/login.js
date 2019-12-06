@@ -1,3 +1,4 @@
+const util = require("./util");
 /**
  * @param {Session} session
  * @param {Models} models
@@ -5,10 +6,7 @@
 */
 exports.submit = async (session, models, vars) => {
     try {
-        models.login.username = 'apiuser';
-        models.login.password = 'pass@123';
         let output = await session.rest.cherwellapi.login({
-            grant_type_password: vars.config.rest.cherwellapi.custom.grant_type_password,
             apikey: vars.config.rest.cherwellapi.custom.apikey,
             username: models.login.username,
             password: models.login.password
@@ -16,7 +14,6 @@ exports.submit = async (session, models, vars) => {
         console.log('Login Success');
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
-        vars.session.apikey = models.login.apikey;
     } catch (e) {
         let error = {};
         try {
@@ -26,11 +23,14 @@ exports.submit = async (session, models, vars) => {
         if (error.error == 'invalid_grant') {
             models.login.errorMessage = 'Invalid username or password.';
         } else {
-            models.login.errorMessage = `Error logging in: ${error.error_description}`;
+            models.login.errorMessage = `Error logging in: ${ error.error_description }`;
         }
         await session.screen('login');
         return;
     }
+    let userOutput = await session.rest.cherwellapi.getUserByLoginId({ access_token: vars.session.access_token, username: models.login.username });
+    vars.session.user = util.convertFieldsIntoObject(userOutput.body.fields);
+    vars.session.fullNamefieldId = util.getFieldId(userOutput.body.fields, "FullName");
     let data = await session.rest.cherwellapi.getCustomerData({ access_token: vars.session.access_token });
     vars.session.custBusObId = data.body[0].busObId;
     await session.screen('home');
@@ -46,13 +46,12 @@ exports.tokenSubmit = async (session, models, vars) => {
     try {
         models.login.invalid_refresh_token = false;
         let output = await session.rest.cherwellapi.refreshToken({
-            grant_type: vars.config.rest.cherwellapi.custom.grant_type_refresh_token,
             refresh_token: refreshToken,
             apikey: models.login.apikey
         });
-        console.log('Login Success');
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
+        console.log('Login Success');
         vars.session.apikey = models.login.apikey;
     } catch (e) {
         models.login.refresh_token = '';

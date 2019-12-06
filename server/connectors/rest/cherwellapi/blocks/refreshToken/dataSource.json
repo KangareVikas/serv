@@ -8,7 +8,7 @@
       "type": "none"
     },
     "form": {
-      "grant_type": "{grant_type}",
+      "grant_type": "refresh_token",
       "client_id": "{apikey}",
       "refresh_token": "{refresh_token}"
     },
@@ -17,7 +17,6 @@
   },
   "functions": {
     "refreshToken": [
-      "grant_type",
       "apikey",
       "refresh_token"
     ]

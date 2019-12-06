@@ -74,17 +74,10 @@ module.exports = {
     connectors: {
         rest: {
             cherwellapi: {
-                baseUrl: 'https://hclgbps.cherwellondemand.com/CherwellAPI',
+                baseUrl: 'http://sealabcsm02.sealab.pwdemolabs.com/CherwellAPI',
                 auth: { type: 'none' },
                 custom: {
-                    apikey: 'df2ccc50-c85e-4b24-9cd7-e1debd432b84',
-                    grant_type_password: 'password',
-                    grant_type_refresh_token: 'refresh_token',
-                    byUser: 'Evan Employee',
-                    forUser: 'Evan Employee',
-                    email: 'evan.employee@acme.com',
-                    phone: '6523455679',
-                    customerRecId: '9452fbe584ef5adf7d204547208da8ed01760a8764'
+                    apikey: '3890a9c2-dc65-4ff6-a674-c9d76f16ecfe'
                 }
             }
         }

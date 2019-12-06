@@ -32,10 +32,16 @@ exports.onload = async (session, models, vars) => {
         serviceFieldId: vars.session.serviceFieldId,
         incidentBusObId: vars.session.incidentBusObId
     });
-    let list = validValues.body.values;
-    let categories = [];
-    list.map(item => { categories.push({ "title": item }) });
-    models.request_services.services = categories;
+    models.request_services.services = [];
+    for (let value of validValues.body.values) {
+        let serviceEntry = { 'title': value };
+        if (vars.session.serviceToIconAndBgMapping[value]) {
+            Object.assign(serviceEntry, vars.session.serviceToIconAndBgMapping[value]);
+        } else {
+            Object.assign(serviceEntry, vars.session.unknownServiceIconAndBg);
+        }
+        models.request_services.services.push(serviceEntry);
+    }
 };
 /**
  * @param {Session} session
@@ -58,8 +64,8 @@ exports.search = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.selectService = async (session, models, vars) => {
-    let subCategoryTitle = vars.params.title;
+exports['services[].select'] = async (session, models, vars) => {
+    let subCategoryTitle = vars.item.title;
     models.request_subservices.service = subCategoryTitle;
     models.request_subservices.selectedServices = [{ title: subCategoryTitle}];
     let data = await session.rest.cherwellapi.getRequestCategoryValues({

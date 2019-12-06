@@ -1,3 +1,5 @@
+const util = require("./util");
+
 /**
  * @param {Session} session
  * @param {Models} models
@@ -7,45 +9,46 @@ exports.onload = async (session, models, vars) => {
     if (session.currentScreen() !== 'finduser') {
         models.request_newrequest = {};
     }
-    models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.byUser || vars.config.rest.cherwellapi.custom.byUser;
-    models.request_newrequest.forUser = vars.session.forUser || models.request_newrequest.forUser || vars.config.rest.cherwellapi.custom.forUser;
-    models.request_newrequest.customerRecId = vars.session.customerRecId || models.request_newrequest.customerRecId || vars.config.rest.cherwellapi.custom.customerRecId;
-    models.request_newrequest.email = vars.config.rest.cherwellapi.custom.email;
-    models.request_newrequest.phone = vars.config.rest.cherwellapi.custom.phone;
-    models.request_newrequest.shortDescription = models.request_newrequest.shortDescription || `I would like to order ${ vars.session.requestService }, ${ vars.session.requestCategory }, ${ vars.session.requestSubCategory }`;
-    models.request_newrequest.urgency = models.request_newrequest.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
-    models.request_newrequest.urgency.selected = models.request_newrequest.urgency.selected || 2;
-    models.request_newrequest.service = models.request_newrequest.service || vars.session.requestService;
-    models.request_newrequest.category = models.request_newrequest.category || vars.session.requestCategory;
-    models.request_newrequest.quantity = models.request_newrequest.quantity || 1;
-    if (!vars.session.configItemDisplayNameFieldId) {
+
+    if (!vars.session.configItemDisplayNameFieldId || !vars.session.urgencyFieldId) {
         let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
             access_token: vars.session.access_token,
             busObId: vars.session.incidentBusObId,
             includeRequired: true,
             includeAll: false
         });
-        let data = requestData.body;
-        for (var i = 0; i < data.fields.length; i++) {
-            if (data.fields[i].name === 'ConfigItemDisplayName') {
-                vars.session.configItemDisplayNameFieldId = data.fields[i].fieldId;
-                break;
-            }
-        }
+        vars.session.configItemDisplayNameFieldId = util.getFieldId(requestData.body.fields, 'ConfigItemDisplayName');
+        vars.session.urgencyFieldId = util.getFieldId(requestData.body.fields, 'Urgency');
+    }
+    if (!vars.session.urgencyMap) {
+        let configItem = await session.rest.cherwellapi.getFieldValues({
+            access_token: vars.session.access_token,
+            busObId: vars.session.incidentBusObId,
+            fieldId: vars.session.urgencyFieldId
+        });
+        vars.session.urgencyMap = util.createSelectFromFieldValues(configItem.body.values);
     }
     if (!models.request_newrequest.ConfigItemSelect) {
-        let configItem = await session.rest.cherwellapi.getConfigItemDisplayName({
+        let configItem = await session.rest.cherwellapi.getFieldValues({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId,
-            configItemDisplayNameFieldId: vars.session.configItemDisplayNameFieldId
+            busObId: vars.session.incidentBusObId,
+            fieldId: vars.session.configItemDisplayNameFieldId
         });
-        let list = configItem.body.values;
-        let options = [];
-        list.map(item => {
-            options.push({"label": item, "value": item})
-        });
-        models.request_newrequest.ConfigItemSelect = {"options": options, "selected": ""};
+        models.request_newrequest.ConfigItemSelect = util.createSelectFromFieldValues(configItem.body.values);
     }
+
+    models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.user.FullName;
+    models.request_newrequest.forUser = vars.session.forUser || models.request_newrequest.forUser || vars.session.user.FullName;
+    models.request_newrequest.customerRecId = vars.session.customerRecId || models.request_newrequest.customerRecId || vars.session.user.RecID;
+    models.request_newrequest.email = vars.session.user.Email;
+    models.request_newrequest.phone = vars.session.user.CellPhone || vars.session.user.Phone;
+    models.request_newrequest.seat = vars.session.user.Office;
+    models.request_newrequest.shortDescription = models.request_newrequest.shortDescription || `I would like to order ${vars.session.requestService}, ${vars.session.requestCategory}, ${vars.session.requestSubCategory}`;
+    models.request_newrequest.urgency = models.request_newrequest.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
+    models.request_newrequest.urgency.selected = models.request_newrequest.urgency.selected || vars.session.urgencyDefaultValue;
+    models.request_newrequest.service = models.request_newrequest.service || vars.session.requestService;
+    models.request_newrequest.category = models.request_newrequest.category || vars.session.requestCategory;
+    models.request_newrequest.quantity = models.request_newrequest.quantity || 1;
 };
 /**
  * @param {Session} session
@@ -59,60 +62,33 @@ exports.submit = async (session, models, vars) => {
         includeRequired: true,
         includeAll: true
     });
-    let template = requestData.body;
-    for (var i = 0; i < template.fields.length; i++) {
-        if (template.fields[i].name === 'Description') {
-            let locationString = models.request_newrequest.seat ? `, LOCATION/SEAT: ${ models.request_newrequest.seat }` : '';
-            let descriptionString = models.request_newrequest.description ? `, ${ models.request_newrequest.description }` : '';
-            template.fields[i].value = `TYPE: ${ models.request_newrequest.service }, ${ models.request_newrequest.category }, ${ vars.session.requestSubCategory }${locationString}${descriptionString}`;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'ShortDescription') {
-            template.fields[i].value = models.request_newrequest.shortDescription;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Service') {
-            template.fields[i].value = models.request_newrequest.service;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Category') {
-            template.fields[i].value = models.request_newrequest.category;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Subcategory') {
-            template.fields[i].value = vars.session.requestSubCategory;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'CustomerRecID') {
-            template.fields[i].value = models.request_newrequest.customerRecId;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Priority') {
-            template.fields[i].value = models.request_newrequest.urgency.selected;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Urgency' && models.request_newrequest.urgency.selected) {
-            template.fields[i].value = models.request_newrequest.urgency.selected;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'GBP_generic_Quantity' && models.request_newrequest.quantity) {
-            template.fields[i].value = models.request_newrequest.quantity;
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'Source') {
-            template.fields[i].value = 'Portal';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'OwnedByTeam') {
-            template.fields[i].value = 'Service Desk';
-            template.fields[i].dirty = true;
-        }
-        if (template.fields[i].name === 'ConfigItemDisplayName' && models.request_newrequest.urgency.selected === '1') {
-            template.fields[i].value = models.request_newrequest.ConfigItemSelect.selected;
-            template.fields[i].dirty = true;
-        }
+
+    let formattedLocation = models.request_newrequest.seat ? `, LOCATION/SEAT: ${models.request_newrequest.seat}` : '';
+    let formattedDescription = models.request_newrequest.description ? `, ${models.request_newrequest.description}` : '';
+    let description = `TYPE: ${models.request_newrequest.service}, ${models.request_newrequest.category}, ${vars.session.requestSubCategory}${formattedLocation}${formattedDescription}`;
+
+    let updateFields = {
+        'Description': description,
+        'ShortDescription': models.request_newrequest.shortDescription,
+        'Service': models.request_newrequest.service,
+        'Category': models.request_newrequest.category,
+        'Subcategory': vars.session.requestSubCategory,
+        'CustomerRecID': models.request_newrequest.customerRecId,
+        'Priority': models.request_newrequest.urgency.selected,
+        'CustomerDisplayName': vars.session.user.FullName,
+        'Source': 'Portal'
+    };
+
+    if (models.request_newrequest.urgency.selected) {
+        updateFields['Urgency'] = models.request_newrequest.urgency.selected;
     }
-    let fields = JSON.stringify(template.fields);
+    if (models.request_newrequest.quantity) {
+        updateFields['GBP_generic_Quantity'] = models.request_newrequest.quantity;
+    }
+    if (models.request_newrequest.urgency.selected === '1') {
+        updateFields['ConfigItemDisplayName'] = models.request_newrequest.ConfigItemSelect.selected;
+    }
+    let fields = JSON.stringify(util.createUpdateFields(requestData.body.fields, updateFields));
     try {
         let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,

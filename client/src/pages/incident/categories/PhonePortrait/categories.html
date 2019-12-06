@@ -29,61 +29,19 @@
                 style="font-size: 17px; margin: 16px;">I need help with my ...</div>
         </ion-col>
     </ion-row>
-    <ion-row data-comp-id="row.3" style="padding: 0px 8px 58px;">
-        <ion-col (click)="method('selectCategory', {title: 'computer'})" col-12
+    <ion-row (click)="action('categories[item].select',[i])"
+        *ngFor="let item of data.categories; let i = index" data-comp-id="row.3"
+        style="padding: 0px 8px">
+        <ion-col [ngStyle]="{ backgroundImage: 'url(' + item.bg + ')'}" col-12
             data-comp-id="column.5" data-img
-            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0; background-image: url(assets/images/incident/categories/computer_or_device_bg_01.png);"><img data-comp-id="img.1"
-            src="assets/images/incident/categories/computer_or_device_icon.png"
-            style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-            <div color="white" data-comp-id="text.3" ion-text
-                style="font-size: 25px; margin: 0 5px;">Computer or Device</div>
-        </ion-col>
-        <ion-col (click)="method('selectCategory', {title: 'desk'})" col-12
-            data-comp-id="column.6" data-img
-            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; background-image: url(assets/images/incident/categories/desk_environment_bg.png); padding: 10px 10px 35px; margin: 0 0 8px 0;">
-            <img data-comp-id="img.2"
-                src="assets/images/incident/categories/desk environment_icon.png"
+            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0;">
+            <img [src]="item.icon" data-comp-id="img.1"
                 style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-            <div color="white" data-comp-id="text.4" ion-text
-                style="font-size: 25px; margin: 0 5px;">Desk Environment</div>
-        </ion-col>
-        <ion-col (click)="method('selectCategory', {title: 'access'})" col-12
-            data-comp-id="column.7" data-img
-            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; background-image: url(assets/images/incident/categories/access_bg.png); padding: 10px 10px 35px; margin: 0 0 8px 0;">
-            <img data-comp-id="img.3"
-                src="assets/images/incident/categories/access_icon.png"
-                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-            <div color="white" data-comp-id="text.5" ion-text
-                style="font-size: 25px; margin: 0 5px;">Access</div>
-        </ion-col>
-        <ion-col (click)="method('selectCategory', {title: 'applications'})" col-12
-            data-comp-id="column.8" data-img
-            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; background-image: url(assets/images/incident/categories/software_bg.png); padding: 10px 10px 35px; margin: 0 0 8px 0;">
-            <img data-comp-id="img.4"
-                src="assets/images/incident/categories/software_icon.png"
-                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-            <div color="white" data-comp-id="text.6" ion-text
-                style="font-size: 25px; margin: 0 5px;">Software</div>
-        </ion-col>
-        <ion-col (click)="method('selectCategory', {title: 'printer'})" col-12
-            data-comp-id="column.9" data-img
-            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0; background-image: url(assets/images/incident/categories/printing_bg.png);">
-            <img data-comp-id="img.5"
-                src="assets/images/incident/categories/printer_icon.png"
-                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-            <div color="white" data-comp-id="text.7" ion-text
-                style="font-size: 25px; margin: 0 5px;">Printer</div>
-        </ion-col>
-        <ion-col (click)="method('selectCategory', {title: 'other'})" col-12
-            data-comp-id="column.10" data-img
-            style="box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); background-size: cover; background-repeat: no-repeat; border-radius: 4px; text-align: center; padding: 10px 10px 35px; margin: 0 0 8px 0; background-image: url(assets/images/incident/categories/other_technologies_bg.png);">
-            <img data-comp-id="img.6"
-                src="assets/images/incident/categories/other_technology_icon.png"
-                style="width: auto; margin: 10px 0 10px 10px; height: 50px;">
-            <div color="white" data-comp-id="text.8" ion-text
-                style="font-size: 25px; margin: 0 5px;">Other Technology</div>
+            <div [innerHTML]="item.label" color="white" data-comp-id="text.3" ion-text
+                style="font-size: 25px; margin: 0 5px;"></div>
         </ion-col>
     </ion-row>
+    <div data-comp-id="div.1" style="padding:0px 0px 50px"></div>
 </ion-content>
 <ion-footer class="footer-white" data-comp-id="footer.1">
     <include-screen data-comp-id="include-screen.1" name="inserts_footer"></include-screen>

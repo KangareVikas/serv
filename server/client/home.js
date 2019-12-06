@@ -1,3 +1,5 @@
+const util = require("./util");
+
 /**
  * @param {Session} session
  * @param {Models} models
@@ -9,18 +11,14 @@ exports['tickets[].select'] = async (session, models, vars) => {
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId
     });
-    let fieldsList = [
+
+    models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
         'CreatedDateTime',
         'Urgency',
         'CustomerDisplayName',
         'ShortDescription',
         'Description'
-    ];
-    data.body.fields.forEach(field => {
-        if (fieldsList.includes(field.name)) {
-            models.tickets_viewincident[field.name] = field.value;
-        }
-    });
+    ]);
     vars.session.busObPublicId = vars.item.id;
     await session.screen('tickets_viewincident');
 };
@@ -30,90 +28,58 @@ exports['tickets[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (!vars.session.fullNamefieldId) {
-        let output = await session.rest.cherwellapi.getBusinessObjectSchema({
-            custBusObId: vars.session.custBusObId,
-            access_token: vars.session.access_token
-        });
-        let parsed = output.body;
-        let firstNameFound = false;
-        let lastNameFound = false;
-        let fullNameFound = false;
-        for (let i = 0; i < parsed.fieldDefinitions.length; i++) {
-            if (parsed.fieldDefinitions[i].name === 'FirstName') {
-                vars.session.firstNamefieldId = parsed.fieldDefinitions[i].fieldId;
-                firstNameFound = true;
-            }
-            if (parsed.fieldDefinitions[i].name === 'LastName') {
-                vars.session.lastNamefieldId = parsed.fieldDefinitions[i].fieldId;
-                lastNameFound = true;
-            }
-            if (parsed.fieldDefinitions[i].name === 'FullName') {
-                vars.session.fullNamefieldId = parsed.fieldDefinitions[i].fieldId;
-                fullNameFound = true;
-            }
-            if (firstNameFound && lastNameFound && fullNameFound) {
-                break;
-            }
-        }
-    };
     if (!vars.session.incidentBusObId) {
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
         vars.session.incidentBusObId = data1.body[0].busObId;
     }
     if (!vars.session.incidentFieldsIds) {
-        vars.session.incidentFieldsIds = {};
-        console.log('Fetching fields IDs for Incedent');
+        console.log('Fetching fields IDs for Incident');
         let tmplData = await session.rest.cherwellapi.getIncedentTemplate({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId
         });
-        tmplData.body.fields.forEach(field => {
-            if ([
-                    'Status',
-                    'Service',
-                    'Category',
-                    'CustomerDisplayName',
-                    'CreatedDateTime',
-                    'IncidentType'
-                ].includes(field.name)) {
-                vars.session.incidentFieldsIds[field.name] = field;
-            }
-        });
+        vars.session.incidentFieldsIds = util.convertFieldsIntoFieldIdObject(tmplData.body.fields, [
+            'Status',
+            'Service',
+            'Category',
+            'CustomerDisplayName',
+            'CreatedDateTime',
+            'IncidentType'
+        ]);
     }
     let ticketsSorting = [{
-            'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+            'fieldId': vars.session.incidentFieldsIds.CreatedDateTime,
             'sortDirection': 0
         }];
     let ticketsFilter = [
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
-            'value': vars.config.rest.cherwellapi.custom.byUser
+            'fieldId': vars.session.incidentFieldsIds.CustomerDisplayName,
+            'value': vars.session.user.FullName
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'fieldId': vars.session.incidentFieldsIds.Status,
             'value': 'Assigned'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'fieldId': vars.session.incidentFieldsIds.Status,
             'value': 'In Progress'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'fieldId': vars.session.incidentFieldsIds.Status,
             'value': 'New'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'fieldId': vars.session.incidentFieldsIds.Status,
             'value': 'Pending'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+            'fieldId': vars.session.incidentFieldsIds.Status,
             'value': 'Pending Approval'
         }
     ];
@@ -125,19 +91,11 @@ exports.onload = async (session, models, vars) => {
     });
     models.home.refresh_token = vars.session.refresh_token;
     models.home.tickets = [];
-    let requiredFields = [
-        'ShortDescription',
-        'Description',
-        'Priority',
-        'CreatedDateTime'
-    ];
-    for (let i = 0; i < openedTickets.body.businessObjects.length; i++) {
-        let ticket = { id: openedTickets.body.businessObjects[i].busObPublicId };
-        for (let j = 0; j < openedTickets.body.businessObjects[i].fields.length; j++) {
-            let fieldName = openedTickets.body.businessObjects[i].fields[j].name;
-            if (requiredFields.indexOf(fieldName) > -1) {
-                ticket[fieldName] = openedTickets.body.businessObjects[i].fields[j].value;
-            }
+    for (let busOb of openedTickets.body.businessObjects) {
+        let ticket = util.convertFieldsIntoObject(busOb.fields, ['ShortDescription', 'Description', 'Priority', 'CreatedDateTime']);
+        ticket.id = busOb.busObPublicId;
+        if (!ticket.ShortDescription) {
+            ticket.ShortDescription = (ticket.Description || "").substring(0, 160);
         }
         models.home.tickets.push(ticket);
     }

@@ -28,16 +28,13 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
           }
         },
         "tokens": {
-          "grant_type_password": "password",
           "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
           "username": "apiuser",
           "password": "pass@123"
@@ -58,8 +55,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type": "password"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -82,15 +78,13 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type": "password"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
           }
         },
         "tokens": {
-          "grant_type": "password",
           "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
         }
       },
@@ -112,9 +106,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -147,9 +139,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -177,9 +167,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -226,9 +214,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -271,9 +257,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -304,9 +288,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -356,14 +338,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "df2ccc50-c85e-4b24-9cd7-e1debd432b84",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token",
-                  "byUser": "Evan Employee",
-                  "forUser": "Evan Employee",
-                  "email": "evan.employee@acme.com",
-                  "phone": "6523455679",
-                  "customerRecId": "9452fbe584ef5adf7d204547208da8ed01760a8764"
+                  "apikey": "df2ccc50-c85e-4b24-9cd7-e1debd432b84"
                 }
               }
             }
@@ -416,9 +391,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -458,9 +431,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -498,9 +469,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -543,9 +512,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -589,9 +556,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -634,9 +599,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -684,9 +647,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -731,9 +692,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -782,9 +741,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -834,9 +791,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -888,9 +843,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -941,9 +894,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -992,9 +943,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -1041,9 +990,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -1090,9 +1037,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -1140,9 +1085,7 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
@@ -1150,7 +1093,7 @@
         },
         "tokens": {}
       },
-      "getConfigItemDisplayName": {
+      "getFieldValues": {
         "models": {
           "menu": {},
           "login": {
@@ -1189,15 +1132,68 @@
             "rest": {
               "cherwellapi": {
                 "custom": {
-                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c",
-                  "grant_type_password": "password",
-                  "grant_type_refresh_token": "refresh_token"
+                  "apikey": "81b8a693-a448-4275-bd9e-937ae6387b7c"
                 }
               }
             }
           }
         },
         "tokens": {}
+      },
+      "getUserByLoginId": {
+        "models": {
+          "menu": {},
+          "login": {
+            "username": "samir",
+            "invalid_refresh_token": false
+          },
+          "home": {},
+          "inserts_homelogo": {},
+          "inserts_footer": {},
+          "incident_categories": {},
+          "incident_subcategories": {},
+          "incident_newissue": {
+            "result": {}
+          },
+          "request_services": {},
+          "articles_findarticle": {},
+          "tickets_mytickets": {},
+          "tickets_viewincident": {},
+          "request_subservices": {},
+          "request_newrequest": {
+            "result": {}
+          },
+          "finduser": {},
+          "articles_viewarticle": {},
+          "findticket": {},
+          "about": {},
+          "settings": {},
+          "del1": {},
+          "setup": {
+            "existingSettings": {}
+          },
+          "initialize": {},
+          "footer": {}
+        },
+        "expressions": {},
+        "vars": {
+          "session": {},
+          "local": {},
+          "screen": {},
+          "request": {},
+          "config": {
+            "rest": {
+              "cherwellapi": {
+                "custom": {
+                  "apikey": "3890a9c2-dc65-4ff6-a674-c9d76f16ecfe"
+                }
+              }
+            }
+          }
+        },
+        "tokens": {
+          "username": "samir"
+        }
       }
     }
   }

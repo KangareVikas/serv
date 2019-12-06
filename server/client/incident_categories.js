@@ -5,28 +5,40 @@
 */
 exports.onload = async (session, models, vars) => {
     models.incident_categories.footer = { active: '' };
+    vars.session.serviceClassification = vars.session.defaultServiceClassification;
+    models.incident_categories.categories = [];
+    for (let categoryKey of Object.keys(vars.session.newIssueCategories)) {
+        models.incident_categories.categories.push({
+            value: categoryKey,
+            label: vars.session.newIssueCategories[categoryKey].label,
+            icon: vars.session.newIssueCategories[categoryKey].icon,
+            bg: vars.session.newIssueCategories[categoryKey].bg
+        });
+    }
+    
 };
 /**
  * @param {Session} session
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.selectCategory = async (session, models, vars) => {
-    if (vars.params.title === 'other') {
+exports['categories[].select'] = async (session, models, vars) => {
+    if (vars.session.newIssueCategories[vars.item.value].list) {
+        models.incident_subcategories.category = vars.session.newIssueCategories[vars.item.value].label;
+        models.incident_subcategories.suffix = vars.session.newIssueCategories[vars.item.value].suffix;
+        models.incident_subcategories.subcategories = vars.session.newIssueCategories[vars.item.value].list;
+        vars.session.selectedCatagoryLabel = vars.session.newIssueCategories[vars.item.value].label;
+        vars.session.selectedCatagorySuffix = vars.session.newIssueCategories[vars.item.value].suffix;
+        if (vars.session.newIssueCategories[vars.item.value].serviceClassification) {
+            vars.session.serviceClassification = vars.session.newIssueCategories[vars.item.value].serviceClassification;
+        }
+        await session.screen('incident_subcategories');
+    } else {
         vars.session.selectedCatagoryLabel = '';
         vars.session.selectedCatagorySuffix = '';
         vars.session.selectedSubCatagoryLabel = '';
+        vars.session.serviceClassification = vars.session.defaultServiceClassification;
         await session.screen('incident_newissue');
-    } else {
-        let list = vars.session.selectionItems[vars.params.title].list;
-        let subcategories = [];
-        list.map(item => { subcategories.push({ "title": item }) });
-        models.incident_subcategories.category = vars.session.selectionItems[vars.params.title].label;
-        models.incident_subcategories.suffix = vars.session.selectionItems[vars.params.title].suffix;
-        models.incident_subcategories.subcategories = subcategories;
-        vars.session.selectedCatagoryLabel = vars.session.selectionItems[vars.params.title].label;
-        vars.session.selectedCatagorySuffix = vars.session.selectionItems[vars.params.title].suffix;
-        await session.screen('incident_subcategories');
     }
 };
 /**

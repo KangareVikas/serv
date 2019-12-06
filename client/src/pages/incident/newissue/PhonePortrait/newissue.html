@@ -46,7 +46,7 @@
             <ion-label class=" required" mode="ios">Phone</ion-label>
             <ion-input [(ngModel)]="data.phone" disabled mode="ios" type="text"></ion-input>
         </ion-item>
-        <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
+        <ion-item *ngIf="false" class="wrap-field" data-comp-id="select.1" mode="ios">
             <ion-label mode="ios">Type</ion-label>
             <ion-select [(ngModel)]="data.type.selected" [disabled]="data.typeDisabled"
                 [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios"

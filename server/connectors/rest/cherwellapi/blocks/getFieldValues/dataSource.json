@@ -8,15 +8,15 @@
       "type": "bearerToken",
       "token": "{access_token}"
     },
-    "body": "\\{\n \"busObId\" : \"{incidentBusObId}\",\n \"fieldId\" : \"{configItemDisplayNameFieldId}\",\n \"fieldName\" : \"ConfigItemDisplayName\",\n \"fields\": [\n ]\n}",
+    "body": "\\{\n \"busObId\" : \"{busObId}\",\n \"fieldId\" : \"{fieldId}\",\n \"fields\": [\n ]\n}",
     "options": {},
     "bodyType": "body"
   },
   "functions": {
-    "getConfigItemDisplayName": [
+    "getFieldValues": [
       "access_token",
-      "incidentBusObId",
-      "configItemDisplayNameFieldId"
+      "busObId",
+      "fieldId"
     ]
   }
 }

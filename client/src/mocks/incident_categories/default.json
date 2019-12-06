@@ -2,5 +2,42 @@
   "footer": {
     "active": ""
   },
-  "selectCategory": {}
+  "categories": [
+    {
+      "icon": "assets/images/incident/categories/computer_or_device_icon.png",
+      "bg": "assets/images/incident/categories/computer_or_device_bg_01.png",
+      "label": "Computer or Device",
+      "value": "computer"
+    },
+    {
+      "icon": "assets/images/incident/categories/desk environment_icon.png",
+      "bg": "assets/images/incident/categories/desk_environment_bg.png",
+      "label": "Desk Environment",
+      "value": "desk"
+    },
+    {
+      "icon": "assets/images/incident/categories/access_icon.png",
+      "bg": "assets/images/incident/categories/access_bg.png",
+      "label": "Access",
+      "value": "access"
+    },
+    {
+      "icon": "assets/images/incident/categories/software_icon.png",
+      "bg": "assets/images/incident/categories/software_bg.png",
+      "label": "Software",
+      "value": "software"
+    },
+    {
+      "icon": "assets/images/incident/categories/printer_icon.png",
+      "bg": "assets/images/incident/categories/printing_bg.png",
+      "label": "Printer",
+      "value": "printer"
+    },
+    {
+      "icon": "assets/images/incident/categories/other_technology_icon.png",
+      "bg": "assets/images/incident/categories/other_technologies_bg.png",
+      "label": "Other Technology",
+      "value": "other"
+    }
+  ]
 }

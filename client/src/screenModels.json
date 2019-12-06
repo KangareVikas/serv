@@ -120,14 +120,6 @@
     "type": "object",
     "comment": "Blank",
     "properties": {
-      "selectCategory": {
-        "type": "method",
-        "parameters": {
-          "title": {
-            "type": "string"
-          }
-        }
-      },
       "back": {
         "type": "action"
       },
@@ -137,6 +129,29 @@
       "footer": {
         "type": "model",
         "model": "footer"
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "icon": {
+              "type": "string"
+            },
+            "bg": {
+              "type": "string"
+            },
+            "select": {
+              "type": "action"
+            },
+            "label": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        }
       }
     },
     "id": "incident_categories"
@@ -276,14 +291,6 @@
       "search": {
         "type": "action"
       },
-      "selectService": {
-        "type": "method",
-        "parameters": {
-          "title": {
-            "type": "string"
-          }
-        }
-      },
       "services": {
         "type": "array",
         "items": {
@@ -291,6 +298,15 @@
           "properties": {
             "title": {
               "type": "string"
+            },
+            "icon": {
+              "type": "string"
+            },
+            "bg": {
+              "type": "string"
+            },
+            "select": {
+              "type": "action"
             }
           }
         }

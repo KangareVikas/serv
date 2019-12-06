@@ -1,3 +1,5 @@
+const util = require("./util");
+
 /**
  * @param {Session} session
  * @param {Models} models
@@ -12,7 +14,6 @@ exports.showIncidents = async (session, models, vars) => {
             ...vars.page.filters.opened
         ];
         let ticketsSorting = vars.page.ticketsSorting;
-        let fieldsList = vars.page.fieldsList;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
@@ -20,15 +21,9 @@ exports.showIncidents = async (session, models, vars) => {
             ticketsSorting: ticketsSorting
         });
         console.log('Tickets count:', data.body.businessObjects.length);
-        data.body.businessObjects.forEach(busOb => {
-            let result = {};
-            busOb.fields.forEach(field => {
-                if (fieldsList.includes(field.name)) {
-                    result[field.name] = field.value;
-                }
-            });
-            models.tickets_mytickets.tickets.push(result);
-        });
+        for (let busOb of data.body.businessObjects) {
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+        }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
             part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
@@ -50,11 +45,10 @@ exports.showRequests = async (session, models, vars) => {
         ticketsFilter.push(
             {
                 'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
+                'fieldId': vars.session.incidentFieldsIds.Status,
                 'value': 'Pending Approval'
             });
         let ticketsSorting = vars.page.ticketsSorting;
-        let fieldsList = vars.page.fieldsList;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
@@ -62,15 +56,9 @@ exports.showRequests = async (session, models, vars) => {
             ticketsSorting: ticketsSorting
         });
         console.log('Tickets count:', data.body.businessObjects.length);
-        data.body.businessObjects.forEach(busOb => {
-            let result = {};
-            busOb.fields.forEach(field => {
-                if (fieldsList.includes(field.name)) {
-                    result[field.name] = field.value;
-                }
-            });
-            models.tickets_mytickets.tickets.push(result);
-        });
+        for (let busOb of data.body.businessObjects) {
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+        }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
             part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
@@ -90,7 +78,6 @@ exports.showNeedAttention = async (session, models, vars) => {
             ...vars.page.filters.needAttencion
         ];
         let ticketsSorting = vars.page.ticketsSorting;
-        let fieldsList = vars.page.fieldsList;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
@@ -98,15 +85,9 @@ exports.showNeedAttention = async (session, models, vars) => {
             ticketsSorting: ticketsSorting
         });
         console.log('Tickets count:', data.body.businessObjects.length);
-        data.body.businessObjects.forEach(busOb => {
-            let result = {};
-            busOb.fields.forEach(field => {
-                if (fieldsList.includes(field.name)) {
-                    result[field.name] = field.value;
-                }
-            });
-            models.tickets_mytickets.tickets.push(result);
-        });
+        for (let busOb of data.body.businessObjects) {
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+        }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
             part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
@@ -126,7 +107,6 @@ exports.showOpenTickets = async (session, models, vars) => {
             ...vars.page.filters.opened
         ];
         let ticketsSorting = vars.page.ticketsSorting;
-        let fieldsList = vars.page.fieldsList;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
             incidentBusObId: vars.session.incidentBusObId,
@@ -134,15 +114,9 @@ exports.showOpenTickets = async (session, models, vars) => {
             ticketsSorting: ticketsSorting
         });
         console.log('Tickets count:', data.body.businessObjects.length);
-        data.body.businessObjects.forEach(busOb => {
-            let result = {};
-            busOb.fields.forEach(field => {
-                if (fieldsList.includes(field.name)) {
-                    result[field.name] = field.value;
-                }
-            });
-            models.tickets_mytickets.tickets.push(result);
-        });
+        for (let busOb of data.body.businessObjects) {
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+        }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
             part: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer']
@@ -158,69 +132,20 @@ exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
     vars.page.filters = {
-        'common': [
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['CustomerDisplayName'].fieldId,
-                'value': vars.config.rest.cherwellapi.custom.byUser
-            }
-        ],
-        'incidents': [
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'Incidents'
-            }
-        ],
-        'requests': [
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['IncidentType'].fieldId,
-                'value': 'Service Request'
-            }
-        ],
-        'opened': [
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'Assigned'
-            },
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'In Progress'
-            },
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'New'
-            },
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'Pending'
-            }
-        ],
-        'needAttencion': [
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'Resolved'
-            },
-            {
-                'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds['Status'].fieldId,
-                'value': 'Pending'
-            }
-        ]
+        'common': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'CustomerDisplayName': vars.session.user.FullName }),
+        'incidents': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': 'Incidents' }),
+        'requests': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'IncidentType': 'Service Request' }),
+        'opened': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': ['Assigned', 'In Progress', 'New', 'Pending'] }),
+        'needAttencion': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': ['Resolved', 'Pending'] })
     };
     vars.page.ticketsSorting = [{
-        'fieldId': vars.session.incidentFieldsIds['CreatedDateTime'].fieldId,
+        'fieldId': vars.session.incidentFieldsIds.CreatedDateTime,
         'sortDirection': 0
     }];
     vars.page.fieldsList = [
         'IncidentID',
         'ShortDescription',
+        'Description',
         'CreatedDateTime'
     ];
     let ticketsFilter = [
@@ -229,7 +154,6 @@ exports.onload = async (session, models, vars) => {
         ...vars.page.filters.opened
     ];
     let ticketsSorting = vars.page.ticketsSorting;
-    let fieldsList = vars.page.fieldsList;
     let data = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
@@ -237,15 +161,9 @@ exports.onload = async (session, models, vars) => {
         ticketsSorting: ticketsSorting
     });
     console.log('Tickets count:', data.body.businessObjects.length);
-    data.body.businessObjects.forEach(busOb => {
-        let result = {};
-        busOb.fields.forEach(field => {
-            if (fieldsList.includes(field.name)) {
-                result[field.name] = field.value;
-            }
-        });
-        models.tickets_mytickets.tickets.push(result);
-    });
+    for (let busOb of data.body.businessObjects) {
+        models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+    }
     models.tickets_mytickets.footer = { active: 'myTickets' };
 };
 /**
@@ -259,18 +177,13 @@ exports['tickets[].select'] = async (session, models, vars) => {
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId
     });
-    let fieldsList = [
+    models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
         'CreatedDateTime',
         'Urgency',
         'CustomerDisplayName',
         'ShortDescription',
         'Description'
-    ];
-    data.body.fields.forEach(field => {
-        if (fieldsList.includes(field.name)) {
-            models.tickets_viewincident[field.name] = field.value;
-        }
-    });
+    ]);
     vars.session.busObPublicId = vars.item.IncidentID;
     await session.screen('tickets_viewincident');
 };
