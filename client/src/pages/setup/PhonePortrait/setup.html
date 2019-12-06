@@ -1,28 +1,21 @@
-<ion-header data-comp-id="header.1">
-    <ion-navbar color="secondary" data-comp-id="navbar.1" style>
-        <ion-title data-comp-id="title.1">
-            <span data-comp-id="text.1" ion-text>Application Settings</span>
-        </ion-title>
-        <ion-buttons data-comp-id="buttons.1" right></ion-buttons>
-    </ion-navbar>
-</ion-header>
-<ion-content class="content-light" data-comp-id="content.1" style>
+<ion-content class="content-light" data-comp-id="content.1"
+    style="background-image: url(assets/images/splash_screen.png); background-size: 100%;">
     <ion-list-header color="primary" data-comp-id="list-header.1" style>
-        <span data-comp-id="text.2" ion-text>Quick Setup</span>
+        <span data-comp-id="text.1" ion-text>Setup Service Management</span>
     </ion-list-header>
     <ion-list data-comp-id="list.1" style="margin: 32px;">
         <button (onScan)="barcodeScanned($event)" barcodeScanner block color="secondary"
             data-comp-id="barcode-scanner.1" icon-start ion-button
             style="border-radius: 20px;">
             <ion-icon class=" fa fa-qrcode" color="light" data-comp-id="icon.1" style></ion-icon>
-            <span class="label" data-comp-id="text.3">
+            <span class="label" data-comp-id="text.2">
                 Scan QR Code
             </span>
         </button>
     </ion-list>
     <ion-list-header *ngIf="data.existingSettings && data.fromUrlScheme"
         color="primary" data-comp-id="list-header.2" mode="ios" style>
-        <span data-comp-id="text.4" ion-text>Current SmartUX™ Runtime Settings</span>
+        <span data-comp-id="text.3" ion-text>Current SmartUX™ Runtime Settings</span>
     </ion-list-header>
     <ion-list *ngIf="data.existingSettings && data.fromUrlScheme"
         data-comp-id="list.2" mode="ios" style="margin: -1px 0px 0px;">
@@ -40,9 +33,9 @@
     <ion-row data-comp-id="row.1" style="padding: 0px 0px 2px 0px;">
         <ion-col *ngIf="data.existingSettings && data.fromUrlScheme"
             class="column-danger" data-comp-id="column.1" style="padding: 20px;">
-            <span data-comp-id="text.5" ion-text style="font-weight: bold;">WARNING:</span>
-            <span data-comp-id="text.6" ion-text>A request was made to change this application's server settings.</span>
-            <div data-comp-id="text.7" ion-text style="margin: 10px 0px 0px 0px;">A server change is
+            <span data-comp-id="text.4" ion-text style="font-weight: bold;">WARNING:</span>
+            <span data-comp-id="text.5" ion-text>A request was made to change this application's server settings.</span>
+            <div data-comp-id="text.6" ion-text style="margin: 10px 0px 0px 0px;">A server change is
                 <i>unusual</i>, and should only be Submitted if the link that brought you here
                 came from a trusted source.</div>
         </ion-col>
@@ -50,7 +43,7 @@
     <ion-list-header
         color="{{data.existingSettings && data.fromUrlScheme?'danger':'primary'}}"
         data-comp-id="list-header.3" mode="ios" style>
-        <span data-comp-id="text.8" ion-text>{{data.existingSettings?'Requested':''}}
+        <span data-comp-id="text.7" ion-text>{{data.existingSettings?'Requested':''}}
             SmartUX™ Runtime Settings</span>
     </ion-list-header>
     <ion-list data-comp-id="list.3">
