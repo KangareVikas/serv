@@ -17,7 +17,7 @@ exports.onload = async (session, models, vars) => {
         name: '',
         custBusObId: vars.session.custBusObId,
         access_token: vars.session.access_token,
-        fullNamefieldId: vars.session.fullNamefieldId
+        fullNamefieldId: ''
     });
     models.finduser.users = [];
     let requiredFields = [
