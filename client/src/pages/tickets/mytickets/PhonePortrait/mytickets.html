@@ -79,7 +79,7 @@
             <ion-list data-comp-id="list.2" mode="ios" style="margin: -1px 0px 64px;">
                 <ion-item-sliding
                     (click)="action('tickets[item].select',[data.tickets.indexOf(item)])"
-                    *ngFor="let item of data.tickets | search:data.searchKey:['ShortDescription','Description']; let i = index"
+                    *ngFor="let item of data.tickets | search:data.searchKey:'ShortDescription,Description'; let i = index"
                     data-comp-id="item-sliding.1"
                     style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
                     <ion-item data-comp-id="item.1" detail-push mode="ios"
