@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchPipe implements PipeTransform {
     transform(items: any[], terms: string, fieldsCommaSeperatedList: string): any[] {
         if (!items) return [];
-        if (!terms || !fieldOrFields) return items;
+        if (!terms || !fieldsCommaSeperatedList) return items;
         terms = terms.toLowerCase();
         let arrFields = fieldsCommaSeperatedList.split(',');
         return items.filter(item => {
