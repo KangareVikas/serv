@@ -28,16 +28,16 @@
                     item-start style="font-size: 32px;"></ion-icon>
                 <div data-comp-id="text.3" ion-text>My Tickets</div>
             </ion-item>
-            <ion-item (click)="doChat()" data-comp-id="item.3" menuClose>
+            <a data-comp-id="item.3" href="slack://open" ion-item menuClose>
                 <ion-icon class=" ion-ios-chatbubbles-outline" color="primary"
                     data-comp-id="icon.3" item-start style="font-size: 30px;"></ion-icon>
                 <div data-comp-id="text.4" ion-text>Chat</div>
-            </ion-item>
-            <ion-item (click)="doCall()" data-comp-id="item.4" menuClose>
+            </a>
+            <a data-comp-id="item.4" href="tel:8778004381" ion-item menuClose>
                 <ion-icon class=" ion-ios-call-outline" color="primary" data-comp-id="icon.4"
                     item-start style="font-size: 32px;"></ion-icon>
                 <div data-comp-id="text.5" ion-text>Call</div>
-            </ion-item>
+            </a>
             <ion-item (click)="go('about')" data-comp-id="item.5" menuClose>
                 <ion-icon class=" ion-ios-information-circle-outline" color="primary"
                     data-comp-id="icon.5" item-start style="font-size: 30px;"></ion-icon>
