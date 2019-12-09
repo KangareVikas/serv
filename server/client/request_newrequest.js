@@ -75,7 +75,7 @@ exports.submit = async (session, models, vars) => {
         'Subcategory': vars.session.requestSubCategory,
         'CustomerRecID': models.request_newrequest.customerRecId,
         'Priority': models.request_newrequest.urgency.selected,
-        'CustomerDisplayName': vars.session.user.FullName,
+        'CustomerDisplayName': models.request_newrequest.forUser,
         'Source': 'Portal'
     };
 
