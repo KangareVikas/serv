@@ -5,12 +5,23 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })
 export class SearchPipe implements PipeTransform {
-    transform(items: any[], terms: string, field: string): any[] {
+    transform(items: any[], terms: string, fieldOrFields: string): any[] {
         if (!items) return [];
-        if (!terms || !field) return items;
+        if (!terms || !fieldOrFields) return items;
         terms = terms.toLowerCase();
         return items.filter(item => {
-            return item[field].toLowerCase().includes(terms);
+            let fieldToUse;
+            if (Array.isArray(fieldOrFields)) {
+                for (let field of fieldOrFields) {
+                    if (item.hasOwnProperty(field)) {
+                        fieldToUse = field;
+                        break;
+                    }
+                }
+            } else {
+                fieldToUse = fieldOrFields;
+            }
+            return item.hasOwnProperty[fieldToUse] && item[fieldToUse].toLowerCase().includes(terms);
         });
     }
 }
