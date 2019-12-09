@@ -77,10 +77,12 @@ exports['users[].select'] = async (session, models, vars) => {
     vars.session.forUser = vars.item.name;
     if (vars.session.newrequest) {
         models.request_newrequest.forUser = vars.item.name;
+        models.request_newrequest.customerRecId = vars.item.customerRecId;
         await session.screen('request_newrequest');
         vars.session.newrequest = null;
     } else {
         models.incident_newissue.forUser = vars.item.name;
+        models.incident_newissue.customerRecId = vars.item.customerRecId;
         await session.screen('incident_newissue');
     }
 };
