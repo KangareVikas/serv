@@ -23,8 +23,6 @@ declare module 'app/screen' {
 declare module 'app/menu/menu' {
 	import { Screen } from 'app/screen';
 	export class MenuComponent extends Screen {
-	    doChat(): void;
-	    doCall(): void;
 	}
 
 }
@@ -35,8 +33,8 @@ declare module 'app/app.screens' {
 	import { home_PhonePortrait } from 'app/../pages/home/PhonePortrait/home';
 	import { inserts_homelogo_PhonePortrait } from 'app/../pages/inserts/homelogo/PhonePortrait/homelogo';
 	import { inserts_footer_PhonePortrait } from 'app/../pages/inserts/footer/PhonePortrait/footer';
-	import { incident_subcategories_PhonePortrait } from 'app/../pages/incident/subcategories/PhonePortrait/subcategories';
 	import { incident_categories_PhonePortrait } from 'app/../pages/incident/categories/PhonePortrait/categories';
+	import { incident_subcategories_PhonePortrait } from 'app/../pages/incident/subcategories/PhonePortrait/subcategories';
 	import { incident_newissue_PhonePortrait } from 'app/../pages/incident/newissue/PhonePortrait/newissue';
 	import { request_services_PhonePortrait } from 'app/../pages/request/services/PhonePortrait/services';
 	import { request_subservices_PhonePortrait } from 'app/../pages/request/subservices/PhonePortrait/subservices';
@@ -53,7 +51,7 @@ declare module 'app/app.screens' {
 	import { setup_PhonePortrait } from 'app/../pages/setup/PhonePortrait/setup';
 	import { initialize_PhonePortrait } from 'app/../pages/initialize/PhonePortrait/initialize';
 	export class Screens {
-	    static declarations: (typeof MenuComponent | typeof inserts_homelogo_PhonePortrait | typeof incident_newissue_PhonePortrait | typeof setup_PhonePortrait | typeof initialize_PhonePortrait)[];
+	    static declarations: (typeof MenuComponent | typeof setup_PhonePortrait | typeof initialize_PhonePortrait)[];
 	    static mapping: {
 	        'login': {
 	            PhonePortrait: typeof login_PhonePortrait;
@@ -67,11 +65,11 @@ declare module 'app/app.screens' {
 	        'inserts_footer': {
 	            PhonePortrait: typeof inserts_footer_PhonePortrait;
 	        };
-	        'incident_subcategories': {
-	            PhonePortrait: typeof incident_subcategories_PhonePortrait;
-	        };
 	        'incident_categories': {
 	            PhonePortrait: typeof incident_categories_PhonePortrait;
+	        };
+	        'incident_subcategories': {
+	            PhonePortrait: typeof incident_subcategories_PhonePortrait;
 	        };
 	        'incident_newissue': {
 	            PhonePortrait: typeof incident_newissue_PhonePortrait;
@@ -210,7 +208,7 @@ declare module 'app/app.component' {
 declare module 'app/search.pipe' {
 	import { PipeTransform } from 'app/@angular/core';
 	export class SearchPipe implements PipeTransform {
-	    transform(items: any[], terms: string, field: string): any[];
+	    transform(items: any[], terms: string, fieldsCommaSeperatedList: string): any[];
 	}
 
 }
