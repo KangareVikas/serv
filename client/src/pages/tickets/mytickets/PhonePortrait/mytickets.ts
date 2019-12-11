@@ -13,23 +13,6 @@ export class tickets_mytickets_PhonePortrait extends Screen {
         super.ngOnInit();
         // Logic to run when the screen loads goes here.
 
-        this.data.sortOptions = {
-            "options": [
-                {
-                    "label": "Date",
-                    "value": "CreatedDateTime"
-                },
-                {
-                    "value": "IncidentID",
-                    "label": "Ticket ID"
-                },
-                {
-                    "value": "ShortDescription",
-                    "label": "Description"
-                }
-            ],
-            "selected": "CreatedDateTime"
-        };
         this.data.descending = true;
         this.handleSort();
     }
