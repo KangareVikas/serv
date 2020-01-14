@@ -8,9 +8,9 @@ exports['subcategories[].select'] = async (session, models, vars) => {
         vars.session.selectedSubCatagoryLabel = '';
     } else {
         vars.session.selectedSubCatagoryLabel = vars.item.title;
-        // if (vars.item.serviceClassification) {
-        //     vars.session.serviceClassification = vars.item.serviceClassification;
-        // }
+        if (vars.item.serviceClassification) {
+            vars.session.serviceClassification = vars.item.serviceClassification;
+        }
     }
     await session.screen('incident_newissue');
 };
