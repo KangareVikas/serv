@@ -60,9 +60,9 @@ exports.onload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.onunload = async (session, models, vars) => {
-    delete vars.session.serviceClassification;
-};
+// exports.onunload = async (session, models, vars) => {
+//     delete vars.session.serviceClassification;
+// };
 /**
  * @param {Session} session
  * @param {Models} models
@@ -113,9 +113,9 @@ exports.submit = async (session, models, vars) => {
     let formattedDescription = models.incident_newissue.description ? `, ${models.incident_newissue.description}` : '';
     let description = `TYPE: ${formattedType}${formattedLocation}${formattedDescription}`;
 
-    if (!vars.session.serviceClassification) {
-        vars.session.serviceClassification = vars.session.defaultServiceClassification;
-    }
+    // if (!vars.session.serviceClassification) {
+    //     vars.session.serviceClassification = vars.session.defaultServiceClassification;
+    // }
 
     let updateFields = {
         'Description': description,
