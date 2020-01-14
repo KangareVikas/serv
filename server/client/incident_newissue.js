@@ -60,9 +60,9 @@ exports.onload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.onunload = async (session, models, vars) => {
-    delete vars.session.serviceClassification;
-};
+// exports.onunload = async (session, models, vars) => {
+//     delete vars.session.serviceClassification;
+// };
 /**
  * @param {Session} session
  * @param {Models} models
