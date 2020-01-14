@@ -11,6 +11,11 @@ exports.submit = async (session, models, vars) => {
             username: models.login.username,
             password: models.login.password
         });
+        if (!output.body.refresh_token) {
+            models.login.errorMessage = 'All licenses are currently in use!';
+            await session.screen('login');
+            return;
+        }
         console.log('Login Success');
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
