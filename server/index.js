@@ -16,4 +16,5 @@ require('./client/menu');
 require('./client/about');
 require('./client/settings');
 require('./client');
+require('./client/inserts_footer');
 session.start();
