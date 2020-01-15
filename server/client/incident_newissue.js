@@ -127,8 +127,8 @@ exports.submit = async (session, models, vars) => {
         'CustomerDisplayName': models.incident_newissue.forUser,
         'Service': vars.session.serviceClassification[0],
         'Category': vars.session.serviceClassification[1],
-        'Subcategory': vars.session.serviceClassification[2],
-        'SmartClassifySearchString': vars.session.serviceClassification[2]
+        'Subcategory': vars.session.serviceClassification[2],=
+        // 'SmartClassifySearchString': vars.session.serviceClassification[2]
     };
 
     if (models.incident_newissue.urgency.selected) {
