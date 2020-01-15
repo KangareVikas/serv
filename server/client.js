@@ -217,6 +217,7 @@ exports.start = async (session, models, vars) => {
  */
 exports.exception = async (session, models, vars) => {
     if (vars.exception.statusCode && vars.exception.statusCode == 401) {
+        console.log("Exception 401 - logging out")
         models.login.errorMessage = "Your session has expired";
         await session.screen('login');
     } else {
@@ -232,16 +233,20 @@ exports.exception = async (session, models, vars) => {
 exports.stop = async (session, models, vars) => {
     if (vars.session.refresh_token) {
         try {
+            console.log("client.stop - Refresh_Token");
             let output = await session.rest.cherwellapi.Login_Refresh_Token({
                 refresh_token: vars.session.refresh_token,
                 apikey: vars.config.rest.cherwellapi.custom.apikey
             });
             vars.session.access_token = output.body.access_token;
             vars.session.refresh_token = output.body.refresh_token;
+            console.log("client.stop - Logout");
             await session.rest.cherwellapi.Logout({
                 access_token: vars.session.access_token
             });
+            console.log("Logout success");
         } catch (e) {
+            console.log("client.stop error " + e)
         }
     }
 };
