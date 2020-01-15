@@ -56,7 +56,7 @@ export class incident_newissue_PhonePortrait extends Screen {
         this.action('submit');    
     } else {
         Object.keys(form.controls).forEach(key => {
-            const controlErrors = form.getControl(key).errors;
+            const controlErrors = form.controls[key].errors;
             if (controlErrors != null) {
                 Object.keys(controlErrors).forEach(keyError => {
                     console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
