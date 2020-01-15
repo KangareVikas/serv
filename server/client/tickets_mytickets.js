@@ -164,6 +164,7 @@ exports.onload = async (session, models, vars) => {
     for (let busOb of data.body.businessObjects) {
         models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
     }
+    console.table(models.tickets_mytickets.tickets[0]);
     models.tickets_mytickets.footer = { active: 'myTickets' };
 };
 /**
