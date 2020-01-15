@@ -146,7 +146,8 @@ exports.onload = async (session, models, vars) => {
         'IncidentID',
         'ShortDescription',
         'Description',
-        'CreatedDateTime'
+        'CreatedDateTime',
+        'IncidentType'
     ];
     let ticketsFilter = [
         ...vars.page.filters.common,
