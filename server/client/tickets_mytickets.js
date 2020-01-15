@@ -187,7 +187,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'Status'
     ]);
     vars.session.busObPublicId = vars.item.IncidentID;
-    console.table(models.tickets_viewincident);
+    console.table(data.body.fields);
     await session.screen('tickets_viewincident');
 };
 /**
