@@ -497,6 +497,9 @@
       },
       "file": {
         "type": "file"
+      },
+      "IncidentType": {
+        "type": "string"
       }
     },
     "id": "tickets_viewincident"
