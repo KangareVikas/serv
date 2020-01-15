@@ -48,7 +48,8 @@ export class incident_newissue_PhonePortrait extends Screen {
   }
 
 
-  submit() {
+  submit(form) {
+      console.log(form);
     if (!this.data.photo && this.global.photo) {
       this.data.photo = this.global.photo
     }
