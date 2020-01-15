@@ -73,8 +73,9 @@ export class incident_newissue_PhonePortrait extends Screen {
       errors = [...new Set(errors)];
       errors.forEach(error => {
           if (error === 'required') {
-              errorMessages.push('Fill in all the required fields. ');
+              errorMessages.push('Fill in all the required fields.');
           }
       });
+      this.alert(errorMessages.join('\n'));
   }
 }
