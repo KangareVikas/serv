@@ -146,8 +146,7 @@ exports.onload = async (session, models, vars) => {
         'IncidentID',
         'ShortDescription',
         'Description',
-        'CreatedDateTime',
-        'IncidentType'
+        'CreatedDateTime'
     ];
     let ticketsFilter = [
         ...vars.page.filters.common,
@@ -165,7 +164,6 @@ exports.onload = async (session, models, vars) => {
     for (let busOb of data.body.businessObjects) {
         models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
     }
-    console.table(models.tickets_mytickets.tickets[0]);
     models.tickets_mytickets.footer = { active: 'myTickets' };
 };
 /**
@@ -184,9 +182,11 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'Urgency',
         'CustomerDisplayName',
         'ShortDescription',
-        'Description'
+        'Description',
+        'IncidentType'
     ]);
     vars.session.busObPublicId = vars.item.IncidentID;
+    console.table(models.tickets_viewincident);
     await session.screen('tickets_viewincident');
 };
 /**
