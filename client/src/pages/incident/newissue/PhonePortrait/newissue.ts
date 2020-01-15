@@ -3,7 +3,7 @@ import { Screen } from 'app/screen';
 declare var window: any;
 
 @Component({
-  selector: 'screen-incident-newissue_phoneportrait',
+  selector: 'screen-incident-newissue`_`phoneportrait',
   templateUrl: 'newissue.html'
 })
 export class incident_newissue_PhonePortrait extends Screen {
@@ -55,14 +55,26 @@ export class incident_newissue_PhonePortrait extends Screen {
         }
         this.action('submit');    
     } else {
-        Object.keys(form.controls).forEach(key => {
-            const controlErrors = form.controls[key].errors;
-            if (controlErrors != null) {
-                Object.keys(controlErrors).forEach(keyError => {
-                    console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
-                });
-            }
-        });
+        this.parseFormErrors(form);
     }
-    }
+  }
+
+  private parseFormErrors(form) {
+      let errors = [];
+      const errorMessages = [];
+      Object.keys(form.controls).forEach(key => {
+          const controlErrors = form.controls[key].errors;
+          if (controlErrors != null) {
+              Object.keys(controlErrors).forEach(keyError => {
+                  errors.push(keyError);
+              });
+          }
+      });
+      errors = [...new Set(errors)];
+      errors.forEach(error => {
+          if (error === 'required') {
+              errorMessages.push('Fill in all the required fields. ');
+          }
+      });
+  }
 }
