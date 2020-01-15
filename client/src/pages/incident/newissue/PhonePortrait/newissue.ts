@@ -65,4 +65,4 @@ export class incident_newissue_PhonePortrait extends Screen {
         });
     }
     }
-  }
+}
