@@ -207,5 +207,41 @@ exports.start = async (session, models, vars) => {
             bg: 'assets/images/request/services/storage_services_bg.png'
         }
     };
-    await session.screen('initialize');
+    await session.screen('login');
+};
+
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+ */
+exports.exception = async (session, models, vars) => {
+    if (vars.exception.statusCode && vars.exception.statusCode == 401) {
+        models.login.errorMessage = "Your session has expired";
+        await session.screen('login');
+    } else {
+        session.alert(vars.exception.message);
+    }
+};
+
+/**
+ * @param {Session} session
+ * @param {Models} models
+ * @param {Vars} vars
+ */
+exports.stop = async (session, models, vars) => {
+    if (vars.session.refresh_token) {
+        try {
+            let output = await session.rest.cherwellapi.Login_Refresh_Token({
+                refresh_token: vars.session.refresh_token,
+                apikey: vars.config.rest.cherwellapi.custom.apikey
+            });
+            vars.session.access_token = output.body.access_token;
+            vars.session.refresh_token = output.body.refresh_token;
+            await session.rest.cherwellapi.Logout({
+                access_token: vars.session.access_token
+            });
+        } catch (e) {
+        }
+    }
 };

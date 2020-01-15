@@ -1,0 +1,20 @@
+{
+    "template": {
+        "url": "/api/V1/logout",
+        "method": "DELETE",
+        "query": {},
+        "headers": {},
+        "auth": {
+            "type": "bearerToken",
+            "token": "{access_token}"
+        },
+        "form": {},
+        "options": {},
+        "bodyType": "form"
+    },
+    "functions": {
+        "Logout": [
+            "access_token"
+        ]
+    }
+}

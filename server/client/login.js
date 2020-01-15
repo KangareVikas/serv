@@ -1,4 +1,22 @@
 const util = require("./util");
+let startRefreshTokenTimer = (session, vars, models, accessTokenLifetime) => {
+    let refreshTime = accessTokenLifetime / 2;
+    setTimeout(async () => {
+        try {
+            let output = await session.rest.cherwellapi.refreshToken({
+                refresh_token: vars.session.refresh_token,
+                apikey: vars.config.rest.cherwellapi.custom.apikey
+            });
+            vars.session.access_token = output.body.access_token;
+            vars.session.refresh_token = output.body.refresh_token;
+            startRefreshTokenTimer(session, vars, models, output.body.expires_in);
+        } catch (e) {
+            models.login.errorMessage = 'Your session has expired.';
+            await session.screen('login');
+        }
+    }, refreshTime*1000);
+    console.log(`-------------------- Refreshing the access_token in ${refreshTime}s... --------------------`)
+};
 /**
  * @param {Session} session
  * @param {Models} models
@@ -19,6 +37,7 @@ exports.submit = async (session, models, vars) => {
         console.log('Login Success');
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
+        startRefreshTokenTimer(session, vars, models, output.body.expires_in);
     } catch (e) {
         let error = {};
         try {
