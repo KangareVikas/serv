@@ -1,3 +1,7 @@
+.ion-page, ion-menu {
+  margin-top: env(safe-area-inset-top);
+  height: calc(100% - env(safe-area-inset-top)) !important;;
+}
 ion-footer {
     box-shadow: 0 -2px 16px 0 rgba(0, 0, 0, .2);
     backdrop-filter: blur(8px);
