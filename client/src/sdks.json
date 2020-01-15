@@ -36,6 +36,10 @@
     "default": true
   },
   {
+    "id": "cordova-plugin-appminimize",
+    "default": true
+  },
+  {
     "id": "phonegap-plugin-barcodescanner"
   },
   {
