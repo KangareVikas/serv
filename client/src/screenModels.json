@@ -383,9 +383,6 @@
             },
             "Description": {
               "type": "string"
-            },
-            "IncidentType": {
-              "type": "string"
             }
           }
         }
