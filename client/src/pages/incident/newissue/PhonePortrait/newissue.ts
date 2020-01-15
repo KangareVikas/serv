@@ -70,6 +70,6 @@ export class incident_newissue_PhonePortrait extends Screen {
               errorMessages.push('Fill in all the required fields.');
           }
       });
-      this.alert(errorMessages.join('\n'));
+      this.alert(errorMessages.join('\n'), { title: 'Save Error' });
   }
 }
