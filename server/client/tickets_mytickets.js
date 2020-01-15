@@ -133,7 +133,7 @@ exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.statusFilter = 'openTickets';
     vars.page.filters = {
         'common': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'CustomerDisplayName': vars.session.user.FullName }),
-        'incidents': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': 'Incidents' }),
+        'incidents': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'IncidentType': 'Incident' }),
         'requests': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'IncidentType': 'Service Request' }),
         'opened': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': ['Assigned', 'In Progress', 'New', 'Pending'] }),
         'needAttencion': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': ['Resolved', 'Pending'] })
