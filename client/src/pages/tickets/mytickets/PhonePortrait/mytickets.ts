@@ -24,7 +24,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
                     "label": "Ticket ID"
                 },
                 {
-                    "value": "ShortDescription",
+                    "value": "Description",
                     "label": "Description"
                 }
             ],
