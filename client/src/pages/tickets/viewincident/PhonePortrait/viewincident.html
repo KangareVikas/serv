@@ -10,7 +10,8 @@
                 </button>
             </ion-col>
             <ion-col col-12 data-comp-id="column.2" style="padding: 0 0 4px 16px;">
-                <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">View Incident</div>
+                <div color="black" data-comp-id="text.1" ion-text style="font-size: 34px;">View
+                    {{data.IncidentType || 'Incident'}}</div>
             </ion-col>
         </ion-row>
     </ion-navbar>
@@ -68,8 +69,8 @@
             <div [innerHTML]="item.name" data-comp-id="text.10" ion-text></div>
         </ion-item>
     </ion-list>
-  <img *ngIf="data.fileData" [src]="data.fileData" data-comp-id="img.1"
-       style="width: calc(100% - 20px); margin: 10px;">
+    <img *ngIf="data.fileData" [src]="data.fileData" data-comp-id="img.1"
+        style="width: calc(100% - 20px); margin: 10px;">
 </ion-content>
 <ion-footer class="footer-white" data-comp-id="footer.1">
     <include-screen data-comp-id="include-screen.1" name="inserts_footer"></include-screen>
