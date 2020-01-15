@@ -166,13 +166,19 @@
       "id": "setup",
       "name": "Setup",
       "sourceScreenId": "setup",
-      "sourceAppId": "DynamicSmartUXRuntime"
+      "sourceAppId": "DynamicSmartUXRuntime",
+      "disableMenuSwipe": true,
+      "statusbarContent": null,
+      "statusbarHidden": null
     },
     {
       "id": "initialize",
       "name": "Initialize",
       "sourceScreenId": "initialize",
-      "sourceAppId": "DynamicSmartUXRuntime"
+      "sourceAppId": "DynamicSmartUXRuntime",
+      "disableMenuSwipe": true,
+      "statusbarContent": null,
+      "statusbarHidden": null
     }
   ],
   "startScreen": "initialize",
