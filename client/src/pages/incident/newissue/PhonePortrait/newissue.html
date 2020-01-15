@@ -43,13 +43,10 @@
                 <ion-label mode="ios">Email</ion-label>
                 <ion-input [(ngModel)]="data.email" disabled mode="ios" name="email" type="text"></ion-input>
             </ion-item>
-            <ion-item data-comp-id="input.5">
-                <ion-label>Label</ion-label>
-                <ion-input name="input.5" placeholder="Type here..." type="text"></ion-input>
-            </ion-item>
             <ion-item data-comp-id="input.3" mode="ios">
-                <ion-label class="required" mode="ios">Phone</ion-label>
-                <ion-input [(ngModel)]="data.phone" mode="ios" name="phone" required type="text"></ion-input>
+                <ion-label class=" required" mode="ios">Phone</ion-label>
+                <ion-input [(ngModel)]="data.phone" mode="ios" name="phone"
+                    placeholder="Type here..." type="text"></ion-input>
             </ion-item>
             <ion-item *ngIf="false" class="wrap-field" data-comp-id="select.1" mode="ios">
                 <ion-label mode="ios">Type</ion-label>
@@ -60,7 +57,7 @@
                         [value]="item.value" data-comp-id="option.1"></ion-option>
                 </ion-select>
             </ion-item>
-            <ion-item data-comp-id="input.4" mode="ios">
+            <ion-item data-comp-id="input.5" mode="ios">
                 <ion-label mode="ios" text-wrap>Location or Seats</ion-label>
                 <ion-input [(ngModel)]="data.seat" mode="ios" name="seat"
                     placeholder="Type here..." type="text"></ion-input>
