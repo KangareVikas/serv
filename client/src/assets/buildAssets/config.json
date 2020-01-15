@@ -1,5 +1,5 @@
 {
-  "ssImage": "splash_screen.png",
   "name": "Requester",
-  "icon": "requester-1024.png"
+  "icon": "requester-1024.png",
+  "ssImage": "image_bg.png"
 }
