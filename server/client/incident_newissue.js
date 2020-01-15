@@ -191,19 +191,7 @@ exports.search = async (session, models, vars) => {
     models.finduser.searchKey = models.incident_newissue.forUser;
     await session.screen('finduser');
 };
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
-*/
-exports.clearData = async (session, models, vars) => {
-    vars.session.selectedCatagoryLabel = null;
-    vars.session.selectedCatagorySuffix = null;
-    vars.session.selectedSubCatagoryLabel = null;
-    vars.session.forUser = null;
-    vars.session.customerRecId = null;
-    vars.session.prevScreen = null;
-};
+
 /**
  * @param {Session} session
  * @param {Models} models

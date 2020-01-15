@@ -187,13 +187,3 @@ exports['footer.newIssue'] = async (session, models, vars) => {
     await session.screen('incident_newissue');
 };
 
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
- */
-exports.clearData = async (session, models, vars) => {
-    vars.session.forUser = null;
-    vars.session.customerRecId = null;
-    models.request_newrequest.footer = { active: '' };
-};

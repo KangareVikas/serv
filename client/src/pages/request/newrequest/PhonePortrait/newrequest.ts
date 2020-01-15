@@ -46,10 +46,6 @@ export class request_newrequest_PhonePortrait extends Screen {
       this.global.photo = this.data.photo;
   }
 
-  ionViewDidLeave(): Promise<void> {
-      return this.action('clearData', null, null, { 'noLoading': true })
-  }
-
   submit() {
     if (!this.data.photo && this.global.photo) {
       this.data.photo = this.global.photo

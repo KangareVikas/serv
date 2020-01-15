@@ -42,18 +42,12 @@ export class incident_newissue_PhonePortrait extends Screen {
       this.global.photo = this.data.photo;
   }
 
-  ionViewWillLeave(): Promise<void> {
-    super.ionViewWillLeave();
-    return this.action('clearData');
-  }
-
-
   submit(form) {
     if (form.valid) {
         if (!this.data.photo && this.global.photo) {
             this.data.photo = this.global.photo;
         }
-        this.action('submit');    
+        this.action('submit');
     } else {
         this.parseFormErrors(form);
     }
