@@ -17,7 +17,8 @@
       "sourceScreenId": "blank",
       "sourceAppId": "default",
       "statusbarContent": null,
-      "statusbarHidden": null
+      "statusbarHidden": null,
+      "statusbarBackground": "#6e9acc"
     },
     {
       "id": "inserts",
