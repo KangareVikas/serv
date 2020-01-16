@@ -80,29 +80,20 @@
                     <span color="black" data-comp-id="text.4" ion-text style="font-size: 17px;"
                         text-capitalize>Open tickets</span>
                 </ion-list-header>
-                <ion-list data-comp-id="list.3" mode="ios">
-                    <ion-item-sliding *ngFor="let item of data.tickets; let i = index"
-                        data-comp-id="item-sliding.1"
-                        style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
-                        <ion-item (click)="action('tickets[item].select',[i])" data-comp-id="item.1"
-                            detail-push mode="ios" style="border-bottom: 0px none rgb(0, 0, 0);">
-                            <div [innerHTML]="item.id" color="primary" data-comp-id="text.5" ion-text
-                                style="font-size: 14px; margin: 0 0 4px 0;"></div>
-                            <div [innerHTML]="item.ShortDescription" data-comp-id="text.6" ion-text
-                                style="margin: 0 0 4px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
-                            <span color="medium" data-comp-id="text.7" ion-text style="font-size: 13px;">Date Created:</span>
-                            <span [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.8"
-                                formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
-                                output-format="M/D/YYYY h:mm A" style="font-size: 13px; margin: 0 0 0 4px;"></span>
-                        </ion-item>
-                        <ion-item-options data-comp-id="item-options.1" side="right"
-                            style="border-bottom: none; align-items: center;">
-                            <button color="contrast" data-comp-id="fab-button.1" ion-fab mode="ios"
-                                style="margin: 0px 5px 0 15px;">
-                                <ion-icon class=" fa fa-edit"></ion-icon>
-                            </button>
-                        </ion-item-options>
-                    </ion-item-sliding>
+                <ion-list data-comp-id="list.3" mode="ios" no-lines>
+                    <ion-item (click)="action('tickets[item].select',[i])"
+                        *ngFor="let item of data.tickets; let i = index" color="white"
+                        data-comp-id="item.1" detail-push mode="ios"
+                        style="border-bottom: 0px none rgb(0, 0, 0); margin: 0 0 8px 0; border-radius: 4px; border-top: none;">
+                        <div [innerHTML]="item.id" color="primary" data-comp-id="text.5" ion-text
+                            style="font-size: 14px; margin: 0 0 4px 0;"></div>
+                        <div [innerHTML]="item.ShortDescription" data-comp-id="text.6" ion-text
+                            style="margin: 0 0 4px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
+                        <span color="medium" data-comp-id="text.7" ion-text style="font-size: 13px;">Date Created:</span>
+                        <span [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.8"
+                            formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
+                            output-format="M/D/YYYY h:mm A" style="font-size: 13px; margin: 0 0 0 4px;"></span>
+                    </ion-item>
                 </ion-list>
             </ion-col>
         </ion-row>
