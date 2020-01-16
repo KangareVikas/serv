@@ -47,9 +47,33 @@ export class request_newrequest_PhonePortrait extends Screen {
   }
 
   submit(form) {
-    if (!this.data.photo && this.global.photo) {
-      this.data.photo = this.global.photo
-    }
-    this.action('submit');
+      if (form.valid) {
+          if (!this.data.photo && this.global.photo) {
+              this.data.photo = this.global.photo;
+          }
+          this.action('submit');
+      } else {
+          this.parseFormErrors(form);
+      }
+  }
+
+  private parseFormErrors(form) {
+      let errors = [];
+      const errorMessages = [];
+      Object.keys(form.controls).forEach(key => {
+          const controlErrors = form.controls[key].errors;
+          if (controlErrors != null) {
+              Object.keys(controlErrors).forEach(keyError => {
+                  errors.push(keyError);
+              });
+          }
+      });
+      errors = [...new Set(errors)];
+      errors.forEach(error => {
+          if (error === 'required') {
+              errorMessages.push('Fill in all the required fields.');
+          }
+      });
+      this.alert(errorMessages.join('\n'), { title: 'Save Error' });
   }
 }
