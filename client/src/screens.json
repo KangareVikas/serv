@@ -183,6 +183,6 @@
   ],
   "startScreen": "initialize",
   "statusbarContent": "dark",
-  "statusbarHidden": true,
-  "statusbarBackground": null
+  "statusbarHidden": false,
+  "statusbarBackground": "#fafaff"
 }
