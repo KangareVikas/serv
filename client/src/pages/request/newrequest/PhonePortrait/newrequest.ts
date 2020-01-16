@@ -26,6 +26,9 @@ export class request_newrequest_PhonePortrait extends Screen {
 
   onDataLoad(data: any): void {
     // Logic to run when the screen's data is updated goes here.
+    if (!this.data.photo && this.global.photo) {
+      this.data.photo = this.global.photo;
+    }
   }
 
   onBackButton(): boolean {
