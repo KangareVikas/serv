@@ -6,14 +6,21 @@
             <ion-col data-comp-id="column.1"
                 style="border-bottom: 1px solid #fff; padding: 0 0 15px;"><img data-comp-id="img.1" src="assets/images/powwow_logo.png"></ion-col>
         </ion-row>
-        <ion-row data-comp-id="row.2" style="margin: 0px 15px;">
-            <ion-col data-comp-id="column.2" style="padding: 15px 0 0;"><img data-comp-id="img.2" src="assets/images/Service_Management_logo.png"></ion-col>
+        <ion-row data-comp-id="row.2" style="margin: 0;">
+            <ion-col data-comp-id="column.2" style="padding: 15px 0 0; text-align: center;">
+                <img data-comp-id="img.2" src="assets/images/Service_Management_logo.png"
+                    style="height: 30px; margin: 0">
+                <span color="white" data-comp-id="text.1" ion-text
+                    style="font-weight: normal; font-size: 18px; padding-bottom: 10px; vertical-align: top; line-height: 30px;">
+                    Requester - Smart Services
+                </span>
+            </ion-col>
         </ion-row>
         <ion-row *ngIf="data.errorMessage" data-comp-id="row.3"
             style="margin: 40px 0 0;">
             <ion-col class="error-block" data-comp-id="column.3"
                 style="padding: 15px 10px 12px; border-radius: 10px;">
-                <div [innerHTML]="data.errorMessage" data-comp-id="text.1" ion-text
+                <div [innerHTML]="data.errorMessage" data-comp-id="text.2" ion-text
                     style="text-align: center; font-size: 14px; color: #222222;"></div>
                 <button (click)="callSupport()" color="danger" data-comp-id="button.1" full
                     icon-start ion-button mode="ios"
@@ -59,7 +66,7 @@
             data-comp-id="touchid-login.1" style="padding: 15px;" text-center>
             <ion-icon color="white" data-comp-id="icon.1" name="finger-print"
                 style="font-size: 70px;"></ion-icon>
-            <div color="white" data-comp-id="text.2" ion-text style="font-size: 17px;">{{getBiometricAuthType()}}</div>
+            <div color="white" data-comp-id="text.3" ion-text style="font-size: 17px;">{{getBiometricAuthType()}}</div>
         </touchid-login>
     </div>
 </ion-content>
