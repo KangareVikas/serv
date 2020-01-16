@@ -40,9 +40,9 @@ exports.onload = async (session, models, vars) => {
     models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.user.FullName;
     models.request_newrequest.forUser = vars.session.forUser || models.request_newrequest.forUser || vars.session.user.FullName;
     models.request_newrequest.customerRecId = vars.session.customerRecId || models.request_newrequest.customerRecId || vars.session.user.RecID;
-    models.request_newrequest.email = vars.session.user.Email;
-    models.request_newrequest.phone = vars.session.user.CellPhone || vars.session.user.Phone;
-    models.request_newrequest.seat = vars.session.user.Office;
+    models.request_newrequest.email = models.request_newrequest.email || vars.session.user.Email;
+    models.request_newrequest.phone = models.request_newrequest.phone || vars.session.user.CellPhone || vars.session.user.Phone;
+    models.request_newrequest.seat = models.request_newrequest.seat || vars.session.user.Office;
     models.request_newrequest.shortDescription = models.request_newrequest.shortDescription || `I would like to order ${vars.session.requestService}, ${vars.session.requestCategory}, ${vars.session.requestSubCategory}`;
     models.request_newrequest.urgency = models.request_newrequest.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
     models.request_newrequest.urgency.selected = models.request_newrequest.urgency.selected || vars.session.urgencyDefaultValue;

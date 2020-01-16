@@ -46,9 +46,9 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.user.FullName;
     models.incident_newissue.forUser = vars.session.forUser || models.incident_newissue.forUser || vars.session.user.FullName;
     models.incident_newissue.customerRecId = vars.session.customerRecId || models.incident_newissue.customerRecId || vars.session.user.RecID;
-    models.incident_newissue.email = vars.session.user.Email;
-    models.incident_newissue.phone = vars.session.user.CellPhone || vars.session.user.Phone;
-    models.incident_newissue.seat = vars.session.user.Office;
+    models.incident_newissue.email = models.incident_newissue.email || vars.session.user.Email;
+    models.incident_newissue.phone = models.incident_newissue.phone || vars.session.user.CellPhone || vars.session.user.Phone;
+    models.incident_newissue.seat = models.incident_newissue.seat || vars.session.user.Office;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel || '' } ${ vars.session.selectedCatagorySuffix || '' } ${ vars.session.selectedSubCatagoryLabel || '' }`;
     models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
     models.incident_newissue.urgency = models.incident_newissue.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
