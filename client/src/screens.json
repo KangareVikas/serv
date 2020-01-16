@@ -9,7 +9,7 @@
       "sourceAppId": "default",
       "disableMenuSwipe": true,
       "statusbarContent": null,
-      "statusbarHidden": null
+      "statusbarHidden": true
     },
     {
       "id": "home",
@@ -170,7 +170,7 @@
       "sourceAppId": "DynamicSmartUXRuntime",
       "disableMenuSwipe": true,
       "statusbarContent": null,
-      "statusbarHidden": null
+      "statusbarHidden": true
     },
     {
       "id": "initialize",
