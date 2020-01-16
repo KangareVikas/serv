@@ -33,6 +33,7 @@ export class incident_newissue_PhonePortrait extends Screen {
 
   removeAttachment() {
       this.data.photo = null;
+      delete this.global.photo;
       this.thumbnail.nativeElement.src = 'assets/images/pixel.png';
   }
 

@@ -36,8 +36,9 @@ export class request_newrequest_PhonePortrait extends Screen {
   }
 
   removeAttachment() {
-    this.data.photo = null;
-    this.thumbnail.nativeElement.src = 'assets/images/pixel.png';
+      this.data.photo = null;
+      delete this.global.photo;
+      this.thumbnail.nativeElement.src = 'assets/images/pixel.png';
   }
 
   fileEvent() {
