@@ -442,12 +442,6 @@
           "type": "none"
         }
       },
-      "forUser": {
-        "type": "string",
-        "update": {
-          "type": "none"
-        }
-      },
       "attachments": {
         "type": "array",
         "items": {
@@ -500,6 +494,12 @@
       },
       "IncidentType": {
         "type": "string"
+      },
+      "OwnedBy": {
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
       }
     },
     "id": "tickets_viewincident"

@@ -11,9 +11,9 @@
     }
   ],
   "CreatedDateTime": "9/30/2019 12:00:00 am",
-  "forUser": "Unassigned",
   "CustomerDisplayName": "Evan Employee",
   "Urgency": "3-Low",
   "ShortDescription": "I need help with my Desk Environment regarding my keyboard and/or mouse.",
-  "Description": "I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse."
+  "Description": "I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse.",
+  "OwnedBy": "Unassigned"
 }
