@@ -183,6 +183,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'CustomerDisplayName',
         'ShortDescription',
         'Description',
+        'OwnedBy',
         'IncidentType'
     ]);
     console.table(data.body.fields);
