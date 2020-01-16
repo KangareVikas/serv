@@ -26,7 +26,7 @@
         <ion-item data-comp-id="input.1" mode="ios">
             <ion-label class=" required" mode="ios">By</ion-label>
             <ion-input [(ngModel)]="data.byUser" disabled mode="ios"
-                placeholder="Type here..." type="text"></ion-input>
+                placeholder="Type here..." required type="text"></ion-input>
         </ion-item>
         <ion-item (click)="action('search')" data-comp-id="item.1" mode="ios">
             <span color="dark" data-comp-id="text.2" ion-text
@@ -116,7 +116,7 @@
             <ion-label class=" required" color="dark" mode="ios" stacked
                 style="font-size: 16px;">Short Description</ion-label>
             <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
-                placeholder="Type here..." rows="5"></ion-textarea>
+                placeholder="Type here..." required rows="5"></ion-textarea>
         </ion-item>
         <ion-row (click)="showAddInfo = !showAddInfo" data-comp-id="row.3"
             style="padding: 8px 0px 0px 16px;">
