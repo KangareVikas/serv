@@ -46,7 +46,7 @@ export class request_newrequest_PhonePortrait extends Screen {
       this.global.photo = this.data.photo;
   }
 
-  submit() {
+  submit(form) {
     if (!this.data.photo && this.global.photo) {
       this.data.photo = this.global.photo
     }
