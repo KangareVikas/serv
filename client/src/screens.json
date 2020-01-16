@@ -16,7 +16,7 @@
       "name": "Home",
       "sourceScreenId": "blank",
       "sourceAppId": "default",
-      "statusbarContent": null,
+      "statusbarContent": "light",
       "statusbarHidden": null,
       "statusbarBackground": "#6e9acc"
     },
