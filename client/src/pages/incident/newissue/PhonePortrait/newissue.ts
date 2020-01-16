@@ -3,7 +3,7 @@ import { Screen } from 'app/screen';
 declare var window: any;
 
 @Component({
-  selector: 'screen-incident-newissue`_`phoneportrait',
+  selector: 'screen-incident-newissue_phoneportrait',
   templateUrl: 'newissue.html'
 })
 export class incident_newissue_PhonePortrait extends Screen {
