@@ -17,7 +17,8 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'Urgency',
         'CustomerDisplayName',
         'ShortDescription',
-        'Description'
+        'Description',
+        'OwnedBy'
     ]);
     vars.session.busObPublicId = vars.item.id;
     await session.screen('tickets_viewincident');
