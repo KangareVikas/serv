@@ -6,7 +6,7 @@ const util = require("./util");
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (session.currentScreen() !== 'finduser' && vars.session.prevScreen !== 'home') {
+    if (session.currentScreen() !== 'finduser') {
         /**
             No need to save 'finduser' as a prev screen,
             because we will have some kind of looping
