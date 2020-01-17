@@ -149,7 +149,10 @@
       "id": "about",
       "name": "About",
       "sourceScreenId": "articles_viewarticle",
-      "sourceAppId": "cherwellrequest"
+      "sourceAppId": "cherwellrequest",
+      "modal": true,
+      "statusbarContent": null,
+      "statusbarHidden": null
     },
     {
       "id": "settings",
