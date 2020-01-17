@@ -66,6 +66,7 @@ exports.onload = async (session, models, vars) => {
         });
         models.articles_findarticle.articles.push(result);
     });
+    models.articles_findarticle.footer = { active: '' };
 };
 /**
  * @param {Session} session
