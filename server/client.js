@@ -207,7 +207,7 @@ exports.start = async (session, models, vars) => {
             bg: 'assets/images/request/services/storage_services_bg.png'
         }
     };
-    await session.screen('initialize');
+    await session.screen('login');
 };
 /**
  * @param {Session} session
