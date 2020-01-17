@@ -10,4 +10,9 @@ screen-request-newrequest-phoneportrait {
             border-radius: 8px;
         }
     }
+    [data-comp-id^="take-photo."] {
+        .item-block .item-inner {
+            border: 0;
+        }
+    }
 }
