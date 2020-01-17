@@ -44,7 +44,6 @@ declare module 'app/app.screens' {
 	import { tickets_mytickets_PhonePortrait } from 'app/../pages/tickets/mytickets/PhonePortrait/mytickets';
 	import { tickets_viewincident_PhonePortrait } from 'app/../pages/tickets/viewincident/PhonePortrait/viewincident';
 	import { finduser_PhonePortrait } from 'app/../pages/finduser/PhonePortrait/finduser';
-	import { findticket_PhonePortrait } from 'app/../pages/findticket/PhonePortrait/findticket';
 	import { about_PhonePortrait } from 'app/../pages/about/PhonePortrait/about';
 	import { settings_PhonePortrait } from 'app/../pages/settings/PhonePortrait/settings';
 	import { del1_PhonePortrait } from 'app/../pages/del1/PhonePortrait/del1';
@@ -97,9 +96,6 @@ declare module 'app/app.screens' {
 	        };
 	        'finduser': {
 	            PhonePortrait: typeof finduser_PhonePortrait;
-	        };
-	        'findticket': {
-	            PhonePortrait: typeof findticket_PhonePortrait;
 	        };
 	        'about': {
 	            PhonePortrait: typeof about_PhonePortrait;
