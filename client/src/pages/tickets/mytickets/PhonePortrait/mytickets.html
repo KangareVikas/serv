@@ -26,7 +26,7 @@
         </ion-row>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-calm ignore-footer" data-comp-id="content.1" style>
+<ion-content class="content-calm" data-comp-id="content.1" style>
     <ion-toolbar color="transparent" data-comp-id="toolbar.1" style="padding: 16px 16px 0px;">
         <ion-searchbar *ngIf="data.showSearch" [(ngModel)]="data.searchKey" cancelButtonText="Cancel" data-comp-id="searchbar.1" debounce="500" mode="md" placeholder="Find a ticket" style="padding: 0; margin: 0 0 20px; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);" type="search"></ion-searchbar>
         <ion-segment [(ngModel)]="data.statusFilter" color="contrast" data-comp-id="segment.2" mode="ios" style>

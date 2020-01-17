@@ -720,16 +720,6 @@
     },
     "id": "articles_viewarticle"
   },
-  "findticket": {
-    "type": "object",
-    "comment": "Blank",
-    "properties": {
-      "back": {
-        "type": "action"
-      }
-    },
-    "id": "findticket"
-  },
   "about": {
     "type": "object",
     "comment": "Blank",

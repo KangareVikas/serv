@@ -15,7 +15,6 @@ import { articles_viewarticle_PhonePortrait } from '../pages/articles/viewarticl
 import { tickets_mytickets_PhonePortrait } from '../pages/tickets/mytickets/PhonePortrait/mytickets';
 import { tickets_viewincident_PhonePortrait } from '../pages/tickets/viewincident/PhonePortrait/viewincident';
 import { finduser_PhonePortrait } from '../pages/finduser/PhonePortrait/finduser';
-import { findticket_PhonePortrait } from '../pages/findticket/PhonePortrait/findticket';
 import { about_PhonePortrait } from '../pages/about/PhonePortrait/about';
 import { settings_PhonePortrait } from '../pages/settings/PhonePortrait/settings';
 import { del1_PhonePortrait } from '../pages/del1/PhonePortrait/del1';
@@ -39,7 +38,6 @@ export class Screens {
     tickets_mytickets_PhonePortrait,
     tickets_viewincident_PhonePortrait,
     finduser_PhonePortrait,
-    findticket_PhonePortrait,
     about_PhonePortrait,
     settings_PhonePortrait,
     del1_PhonePortrait,
@@ -91,9 +89,6 @@ export class Screens {
     },
     'finduser': {
       PhonePortrait: finduser_PhonePortrait
-    },
-    'findticket': {
-      PhonePortrait: findticket_PhonePortrait
     },
     'about': {
       PhonePortrait: about_PhonePortrait

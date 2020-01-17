@@ -140,12 +140,6 @@
       "modal": true
     },
     {
-      "id": "findticket",
-      "name": "Find Ticket",
-      "sourceScreenId": "finduser",
-      "sourceAppId": "cherwellrequest"
-    },
-    {
       "id": "about",
       "name": "About",
       "sourceScreenId": "articles_viewarticle",
