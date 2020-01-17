@@ -38,3 +38,7 @@ ion-app .loading-wrapper {
         margin-bottom:220px;
     }
 }
+
+.service-card:last-child {
+    margin-bottom: calc(env(safe-area-inset-bottom) + 63px );
+}
