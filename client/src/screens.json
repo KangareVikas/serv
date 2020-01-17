@@ -155,7 +155,10 @@
       "id": "settings",
       "name": "Settings",
       "sourceScreenId": "about",
-      "sourceAppId": "cherwellrequest"
+      "sourceAppId": "cherwellrequest",
+      "modal": true,
+      "statusbarContent": null,
+      "statusbarHidden": null
     },
     {
       "id": "del1",
