@@ -6,14 +6,18 @@ const util = require("./util");
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (!['finduser', 'request_newrequest', 'articles_viewarticle'].includes(session.currentScreen())) {
+    if (session.currentScreen() !== 'finduser') {
         /**
-            No need to save screens above as a prev screen,
+            No need to save 'finduser' as a prev screen,
             because we will have some kind of looping
             between the 'New issue' and 'Find user' screens
         */
         vars.session.prevScreen = session.currentScreen();
         models.incident_newissue = {};
+    }
+
+    if (['request_newrequest', 'articles_viewarticle'].includes(session.currentScreen())) {
+        delete vars.session.prevScreen;
     }
 
     if (!vars.session.configItemDisplayNameFieldId || !vars.session.urgencyFieldId) {
