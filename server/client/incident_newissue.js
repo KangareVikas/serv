@@ -68,14 +68,6 @@ exports.onunload = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
 */
-exports.cancel = async (session, models, vars) => {
-    await session.screen('home');
-};
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
-*/
 exports.back = async (session, models, vars) => {
     if (vars.session.selectedSubCatagoryLabel) {
         await session.screen('incident_subcategories');
