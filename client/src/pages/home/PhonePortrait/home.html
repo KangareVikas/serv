@@ -81,7 +81,7 @@
                         text-capitalize>Open tickets</span>
                 </ion-list-header>
                 <ion-list data-comp-id="list.3" mode="ios" no-lines>
-                    <ion-item (click)="action('tickets[item].select',[i])"
+                    <ion-item (click)="action('tickets[item].select', [i])"
                         *ngFor="let item of data.tickets; let i = index" color="white"
                         data-comp-id="item.1" detail-push mode="ios"
                         style="border-bottom: 0px none rgb(0, 0, 0); margin: 0 0 8px 0; border-radius: 4px; border-top: none;">
