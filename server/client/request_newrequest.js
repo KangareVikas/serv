@@ -142,14 +142,6 @@ exports.back = async (session, models, vars) => {
  * @param {Models} models
  * @param {Vars} vars
  */
-exports.cancel = async (session, models, vars) => {
-    await session.screen('home');
-};
-/**
- * @param {Session} session
- * @param {Models} models
- * @param {Vars} vars
- */
 exports.search = async (session, models, vars) => {
     models.finduser.searchKey = models.request_newrequest.forUser;
     vars.session.newrequest = true;
