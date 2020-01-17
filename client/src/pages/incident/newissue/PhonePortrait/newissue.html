@@ -10,9 +10,9 @@
                 </button>
             </ion-col>
             <ion-col data-comp-id="column.2" style="text-align: right; padding: 0;">
-                <button (click)="action('cancel')" clear data-comp-id="button.2" ion-button
+                <button (click)="submit(form)" clear data-comp-id="button.2" ion-button
                     mode="ios" small style="margin: 0 2px; font-size: 17px; padding: 0 8px;">
-                    <span>Cancel</span>
+                    <span>Save</span>
                 </button>
             </ion-col>
             <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 4px 16px;">
@@ -133,12 +133,6 @@
                 <ion-textarea [(ngModel)]="data.description" maxlength="160" mode="ios"
                     name="description" placeholder="Type here..." rows="5"></ion-textarea>
             </ion-item>
-            <div class="submitButton" data-comp-id="div.1" style="padding: 32px 16px 16px;">
-                <button color="secondary" data-comp-id="button.3" full ion-button mode="ios"
-                    style="border-radius: 20px;" type="submit">
-                    <span>Submit</span>
-                </button>
-            </div>
             <alert #alert (button1Action)="action('home')"
                 [presentOnData]="data.result.busObPublicId" alert-type="basic" button1Text="Ok"
                 data-comp-id="alert.1"
