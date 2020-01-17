@@ -21,7 +21,8 @@ exports.onload = async (session, models, vars) => {
        Remove prevScreen when we came form the screens with a back button,
        to prevent screens looping
     */
-    if (['request_newrequest', 'articles_findarticle', 'articles_viewarticle'].includes(session.currentScreen())) {
+    if (['request_newrequest', 'articles_findarticle',
+        'articles_viewarticle', 'tickets_viewincident'].includes(session.currentScreen())) {
         delete vars.session.prevScreen;
     }
 
