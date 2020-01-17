@@ -17,6 +17,14 @@ exports.onload = async (session, models, vars) => {
         models.incident_newissue = {};
     }
 
+    /**
+       Remove prevScreen when we came form the screens with a back button,
+       to prevent screens looping
+    */
+    if (['request_newrequest', 'articles_findarticle', 'articles_viewarticle'].includes(session.currentScreen())) {
+        delete vars.session.prevScreen;
+    }
+
     if (!vars.session.configItemDisplayNameFieldId || !vars.session.urgencyFieldId) {
         let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
             access_token: vars.session.access_token,
