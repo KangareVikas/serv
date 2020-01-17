@@ -6,7 +6,7 @@ const util = require("./util");
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (['finduser', 'request_newrequest', 'articles_viewarticle'].includes(session.currentScreen())) {
+    if (!['finduser', 'request_newrequest', 'articles_viewarticle'].includes(session.currentScreen())) {
         /**
             No need to save screens above as a prev screen,
             because we will have some kind of looping
