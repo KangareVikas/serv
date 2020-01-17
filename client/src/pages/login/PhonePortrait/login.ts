@@ -13,6 +13,7 @@ export class login_PhonePortrait extends Screen {
 
     ngOnInit(): void {
         super.ngOnInit();
+        this.hideMenu();
         // let refreshToken = localStorage.getItem('refresh_token');
         // if (refreshToken) {
         //     this.data.refresh_token = refreshToken;
