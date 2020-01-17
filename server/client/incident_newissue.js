@@ -6,6 +6,7 @@ const util = require("./util");
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
+    console.log('@-> Prev Screen:', session.currentScreen());
     if (session.currentScreen() !== 'finduser') {
         /**
             No need to save 'finduser' as a prev screen,
