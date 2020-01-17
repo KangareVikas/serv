@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Screen } from 'app/screen';
 import { FileService, PowwowLoginService, PublishInfoService } from 'smartux-client';
+import * as _ from 'lodash';
 
 declare var window: any;
 
@@ -29,12 +30,20 @@ export class setup_PhonePortrait extends Screen {
         // Logic to run when the screen unloads goes here.
     }
 
-    onDataLoad(data: any): void {
+    async onDataLoad(data: any) {
         // Logic to run when the screen's data is updated goes here.
         if (this.data.fromUrlScheme) {
-            this.proceedWithCustomUrlScheme().catch(e => {
+            this.proceedWithCustomUrlScheme(false).catch(e => {
                 this.alert(e, { title: 'Error' });
             });
+        } else {
+            const publishInfo = await this.publishInfoService.get();
+            // If we have existing settings, let's revisit them.
+            if (!publishInfo.error && !(_.isEmpty(publishInfo.cbUrl) || _.toLower(publishInfo.cbUrl) == '/cb')) {
+                this.proceedWithCustomUrlScheme(true).catch(e => {
+                    this.alert(e, { title: 'Error' });
+                });
+            }
         }
     }
 
@@ -114,17 +123,21 @@ export class setup_PhonePortrait extends Screen {
         }
     }
 
-    async proceedWithCustomUrlScheme() {
+    async proceedWithCustomUrlScheme(revisitSettings) {
         const fileEntry = await this.getPublishedJsonFile();
         const fileObject = await this.readPublishedJsonContents(fileEntry);
         if (await this.isFirstSetup(fileObject)) {
             const message = `Server: <b>${this.data.server}</b><br/><br/>
                              App Id: <b>${this.data.appId}</b>`;
-            if (await this.confirm(message, { title: 'Setup Confirmation', okButton: 'Submit', cancelButton: 'Setup Later' }))  {
+            if (await this.confirm(message, { title: 'Setup Confirmation', okButton: 'Submit', cancelButton: 'Setup Later' })) {
                 await this.onSubmitButton();
             }
-        } else if (await this.isSameCredentials(fileObject)) {
+        } else if (await this.isSameCredentials(fileObject) && !revisitSettings) {
             await this.onSubmitButton();
+        } else if (revisitSettings) {
+            this.data.server = fileObject.cbUrl.replace('/cb', '');
+            this.data.appId = fileObject.id;
+            this.data.revisitSettings = true;
         } else {
             this.data.existingSettings = {
                 server: fileObject.cbUrl.replace('/cb', ''),
