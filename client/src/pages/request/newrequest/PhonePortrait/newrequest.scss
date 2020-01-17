@@ -14,5 +14,8 @@ screen-request-newrequest-phoneportrait {
         .item-block .item-inner {
             border: none;
         }
+        .item-ios ion-icon[item-end] {
+            margin: 5px 8px 5px 0px;
+        }
     }
 }
