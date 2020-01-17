@@ -2,13 +2,18 @@
     <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
         <ion-row data-comp-id="row.1" style="padding: 0; margin: 0 0 -4px;">
             <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
-                <button (click)="toggleMenu()" class="button-label-primary" clear data-comp-id="button.1" icon-only ion-button mode="ios" small style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
-                    <ion-icon class=" ion-ios-menu" color="primary" style="font-size: 28px; padding: 0px;"></ion-icon>
+                <button (click)="toggleMenu()" class="button-label-primary" clear
+                    data-comp-id="button.1" icon-only ion-button mode="ios" small
+                    style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
+                    <ion-icon class=" ion-ios-menu" color="primary"
+                        style="font-size: 28px; padding: 0px;"></ion-icon>
                 </button>
             </ion-col>
             <ion-col data-comp-id="column.2" style="text-align: right; padding: 0 4px;">
-                <button (click)="toggleSearch()" clear data-comp-id="button.2" icon-only ion-button mode="ios" small style="margin: 0 2px; font-size: 17px;">
-                    <ion-icon class=" ion-ios-search" color="primary" style="font-size: 24px; padding: 0 4px;"></ion-icon>
+                <button (click)="toggleSearch()" clear data-comp-id="button.2" icon-only
+                    ion-button mode="ios" small style="margin: 0 2px; font-size: 17px;">
+                    <ion-icon class=" ion-ios-search" color="primary"
+                        style="font-size: 24px; padding: 0 4px;"></ion-icon>
                 </button>
             </ion-col>
             <ion-col col-12 data-comp-id="column.3" style="padding: 0 0 4px 16px;">
@@ -18,35 +23,52 @@
                 <ion-list data-comp-id="list.1" style="margin: 0;"></ion-list>
             </ion-col>
             <ion-col col-12 data-comp-id="column.5" style="padding: 16px 8px 0;">
-                <ion-segment [(ngModel)]="data.ticketsType" color="contrast" data-comp-id="segment.1" mode="md" style>
-                    <ion-segment-button (ionSelect)="action('showIncidents')" data-comp-id="segment-button.1" value="incidents">Incidents</ion-segment-button>
-                    <ion-segment-button (ionSelect)="action('showRequests')" data-comp-id="segment-button.2" value="requests">Requests</ion-segment-button>
+                <ion-segment [(ngModel)]="data.ticketsType" color="contrast"
+                    data-comp-id="segment.1" mode="md" style>
+                    <ion-segment-button (ionSelect)="action('showIncidents')"
+                        data-comp-id="segment-button.1" value="incidents">Incidents</ion-segment-button>
+                    <ion-segment-button (ionSelect)="action('showRequests')"
+                        data-comp-id="segment-button.2" value="requests">Requests</ion-segment-button>
                 </ion-segment>
             </ion-col>
         </ion-row>
     </ion-navbar>
 </ion-header>
 <ion-content class="content-calm" data-comp-id="content.1" style>
-    <ion-toolbar color="transparent" data-comp-id="toolbar.1" style="padding: 16px 16px 0px;">
-        <ion-searchbar *ngIf="data.showSearch" [(ngModel)]="data.searchKey" cancelButtonText="Cancel" data-comp-id="searchbar.1" debounce="500" mode="md" placeholder="Find a ticket" style="padding: 0; margin: 0 0 20px; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);" type="search"></ion-searchbar>
-        <ion-segment [(ngModel)]="data.statusFilter" color="contrast" data-comp-id="segment.2" mode="ios" style>
-            <ion-segment-button (ionSelect)="action('showOpenTickets')" data-comp-id="segment-button.3" value="openTickets">Open Tickets</ion-segment-button>
-            <ion-segment-button (ionSelect)="action('showNeedAttention')" data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
+    <ion-toolbar color="transparent" data-comp-id="toolbar.1"
+        style="padding: 16px 16px 0px;">
+        <ion-searchbar *ngIf="data.showSearch" [(ngModel)]="data.searchKey"
+            cancelButtonText="Cancel" data-comp-id="searchbar.1" debounce="500" mode="md"
+            placeholder="Find a ticket"
+            style="padding: 0; margin: 0 0 20px; border-top: 0.546875px solid rgb(200, 199, 204); border-right: 0.546875px solid rgb(200, 199, 204); border-bottom: 0.546875px solid rgb(200, 199, 204); border-left: 0.546875px solid rgb(200, 199, 204);"
+            type="search"></ion-searchbar>
+        <ion-segment [(ngModel)]="data.statusFilter" color="contrast"
+            data-comp-id="segment.2" mode="ios" style>
+            <ion-segment-button (ionSelect)="action('showOpenTickets')"
+                data-comp-id="segment-button.3" value="openTickets">Open Tickets</ion-segment-button>
+            <ion-segment-button (ionSelect)="action('showNeedAttention')"
+                data-comp-id="segment-button.4" value="needAttention">Need Attention</ion-segment-button>
         </ion-segment>
         <ion-row data-comp-id="row.2">
             <ion-col align-self-center data-comp-id="column.6" style="padding: 0px;">
-                <ion-item class="wrap-field" color="transparent" data-comp-id="select.1" style="border-bottom: none; border-top: none; padding: 0px 0px 0px 0px;">
+                <ion-item class="wrap-field" color="transparent" data-comp-id="select.1"
+                    style="border-bottom: none; border-top: none; padding: 0px 0px 0px 0px;">
                     <ion-label color="primary" style="font-size: 16px; width: 75px;">Sorted by</ion-label>
-                    <ion-select (ionChange)="handleSort()" [(ngModel)]="data.sortOptions.selected" arrow-color="primary" color="primary" interface="action-sheet" name="select.1" style>
-                        <ion-option *ngFor="let item of data.sortOptions.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.1"></ion-option>
+                    <ion-select (ionChange)="handleSort()" [(ngModel)]="data.sortOptions.selected"
+                        arrow-color="primary" color="primary" interface="action-sheet" name="select.1"
+                        style>
+                        <ion-option *ngFor="let item of data.sortOptions.options"
+                            [innerHTML]="item.label" [value]="item.value" data-comp-id="option.1"></ion-option>
                     </ion-select>
                 </ion-item>
             </ion-col>
             <ion-col data-comp-id="column.7" style="max-width: 45px; padding: 0px;">
-                <button (click)="handleOrder()" *ngIf="data.descending" clear data-comp-id="button.3" icon-only icon-start ion-button style="float: right;">
+                <button (click)="handleOrder()" *ngIf="data.descending" clear
+                    data-comp-id="button.3" icon-only icon-start ion-button style="float: right;">
                     <ion-icon class=" fa fa-sort-amount-desc" style="font-size: 18px;"></ion-icon>
                 </button>
-                <button (click)="handleOrder()" *ngIf="!data.descending" clear data-comp-id="button.4" icon-only icon-start ion-button style="float: right;">
+                <button (click)="handleOrder()" *ngIf="!data.descending" clear
+                    data-comp-id="button.4" icon-only icon-start ion-button style="float: right;">
                     <ion-icon class=" fa fa-sort-amount-asc" style="font-size: 18px;"></ion-icon>
                 </button>
             </ion-col>
@@ -54,20 +76,21 @@
     </ion-toolbar>
     <ion-row data-comp-id="row.3">
         <ion-col data-comp-id="column.8" style="padding: 8px;">
-            <ion-list data-comp-id="list.2" mode="ios" style="margin: -1px 0px 64px;">
-                <ion-item-sliding (click)="action('tickets[item].select',[data.tickets.indexOf(item)])" *ngFor="let item of data.tickets | search:data.searchKey:'Description'; let i = index" data-comp-id="item-sliding.1" style="margin: 0 0 8px 0; border-radius: 4px; background-color: transparent;">
-                    <ion-item data-comp-id="item.1" detail-push mode="ios" style="border-bottom: 0px none rgb(0, 0, 0);">
-                        <div [innerHTML]="item.IncidentID" color="primary" data-comp-id="text.2" ion-text style="font-size: 14px; margin: 0 0 4px 0;"></div>
-                        <div [innerHTML]="item.Description" data-comp-id="text.3" ion-text style="margin: 0 0 4px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
-                        <span color="medium" data-comp-id="text.4" ion-text style="font-size: 13px;">Date Created:</span>
-                        <span [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5" formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text output-format="M/D/YYYY h:mm A" style="font-size: 13px; margin: 0 0 0 4px;"></span>
-                    </ion-item>
-                    <ion-item-options data-comp-id="item-options.1" side="right" style="border-bottom: none; align-items: center;">
-                        <button color="contrast" data-comp-id="fab-button.1" ion-fab mode="ios" style="margin: 0px 5px 0 15px;">
-                            <ion-icon class=" fa fa-edit"></ion-icon>
-                        </button>
-                    </ion-item-options>
-                </ion-item-sliding>
+            <ion-list data-comp-id="list.2" mode="ios" no-lines
+                style="margin: -1px 0px 64px;">
+                <ion-item (click)="action('tickets[item].select',[data.tickets.indexOf(item)])"
+                    *ngFor="let item of data.tickets | search:data.searchKey:'Description'; let i = index"
+                    color="white" data-comp-id="item.1" detail-push mode="ios"
+                    style="margin: 0 0 8px 0; border-radius: 4px;">
+                    <div [innerHTML]="item.IncidentID" color="primary" data-comp-id="text.2"
+                        ion-text style="font-size: 14px; margin: 0 0 4px 0;"></div>
+                    <div [innerHTML]="item.Description" data-comp-id="text.3" ion-text
+                        style="margin: 0 0 4px 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
+                    <span color="medium" data-comp-id="text.4" ion-text style="font-size: 13px;">Date Created:</span>
+                    <span [innerHTML]="item.CreatedDateTime" color="medium" data-comp-id="text.5"
+                        formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
+                        output-format="M/D/YYYY h:mm A" style="font-size: 13px; margin: 0 0 0 4px;"></span>
+                </ion-item>
             </ion-list>
         </ion-col>
     </ion-row>
