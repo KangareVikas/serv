@@ -23,6 +23,7 @@ let startRefreshTokenTimer = (session, vars, models, accessTokenLifetime) => {
  * @param {Vars} vars
 */
 exports.submit = async (session, models, vars) => {
+    delete models.login.errorMessage;
     try {
         let output = await session.rest.cherwellapi.login({
             apikey: vars.config.rest.cherwellapi.custom.apikey,
