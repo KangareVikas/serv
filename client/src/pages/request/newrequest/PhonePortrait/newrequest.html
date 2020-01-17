@@ -66,12 +66,12 @@
                     placeholder="Type here..." type="text"></ion-input>
             </ion-item>
             <ion-row data-comp-id="row.2"
-                style="margin: 0; padding: 0; border-top: none; border-right: none; border-bottom: 0.546875px solid rgb(200, 199, 204);">
+                style="margin: 0 0 0 16px; padding: 0; border-top: none; border-right: none; border-bottom: 0.546875px solid rgb(200, 199, 204);">
                 <ion-col col-auto data-comp-id="column.4"
                     style="padding: 0; margin: 0; min-width: calc(100% - 50px);">
                     <div (fileReady)="fileEvent()" [(ngModel)]="data.photo"
                         data-comp-id="take-photo.1" name="photo" take-photo>
-                        <ion-item>
+                        <ion-item style="padding: 0px 0px 0px 0; margin: 0px 0px 1px;">
                             <ion-thumbnail item-right>
                                 <img #thumbnail>
                             </ion-thumbnail>
@@ -118,13 +118,13 @@
             </ion-item>
             <ion-row (click)="showAddInfo = !showAddInfo" data-comp-id="row.3"
                 style="padding: 8px 0px 0px 16px;">
-                <ion-col col-auto data-comp-id="column.7" style="padding: 8px 0;">
+                <ion-col col-auto data-comp-id="column.6" style="padding: 8px 0;">
                     <ion-icon *ngIf="showAddInfo" class=" ion-ios-arrow-down-outline"
                         color="primary" data-comp-id="icon.3" style="font-size: 17px;"></ion-icon>
                     <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
                         color="primary" data-comp-id="icon.4" style="font-size: 17px;"></ion-icon>
                 </ion-col>
-                <ion-col data-comp-id="column.8" style="padding: 8px;">
+                <ion-col data-comp-id="column.7" style="padding: 8px;">
                     <div color="primary" data-comp-id="text.9" ion-text style>Additional Information</div>
                 </ion-col>
             </ion-row>
@@ -135,8 +135,8 @@
             </ion-item>
             <ion-row class="row-calm quantity-form" data-comp-id="row.4"
                 style="margin: 32px 16px 16px; padding: 16px 16px 8px; border-radius: 6px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
-                <ion-col col-12 data-comp-id="column.9" style="padding: 0; margin: 0;">
-                    <ion-list data-comp-id="list.3" style="margin: 0 0 8px;">
+                <ion-col col-12 data-comp-id="column.8" style="padding: 0; margin: 0;">
+                    <ion-list data-comp-id="list.2" style="margin: 0 0 8px;">
                         <ion-item data-comp-id="input.5"
                             style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
                             <ion-label color="black" style>Quantity:</ion-label>
@@ -145,12 +145,12 @@
                         </ion-item>
                     </ion-list>
                 </ion-col>
-                <ion-col data-comp-id="column.10"
+                <ion-col data-comp-id="column.9"
                     style="padding: 0; margin: 0; text-align: left;">
                     <div color="black" data-comp-id="text.10" ion-text
                         style="font-size: 17px; margin: 8px 8px 0 16px;">Order Total:</div>
                 </ion-col>
-                <ion-col data-comp-id="column.11"
+                <ion-col data-comp-id="column.10"
                     style="margin: 0; padding: 0; text-align: right;">
                     <div color="contrast" data-comp-id="text.11" ion-text
                         style="font-size: 24px; font-weight: bold; margin: 4px;">$0.00</div>
