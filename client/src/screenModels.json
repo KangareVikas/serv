@@ -28,7 +28,10 @@
         "type": "string"
       },
       "errorMessage": {
-        "type": "string"
+        "type": "string",
+        "update": {
+          "type": "none"
+        }
       },
       "submit": {
         "type": "action"
