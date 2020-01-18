@@ -37,7 +37,7 @@ exports.submit = async (session, models, vars) => {
             useSAML: false
         });
         if (portalLoginOutput.Error) {
-            model.login.errorMessage = portalLoginOutput.Error.Message;
+            models.login.errorMessage = portalLoginOutput.Error.Message;
             return;
         }
         let output = await session.rest.cherwellapi.login({
