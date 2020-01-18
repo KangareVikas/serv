@@ -31,6 +31,7 @@ let startRefreshTokenTimer = (session, vars, models, accessTokenLifetime) => {
 exports.submit = async (session, models, vars) => {
     delete models.login.errorMessage;
     try {
+        await session.showLoading("Authenticating");
         let portalLoginOutput = await session.api.cherwellsoap.PortalLogin({
             userId: models.login.username,
             password: models.login.password,
