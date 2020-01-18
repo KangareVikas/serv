@@ -76,7 +76,11 @@ module.exports = {
             cherwellapi: {
                 baseUrl: 'http://sealabcsm02.sealab.pwdemolabs.com/CherwellAPI',
                 auth: { type: 'none' },
-                custom: { apikey: '3890a9c2-dc65-4ff6-a674-c9d76f16ecfe' }
+                custom: {
+                    apikey: '3890a9c2-dc65-4ff6-a674-c9d76f16ecfe',
+                    serviceUsername: 'henri',
+                    servicePassword: 'Powwow2019'
+                }
             }
         },
         // Cherwell SOAP Connector (0.1.0)

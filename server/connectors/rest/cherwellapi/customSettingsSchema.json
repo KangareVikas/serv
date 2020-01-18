@@ -10,6 +10,22 @@
       "path": "apikey",
       "arrayId": "customSettingsSchema.apikey",
       "arrayPath": "apikey"
+    },
+    "serviceUsername": {
+      "type": "string",
+      "id": "customSettingsSchema.serviceUsername",
+      "name": "serviceUsername",
+      "path": "serviceUsername",
+      "arrayId": "customSettingsSchema.serviceUsername",
+      "arrayPath": "serviceUsername"
+    },
+    "servicePassword": {
+      "type": "string",
+      "id": "customSettingsSchema.servicePassword",
+      "name": "servicePassword",
+      "path": "servicePassword",
+      "arrayId": "customSettingsSchema.servicePassword",
+      "arrayPath": "servicePassword"
     }
   },
   "arrayId": "customSettingsSchema",
