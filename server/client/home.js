@@ -30,6 +30,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
 */
 exports.onload = async (session, models, vars) => {
     if (!vars.session.incidentBusObId) {
+        await session.showLoading("Loading BOs...");
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
         vars.session.incidentBusObId = data1.body[0].busObId;
     }
@@ -84,6 +85,7 @@ exports.onload = async (session, models, vars) => {
             'value': 'Pending Approval'
         }
     ];
+    await session.showLoading("Loading tickets");
     let openedTickets = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.incidentBusObId,
