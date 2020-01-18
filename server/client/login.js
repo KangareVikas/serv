@@ -3,13 +3,19 @@ let startRefreshTokenTimer = (session, vars, models, accessTokenLifetime) => {
     let refreshTime = accessTokenLifetime / 2;
     setTimeout(async () => {
         try {
-            let output = await session.rest.cherwellapi.refreshToken({
-                refresh_token: vars.session.refresh_token,
-                apikey: vars.config.rest.cherwellapi.custom.apikey
+            let output = await session.rest.cherwellapi.login({
+                apikey: vars.config.rest.cherwellapi.custom.apikey,
+                username: "henri",
+                password: "Powwow2019"
             });
+            if (!output.body.refresh_token) {
+                models.login.errorMessage = 'All licenses are currently in use!';
+                await session.screen('login');
+                return;
+            }
+            console.log('Re-Login Success');
             vars.session.access_token = output.body.access_token;
             vars.session.refresh_token = output.body.refresh_token;
-            startRefreshTokenTimer(session, vars, models, output.body.expires_in);
         } catch (e) {
             models.login.errorMessage = 'Your session has expired.';
             await session.screen('login');
@@ -25,10 +31,19 @@ let startRefreshTokenTimer = (session, vars, models, accessTokenLifetime) => {
 exports.submit = async (session, models, vars) => {
     delete models.login.errorMessage;
     try {
+        let portalLoginOutput = await session.api.cherwellsoap.PortalLogin({
+            userId: models.login.username,
+            password: models.login.password,
+            useSAML: false
+        });
+        if (portalLoginOutput.Error) {
+            model.login.errorMessage = portalLoginOutput.Error.Message;
+            return;
+        }
         let output = await session.rest.cherwellapi.login({
             apikey: vars.config.rest.cherwellapi.custom.apikey,
-            username: models.login.username,
-            password: models.login.password
+            username: "henri",
+            password: "Powwow2019"
         });
         if (!output.body.refresh_token) {
             models.login.errorMessage = 'All licenses are currently in use!';
@@ -46,9 +61,9 @@ exports.submit = async (session, models, vars) => {
         } catch (e) {
         }
         if (error.error == 'invalid_grant') {
-            models.login.errorMessage = 'Invalid username or password.';
+            models.login.errorMessage = 'Invalid service user username or password.';
         } else {
-            models.login.errorMessage = `Error logging in: ${ error.error_description }`;
+            models.login.errorMessage = `Error logging in service user: ${ error.error_description }`;
         }
         await session.screen('login');
         return;
