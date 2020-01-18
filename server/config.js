@@ -76,10 +76,13 @@ module.exports = {
             cherwellapi: {
                 baseUrl: 'http://sealabcsm02.sealab.pwdemolabs.com/CherwellAPI',
                 auth: { type: 'none' },
-                custom: {
-                    apikey: '3890a9c2-dc65-4ff6-a674-c9d76f16ecfe'
-                }
+                custom: { apikey: '3890a9c2-dc65-4ff6-a674-c9d76f16ecfe' }
             }
+        },
+        // Cherwell SOAP Connector (0.1.0)
+        cherwellsoap: {
+            // URL should be <cherwellserver>/CherwellService
+            url: 'http://sealabcsm02.sealab.pwdemolabs.com/CherwellService'
         }
     }
 };

@@ -8,10 +8,11 @@
     "start": "nodemon start.js | bunyan -o short --color"
   },
   "dependencies": {
-    "smartux-connect": "/home/ad1/Work/master/PowwowDesigner/dataStore/smartux-connect/6.1.0-dev"
+    "smartux-connect": "/Users/samir/code/6.1/PowwowDesigner/dataStore/smartux-connect/6.1.0-dev",
+    "cherwellsoap": "/Users/samir/code/6.1/PowwowDesigner/dataStore/custom-connectors/cherwellsoap"
   },
   "engines": {
     "node": "8"
   },
-  "customConnectorsFolder": "/home/ad1/Work/master/PowwowDesigner/dataStore/custom-connectors"
+  "customConnectorsFolder": "/Users/samir/code/6.1/PowwowDesigner/dataStore/custom-connectors"
 }

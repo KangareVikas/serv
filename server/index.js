@@ -1,4 +1,5 @@
 const session = require('smartux-connect');
+session.api.cherwellsoap = require('cherwellsoap');
 require('./client/login');
 require('./client/home');
 require('./client/incident_categories');
