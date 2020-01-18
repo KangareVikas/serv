@@ -5,8 +5,8 @@ let startRefreshTokenTimer = (session, vars, models, accessTokenLifetime) => {
         try {
             let output = await session.rest.cherwellapi.login({
                 apikey: vars.config.rest.cherwellapi.custom.apikey,
-                username: "henri",
-                password: "Powwow2019"
+                username: vars.config.rest.cherwellapi.custom.serviceUsername,
+                password: vars.config.rest.cherwellapi.custom.servicePassword
             });
             if (!output.body.refresh_token) {
                 models.login.errorMessage = 'All licenses are currently in use!';
@@ -42,8 +42,8 @@ exports.submit = async (session, models, vars) => {
         }
         let output = await session.rest.cherwellapi.login({
             apikey: vars.config.rest.cherwellapi.custom.apikey,
-            username: "henri",
-            password: "Powwow2019"
+            username: vars.config.rest.cherwellapi.custom.serviceUsername,
+            password: vars.config.rest.cherwellapi.custom.servicePassword
         });
         if (!output.body.refresh_token) {
             models.login.errorMessage = 'All licenses are currently in use!';
