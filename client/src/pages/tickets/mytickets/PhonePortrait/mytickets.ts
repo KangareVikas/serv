@@ -43,6 +43,8 @@ export class tickets_mytickets_PhonePortrait extends Screen {
     onDataLoad(data: any): void {
         // Logic to run when the screen's data is updated goes here.
         this.handleSort();
+        this.content.scrollToTop();
+        this.content.resize();
     }
     onBackButton(): boolean {
         //(Android) returns :
