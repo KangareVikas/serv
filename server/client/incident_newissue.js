@@ -50,7 +50,7 @@ exports.onload = async (session, models, vars) => {
                 priorities.push(entry.Priority)
             }
         }
-        vars.session.incidentPriorities = util.createSelectFromFieldValues(priorities.sort());
+        vars.session.incidentPriorities = util.createSelectFromFieldValues(priorities.sort(), priorities.sort()[0]);
     }
 
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.user.FullName;
