@@ -26,31 +26,31 @@ exports.onload = async (session, models, vars) => {
         delete vars.session.prevScreen;
     }
 
-    if (!vars.session.configItemDisplayNameFieldId || !vars.session.urgencyFieldId) {
-        let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
+    if (!vars.session.incidentPriorities) {
+        let response = await session.rest.cherwellapi.Get_Search_Results({
             access_token: vars.session.access_token,
-            busObId: vars.session.incidentBusObId,
-            includeRequired: true,
-            includeAll: false
+            body: {
+                busObId: vars.session.priorityMatrixElementBusObId,
+                filters:[{
+                    'fieldId': vars.session.priorityMatrixElementFields.ParentType,
+                    'operator': 'eq',
+                    'value': 'Incident'
+                },{
+                    'fieldId': vars.session.priorityMatrixElementFields.PriorityGroup,
+                    'operator': 'eq',
+                    'value': 'Standard'
+                }],
+                includeAllFields: true
+            }
         });
-        vars.session.configItemDisplayNameFieldId = util.getFieldId(requestData.body.fields, 'ConfigItemDisplayName');
-        vars.session.urgencyFieldId = util.getFieldId(requestData.body.fields, 'Urgency');
-    }
-    if (!vars.session.urgencyMap) {
-        let configItem = await session.rest.cherwellapi.getFieldValues({
-            access_token: vars.session.access_token,
-            busObId: vars.session.incidentBusObId,
-            fieldId: vars.session.urgencyFieldId
-        });
-        vars.session.urgencyMap = util.createSelectFromFieldValues(configItem.body.values);
-    }
-    if (!models.incident_newissue.ConfigItemSelect) {
-        let configItem = await session.rest.cherwellapi.getFieldValues({
-            access_token: vars.session.access_token,
-            busObId: vars.session.incidentBusObId,
-            fieldId: vars.session.configItemDisplayNameFieldId
-        });
-        models.incident_newissue.ConfigItemSelect = util.createSelectFromFieldValues(configItem.body.values);
+        let priorities = [];
+        for(let bo of response.body.businessObjects) {
+            let entry = util.convertFieldsIntoObject(bo.fields, ['Priority']);
+            if (priorities.indexOf(entry.Priority) === -1) {
+                priorities.push(entry.Priority)
+            }
+        }
+        vars.session.incidentPriorities = util.createSelectFromFieldValues(priorities.sort());
     }
 
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.user.FullName;
@@ -61,8 +61,7 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.seat = models.incident_newissue.seat || vars.session.user.Office;
     models.incident_newissue.Description = models.incident_newissue.Description || `I need help with my ${ vars.session.selectedCatagoryLabel || '' } ${ vars.session.selectedCatagorySuffix || '' } ${ vars.session.selectedSubCatagoryLabel || '' }`;
     models.incident_newissue.Description = models.incident_newissue.Description.trim();
-    models.incident_newissue.urgency = models.incident_newissue.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
-    models.incident_newissue.urgency.selected = models.incident_newissue.urgency.selected || vars.session.urgencyDefaultValue;
+    models.incident_newissue.priority = models.incident_newissue.priority || JSON.parse(JSON.stringify(vars.session.incidentPriorities));
     models.incident_newissue.footer = { active: 'newIssue' };
 };
 /**
@@ -122,7 +121,7 @@ exports.submit = async (session, models, vars) => {
     let updateFields = {
         'Description': description,
         'CustomerRecID': models.incident_newissue.customerRecId,
-        'Priority': models.incident_newissue.urgency.selected,
+        'Priority': models.incident_newissue.priority.selected,
         'Source': 'Portal',
         'CallSource': 'Portal',
         'CustomerDisplayName': models.incident_newissue.forUser,
@@ -131,13 +130,6 @@ exports.submit = async (session, models, vars) => {
         'Subcategory': vars.session.serviceClassification[2],
         'SmartClassifySearchString': vars.session.serviceClassification[2]
     };
-
-    if (models.incident_newissue.urgency.selected) {
-        updateFields['Urgency'] = models.incident_newissue.urgency.selected;
-    }
-    if (models.incident_newissue.urgency.selected === '1') {
-        updateFields['ConfigItemDisplayName'] = models.incident_newissue.ConfigItemSelect.selected;
-    }
 
     let stringifiedFields = JSON.stringify(util.createUpdateFields(requestData.body.fields, updateFields));
     try {

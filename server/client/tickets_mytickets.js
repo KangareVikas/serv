@@ -178,7 +178,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
     });
     models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
         'CreatedDateTime',
-        'Urgency',
+        'Priority',
         'CustomerDisplayName',
         'Description',
         'OwnedBy',

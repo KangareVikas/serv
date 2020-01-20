@@ -14,7 +14,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
 
     models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
         'CreatedDateTime',
-        'Urgency',
+        'Priority',
         'CustomerDisplayName',
         'Description',
         'OwnedBy'
@@ -33,6 +33,24 @@ exports.onload = async (session, models, vars) => {
         await session.showLoading("Loading BOs...");
         let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
         vars.session.incidentBusObId = data1.body[0].busObId;
+    }
+    if (!vars.session.priorityMatrixElementBusObId) {
+        console.log('--- Get Priority Matrix Element busObject ID ---');
+        let busObIdRes = await session.rest.cherwellapi.Get_Bus_Object_ID({
+            access_token: vars.session.access_token,
+            name: 'PriorityMatrixElement'
+        });
+        vars.session.priorityMatrixElementBusObId = busObIdRes.body[0].busObId;
+    }
+    if(!vars.session.priorityMatrixElementFields)  {
+        console.log('--- Get Priority Matrix Element fields ---');
+        let journNoteFieldIdsRes = await session.rest.cherwellapi.getBusinessObjectTemplate({
+            busObId: vars.session.priorityMatrixElementBusObId,
+            access_token: vars.session.access_token
+        });
+        vars.session.priorityMatrixElementFields = util.convertFieldsIntoFieldIdObject(journNoteFieldIdsRes.body.fields,
+            ['ParentType','PriorityGroup']
+        );
     }
     if (!vars.session.incidentFieldsIds) {
         console.log('Fetching fields IDs for Incident');

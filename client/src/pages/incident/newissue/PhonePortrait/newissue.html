@@ -73,12 +73,12 @@
                 </ion-col>
             </ion-row>
             <ion-item class="wrap-field" data-comp-id="select.2" mode="ios">
-                <ion-label mode="ios">Urgency</ion-label>
-                <ion-select [(ngModel)]="data.urgency.selected" [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios" name="urgency">
-                    <ion-option *ngFor="let item of data.urgency.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.2"></ion-option>
+                <ion-label mode="ios">Priority</ion-label>
+                <ion-select [(ngModel)]="data.priority.selected" [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios" name="priority">
+                    <ion-option *ngFor="let item of data.priority.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.2"></ion-option>
                 </ion-select>
             </ion-item>
-            <ion-item *ngIf="data.urgency.selected == '1'" class="wrap-field" data-comp-id="select.3" mode="ios">
+            <ion-item *ngIf="data.priority.selected == '1'" class="wrap-field" data-comp-id="select.3" mode="ios">
                 <ion-label mode="ios" text-wrap>Item Name</ion-label>
                 <ion-select [(ngModel)]="data.ConfigItemSelect.selected" [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios" name="itemName">
                     <ion-option *ngFor="let item of data.ConfigItemSelect.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.3"></ion-option>
