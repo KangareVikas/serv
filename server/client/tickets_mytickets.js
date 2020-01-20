@@ -185,6 +185,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'IncidentType'
     ]);
     models.tickets_viewincident.OwnedBy = models.tickets_viewincident.OwnedBy || 'Unassigned';
+    console.table(models.tickets_viewincident);
     vars.session.busObPublicId = vars.item.IncidentID;
     await session.screen('tickets_viewincident');
 };
