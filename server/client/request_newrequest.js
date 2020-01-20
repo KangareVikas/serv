@@ -64,8 +64,8 @@ exports.submit = async (session, models, vars) => {
     });
 
     let formattedLocation = models.request_newrequest.seat ? `, LOCATION/SEAT: ${models.request_newrequest.seat}` : '';
-    let formattedDescription = models.request_newrequest.Description ? `${models.request_newrequest.description}, ` : '';
-    let description = `TYPE: ${models.request_newrequest.service}, ${models.request_newrequest.category}, ${vars.session.requestSubCategory}${formattedLocation}${formattedDescription}`;
+    let formattedDescription = models.request_newrequest.Description ? `${models.request_newrequest.Description}, ` : '';
+    let description = `${formattedDescription} TYPE: ${models.request_newrequest.service}, ${models.request_newrequest.category}, ${vars.session.requestSubCategory}${formattedLocation}`;
 
     let updateFields = {
         'Description': description,
