@@ -263,9 +263,6 @@
           }
         }
       },
-      "description": {
-        "type": "string"
-      },
       "home": {
         "type": "action"
       },
@@ -280,6 +277,9 @@
       },
       "typeDisabled": {
         "type": "boolean"
+      },
+      "Description": {
+        "type": "string"
       }
     },
     "id": "incident_newissue"
