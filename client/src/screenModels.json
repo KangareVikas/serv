@@ -203,9 +203,6 @@
       "urgency": {
         "type": "select"
       },
-      "shortDescription": {
-        "type": "string"
-      },
       "submit": {
         "type": "action"
       },
