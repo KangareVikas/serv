@@ -111,7 +111,8 @@
                 data-comp-id="alert.1"
                 message="Your Incident has been added to the Cherwell system. Your Incident ID is {{data.result.busObPublicId}}."
                 title="Cherwell Service Management"></alert>
-            <alert #alert [message]="data.result.error" [presentOnData]="data.result.error"
+            <alert #alert (button1Action)="data.result.error = ''"
+                [message]="data.result.error" [presentOnData]="data.result.error"
                 alert-type="basic" button1Text="Ok" data-comp-id="alert.2" title="Error"></alert>
         </ion-list>
     </form>
