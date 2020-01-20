@@ -19,37 +19,37 @@
     <ion-content class="content-calm" data-comp-id="content.1" menuClose style>
         <ion-list data-comp-id="list.1">
             <ion-item (click)="action('newIssue')" data-comp-id="item.1" menuClose>
-                <img data-comp-id="img.2" item-start src="assets/images/new_request_icon.svg"
-                    style="width: auto; height: 24px;">
+                <div class="icon-container" data-comp-id="div.1"><img data-comp-id="img.1" item-start src="assets/images/new_request_icon.svg"
+                    style="width: auto; height: 24px;"></div>
                 <div data-comp-id="text.2" ion-text>New Issue</div>
             </ion-item>
             <ion-item (click)="action('myTickets')" data-comp-id="item.2" menuClose>
-                <img data-comp-id="img.1" item-start
+                <img data-comp-id="img.2" item-start
                     src="assets/images/my_tickets_icon_blue.svg" style="width: auto; height: 20px;">
                 <div data-comp-id="text.3" ion-text>My Tickets</div>
             </ion-item>
             <a data-comp-id="item.3" href="slack://open" ion-item menuClose>
                 <ion-icon class=" ion-ios-chatbubbles-outline" color="primary"
-                    data-comp-id="icon.2" item-start style="font-size: 30px;"></ion-icon>
+                    data-comp-id="icon.1" item-start style="font-size: 30px;"></ion-icon>
                 <div data-comp-id="text.4" ion-text>Chat</div>
             </a>
             <a data-comp-id="item.4" href="tel:8778004381" ion-item menuClose>
-                <ion-icon class=" ion-ios-call-outline" color="primary" data-comp-id="icon.3"
+                <ion-icon class=" ion-ios-call-outline" color="primary" data-comp-id="icon.2"
                     item-start style="font-size: 30px;"></ion-icon>
                 <div data-comp-id="text.5" ion-text>Call</div>
             </a>
             <ion-item (click)="go('about')" data-comp-id="item.5" menuClose>
                 <ion-icon class=" ion-ios-information-circle-outline" color="primary"
-                    data-comp-id="icon.4" item-start style="font-size: 30px;"></ion-icon>
+                    data-comp-id="icon.3" item-start style="font-size: 30px;"></ion-icon>
                 <div data-comp-id="text.6" ion-text>About</div>
             </ion-item>
             <ion-item (click)="go('settings')" data-comp-id="item.6" menuClose>
                 <ion-icon class=" ion-ios-settings-outline" color="primary"
-                    data-comp-id="icon.5" item-start style="font-size: 30px;"></ion-icon>
+                    data-comp-id="icon.4" item-start style="font-size: 30px;"></ion-icon>
                 <div data-comp-id="text.7" ion-text>Settings</div>
             </ion-item>
             <ion-item (click)="logout()" data-comp-id="item.7" menuClose>
-                <ion-icon class=" ion-ios-exit-outline" color="primary" data-comp-id="icon.6"
+                <ion-icon class=" ion-ios-exit-outline" color="primary" data-comp-id="icon.5"
                     item-start style="font-size: 30px;"></ion-icon>
                 <div data-comp-id="text.8" ion-text>Logout</div>
             </ion-item>

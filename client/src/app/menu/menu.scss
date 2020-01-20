@@ -1,1 +1,5 @@
-ion-menu, screen-menu {}
+ion-menu, screen-menu {
+    .icon-container {
+        display: inline-block;
+    }
+}
