@@ -78,8 +78,7 @@
     </ion-toolbar>
     <ion-row data-comp-id="row.3">
         <ion-col data-comp-id="column.8" style="padding: 8px;">
-            <ion-list data-comp-id="list.2" mode="ios" no-lines
-                style="margin: -1px 0px 64px;">
+            <ion-list data-comp-id="list.2" mode="ios" no-lines style="margin: 0;">
                 <ion-item (click)="action('tickets[item].select',[data.tickets.indexOf(item)])"
                     *ngFor="let item of data.tickets | search:data.searchKey:'Description'; let i = index"
                     color="white" data-comp-id="item.1" detail-push mode="ios"
