@@ -1,5 +1,9 @@
 ion-menu, screen-menu {
     .icon-container {
         display: inline-block;
+
+        &+ion-text {
+            display: inline-block;
+        }
     }
 }
