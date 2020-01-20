@@ -112,8 +112,8 @@ exports.submit = async (session, models, vars) => {
 
     let formattedType = models.incident_subcategories.category || 'Other';
     let formattedLocation = models.incident_newissue.seat ? `, LOCATION/SEAT: ${models.incident_newissue.seat}` : '';
-    let formattedDescription = models.incident_newissue.Description ? `, ${models.incident_newissue.Description}` : '';
-    let description = `${formattedDescription} \n TYPE: ${formattedType}${formattedLocation}`;
+    let formattedDescription = models.incident_newissue.Description ? `${models.incident_newissue.Description}, ` : '';
+    let description = `${formattedDescription} TYPE: ${formattedType}${formattedLocation}`;
 
     if (!vars.session.serviceClassification) {
         vars.session.serviceClassification = vars.session.defaultServiceClassification;
