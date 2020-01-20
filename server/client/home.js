@@ -17,7 +17,8 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'Priority',
         'CustomerDisplayName',
         'Description',
-        'OwnedBy'
+        'OwnedBy',
+        'IncidentType'
     ]);
     models.tickets_viewincident.OwnedBy = models.tickets_viewincident.OwnedBy || 'Unassigned';
     vars.session.busObPublicId = vars.item.id;
