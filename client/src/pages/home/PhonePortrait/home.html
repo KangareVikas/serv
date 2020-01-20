@@ -80,7 +80,7 @@
                     <span color="black" data-comp-id="text.4" ion-text style="font-size: 17px;"
                         text-capitalize>Open tickets</span>
                 </ion-list-header>
-                <ion-list data-comp-id="list.3" mode="ios" no-lines>
+                <ion-list data-comp-id="list.3" mode="ios" no-lines style="margin: 0;">
                     <ion-item (click)="action('tickets[item].select', [i])"
                         *ngFor="let item of data.tickets; let i = index" color="white"
                         data-comp-id="item.1" detail-push mode="ios"
