@@ -2,13 +2,16 @@
     <ion-navbar color="light" data-comp-id="navbar.1" mode="ios" style>
         <ion-row data-comp-id="row.1" style="padding: 0 0 4px;">
             <ion-col data-comp-id="column.1" style="text-align: left; padding: 0 4px;">
-                <button (click)="action('back')" class="button-label-primary" clear data-comp-id="button.1" ion-button mode="ios" small style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
+                <button (click)="action('back')" class="button-label-primary" clear
+                    data-comp-id="button.1" ion-button mode="ios" small
+                    style="font-size: 17px; padding: 0 4px; margin: 0 2px;">
                     <ion-icon class=" ion-ios-arrow-back" color="primary" style="font-size: 28px;"></ion-icon>
                     <span style="padding: 0 0 0 8px;">Back</span>
                 </button>
             </ion-col>
             <ion-col data-comp-id="column.2" style="text-align: right; padding: 0;">
-                <button (click)="submit(form)" clear data-comp-id="button.2" ion-button mode="ios" small style="margin: 0 2px; font-size: 17px; padding: 0 8px;">
+                <button (click)="submit(form)" clear data-comp-id="button.2" ion-button
+                    mode="ios" small style="margin: 0 2px; font-size: 17px; padding: 0 8px;">
                     <span>Save</span>
                 </button>
             </ion-col>
@@ -23,13 +26,18 @@
         <ion-list data-comp-id="list.1" mode="ios" style="margin: -1px 0px 82px;">
             <ion-item data-comp-id="input.1" mode="ios">
                 <ion-label class=" required" mode="ios">By</ion-label>
-                <ion-input [(ngModel)]="data.byUser" disabled mode="ios" name="byUser" placeholder="Type here..." required type="text"></ion-input>
+                <ion-input [(ngModel)]="data.byUser" disabled mode="ios" name="byUser"
+                    placeholder="Type here..." required type="text"></ion-input>
             </ion-item>
             <ion-item (click)="action('search')" data-comp-id="item.1" mode="ios">
-                <span color="dark" data-comp-id="text.2" ion-text style="width: 70px; margin: 0 65px 0 0;">For</span>
-                <span *ngIf="!data.forUser" color="medium" data-comp-id="text.3" ion-text style="width: 70px;">Search...</span>
-                <span *ngIf="data.forUser" [innerHTML]="data.forUser" color="black" data-comp-id="text.4" ion-text style="width: 70px;"></span>
-                <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.1" item-end style></ion-icon>
+                <span color="dark" data-comp-id="text.2" ion-text
+                    style="width: 70px; margin: 0 65px 0 0;">For</span>
+                <span *ngIf="!data.forUser" color="medium" data-comp-id="text.3" ion-text
+                    style="width: 70px;">Search...</span>
+                <span *ngIf="data.forUser" [innerHTML]="data.forUser" color="black"
+                    data-comp-id="text.4" ion-text style="width: 70px;"></span>
+                <ion-icon class=" ion-ios-search" color="primary" data-comp-id="icon.1" item-end
+                    style></ion-icon>
             </ion-item>
             <ion-item data-comp-id="input.2" mode="ios">
                 <ion-label mode="ios">Email</ion-label>
@@ -37,74 +45,107 @@
             </ion-item>
             <ion-item data-comp-id="input.3" mode="ios">
                 <ion-label class=" required" mode="ios">Phone</ion-label>
-                <ion-input [(ngModel)]="data.phone" mode="ios" name="phone" placeholder="Type here..." required type="tel"></ion-input>
+                <ion-input [(ngModel)]="data.phone" mode="ios" name="phone"
+                    placeholder="Type here..." required type="tel"></ion-input>
             </ion-item>
             <ion-item data-comp-id="item.2" mode="ios">
-                <span color="dark" data-comp-id="text.5" ion-text style="width: 90px; display: inline-block;">Service</span>
-                <span [innerHTML]="data.service" color="medium" data-comp-id="text.6" ion-text style="width: 70px;"></span>
+                <span color="dark" data-comp-id="text.5" ion-text
+                    style="width: 90px; display: inline-block;">Service</span>
+                <span [innerHTML]="data.service" color="medium" data-comp-id="text.6" ion-text
+                    style="width: 70px;"></span>
             </ion-item>
             <ion-item data-comp-id="item.3" mode="ios">
-                <span color="dark" data-comp-id="text.7" ion-text style="width: 90px; display: inline-block;">Category</span>
-                <span [innerHTML]="data.category" color="medium" data-comp-id="text.8" ion-text style="width: 70px;"></span>
+                <span color="dark" data-comp-id="text.7" ion-text
+                    style="width: 90px; display: inline-block;">Category</span>
+                <span [innerHTML]="data.category" color="medium" data-comp-id="text.8" ion-text
+                    style="width: 70px;"></span>
             </ion-item>
             <ion-item data-comp-id="input.4" mode="ios">
                 <ion-label mode="ios" text-wrap>Location or Seats</ion-label>
-                <ion-input [(ngModel)]="data.seat" mode="ios" name="location" placeholder="Type here..." type="text"></ion-input>
+                <ion-input [(ngModel)]="data.seat" mode="ios" name="location"
+                    placeholder="Type here..." type="text"></ion-input>
             </ion-item>
-            <ion-row data-comp-id="row.2" style="margin: 0 0 0 16px; padding: 1px 0; border-top: none; border-right: none; border-bottom: 0.546875px solid rgb(200, 199, 204);">
-                <ion-col align-self-center col-auto data-comp-id="column.4" style="padding: 0; margin: 0; min-width: calc(100% - 50px);">
-                    <div (fileReady)="fileEvent()" [(ngModel)]="data.photo" data-comp-id="take-photo.1" name="photo" take-photo>
+            <ion-row data-comp-id="row.2"
+                style="margin: 0 0 0 16px; padding: 1px 0; border-top: none; border-right: none; border-bottom: 0.546875px solid rgb(200, 199, 204);">
+                <ion-col align-self-center col-auto data-comp-id="column.4"
+                    style="padding: 0; margin: 0; min-width: calc(100% - 50px);">
+                    <div (fileReady)="fileEvent()" [(ngModel)]="data.photo"
+                        data-comp-id="take-photo.1" name="photo" take-photo>
                         <ion-item style="padding: 0px 0px 0px 0; margin: 0px 0px 1px;">
                             <ion-thumbnail item-right>
                                 <img #thumbnail>
                             </ion-thumbnail>
                             <ion-label>
                                 <span class="label">Take Photo</span>
-                                <input #file accept="image/*" capture="camera" class="fallback-input" type="file">
+                                <input #file accept="image/*" capture="camera" class="fallback-input"
+                                    type="file">
                             </ion-label>
                             <ion-icon color="primary" item-end name="camera"></ion-icon>
                         </ion-item>
                         <camera-canvas></camera-canvas>
                     </div>
                 </ion-col>
-                <ion-col align-self-center col-auto data-comp-id="column.5" style="margin: 0; padding: 0; min-width: 50px; text-align: center;">
-                    <ion-icon (click)="removeAttachment()" class=" ion-ios-remove-circle" color="stable" data-comp-id="icon.2" style="font-size: 24px; padding: 10px;"></ion-icon>
+                <ion-col align-self-center col-auto data-comp-id="column.5"
+                    style="margin: 0; padding: 0; min-width: 50px; text-align: center;">
+                    <ion-icon (click)="removeAttachment()" class=" ion-ios-remove-circle"
+                        color="stable" data-comp-id="icon.2" style="font-size: 24px; padding: 10px;"></ion-icon>
                 </ion-col>
             </ion-row>
             <ion-item class="wrap-field" data-comp-id="select.1" mode="ios">
                 <ion-label mode="ios">Urgency</ion-label>
-                <ion-select [(ngModel)]="data.urgency.selected" [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios" name="urgency">
-                    <ion-option *ngFor="let item of data.urgency.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.1"></ion-option>
+                <ion-select [(ngModel)]="data.urgency.selected"
+                    [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios"
+                    name="urgency">
+                    <ion-option *ngFor="let item of data.urgency.options" [innerHTML]="item.label"
+                        [value]="item.value" data-comp-id="option.1"></ion-option>
                 </ion-select>
             </ion-item>
-            <ion-item *ngIf="data.urgency.selected == '1'" class="wrap-field" data-comp-id="select.2" mode="ios">
+            <ion-item *ngIf="data.urgency.selected == '1'" class="wrap-field"
+                data-comp-id="select.2" mode="ios">
                 <ion-label mode="ios" text-wrap>Item Name</ion-label>
-                <ion-select [(ngModel)]="data.ConfigItemSelect.selected" [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios" name="itemName">
-                    <ion-option *ngFor="let item of data.ConfigItemSelect.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.2"></ion-option>
+                <ion-select [(ngModel)]="data.ConfigItemSelect.selected"
+                    [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios"
+                    name="itemName">
+                    <ion-option *ngFor="let item of data.ConfigItemSelect.options"
+                        [innerHTML]="item.label" [value]="item.value" data-comp-id="option.2"></ion-option>
                 </ion-select>
             </ion-item>
             <ion-item data-comp-id="textarea.1" mode="ios">
-                <ion-label class=" required" color="dark" mode="ios" stacked style="font-size: 16px;">Short Description</ion-label>
-                <ion-textarea [(ngModel)]="data.Description" maxlength="160" mode="ios" name="shortDescription" placeholder="Type here..." required rows="5"></ion-textarea>
+                <ion-label class=" required" color="dark" mode="ios" stacked
+                    style="font-size: 16px;">Description</ion-label>
+                <ion-textarea [(ngModel)]="data.Description" maxlength="160" mode="ios"
+                    name="Description" placeholder="Type here..." required rows="5"></ion-textarea>
             </ion-item>
-            <ion-row class="row-calm quantity-form" data-comp-id="row.4" style="margin: 32px 16px 16px; padding: 16px 16px 8px; border-radius: 6px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
-                <ion-col col-12 data-comp-id="column.8" style="padding: 0; margin: 0;">
+            <ion-row class="row-calm quantity-form" data-comp-id="row.3"
+                style="margin: 32px 16px 16px; padding: 16px 16px 8px; border-radius: 6px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
+                <ion-col col-12 data-comp-id="column.6" style="padding: 0; margin: 0;">
                     <ion-list data-comp-id="list.2" style="margin: 0 0 8px;">
-                        <ion-item data-comp-id="input.5" style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
+                        <ion-item data-comp-id="input.5"
+                            style="border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
                             <ion-label color="black" style>Quantity:</ion-label>
-                            <ion-input [(ngModel)]="data.quantity" [readonly]="true" color="black" name="quantity" placeholder="Type here..." style type="text"></ion-input>
+                            <ion-input [(ngModel)]="data.quantity" [readonly]="true" color="black"
+                                name="quantity" placeholder="Type here..." style type="text"></ion-input>
                         </ion-item>
                     </ion-list>
                 </ion-col>
-                <ion-col data-comp-id="column.9" style="padding: 0; margin: 0; text-align: left;">
-                    <div color="black" data-comp-id="text.10" ion-text style="font-size: 17px; margin: 8px 8px 0 16px;">Order Total:</div>
+                <ion-col data-comp-id="column.7"
+                    style="padding: 0; margin: 0; text-align: left;">
+                    <div color="black" data-comp-id="text.9" ion-text
+                        style="font-size: 17px; margin: 8px 8px 0 16px;">Order Total:</div>
                 </ion-col>
-                <ion-col data-comp-id="column.10" style="margin: 0; padding: 0; text-align: right;">
-                    <div color="contrast" data-comp-id="text.11" ion-text style="font-size: 24px; font-weight: bold; margin: 4px;">$0.00</div>
+                <ion-col data-comp-id="column.8"
+                    style="margin: 0; padding: 0; text-align: right;">
+                    <div color="contrast" data-comp-id="text.10" ion-text
+                        style="font-size: 24px; font-weight: bold; margin: 4px;">$0.00</div>
                 </ion-col>
             </ion-row>
-            <alert #alert (button1Action)="action('home')" [presentOnData]="data.result.busObPublicId" alert-type="basic" button1Text="Ok" data-comp-id="alert.1" message="Your Request has been added to the Cherwell system. Your Request ID is {{data.result.busObPublicId}}." title="Cherwell Service Management"></alert>
-            <alert #alert [message]="data.result.error" [presentOnData]="data.result.error" alert-type="basic" button1Text="Ok" data-comp-id="alert.2" title="Error"></alert>
+            <alert #alert (button1Action)="action('home')"
+                [presentOnData]="data.result.busObPublicId" alert-type="basic" button1Text="Ok"
+                data-comp-id="alert.1"
+                message="Your Request has been added to the Cherwell system. Your Request ID is {{data.result.busObPublicId}}."
+                title="Cherwell Service Management"></alert>
+            <alert #alert [message]="data.result.error" [presentOnData]="data.result.error"
+                alert-type="basic" button1Text="Ok" data-comp-id="alert.2" title="Error"></alert>
         </ion-list>
     </form>
 </ion-content>
