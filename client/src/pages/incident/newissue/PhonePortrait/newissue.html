@@ -78,12 +78,6 @@
                     <ion-option *ngFor="let item of data.priority.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.2"></ion-option>
                 </ion-select>
             </ion-item>
-            <ion-item *ngIf="data.priority.selected == '1'" class="wrap-field" data-comp-id="select.3" mode="ios">
-                <ion-label mode="ios" text-wrap>Item Name</ion-label>
-                <ion-select [(ngModel)]="data.ConfigItemSelect.selected" [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios" name="itemName">
-                    <ion-option *ngFor="let item of data.ConfigItemSelect.options" [innerHTML]="item.label" [value]="item.value" data-comp-id="option.3"></ion-option>
-                </ion-select>
-            </ion-item>
             <ion-item data-comp-id="textarea.1" mode="ios">
                 <ion-label class="required" color="dark" mode="ios" stacked style="font-size: 16px;">Description</ion-label>
                 <ion-textarea [(ngModel)]="data.Description" maxlength="160" mode="ios" name="Description" placeholder="Type here..." required rows="5"></ion-textarea>
