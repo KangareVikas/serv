@@ -144,7 +144,6 @@ exports.onload = async (session, models, vars) => {
     }];
     vars.page.fieldsList = [
         'IncidentID',
-        'ShortDescription',
         'Description',
         'CreatedDateTime'
     ];
@@ -181,12 +180,11 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'CreatedDateTime',
         'Urgency',
         'CustomerDisplayName',
-        'ShortDescription',
         'Description',
         'OwnedBy',
         'IncidentType'
     ]);
-    console.table(models.tickets_viewincident);
+    models.tickets_viewincident.OwnedBy = models.tickets_viewincident.OwnedBy || 'Unassigned';
     vars.session.busObPublicId = vars.item.IncidentID;
     await session.screen('tickets_viewincident');
 };
