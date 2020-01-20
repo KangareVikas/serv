@@ -480,12 +480,6 @@
           "type": "none"
         }
       },
-      "ShortDescription": {
-        "type": "string",
-        "update": {
-          "type": "none"
-        }
-      },
       "Description": {
         "type": "string",
         "update": {
