@@ -116,23 +116,6 @@
                 <ion-textarea [(ngModel)]="data.shortDescription" maxlength="160" mode="ios"
                     name="shortDescription" placeholder="Type here..." required rows="5"></ion-textarea>
             </ion-item>
-            <ion-row (click)="showAddInfo = !showAddInfo" data-comp-id="row.3"
-                style="padding: 8px 0px 0px 16px;">
-                <ion-col col-auto data-comp-id="column.6" style="padding: 8px 0;">
-                    <ion-icon *ngIf="showAddInfo" class=" ion-ios-arrow-down-outline"
-                        color="primary" data-comp-id="icon.3" style="font-size: 17px;"></ion-icon>
-                    <ion-icon *ngIf="!showAddInfo" class=" ion-ios-arrow-forward-outline"
-                        color="primary" data-comp-id="icon.4" style="font-size: 17px;"></ion-icon>
-                </ion-col>
-                <ion-col data-comp-id="column.7" style="padding: 8px;">
-                    <div color="primary" data-comp-id="text.9" ion-text style>Additional Information</div>
-                </ion-col>
-            </ion-row>
-            <ion-item *ngIf="showAddInfo" data-comp-id="textarea.2" mode="ios">
-                <ion-label color="dark" mode="ios" stacked style="font-size: 16px;">Description</ion-label>
-                <ion-textarea [(ngModel)]="data.description" maxlength="160" mode="ios"
-                    name="description" placeholder="Type here..." rows="5"></ion-textarea>
-            </ion-item>
             <ion-row class="row-calm quantity-form" data-comp-id="row.4"
                 style="margin: 32px 16px 16px; padding: 16px 16px 8px; border-radius: 6px; box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.22); border-top: 1px solid rgb(200, 199, 204); border-right: 1px solid rgb(200, 199, 204); border-bottom: 1px solid rgb(200, 199, 204); border-left: 1px solid rgb(200, 199, 204);">
                 <ion-col col-12 data-comp-id="column.8" style="padding: 0; margin: 0;">
