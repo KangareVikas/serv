@@ -59,8 +59,8 @@ exports.onload = async (session, models, vars) => {
     models.incident_newissue.email = models.incident_newissue.email || vars.session.user.Email;
     models.incident_newissue.phone = models.incident_newissue.phone || vars.session.user.CellPhone || vars.session.user.Phone;
     models.incident_newissue.seat = models.incident_newissue.seat || vars.session.user.Office;
-    models.incident_newissue.shortDescription = models.incident_newissue.shortDescription || `I need help with my ${ vars.session.selectedCatagoryLabel || '' } ${ vars.session.selectedCatagorySuffix || '' } ${ vars.session.selectedSubCatagoryLabel || '' }`;
-    models.incident_newissue.shortDescription = models.incident_newissue.shortDescription.trim();
+    models.incident_newissue.Description = models.incident_newissue.Description || `I need help with my ${ vars.session.selectedCatagoryLabel || '' } ${ vars.session.selectedCatagorySuffix || '' } ${ vars.session.selectedSubCatagoryLabel || '' }`;
+    models.incident_newissue.Description = models.incident_newissue.Description.trim();
     models.incident_newissue.urgency = models.incident_newissue.urgency || JSON.parse(JSON.stringify(vars.session.urgencyMap));
     models.incident_newissue.urgency.selected = models.incident_newissue.urgency.selected || vars.session.urgencyDefaultValue;
     models.incident_newissue.footer = { active: 'newIssue' };
@@ -112,8 +112,8 @@ exports.submit = async (session, models, vars) => {
 
     let formattedType = models.incident_subcategories.category || 'Other';
     let formattedLocation = models.incident_newissue.seat ? `, LOCATION/SEAT: ${models.incident_newissue.seat}` : '';
-    let formattedDescription = models.incident_newissue.description ? `, ${models.incident_newissue.description}` : '';
-    let description = `TYPE: ${formattedType}${formattedLocation}${formattedDescription}`;
+    let formattedDescription = models.incident_newissue.Description ? `, ${models.incident_newissue.Description}` : '';
+    let description = `${formattedDescription} \n TYPE: ${formattedType}${formattedLocation}`;
 
     if (!vars.session.serviceClassification) {
         vars.session.serviceClassification = vars.session.defaultServiceClassification;
@@ -121,7 +121,6 @@ exports.submit = async (session, models, vars) => {
 
     let updateFields = {
         'Description': description,
-        'ShortDescription': models.incident_newissue.shortDescription,
         'CustomerRecID': models.incident_newissue.customerRecId,
         'Priority': models.incident_newissue.urgency.selected,
         'Source': 'Portal',
