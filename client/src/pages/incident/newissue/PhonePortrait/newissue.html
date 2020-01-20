@@ -95,7 +95,7 @@
                 <ion-label class=" required" mode="ios">Priority</ion-label>
                 <ion-select [(ngModel)]="data.priority.selected"
                     [selectOptions]="{cssClass: 'select-full'}" interface="action-sheet" mode="ios"
-                    name="priority" required>
+                    name="priority">
                     <ion-option *ngFor="let item of data.priority.options" [innerHTML]="item.label"
                         [value]="item.value" data-comp-id="option.2"></ion-option>
                 </ion-select>
