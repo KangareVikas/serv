@@ -2,7 +2,7 @@ ion-menu, screen-menu {
     .icon-container {
         display: inline-block;
 
-        + text {
+        + .text {
             display: inline-block;
         }
     }
