@@ -8,6 +8,7 @@ declare var window: any;
 })
 export class tickets_mytickets_PhonePortrait extends Screen {
     data: any;
+    @ViewChild('content') content;
 
     ngOnInit(): void {
         super.ngOnInit();
@@ -86,6 +87,7 @@ export class tickets_mytickets_PhonePortrait extends Screen {
     toggleSearch() {
         if (this.data.showSearch) this.data.searchKey = '';
         this.data.showSearch = !this.data.showSearch;
+        this.content.resize();
     }
 
 }

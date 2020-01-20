@@ -30,7 +30,7 @@
                     <ion-segment-button (ionSelect)="action('showRequests')"
                         data-comp-id="segment-button.2" value="requests">Requests</ion-segment-button>
                 </ion-segment>
-                <ion-toolbar *ngIf="data.showSearch" data-comp-id="toolbar.2"
+                <ion-toolbar *ngIf="data.showSearch" data-comp-id="toolbar.1"
                     style="padding: 0px;">
                     <ion-searchbar [(ngModel)]="data.searchKey" cancelButtonText="Cancel"
                         data-comp-id="searchbar.1" debounce="500" mode="md" placeholder="Find a ticket"
@@ -41,8 +41,8 @@
         </ion-row>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-calm" data-comp-id="content.1" style>
-    <ion-toolbar color="transparent" data-comp-id="toolbar.1"
+<ion-content #content class="content-calm" data-comp-id="content.1" style>
+    <ion-toolbar color="transparent" data-comp-id="toolbar.2"
         style="padding: 16px 16px 0px;">
         <ion-segment [(ngModel)]="data.statusFilter" color="contrast"
             data-comp-id="segment.2" mode="ios" style>
