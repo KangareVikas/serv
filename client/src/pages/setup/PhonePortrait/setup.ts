@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Screen } from 'app/screen';
-import { FileService, PowwowLoginService, PublishInfoService, TouchId } from 'smartux-client';
+import { FileService, PowwowLoginService, PublishInfoService } from 'smartux-client';
 import * as _ from 'lodash';
 
 declare var window: any;
@@ -15,8 +15,7 @@ export class setup_PhonePortrait extends Screen {
     constructor(
         private publishInfoService: PublishInfoService,
         private fileService: FileService,
-        private powwowLoginService: PowwowLoginService,
-        private touchid: TouchId
+        private powwowLoginService: PowwowLoginService
     ) {
         super();
     }
