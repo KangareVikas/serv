@@ -76,19 +76,19 @@
           "id": "services",
           "name": "Services",
           "sourceScreenId": "incident_categories",
-          "sourceAppId": "cherwellrequest"
+          "sourceAppId": "cherwellrequester"
         },
         {
           "id": "subservices",
           "name": "Subservices",
           "sourceScreenId": "incident_subcategories",
-          "sourceAppId": "cherwellrequest"
+          "sourceAppId": "cherwellrequester"
         },
         {
           "id": "newrequest",
           "name": "New Request",
           "sourceScreenId": "incident_newissue",
-          "sourceAppId": "cherwellrequest"
+          "sourceAppId": "cherwellrequester"
         }
       ]
     },
@@ -107,7 +107,7 @@
           "id": "viewarticle",
           "name": "View Article",
           "sourceScreenId": "tickets_viewincident",
-          "sourceAppId": "cherwellrequest"
+          "sourceAppId": "cherwellrequester"
         }
       ]
     },
@@ -120,13 +120,13 @@
           "id": "mytickets",
           "name": "My Tickets",
           "sourceScreenId": "request_services",
-          "sourceAppId": "cherwellrequest"
+          "sourceAppId": "cherwellrequester"
         },
         {
           "id": "viewincident",
           "name": "View Incident",
           "sourceScreenId": "request_services",
-          "sourceAppId": "cherwellrequest"
+          "sourceAppId": "cherwellrequester"
         }
       ]
     },
@@ -134,7 +134,7 @@
       "id": "finduser",
       "name": "Find User",
       "sourceScreenId": "searchuser",
-      "sourceAppId": "cherwellrequest",
+      "sourceAppId": "cherwellrequester",
       "statusbarContent": null,
       "statusbarHidden": null,
       "modal": true
@@ -143,7 +143,7 @@
       "id": "about",
       "name": "About",
       "sourceScreenId": "articles_viewarticle",
-      "sourceAppId": "cherwellrequest",
+      "sourceAppId": "cherwellrequester",
       "modal": true,
       "statusbarContent": null,
       "statusbarHidden": null
@@ -152,7 +152,7 @@
       "id": "settings",
       "name": "Settings",
       "sourceScreenId": "about",
-      "sourceAppId": "cherwellrequest",
+      "sourceAppId": "cherwellrequester",
       "modal": true,
       "statusbarContent": null,
       "statusbarHidden": null
