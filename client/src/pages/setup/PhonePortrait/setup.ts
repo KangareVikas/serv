@@ -73,6 +73,7 @@ export class setup_PhonePortrait extends Screen {
 
                 // Clear touch id credentials - they will most likely not be correct.
                 if (await this.touchid.isAvailable() && this.touchid.isEnabled() && await this.touchid.has('credentials')) {
+                    window.localStorage.removeItem('touchidEnabled');
                     await this.touchid.delete('credentials');
                 }
 
