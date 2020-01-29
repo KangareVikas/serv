@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Screen } from 'app/screen';
-import { FileService, PowwowLoginService, PublishInfoService } from 'smartux-client';
+import { FileService, PowwowLoginService, PublishInfoService, TouchId } from 'smartux-client';
 import * as _ from 'lodash';
 
 declare var window: any;
@@ -15,7 +15,8 @@ export class setup_PhonePortrait extends Screen {
     constructor(
         private publishInfoService: PublishInfoService,
         private fileService: FileService,
-        private powwowLoginService: PowwowLoginService
+        private powwowLoginService: PowwowLoginService,
+        private touchid: TouchId
     ) {
         super();
     }
@@ -70,6 +71,12 @@ export class setup_PhonePortrait extends Screen {
                 } else {
                     window.localStorage.removeItem('cherwellDemoUser');
                 }
+
+                // Clear touch id credentials - they will most likely not be correct.
+                if (await touchid.isAvailable() && touchid.isEnabled() && await touchid.has('credentials')) {
+                    await touchid.delete('credentials');
+                }
+
                 await this.go('login');
             } catch (e) {
                 this.alert(e, { title: 'Error' });
@@ -78,33 +85,28 @@ export class setup_PhonePortrait extends Screen {
     }
 
     async barcodeScanned($event) {
-        // Expecting a URL of the form: http[s]://server/<appId>[/][?demo=1]
+        // Expecting a URL of the form: pwapp-<appid>://screen/<screenid>/<uri encoded JSON screen model>
         const barcodeText = $event.text;
-        let fullUrl = barcodeText.trim();
-
-        let arrFullUrlParts = fullUrl.split('?');
-        let url = arrFullUrlParts[0];
-        if (url.endsWith('/')) { // remove trailing slash if exists
-            url = url.substring(0, url.length - 1);
+        let qrCodeURL = barcodeText.trim();
+        let expectedQRCodePrefix;
+        try {
+            const fileEntry = await this.getPublishedJsonFile();
+            const fileObject = await this.readPublishedJsonContents(fileEntry);
+            expectedQRCodePrefix = "pwapp-" + fileObject.id + "://screen/setup";
+        } catch (errorMessage) {
+            this.alert(errorMessage, { title: 'Error' });
+            return;
         }
-        const urlParts = url.split('/');
-        this.data.appId = urlParts.pop();
-        this.data.server = urlParts.join('/');
-
-        if (arrFullUrlParts.length == 2) {
-            let searchParams = arrFullUrlParts[1];
-            let urlKeyValuePairs = decodeURIComponent(searchParams).split('&');
-            for (let keyValuePair of urlKeyValuePairs) {
-                if (keyValuePair) {
-                    let arrKeyValue = keyValuePair.split('=');
-                    if (arrKeyValue.length == 2) {
-                        this.data[arrKeyValue[0]] = arrKeyValue[1];
-                    }
-                }
+        if (qrCodeURL.startsWith(expectedQRCodePrefix)) {
+            try {
+                let scanData = JSON.parse(decodeURIComponent(qrCodeURL.substring(expectedQRCodePrefix.length + 1)));
+                Object.assign(this.data, scanData);
+                await this.onSubmitButton();
+                return;
+            } catch (e) {
             }
         }
-
-        await this.onSubmitButton();
+        this.alert("This is not a valid QR code for this application", { title: 'Error' });
     }
 
     async updatePublishInfoCBUrl(serverURL, appId) {
@@ -183,7 +185,7 @@ export class setup_PhonePortrait extends Screen {
     }
 
     async requestDemo() {
-        let requestAccountURL = 'https://info.powwowmobile.com/in-app-demo-request';
+        let requestAccountURL = 'https://info.powwowmobile.com/in-app-demo-request-cwr';
         if (window.cordova && window.cordova.InAppBrowser) {
             window.cordova.InAppBrowser.open(requestAccountURL, "_blank", "location=no,footer=yes,footercolor=#009bde,closebuttoncaption=⬅ Back to App,closebuttoncolor=#ffffff,hidenavigationbuttons=yes,toolbarcolor=#009bde,zoom=no,usewkwebview=yes");
         } else {
