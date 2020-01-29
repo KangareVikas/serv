@@ -8,11 +8,11 @@
   "isBuiltInTemplate": false,
   "disableSideMenu": false,
   "offlineSupport": false,
-  "description": "Cherwell HCL PowWow application.\nUses Cherwell API.",
+  "description": "Cherwell Requester.\nUses Cherwell API.",
   "creatorId": "oleksii",
   "created": 1571835853608,
   "screensCount": 2,
-  "id": "chp",
+  "id": "cherwellrequester",
   "creatorName": "Oleksii",
   "explorations": []
 }
