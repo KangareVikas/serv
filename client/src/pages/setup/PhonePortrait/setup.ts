@@ -72,8 +72,8 @@ export class setup_PhonePortrait extends Screen {
                 }
 
                 // Clear touch id credentials - they will most likely not be correct.
-                if (await touchid.isAvailable() && touchid.isEnabled() && await touchid.has('credentials')) {
-                    await touchid.delete('credentials');
+                if (await this.touchid.isAvailable() && this.touchid.isEnabled() && await this.touchid.has('credentials')) {
+                    await this.touchid.delete('credentials');
                 }
 
                 await this.go('login');
