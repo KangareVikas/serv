@@ -26,6 +26,14 @@
       "path": "servicePassword",
       "arrayId": "customSettingsSchema.servicePassword",
       "arrayPath": "servicePassword"
+    },
+    "demoPassword": {
+      "type": "string",
+      "id": "customSettingsSchema.demoPassword",
+      "name": "demoPassword",
+      "path": "demoPassword",
+      "arrayId": "customSettingsSchema.demoPassword",
+      "arrayPath": "demoPassword"
     }
   },
   "arrayId": "customSettingsSchema",

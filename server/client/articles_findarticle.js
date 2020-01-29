@@ -30,7 +30,7 @@ exports.onload = async (session, models, vars) => {
         'Title',
         'BodyText',
         'CreatedDateTime',
-        'OwnedBy'
+        'AssignedTo'
     ];
     if (!vars.session.KBFields || vars.session.KBFields.length < 3) {
         console.log('Fetching Fields for KB Articles:');

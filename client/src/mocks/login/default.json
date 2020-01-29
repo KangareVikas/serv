@@ -1,4 +1,5 @@
 {
   "refresh_token": "sdf",
-  "errorMessage": "Invalid username or password"
+  "errorMessage": "Invalid username or password",
+  "demo": false
 }

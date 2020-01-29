@@ -132,7 +132,7 @@ exports.start = async (session, models, vars) => {
         'Report Outage or Error',
         'Submit Incident'
     ];
-    vars.session.urgencyDefaultValue = 'Medium';
+    vars.session.urgencyDefaultValue = '2';
     vars.session.unknownServiceIconAndBg = {
         icon: 'assets/images/request/services/other_services_icon.png',
         bg: 'assets/images/request/services/other_services_bg.png'

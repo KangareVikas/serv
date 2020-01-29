@@ -34,7 +34,7 @@ exports.submit = async (session, models, vars) => {
         await session.showLoading("Authenticating");
         let portalLoginOutput = await session.api.cherwellsoap.PortalLogin({
             userId: models.login.username,
-            password: models.login.password,
+            password: models.login.demo ? vars.config.rest.cherwellapi.custom.demoPassword : models.login.password,
             useSAML: false
         });
         if (portalLoginOutput.Error) {

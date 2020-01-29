@@ -47,6 +47,9 @@
       },
       "tokenSubmit": {
         "type": "action"
+      },
+      "demo": {
+        "type": "boolean"
       }
     },
     "id": "login"
@@ -489,7 +492,7 @@
       "IncidentType": {
         "type": "string"
       },
-      "OwnedBy": {
+      "AssignedTo": {
         "type": "string",
         "update": {
           "type": "none"
@@ -699,7 +702,7 @@
       "createIncident": {
         "type": "action"
       },
-      "OwnedBy": {
+      "AssignedTo": {
         "type": "string"
       },
       "CreatedDateTime": {

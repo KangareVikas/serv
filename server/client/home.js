@@ -17,10 +17,10 @@ exports['tickets[].select'] = async (session, models, vars) => {
         'Priority',
         'CustomerDisplayName',
         'Description',
-        'OwnedBy',
+        'AssignedTo',
         'IncidentType'
     ]);
-    models.tickets_viewincident.OwnedBy = models.tickets_viewincident.OwnedBy || 'Unassigned';
+    models.tickets_viewincident.AssignedTo = models.tickets_viewincident.AssignedTo || 'Unassigned';
     vars.session.busObPublicId = vars.item.id;
     await session.screen('tickets_viewincident');
 };

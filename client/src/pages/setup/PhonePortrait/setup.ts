@@ -65,6 +65,11 @@ export class setup_PhonePortrait extends Screen {
         if (appId && serverUrl) {
             try {
                 await this.updatePublishInfoCBUrl(serverUrl, appId);
+                if (this.data.demo) {
+                    window.localStorage.setItem('cherwellDemoUser', true);
+                } else {
+                    window.localStorage.removeItem('cherwellDemoUser');
+                }
                 await this.go('login');
             } catch (e) {
                 this.alert(e, { title: 'Error' });
@@ -73,15 +78,32 @@ export class setup_PhonePortrait extends Screen {
     }
 
     async barcodeScanned($event) {
-        // Expecting a URL of the form: http[s]://server/<appId>[/]
+        // Expecting a URL of the form: http[s]://server/<appId>[/][?demo=1]
         const barcodeText = $event.text;
-        let url = barcodeText.trim();
+        let fullUrl = barcodeText.trim();
+
+        let arrFullUrlParts = fullUrl.split('?');
+        let url = arrFullUrlParts[0];
         if (url.endsWith('/')) { // remove trailing slash if exists
             url = url.substring(0, url.length - 1);
         }
         const urlParts = url.split('/');
         this.data.appId = urlParts.pop();
         this.data.server = urlParts.join('/');
+
+        if (arrFullUrlParts.length == 2) {
+            let searchParams = arrFullUrlParts[1];
+            let urlKeyValuePairs = decodeURIComponent(searchParams).split('&');
+            for (let keyValuePair of urlKeyValuePairs) {
+                if (keyValuePair) {
+                    let arrKeyValue = keyValuePair.split('=');
+                    if (arrKeyValue.length == 2) {
+                        this.data[arrKeyValue[0]] = arrKeyValue[1];
+                    }
+                }
+            }
+        }
+
         await this.onSubmitButton();
     }
 
@@ -160,4 +182,12 @@ export class setup_PhonePortrait extends Screen {
             && fileObject.id == this.data.appId;
     }
 
+    async requestDemo() {
+        let requestAccountURL = 'https://info.powwowmobile.com/in-app-demo-request';
+        if (window.cordova && window.cordova.InAppBrowser) {
+            window.cordova.InAppBrowser.open(requestAccountURL, "_blank", "location=no,footer=yes,footercolor=#009bde,closebuttoncaption=⬅ Back to App,closebuttoncolor=#ffffff,hidenavigationbuttons=yes,toolbarcolor=#009bde,zoom=no,usewkwebview=yes");
+        } else {
+            window.open(requestAccountURL, "_blank", "location=no,zoom=no");
+        }
+    }
 }

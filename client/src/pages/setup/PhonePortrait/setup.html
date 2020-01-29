@@ -20,10 +20,16 @@
         <ion-list
             *ngIf="!(data.existingSettings && data.existingSettings.hasOwnProperty('server')) || !data.fromUrlScheme"
             data-comp-id="list.1" style="margin: 56px 16px;">
+            <button (click)="requestDemo()" [disabled]="data.fromUrlScheme" block
+                color="danger" data-comp-id="button.1" icon-start ion-button
+                style="border-radius: 20px; margin: 4px 0px 40px 0px;">
+                <ion-icon color="light" data-comp-id="icon.1" name="mail" style></ion-icon>
+                <span class="label">Request a Demo Account</span>
+            </button>
             <button (onScan)="barcodeScanned($event)" [disabled]="data.fromUrlScheme"
                 barcodeScanner block color="primary" data-comp-id="barcode-scanner.1" icon-start
                 ion-button style="border-radius: 20px;">
-                <ion-icon class=" fa fa-qrcode" color="light" data-comp-id="icon.1" style></ion-icon>
+                <ion-icon class=" fa fa-qrcode" color="light" data-comp-id="icon.2" style></ion-icon>
                 <span class="label" data-comp-id="text.2">
                     Setup with QR Code
                 </span>
@@ -83,12 +89,12 @@
             <div data-comp-id="div.3" style="margin: 16px 32px;" text-center>
                 <button (click)="onSubmitButton()" *ngIf="data.fromUrlScheme"
                     color="{{(data.existingSettings && data.existingSettings.hasOwnProperty('server'))?'danger':'primary'}}"
-                    data-comp-id="button.1" full icon-start ion-button style="border-radius: 20px;">
+                    data-comp-id="button.2" full icon-start ion-button style="border-radius: 20px;">
                     <span>{{(data.existingSettings && data.existingSettings.hasOwnProperty('server'))?'Accept Change':'Submit Settings'}}</span>
                 </button>
                 <button (click)="go('login')"
                     *ngIf="(data.fromUrlScheme && data.existingSettings && data.existingSettings.hasOwnProperty('server')) || data.revisitSettings"
-                    color="primary" data-comp-id="button.2" icon-start ion-button
+                    color="primary" data-comp-id="button.3" icon-start ion-button
                     style="border-radius: 20px; margin-top: 20px; padding: 0px 26px;">
                     <span>Cancel Change</span>
                 </button>

@@ -68,5 +68,8 @@
   },
   {
     "id": "cordova-plugin-customurlscheme"
+  },
+  {
+    "id": "cordova-plugin-inappbrowser"
   }
 ]

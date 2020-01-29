@@ -27,9 +27,9 @@
             <span [innerHTML]="data.CreatedDateTime" color="medium" data-comp-id="text.3"
                 formatting="date" input-format="M/D/YYYY h:mm:ss a" ion-text
                 output-format="MMMM D, h:mm A" style="font-size: 17px; width: auto;"></span>
-            <span *ngIf="data.OwnedBy" color="medium" data-comp-id="text.4" ion-text
+            <span *ngIf="data.AssignedTo" color="medium" data-comp-id="text.4" ion-text
                 style="font-size: 17px; margin: 0px 0px 0px 5px;">by
-                {{data.OwnedBy}}</span>
+                {{data.AssignedTo}}</span>
             <div [innerHTML]="data.BodyText" data-comp-id="text.5" ion-text
                 style="margin: 25px 0px 0px; font-size: 17px;"></div>
         </ion-col>

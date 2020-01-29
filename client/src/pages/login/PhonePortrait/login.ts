@@ -13,6 +13,9 @@ export class login_PhonePortrait extends Screen {
 
     ngOnInit(): void {
         super.ngOnInit();
+        if (window.localStorage.hasOwnProperty('cherwellDemoUser')) {
+            this.data.demo = true;
+        }
         this.hideMenu();
         // let refreshToken = localStorage.getItem('refresh_token');
         // if (refreshToken) {
@@ -32,6 +35,9 @@ export class login_PhonePortrait extends Screen {
     }
 
     onDataLoad(data: any): void {
+        if (window.localStorage.hasOwnProperty('cherwellDemoUser')) {
+            this.data.demo = true;
+        }
         //   if (data.errorMessage || data.invalid_refresh_token) {
         //       localStorage.removeItem('refresh_token');
         //       this.data.refresh_token = null;

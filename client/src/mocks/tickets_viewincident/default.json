@@ -14,5 +14,5 @@
   "CustomerDisplayName": "Evan Employee",
   "Urgency": "3-Low",
   "Description": "I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse. I need help with my Desk Environment regarding my keyboard and/or mouse.",
-  "OwnedBy": "Unassigned"
+  "AssignedTo": "Unassigned"
 }
