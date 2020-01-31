@@ -8,7 +8,7 @@ import { NavigationService } from 'smartux-client';
 })
 export class MenuComponent extends Screen {
     constructor(private navigationService: NavigationService) {
-
+        super();
     }
 
     openAbout() {
