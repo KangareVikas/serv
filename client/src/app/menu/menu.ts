@@ -7,8 +7,4 @@ import { Screen } from 'app/screen';
 })
 export class MenuComponent extends Screen {
 
-    openAbout() {
-        this.navigationService.go('about');
-    }
-
 }

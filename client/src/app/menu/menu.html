@@ -50,16 +50,16 @@
                 </div>
                 <div data-comp-id="text.5" ion-text>Call</div>
             </a>
-            <ion-item (click)="openAbout()" data-comp-id="item.5" menuClose
-                style="padding: 2px 0px 2px 16px;">
+            <ion-item (click)="navigationService.go('about')" data-comp-id="item.5"
+                menuClose style="padding: 2px 0px 2px 16px;">
                 <div class="icon-container" data-comp-id="div.5" item-start>
                     <ion-icon class=" ion-ios-information-circle-outline" color="primary"
                         data-comp-id="icon.3" style="font-size: 27px;"></ion-icon>
                 </div>
                 <div data-comp-id="text.6" ion-text>About</div>
             </ion-item>
-            <ion-item (click)="go('settings')" data-comp-id="item.6" menuClose
-                style="padding: 2px 0px 2px 16px;">
+            <ion-item (click)="navigationService.go('settings')" data-comp-id="item.6"
+                menuClose style="padding: 2px 0px 2px 16px;">
                 <div class="icon-container" data-comp-id="div.6" item-start>
                     <ion-icon class=" ion-ios-settings-outline" color="primary"
                         data-comp-id="icon.4" style="font-size: 27px;"></ion-icon>
