@@ -27,13 +27,21 @@
       "arrayId": "customSettingsSchema.servicePassword",
       "arrayPath": "servicePassword"
     },
-    "demoPassword": {
+    "demoUser": {
       "type": "string",
-      "id": "customSettingsSchema.demoPassword",
-      "name": "demoPassword",
-      "path": "demoPassword",
-      "arrayId": "customSettingsSchema.demoPassword",
-      "arrayPath": "demoPassword"
+      "id": "customSettingsSchema.demoUser",
+      "name": "demoUser",
+      "path": "demoUser",
+      "arrayId": "customSettingsSchema.demoUser",
+      "arrayPath": "demoUser"
+    },
+    "demoPassword": {
+        "type": "string",
+        "id": "customSettingsSchema.demoPassword",
+        "name": "demoPassword",
+        "path": "demoPassword",
+        "arrayId": "customSettingsSchema.demoPassword",
+        "arrayPath": "demoPassword"
     }
   },
   "arrayId": "customSettingsSchema",

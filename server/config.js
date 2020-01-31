@@ -80,6 +80,7 @@ module.exports = {
                     apikey: 'c61a6995-f21f-4898-b1f3-6edc0babfc9e',
                     serviceUsername: 'henri',
                     servicePassword: 'Powwow2019',
+                    demoUser: 'demo',
                     demoPassword: 'Powwow2019'
                 }
             }
