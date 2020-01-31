@@ -66,7 +66,8 @@ export class setup_PhonePortrait extends Screen {
             try {
                 await this.updatePublishInfoCBUrl(serverUrl, appId);
                 if (this.data.demo) {
-                    window.localStorage.setItem('cherwellDemoUser', true);
+                    let emailAddress = this.data.demo.trim();
+                    window.localStorage.setItem('cherwellDemoUser', emailAddress);
                 } else {
                     window.localStorage.removeItem('cherwellDemoUser');
                 }
