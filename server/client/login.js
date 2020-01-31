@@ -70,7 +70,7 @@ exports.submit = async (session, models, vars) => {
         return;
     }
     await session.showLoading("Getting user details");
-    let userOutput = await session.rest.cherwellapi.getUserByLoginId({ access_token: vars.session.access_token, username: models.login.username });
+    let userOutput = await session.rest.cherwellapi.getUserByLoginId({ access_token: vars.session.access_token, username: models.login.demo ? vars.config.rest.cherwellapi.custom.demoUser : models.login.username });
     vars.session.user = util.convertFieldsIntoObject(userOutput.body.fields);
     vars.session.fullNamefieldId = util.getFieldId(userOutput.body.fields, "FullName");
     let data = await session.rest.cherwellapi.getCustomerData({ access_token: vars.session.access_token });
