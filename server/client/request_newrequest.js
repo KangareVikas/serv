@@ -15,11 +15,11 @@ exports.onload = async (session, models, vars) => {
             body: {
                 busObId: vars.session.boDefs.PriorityMatrixElement.busObId,
                 filters: [{
-                    'fieldId': vars.session.priorityMatrixElementFields.ParentType,
+                    'fieldId': vars.session.boDefs.PriorityMatrixElement.fields.names.ParentType,
                     'operator': 'eq',
                     'value': 'Request'
                 }, {
-                    'fieldId': vars.session.priorityMatrixElementFields.PriorityGroup,
+                    'fieldId': vars.session.boDefs.PriorityMatrixElement.fields.names.PriorityGroup,
                     'operator': 'eq',
                     'value': 'Standard'
                 }],
@@ -28,7 +28,7 @@ exports.onload = async (session, models, vars) => {
         });
         let priorities = [];
         for (let bo of response.body.businessObjects) {
-            let entry = util.convertFieldsIntoObject(bo.fields, ['Priority']);
+            let entry = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.PriorityMatrixElement, bo.fields, ['Priority']);
             if (priorities.indexOf(entry.Priority) === -1) {
                 priorities.push(entry.Priority)
             }
@@ -37,8 +37,8 @@ exports.onload = async (session, models, vars) => {
     }
 
     models.request_newrequest.byUser = models.request_newrequest.byUser || vars.session.user.FullName;
-    models.request_newrequest.forUser = vars.session.forUser || models.request_newrequest.forUser || vars.session.user.FullName;
-    models.request_newrequest.customerRecId = vars.session.customerRecId || models.request_newrequest.customerRecId || vars.session.user.RecID;
+    models.request_newrequest.forUser = models.request_newrequest.forUser || vars.session.user.FullName;
+    models.request_newrequest.customerRecId = models.request_newrequest.customerRecId || vars.session.user.RecID;
     models.request_newrequest.email = models.request_newrequest.email || vars.session.user.Email;
     models.request_newrequest.phone = models.request_newrequest.phone || vars.session.user.CellPhone || vars.session.user.Phone;
     models.request_newrequest.seat = models.request_newrequest.seat || vars.session.user.Office;
@@ -54,13 +54,6 @@ exports.onload = async (session, models, vars) => {
  * @param {Vars} vars
  */
 exports.submit = async (session, models, vars) => {
-    let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
-        access_token: vars.session.access_token,
-        busObId: vars.session.boDefs.Incident.busObId,
-        includeRequired: true,
-        includeAll: true
-    });
-
     let formattedLocation = models.request_newrequest.seat ? `, LOCATION/SEAT: ${models.request_newrequest.seat}` : '';
     let formattedDescription = models.request_newrequest.Description ? `${models.request_newrequest.Description}, ` : '';
     let description = `${formattedDescription} TYPE: ${models.request_newrequest.service}, ${models.request_newrequest.category}, ${vars.session.requestSubCategory}${formattedLocation}`;
@@ -79,7 +72,7 @@ exports.submit = async (session, models, vars) => {
     if (models.request_newrequest.quantity) {
         updateFields['GBP_generic_Quantity'] = models.request_newrequest.quantity;
     }
-    let fields = JSON.stringify(util.createUpdateFields(requestData.body.fields, updateFields));
+    let fields = JSON.stringify(util.createUpdateFieldsFromBoDef(vars.session.boDefs.Incident, updateFields));
     try {
         let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,

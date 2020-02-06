@@ -12,7 +12,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
         incidentBusObId: vars.session.boDefs.Incident.busObId
     });
 
-    models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
+    models.tickets_viewincident = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, data.body.fields, [
         'CreatedDateTime',
         'Priority',
         'CustomerDisplayName',
@@ -30,64 +30,39 @@ exports['tickets[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if(!vars.session.priorityMatrixElementFields)  {
-        console.log('--- Get Priority Matrix Element fields ---');
-        let journNoteFieldIdsRes = await session.rest.cherwellapi.getBusinessObjectTemplate({
-            busObId: vars.session.boDefs.PriorityMatrixElement.busObId,
-            access_token: vars.session.access_token
-        });
-        vars.session.priorityMatrixElementFields = util.convertFieldsIntoFieldIdObject(journNoteFieldIdsRes.body.fields,
-            ['ParentType','PriorityGroup']
-        );
-    }
-    if (!vars.session.incidentFieldsIds) {
-        console.log('Fetching fields IDs for Incident');
-        let tmplData = await session.rest.cherwellapi.getBusinessObjectTemplate({
-            access_token: vars.session.access_token,
-            busObId: vars.session.boDefs.Incident.busObId
-        });
-        vars.session.incidentFieldsIds = util.convertFieldsIntoFieldIdObject(tmplData.body.fields, [
-            'Status',
-            'Service',
-            'Category',
-            'CustomerDisplayName',
-            'CreatedDateTime',
-            'IncidentType'
-        ]);
-    }
     let ticketsSorting = [{
-            'fieldId': vars.session.incidentFieldsIds.CreatedDateTime,
+            'fieldId': vars.session.boDefs.Incident.fields.names.CreatedDateTime,
             'sortDirection': 0
         }];
     let ticketsFilter = [
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds.CustomerDisplayName,
+            'fieldId': vars.session.boDefs.Incident.fields.names.CustomerDisplayName,
             'value': vars.session.user.FullName
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds.Status,
+            'fieldId': vars.session.boDefs.Incident.fields.names.Status,
             'value': 'Assigned'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds.Status,
+            'fieldId': vars.session.boDefs.Incident.fields.names.Status,
             'value': 'In Progress'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds.Status,
+            'fieldId': vars.session.boDefs.Incident.fields.names.Status,
             'value': 'New'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds.Status,
+            'fieldId': vars.session.boDefs.Incident.fields.names.Status,
             'value': 'Pending'
         },
         {
             'dirty': true,
-            'fieldId': vars.session.incidentFieldsIds.Status,
+            'fieldId': vars.session.boDefs.Incident.fields.names.Status,
             'value': 'Pending Approval'
         }
     ];
@@ -101,7 +76,7 @@ exports.onload = async (session, models, vars) => {
     models.home.refresh_token = vars.session.refresh_token;
     models.home.tickets = [];
     for (let busOb of openedTickets.body.businessObjects) {
-        let ticket = util.convertFieldsIntoObject(busOb.fields, ['ShortDescription', 'Description', 'Priority', 'CreatedDateTime']);
+        let ticket = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, busOb.fields, ['ShortDescription', 'Description', 'Priority', 'CreatedDateTime']);
         ticket.id = busOb.busObPublicId;
         if (!ticket.ShortDescription) {
             ticket.ShortDescription = (ticket.Description || "").substring(0, 160);

@@ -36,11 +36,11 @@ exports['subservices[].select'] = async (session, models, vars) => {
         models.request_subservices.selectedServices.push({ title: categoryTitle });
         let validValues = await session.rest.cherwellapi.getRequestSubCategoryValues({
             incidentBusObId: vars.session.boDefs.Incident.busObId,
-            subcategoryFieldId: vars.session.subcategoryFieldId,
-            serviceFieldId: vars.session.serviceFieldId,
+            subcategoryFieldId: vars.session.boDefs.Incident.fields.names.Subcategory,
+            serviceFieldId: vars.session.boDefs.Incident.fields.names.Service,
             access_token: vars.session.access_token,
             serviceTitle: serviceTitle,
-            categoryFieldId: vars.session.categoryFieldId,
+            categoryFieldId: vars.session.boDefs.Incident.fields.names.Category,
             categoryTitle: categoryTitle
         });
         let list = validValues.body.values;
@@ -50,7 +50,15 @@ exports['subservices[].select'] = async (session, models, vars) => {
                 subservices.push({ "title": item })
             }
         });
-        models.request_subservices.subservices = subservices;
+        if(subservices.length == 0)  {
+            models.request_subservices.subCategory = categoryTitle;
+            vars.session.requestService = serviceTitle;
+            vars.session.requestCategory = models.request_subservices.category;
+            vars.session.requestSubCategory = categoryTitle;
+            await session.screen('request_newrequest');    
+        } else {
+            models.request_subservices.subservices = subservices;
+        }
     } else {
         models.request_subservices.subCategory = categoryTitle;
         vars.session.requestService = serviceTitle;
@@ -97,8 +105,8 @@ exports.previousService = async (session, models, vars) => {
     let data = await session.rest.cherwellapi.getRequestCategoryValues({
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.boDefs.Incident.busObId,
-        categoryFieldId: vars.session.categoryFieldId,
-        serviceFieldId: vars.session.serviceFieldId,
+        categoryFieldId: vars.session.boDefs.Incident.fields.names.Category,
+        serviceFieldId: vars.session.boDefs.Incident.fields.names.Service,
         subCategoryTitle: subCategoryTitle
     });
     let list = data.body.values;

@@ -1,3 +1,4 @@
+const util = require("./util");
 /**
  * @param {Session} session
  * @param {Models} models
@@ -14,26 +15,20 @@ exports.onload = async (session, models, vars) => {
     // let name = vars.params.name;
     // models.finduser.name = vars.params.name;
     let result = await session.rest.cherwellapi.getCustomerRecId({
-        name: '',
         custBusObId: vars.session.boDefs.CustomerInternal.busObId,
         access_token: vars.session.access_token,
-        fullNamefieldId: ''
+        fields: [
+            vars.session.boDefs.CustomerInternal.fields.names.LastName,
+            vars.session.boDefs.CustomerInternal.fields.names.FirstName,
+            vars.session.boDefs.CustomerInternal.fields.names.Phone,
+            vars.session.boDefs.CustomerInternal.fields.names.Email,
+            vars.session.boDefs.CustomerInternal.fields.names.Manager
+        ]
     });
     models.finduser.users = [];
-    let requiredFields = [
-        'LastName',
-        'FirstName',
-        'Phone',
-        'Manager'
-    ];
     for (let i = 0; i < result.body.businessObjects.length; i++) {
-        let user = { customerRecId: result.body.businessObjects[i].busObRecId };
-        for (let j = 0; j < result.body.businessObjects[i].fields.length; j++) {
-            let fieldName = result.body.businessObjects[i].fields[j].name;
-            if (requiredFields.indexOf(fieldName) > -1) {
-                user[fieldName] = result.body.businessObjects[i].fields[j].value;
-            }
-        }
+        let user = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.CustomerInternal, result.body.businessObjects[i].fields);
+        user.customerRecId = result.body.businessObjects[i].busObRecId;
         user.name = user['FirstName'] + ' ' + user['LastName'];
         models.finduser.users.push(user);
     }
@@ -73,15 +68,17 @@ exports.back = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['users[].select'] = async (session, models, vars) => {
-    vars.session.customerRecId = vars.item.customerRecId;
-    vars.session.forUser = vars.item.name;
     if (vars.session.newrequest) {
         models.request_newrequest.forUser = vars.item.name;
+        models.request_newrequest.phone = vars.item.Phone;
+        models.request_newrequest.email = vars.item.Email;
         models.request_newrequest.customerRecId = vars.item.customerRecId;
         await session.screen('request_newrequest');
         vars.session.newrequest = null;
     } else {
         models.incident_newissue.forUser = vars.item.name;
+        models.incident_newissue.phone = vars.item.Phone;
+        models.incident_newissue.email = vars.item.Email;
         models.incident_newissue.customerRecId = vars.item.customerRecId;
         await session.screen('incident_newissue');
     }
@@ -92,8 +89,6 @@ exports['users[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.myTickets'] = async (session, models, vars) => {
-    vars.session.customerRecId = null;
-    vars.session.forUser = null;
     await session.screen('tickets_mytickets');
 };/**
  * @param {Session} session
@@ -101,8 +96,6 @@ exports['footer.myTickets'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports['footer.home'] = async (session, models, vars) => {
-    vars.session.customerRecId = null;
-    vars.session.forUser = null;
     await session.screen('home');
 };
 /**

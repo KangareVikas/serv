@@ -22,7 +22,7 @@ exports.showIncidents = async (session, models, vars) => {
         });
         console.log('Tickets count:', data.body.businessObjects.length);
         for (let busOb of data.body.businessObjects) {
-            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, busOb.fields, vars.page.fieldsList));
         }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
@@ -45,7 +45,7 @@ exports.showRequests = async (session, models, vars) => {
         ticketsFilter.push(
             {
                 'dirty': true,
-                'fieldId': vars.session.incidentFieldsIds.Status,
+                'fieldId': vars.session.boDefs.Incident.fields.names.Status,
                 'value': 'Pending Approval'
             });
         let ticketsSorting = vars.page.ticketsSorting;
@@ -57,7 +57,7 @@ exports.showRequests = async (session, models, vars) => {
         });
         console.log('Tickets count:', data.body.businessObjects.length);
         for (let busOb of data.body.businessObjects) {
-            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, busOb.fields, vars.page.fieldsList));
         }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
@@ -86,7 +86,7 @@ exports.showNeedAttention = async (session, models, vars) => {
         });
         console.log('Tickets count:', data.body.businessObjects.length);
         for (let busOb of data.body.businessObjects) {
-            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, busOb.fields, vars.page.fieldsList));
         }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
@@ -115,7 +115,7 @@ exports.showOpenTickets = async (session, models, vars) => {
         });
         console.log('Tickets count:', data.body.businessObjects.length);
         for (let busOb of data.body.businessObjects) {
-            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+            models.tickets_mytickets.tickets.push(util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, busOb.fields, vars.page.fieldsList));
         }
         models.tickets_mytickets.$$partialFields = {
             full: ['tickets', 'ticketsType', 'statusFilter', 'descending', 'showSearch', 'searchKey', 'footer'],
@@ -132,14 +132,14 @@ exports.onload = async (session, models, vars) => {
     models.tickets_mytickets.ticketsType = 'incidents';
     models.tickets_mytickets.statusFilter = 'openTickets';
     vars.page.filters = {
-        'common': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'CustomerDisplayName': vars.session.user.FullName }),
-        'incidents': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'IncidentType': 'Incident' }),
-        'requests': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'IncidentType': 'Service Request' }),
-        'opened': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': ['Assigned', 'In Progress', 'New', 'Pending'] }),
-        'needAttencion': util.createUpdateFieldsFromNamesMap(vars.session.incidentFieldsIds, { 'Status': ['Resolved', 'Pending'] })
+        'common': util.createUpdateFieldsFromBoDef(vars.session.boDefs.Incident, { 'CustomerDisplayName': vars.session.user.FullName }),
+        'incidents': util.createUpdateFieldsFromBoDef(vars.session.boDefs.Incident, { 'IncidentType': 'Incident' }),
+        'requests': util.createUpdateFieldsFromBoDef(vars.session.boDefs.Incident, { 'IncidentType': 'Service Request' }),
+        'opened': util.createUpdateFieldsFromBoDef(vars.session.boDefs.Incident, { 'Status': ['Assigned', 'In Progress', 'New', 'Pending'] }),
+        'needAttencion': util.createUpdateFieldsFromBoDef(vars.session.boDefs.Incident, { 'Status': ['Resolved', 'Pending'] })
     };
     vars.page.ticketsSorting = [{
-        'fieldId': vars.session.incidentFieldsIds.CreatedDateTime,
+        'fieldId': vars.session.boDefs.Incident.fields.names.CreatedDateTime,
         'sortDirection': 0
     }];
     vars.page.fieldsList = [
@@ -161,7 +161,7 @@ exports.onload = async (session, models, vars) => {
     });
     console.log('Tickets count:', data.body.businessObjects.length);
     for (let busOb of data.body.businessObjects) {
-        models.tickets_mytickets.tickets.push(util.convertFieldsIntoObject(busOb.fields, vars.page.fieldsList));
+        models.tickets_mytickets.tickets.push(util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, busOb.fields, vars.page.fieldsList));
     }
     models.tickets_mytickets.footer = { active: 'myTickets' };
 };
@@ -176,7 +176,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
         access_token: vars.session.access_token,
         incidentBusObId: vars.session.boDefs.Incident.busObId
     });
-    models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
+    models.tickets_viewincident = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.Incident, data.body.fields, [
         'CreatedDateTime',
         'Priority',
         'CustomerDisplayName',

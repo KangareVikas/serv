@@ -1,3 +1,5 @@
+const util = require("./util");
+
 /**
  * @param {Session} session
  * @param {Models} models
@@ -21,45 +23,22 @@ exports.onload = async (session, models, vars) => {
         vars.page.prevScreen = currentScreen;
     }
     models.articles_findarticle.articles = [];
-    let requiredFields = [
-        'Title',
-        'BodyText',
-        'CreatedDateTime',
-        'AssignedTo'
-    ];
-    if (!vars.session.KBFields || vars.session.KBFields.length < 3) {
-        console.log('Fetching Fields for KB Articles:');
-        vars.session.KBFields = [];
-        let reqData = await session.rest.cherwellapi.getBusinessObjectTemplate({
-            access_token: vars.session.access_token,
-            busObId: vars.session.boDefs.KnowledgeArticle.busObId,
-            includeRequired: true,
-            includeAll: true
-        });
-        let fieldsData = reqData.body;
-        for (var i = 0; i < fieldsData.fields.length; i++) {
-            if (requiredFields.indexOf(fieldsData.fields[i].name) > -1) {
-                console.log('Get fieldId of: ' + fieldsData.fields[i].name);
-                vars.session.KBFields.push(fieldsData.fields[i].fieldId);
-            }
-        }
-    }
-    console.log(vars.session.KBFields);
     let requestData = await session.rest.cherwellapi.getKBBaseArticles({
         access_token: vars.session.access_token,
         kbBusObId: vars.session.boDefs.KnowledgeArticle.busObId,
         kbStateFieldId: vars.session.boDefs.KnowledgeArticle.fields.names.Status,
-        KBFields: vars.session.KBFields
+        KBFields: [
+            vars.session.boDefs.KnowledgeArticle.fields.names.Title,
+            vars.session.boDefs.KnowledgeArticle.fields.names.BodyText,
+            vars.session.boDefs.KnowledgeArticle.fields.names.CreatedDateTime,
+            vars.session.boDefs.KnowledgeArticle.fields.names.AssignedTo
+        ]
     });
     let data = requestData.body.businessObjects;
     data.forEach(article => {
-        let result = { busObRecId: article.busObRecId };
-        article.fields.forEach(field => {
-            if (requiredFields.includes(field.name)) {
-                result[field.name] = field.value;
-            }
-        });
-        models.articles_findarticle.articles.push(result);
+        let result =  util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.KnowledgeArticle, article.fields);
+        result.busObRecId = article.busObRecId;
+    models.articles_findarticle.articles.push(result);
     });
     models.articles_findarticle.footer = { active: '' };
 };

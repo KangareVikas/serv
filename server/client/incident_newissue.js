@@ -32,11 +32,11 @@ exports.onload = async (session, models, vars) => {
             body: {
                 busObId: vars.session.boDefs.PriorityMatrixElement.busObId,
                 filters:[{
-                    'fieldId': vars.session.priorityMatrixElementFields.ParentType,
+                    'fieldId': vars.session.boDefs.PriorityMatrixElement.fields.names.ParentType,
                     'operator': 'eq',
                     'value': 'Incident'
                 },{
-                    'fieldId': vars.session.priorityMatrixElementFields.PriorityGroup,
+                    'fieldId': vars.session.boDefs.PriorityMatrixElement.fields.names.PriorityGroup,
                     'operator': 'eq',
                     'value': 'Standard'
                 }],
@@ -45,8 +45,8 @@ exports.onload = async (session, models, vars) => {
         });
         let priorities = [];
         for(let bo of response.body.businessObjects) {
-            let entry = util.convertFieldsIntoObject(bo.fields, ['Priority']);
-            if (priorities.indexOf(entry.Priority) === -1) {
+            let entry = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.PriorityMatrixElement, bo.fields, ['Priority']);
+        if (priorities.indexOf(entry.Priority) === -1) {
                 priorities.push(entry.Priority)
             }
         }
@@ -54,8 +54,8 @@ exports.onload = async (session, models, vars) => {
     }
 
     models.incident_newissue.byUser = models.incident_newissue.byUser || vars.session.user.FullName;
-    models.incident_newissue.forUser = vars.session.forUser || models.incident_newissue.forUser || vars.session.user.FullName;
-    models.incident_newissue.customerRecId = vars.session.customerRecId || models.incident_newissue.customerRecId || vars.session.user.RecID;
+    models.incident_newissue.forUser = models.incident_newissue.forUser || vars.session.user.FullName;
+    models.incident_newissue.customerRecId = models.incident_newissue.customerRecId || vars.session.user.RecID;
     models.incident_newissue.email = models.incident_newissue.email || vars.session.user.Email;
     models.incident_newissue.phone = models.incident_newissue.phone || vars.session.user.CellPhone || vars.session.user.Phone;
     models.incident_newissue.seat = models.incident_newissue.seat || vars.session.user.Office;
@@ -102,13 +102,6 @@ exports.home = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.submit = async (session, models, vars) => {
-    let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
-        access_token: vars.session.access_token,
-        busObId: vars.session.boDefs.Incident.busObId,
-        includeRequired: true,
-        includeAll: true
-    });
-
     let formattedType = models.incident_subcategories.category || 'Other';
     let formattedLocation = models.incident_newissue.seat ? `, LOCATION/SEAT: ${models.incident_newissue.seat}` : '';
     let formattedDescription = models.incident_newissue.Description ? `${models.incident_newissue.Description}, ` : '';
@@ -131,7 +124,7 @@ exports.submit = async (session, models, vars) => {
         'SmartClassifySearchString': vars.session.serviceClassification[2]
     };
 
-    let stringifiedFields = JSON.stringify(util.createUpdateFields(requestData.body.fields, updateFields));
+    let stringifiedFields = JSON.stringify(util.createUpdateFieldsFromBoDef(vars.session.boDefs.Incident, updateFields));
     try {
         let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
