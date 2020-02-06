@@ -35,7 +35,7 @@ exports['subservices[].select'] = async (session, models, vars) => {
         models.request_subservices.category = categoryTitle;
         models.request_subservices.selectedServices.push({ title: categoryTitle });
         let validValues = await session.rest.cherwellapi.getRequestSubCategoryValues({
-            incidentBusObId: vars.session.incidentBusObId,
+            incidentBusObId: vars.session.boDefs.Incident.busObId,
             subcategoryFieldId: vars.session.subcategoryFieldId,
             serviceFieldId: vars.session.serviceFieldId,
             access_token: vars.session.access_token,
@@ -96,7 +96,7 @@ exports.previousService = async (session, models, vars) => {
     models.request_subservices.selectedServices = [{ title: subCategoryTitle }];
     let data = await session.rest.cherwellapi.getRequestCategoryValues({
         access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId,
+        incidentBusObId: vars.session.boDefs.Incident.busObId,
         categoryFieldId: vars.session.categoryFieldId,
         serviceFieldId: vars.session.serviceFieldId,
         subCategoryTitle: subCategoryTitle

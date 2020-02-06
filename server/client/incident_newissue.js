@@ -30,7 +30,7 @@ exports.onload = async (session, models, vars) => {
         let response = await session.rest.cherwellapi.Get_Search_Results({
             access_token: vars.session.access_token,
             body: {
-                busObId: vars.session.priorityMatrixElementBusObId,
+                busObId: vars.session.boDefs.PriorityMatrixElement.busObId,
                 filters:[{
                     'fieldId': vars.session.priorityMatrixElementFields.ParentType,
                     'operator': 'eq',
@@ -104,7 +104,7 @@ exports.home = async (session, models, vars) => {
 exports.submit = async (session, models, vars) => {
     let requestData = await session.rest.cherwellapi.getBusinessObjectTemplate({
         access_token: vars.session.access_token,
-        busObId: vars.session.incidentBusObId,
+        busObId: vars.session.boDefs.Incident.busObId,
         includeRequired: true,
         includeAll: true
     });
@@ -135,7 +135,7 @@ exports.submit = async (session, models, vars) => {
     try {
         let result = await session.rest.cherwellapi.saveBusinessObject({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId,
+            incidentBusObId: vars.session.boDefs.Incident.busObId,
             fields: stringifiedFields
         });
         if (result.body.errorMessage) {
@@ -147,7 +147,7 @@ exports.submit = async (session, models, vars) => {
                     let data = await session.rest.cherwellapi.getIncidentBusObRecId({
                         busObPublicId: models.incident_newissue.result.busObPublicId,
                         access_token: vars.session.access_token,
-                        incidentBusObId: vars.session.incidentBusObId
+                        incidentBusObId: vars.session.boDefs.Incident.busObId
                     });
                     let incidentBusObRecId = data.body.busObRecId;
                     let offset = 0;
@@ -159,7 +159,7 @@ exports.submit = async (session, models, vars) => {
                         access_token: vars.session.access_token,
                         file: file,
                         filename: filename,
-                        incidentBusObId: vars.session.incidentBusObId,
+                        incidentBusObId: vars.session.boDefs.Incident.busObId,
                         offset: offset,
                         totalsize: totalsize,
                         busobrecid: incidentBusObRecId

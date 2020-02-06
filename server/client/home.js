@@ -9,7 +9,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
     let data = await session.rest.cherwellapi.getIncidentBusObRecId({
         busObPublicId: vars.item.id,
         access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId
+        incidentBusObId: vars.session.boDefs.Incident.busObId
     });
 
     models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
@@ -30,23 +30,10 @@ exports['tickets[].select'] = async (session, models, vars) => {
  * @param {Vars} vars
 */
 exports.onload = async (session, models, vars) => {
-    if (!vars.session.incidentBusObId) {
-        await session.showLoading("Loading BOs...");
-        let data1 = await session.rest.cherwellapi.getBusinessObjectSummaryIncident({ access_token: vars.session.access_token });
-        vars.session.incidentBusObId = data1.body[0].busObId;
-    }
-    if (!vars.session.priorityMatrixElementBusObId) {
-        console.log('--- Get Priority Matrix Element busObject ID ---');
-        let busObIdRes = await session.rest.cherwellapi.Get_Bus_Object_ID({
-            access_token: vars.session.access_token,
-            name: 'PriorityMatrixElement'
-        });
-        vars.session.priorityMatrixElementBusObId = busObIdRes.body[0].busObId;
-    }
     if(!vars.session.priorityMatrixElementFields)  {
         console.log('--- Get Priority Matrix Element fields ---');
         let journNoteFieldIdsRes = await session.rest.cherwellapi.getBusinessObjectTemplate({
-            busObId: vars.session.priorityMatrixElementBusObId,
+            busObId: vars.session.boDefs.PriorityMatrixElement.busObId,
             access_token: vars.session.access_token
         });
         vars.session.priorityMatrixElementFields = util.convertFieldsIntoFieldIdObject(journNoteFieldIdsRes.body.fields,
@@ -55,9 +42,9 @@ exports.onload = async (session, models, vars) => {
     }
     if (!vars.session.incidentFieldsIds) {
         console.log('Fetching fields IDs for Incident');
-        let tmplData = await session.rest.cherwellapi.getIncedentTemplate({
+        let tmplData = await session.rest.cherwellapi.getBusinessObjectTemplate({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId
+            busObId: vars.session.boDefs.Incident.busObId
         });
         vars.session.incidentFieldsIds = util.convertFieldsIntoFieldIdObject(tmplData.body.fields, [
             'Status',
@@ -107,7 +94,7 @@ exports.onload = async (session, models, vars) => {
     await session.showLoading("Loading tickets");
     let openedTickets = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId,
+        incidentBusObId: vars.session.boDefs.Incident.busObId,
         ticketsFilter: ticketsFilter,
         ticketsSorting: ticketsSorting
     });

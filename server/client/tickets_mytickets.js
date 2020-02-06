@@ -16,7 +16,7 @@ exports.showIncidents = async (session, models, vars) => {
         let ticketsSorting = vars.page.ticketsSorting;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId,
+            incidentBusObId: vars.session.boDefs.Incident.busObId,
             ticketsFilter: ticketsFilter,
             ticketsSorting: ticketsSorting
         });
@@ -51,7 +51,7 @@ exports.showRequests = async (session, models, vars) => {
         let ticketsSorting = vars.page.ticketsSorting;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId,
+            incidentBusObId: vars.session.boDefs.Incident.busObId,
             ticketsFilter: ticketsFilter,
             ticketsSorting: ticketsSorting
         });
@@ -80,7 +80,7 @@ exports.showNeedAttention = async (session, models, vars) => {
         let ticketsSorting = vars.page.ticketsSorting;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId,
+            incidentBusObId: vars.session.boDefs.Incident.busObId,
             ticketsFilter: ticketsFilter,
             ticketsSorting: ticketsSorting
         });
@@ -109,7 +109,7 @@ exports.showOpenTickets = async (session, models, vars) => {
         let ticketsSorting = vars.page.ticketsSorting;
         let data = await session.rest.cherwellapi.getTickets({
             access_token: vars.session.access_token,
-            incidentBusObId: vars.session.incidentBusObId,
+            incidentBusObId: vars.session.boDefs.Incident.busObId,
             ticketsFilter: ticketsFilter,
             ticketsSorting: ticketsSorting
         });
@@ -155,7 +155,7 @@ exports.onload = async (session, models, vars) => {
     let ticketsSorting = vars.page.ticketsSorting;
     let data = await session.rest.cherwellapi.getTickets({
         access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId,
+        incidentBusObId: vars.session.boDefs.Incident.busObId,
         ticketsFilter: ticketsFilter,
         ticketsSorting: ticketsSorting
     });
@@ -174,7 +174,7 @@ exports['tickets[].select'] = async (session, models, vars) => {
     let data = await session.rest.cherwellapi.getIncidentBusObRecId({
         busObPublicId: vars.item.IncidentID,
         access_token: vars.session.access_token,
-        incidentBusObId: vars.session.incidentBusObId
+        incidentBusObId: vars.session.boDefs.Incident.busObId
     });
     models.tickets_viewincident = util.convertFieldsIntoObject(data.body.fields, [
         'CreatedDateTime',

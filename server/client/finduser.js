@@ -15,7 +15,7 @@ exports.onload = async (session, models, vars) => {
     // models.finduser.name = vars.params.name;
     let result = await session.rest.cherwellapi.getCustomerRecId({
         name: '',
-        custBusObId: vars.session.custBusObId,
+        custBusObId: vars.session.boDefs.CustomerInternal.busObId,
         access_token: vars.session.access_token,
         fullNamefieldId: ''
     });

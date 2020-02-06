@@ -73,8 +73,6 @@ exports.submit = async (session, models, vars) => {
     let userOutput = await session.rest.cherwellapi.getUserByLoginId({ access_token: vars.session.access_token, username: models.login.demo ? vars.config.rest.cherwellapi.custom.demoUser : models.login.username });
     vars.session.user = util.convertFieldsIntoObject(userOutput.body.fields);
     vars.session.fullNamefieldId = util.getFieldId(userOutput.body.fields, "FullName");
-    let data = await session.rest.cherwellapi.getCustomerData({ access_token: vars.session.access_token });
-    vars.session.custBusObId = data.body[0].busObId;
     await session.screen('home');
 };
 /**
@@ -101,7 +99,5 @@ exports.tokenSubmit = async (session, models, vars) => {
         await session.screen('login');
         return;
     }
-    let data = await session.rest.cherwellapi.getCustomerData({ access_token: vars.session.access_token });
-    vars.session.custBusObId = data.body[0].busObId;
     await session.screen('home');
 };

@@ -1,9 +1,12 @@
+const boDefs = require('./boDefs.json');
+
 /**
  * @param {Session} session
  * @param {Models} models
  * @param {Vars} vars
 */
 exports.start = async (session, models, vars) => {
+    vars.session.boDefs = boDefs;
     vars.session.newIssueCategories = {
         computer: {
             label: 'Computer or Device',

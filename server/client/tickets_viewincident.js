@@ -8,7 +8,7 @@ exports.onload = async (session, models, vars) => {
     vars.page.prevScreen = session.currentScreen();
     console.log("vars.session.busObPublicId  " + vars.session.busObPublicId)
     let attachmentsResponse = await session.rest.cherwellapi.getAttachments({
-        incidentBusObId: vars.session.incidentBusObId,
+        incidentBusObId: vars.session.boDefs.Incident.busObId,
         busObPublicId: vars.session.busObPublicId,
         access_token: vars.session.access_token
     });
