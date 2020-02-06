@@ -74,21 +74,21 @@ module.exports = {
     connectors: {
         rest: {
             cherwellapi: {
-                baseUrl: 'http://sealabcsm01.sealab.pwdemolabs.com/CherwellAPI',
+                baseUrl: 'https://tap.demo.cherwell.com/CherwellAPI',
                 auth: { type: 'none' },
                 custom: {
-                    apikey: 'c61a6995-f21f-4898-b1f3-6edc0babfc9e',
-                    serviceUsername: 'henri',
-                    servicePassword: 'Powwow2019',
-                    demoUser: 'demo',
-                    demoPassword: 'Powwow2019'
+                    apikey: '55b7ab75-a4b2-440b-b82e-e17de380818f',
+                    serviceUsername: 'powwowmobile',
+                    servicePassword: 'Build4Cherwell!',
+                    demoUser: 'powwowmobile',
+                    demoPassword: 'Build4Cherwell!'
                 }
             }
         },
         // Cherwell SOAP Connector (0.1.0)
         cherwellsoap: {
             // URL should be <cherwellserver>/CherwellService
-            url: 'http://sealabcsm01.sealab.pwdemolabs.com/CherwellService'
+            url: 'https://tap.demo.cherwell.com/CherwellService'
         }
     }
 };
