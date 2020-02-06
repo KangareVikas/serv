@@ -869,61 +869,6 @@
           }
         },
         "tokens": {}
-      },
-      "getUserByLoginId": {
-        "models": {
-          "menu": {},
-          "login": {
-            "username": "samir",
-            "invalid_refresh_token": false
-          },
-          "home": {},
-          "inserts_homelogo": {},
-          "inserts_footer": {},
-          "incident_categories": {},
-          "incident_subcategories": {},
-          "incident_newissue": {
-            "result": {}
-          },
-          "request_services": {},
-          "articles_findarticle": {},
-          "tickets_mytickets": {},
-          "tickets_viewincident": {},
-          "request_subservices": {},
-          "request_newrequest": {
-            "result": {}
-          },
-          "finduser": {},
-          "articles_viewarticle": {},
-          "findticket": {},
-          "about": {},
-          "settings": {},
-          "del1": {},
-          "setup": {
-            "existingSettings": {}
-          },
-          "initialize": {},
-          "footer": {}
-        },
-        "expressions": {},
-        "vars": {
-          "session": {},
-          "local": {},
-          "screen": {},
-          "request": {},
-          "config": {
-            "rest": {
-              "cherwellapi": {
-                "custom": {
-                  "apikey": "3890a9c2-dc65-4ff6-a674-c9d76f16ecfe"
-                }
-              }
-            }
-          }
-        },
-        "tokens": {
-          "username": "samir"
-        }
       }
     }
   }

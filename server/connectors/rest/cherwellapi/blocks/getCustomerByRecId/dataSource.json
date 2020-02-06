@@ -1,6 +1,6 @@
 {
   "template": {
-    "url": "/api/V1/getuserbyloginid/loginid/{username}",
+    "url": "/api/V1/getbusinessobject/busobid/{busObId}/busobrecid/{busObRecId}",
     "method": "GET",
     "query": {},
     "headers": {},
@@ -13,9 +13,10 @@
     "bodyType": "form"
   },
   "functions": {
-    "getUserByLoginId": [
+    "getCustomerByRecId": [
       "access_token",
-      "username"
+      "busObId",
+      "busObRecId"
     ]
   }
 }

@@ -55,6 +55,15 @@ exports.submit = async (session, models, vars) => {
         vars.session.access_token = output.body.access_token;
         vars.session.refresh_token = output.body.refresh_token;
         startRefreshTokenTimer(session, vars, models, output.body.expires_in);
+
+        await session.showLoading("Getting user details");
+        let customerOutput = await session.rest.cherwellapi.getCustomerByRecId({
+            access_token: vars.session.access_token,
+            busObId: vars.session.boDefs.CustomerInternal.busObId,
+            busObRecId: portalLoginOutput.UserConnectionId
+        });
+        vars.session.user = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.CustomerInternal, customerOutput.body.fields);
+        await session.screen('home');
     } catch (e) {
         let error = {};
         try {
@@ -67,12 +76,7 @@ exports.submit = async (session, models, vars) => {
             models.login.errorMessage = `Error logging in service user: ${ error.error_description }`;
         }
         await session.screen('login');
-        return;
     }
-    await session.showLoading("Getting user details");
-    let userOutput = await session.rest.cherwellapi.getUserByLoginId({ access_token: vars.session.access_token, username: models.login.demo ? vars.config.rest.cherwellapi.custom.demoUser : models.login.username });
-    vars.session.user = util.convertFieldsIntoObjectUsingBoDef(vars.session.boDefs.UserInfo, userOutput.body.fields);
-    await session.screen('home');
 };
 /**
  * @param {Session} session

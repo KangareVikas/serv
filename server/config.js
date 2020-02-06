@@ -80,8 +80,8 @@ module.exports = {
                     apikey: '55b7ab75-a4b2-440b-b82e-e17de380818f',
                     serviceUsername: 'powwowmobile',
                     servicePassword: 'Build4Cherwell!',
-                    demoUser: 'powwowmobile',
-                    demoPassword: 'Build4Cherwell!'
+                    demoUser: 'powwow',
+                    demoPassword: 'password'
                 }
             }
         },
