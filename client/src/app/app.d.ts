@@ -8,6 +8,7 @@ declare module 'app/globaldata.service' {
 	     * Use "global.myValue" to refer to it in your screen template, or this.global.myValue in your controller.
 	     */
 	    photo: any;
+	    inappbrowser: any;
 	}
 
 }
@@ -118,7 +119,10 @@ declare module 'app/app.screens' {
 }
 declare module 'app/app.hooks' {
 	import { AppHooks } from 'smartux-client';
+	import { GlobalData } from 'app/globaldata.service';
 	export class Hooks extends AppHooks {
+	    private global;
+	    constructor(global: GlobalData);
 	    /**
 	    * Initial parameters to send to the server.
 	    */
