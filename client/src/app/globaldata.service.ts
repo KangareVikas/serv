@@ -9,5 +9,7 @@ export class GlobalData {
    *
    * Use "global.myValue" to refer to it in your screen template, or this.global.myValue in your controller.
    */
-  photo: any;
+    photo: any;
+
+    inappbrowser: any;
 }
