@@ -188,7 +188,15 @@ export class setup_PhonePortrait extends Screen {
     async requestDemo() {
         let requestAccountURL = 'https://info.powwowmobile.com/in-app-demo-request-cwr';
         if (window.cordova && window.cordova.InAppBrowser) {
-            window.cordova.InAppBrowser.open(requestAccountURL, "_blank", "location=no,footer=yes,footercolor=#009bde,closebuttoncaption=⬅ Back to App,closebuttoncolor=#ffffff,hidenavigationbuttons=yes,toolbarcolor=#009bde,zoom=no,usewkwebview=yes");
+            this.global.inappbrowser = window.cordova.InAppBrowser.open(requestAccountURL, "_blank", "location=no,footer=yes,footercolor=#009bde,closebuttoncaption=⬅ Back to App,closebuttoncolor=#ffffff,hidenavigationbuttons=yes,toolbarcolor=#009bde,zoom=no,usewkwebview=yes");
+            this.global.inappbrowser.addEventListener('exit', () => {
+                this.global.inappbrowser = null;
+            });
+            this.global.inappbrowser.addEventListener('loaderror', () => {
+                this.global.inappbrowser.close();
+                this.global.inappbrowser = null;
+                this.alert('Unable to access the Demo Signup page.  Please check that you are online, and try again.', { title: 'Connection Error' });
+            });
         } else {
             window.open(requestAccountURL, "_blank", "location=no,zoom=no");
         }
