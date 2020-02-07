@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AppHooks } from 'smartux-client';
-import { GlobalData } from './globaldata';
+import { GlobalData } from './globaldata.service';
 
 @Injectable()
 export class Hooks extends AppHooks {
+
+    constructor(private global: GlobalData) {
+        super();
+    }
 
      /**
      * Initial parameters to send to the server.
@@ -36,8 +40,10 @@ export class Hooks extends AppHooks {
      *          false - Don't continue with the normal flow.
      */
     async interceptCustomURLScheme(type: string, name: string, data: any): Promise<boolean> {
-        if(this.global.inappbrowser.close();
-        this.global.inappbrowser = null;
+        if (this.global.inappbrowser) {
+            this.global.inappbrowser.close();
+            this.global.inappbrowser = null;
+        }
         return true;
     }
 
