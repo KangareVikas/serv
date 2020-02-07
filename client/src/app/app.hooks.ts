@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AppHooks } from 'smartux-client';
+import { GlobalData } from './globaldata';
 
 @Injectable()
 export class Hooks extends AppHooks {
@@ -35,6 +36,8 @@ export class Hooks extends AppHooks {
      *          false - Don't continue with the normal flow.
      */
     async interceptCustomURLScheme(type: string, name: string, data: any): Promise<boolean> {
+        if(this.global.inappbrowser.close();
+        this.global.inappbrowser = null;
         return true;
     }
 
